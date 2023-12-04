@@ -15,40 +15,18 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('title_english')->unique();
-            $table->string('title_persian')->unique();
-            $table->text('short_description')->nullable();
-            $table->text('full_description')->nullable();
+            $table->string('title')->unique();
+            $table->text('description')->nullable();
             $table->string('slug')->unique()->nullable();
-            $table->string('thumbnail_image')->nullable();
-            $table->string('seo_desc')->nullable();
-            $table->boolean('status')->default(0);
-            $table->string('sku')->nullable();
-            $table->decimal('weight',10,2)->nullable();
-            $table->decimal('length',10,1)->comment('cm unit')->nullable();
-
-            $table->decimal('width',10,1)->nullable();
-            $table->decimal('height',10,1)->nullable();
-
-            $table->string('origin_price')->nullable();
-            $table->tinyInteger('marketable')->default(1);
-
-            $table->string('tags')->nullable();
-            $table->bigInteger('views')->nullable();
-            $table->double('available_in_stock')->default(0);
-            $table->integer('number_sold')->default(0);
-            $table->integer('frozen_number')->default(0);
-            $table->integer('salable_quantity')->default(0);
-
+            $table->string('thumbnail_path')->nullable();
+            $table->string('demo_url')->nullable();
+            $table->string('source_url')->nullable();
+            $table->integer('price')->nullable();
             $table->timestamp('published_at')->nullable();
-
-            $table->unsignedBigInteger('admin_id')->nullable();
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
-
-            $table->unsignedBigInteger('brand_id')->nullable();
-            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
-
-
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

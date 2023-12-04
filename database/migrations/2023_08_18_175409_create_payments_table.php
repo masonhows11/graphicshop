@@ -13,13 +13,19 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->unsignedBigInteger('order_id')->nullable();
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+
+            $table->string('res_id')->nullable();
+            $table->string('ref_id')->nullable();
+            $table->string('gateway')->nullable();
             $table->decimal('amount',20,3);
             $table->tinyInteger('status')->default(0);
-            $table->tinyInteger('type')->default(0)->comment('0 => online , 1 => offline , 2 => cash');
-            $table->unsignedBigInteger('paymentable_id');
-            $table->string('paymentable_type');
+
             $table->softDeletes();
             $table->timestamps();
         });

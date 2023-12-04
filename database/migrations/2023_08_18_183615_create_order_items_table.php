@@ -22,25 +22,10 @@ return new class extends Migration
 
             $table->unsignedBigInteger('product_id')->nullable();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->longText('product_object')->nullable();
 
-            $table->unsignedBigInteger('amazing_sale_id')->nullable();
-            $table->foreign('amazing_sale_id')->references('id')->on('amazing_sales')->onDelete('cascade');
-            $table->longText('amazing_sale_object')->nullable();
+            $table->integer('number')->nullable();
 
-            $table->unsignedBigInteger('product_color_id')->nullable();
-            $table->foreign('product_color_id')->references('id')->on('product_colors')->onDelete('cascade');
-
-            $table->unsignedBigInteger('guarantee_id')->nullable();
-            $table->foreign('guarantee_id')->references('id')->on('guarantees')->onDelete('cascade');
-
-            $table->integer('number')->default(1);
-            $table->decimal('amazing_sale_discount_amount',20,3)->nullable();
-
-            // price per each product
-            $table->decimal('final_product_price',20,3)->nullable();
-            // price for total of each product
-            $table->decimal('final_total_price',20,3)->nullable();
+            $table->decimal('total_price',20,3)->nullable();
 
             $table->softDeletes();
             $table->timestamps();

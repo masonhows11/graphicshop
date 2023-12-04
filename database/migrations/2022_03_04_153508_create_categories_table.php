@@ -15,12 +15,9 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('title_english');
-            $table->string('title_persian');
+            $table->string('title');
             $table->string('slug')->unique()->nullable();
-            $table->string('icon')->nullable();
             $table->text('image_path')->nullable();
-            $table->tinyInteger('show_in_menu')->nullable();
             $table->boolean('status')->default(true);
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
