@@ -20,12 +20,11 @@ return new class extends Migration
             $table->unsignedBigInteger('order_id')->nullable();
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
 
-            $table->string('res_id')->nullable();
-            $table->string('ref_id')->nullable();
+            $table->unsignedInteger('res_id')->nullable();
+            $table->unsignedInteger('ref_id')->nullable();
             $table->string('gateway')->nullable();
             $table->decimal('amount',20,3);
-            $table->tinyInteger('status')->default(0);
-
+            $table->enum('status',['paid','unpaid']);
             $table->softDeletes();
             $table->timestamps();
         });

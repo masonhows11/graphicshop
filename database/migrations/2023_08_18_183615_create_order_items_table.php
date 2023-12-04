@@ -25,7 +25,7 @@ return new class extends Migration
 
             $table->integer('number')->nullable();
 
-            $table->decimal('total_price',20,3)->nullable();
+            $table->unsignedInteger('price')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

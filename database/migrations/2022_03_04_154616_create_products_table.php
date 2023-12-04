@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('thumbnail_path')->nullable();
             $table->string('demo_url')->nullable();
             $table->string('source_url')->nullable();
-            $table->integer('price')->nullable();
+            $table->unsignedInteger('price')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
