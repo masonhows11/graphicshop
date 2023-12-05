@@ -535,7 +535,7 @@ input::placeholder, select ,textarea::placeholder{
     display: inline-block;
     color: #474747;
     font-size: 12px;
-    line-height: 40px; 
+    line-height: 40px;
     padding-right: 30px;
 }
 
@@ -580,7 +580,7 @@ input::placeholder, select ,textarea::placeholder{
     display: inline-block;
     color: #474747;
     font-size: 12px;
-    line-height: 40px; 
+    line-height: 40px;
     padding-right: 50px;
 }
 
@@ -862,7 +862,7 @@ footer{
 }
 
 .app-download{
-    background-color: #3c4b6d; 
+    background-color: #3c4b6d;
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -893,7 +893,7 @@ footer{
 
 .copy-right p{
     font-family:vazir-med;
-    font-size: 14px; 
+    font-size: 14px;
     text-align: center;
     margin: 20px 0 10px 0;
     color: #5e5c5c;
@@ -1471,7 +1471,7 @@ footer{
     margin:17px 0;
     border-radius: 10px;
     padding:10px;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important; 
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
 .shopping-cart-title{
@@ -1558,7 +1558,7 @@ footer{
     text-align: center;
     font-size: 14px;
     color: #777;
-    margin-bottom: 15px;     
+    margin-bottom: 15px;
 }
 
 .is-completed,.is-completed-extra{
@@ -1669,7 +1669,7 @@ footer{
     text-align: center;
     color: #00bfd6;
     line-height: 30px;
-    font-size: 12px;  
+    font-size: 12px;
 }
 
 .customer-info p{
@@ -1751,7 +1751,7 @@ footer{
     margin:17px 0;
     border-radius: 10px;
     padding:10px;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important; 
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
 .profile-card p{
@@ -1920,7 +1920,7 @@ footer{
 
 /* ----- start style for signup & login ----- */
 
-.signup-login-box{ 
+.signup-login-box{
     background-color: #fff;
     border-radius: 10px;
     margin: 100px auto;
@@ -2033,7 +2033,7 @@ footer{
     top: -8px;
     background: hsla(0,0%,100%,.21);
     content: "";
-    border-radius: 50%; 
+    border-radius: 50%;
     transition: all .4s ease-in-out;
 }
 
@@ -2041,7 +2041,7 @@ footer{
     width: 1000px;
     height: 600px;
     right: -350px;
-    top: -350px;  
+    top: -350px;
 }
 
 /* ----- end style for signup & login ----- */
@@ -2497,3 +2497,8 @@ footer{
 /* ----- start style for blog category & detail ----- */
 
 /* ----- end style for blog ----- */
+
+/* ----- custom logo ----- */
+.main-logo{
+    font-weight: bold;
+}
