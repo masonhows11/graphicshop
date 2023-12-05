@@ -635,7 +635,7 @@
                     <li class="mb-3"><a href="contact-us.html">فرصت های شغلی</a></li>
                     <li class="mb-3"><a href="contact-us.html">تماس با نیک کالا</a></li>
                     <li class="mb-3"><a href="contact-us.html">درباره نیک کالا</a></li>
-                </ul><!- https://t.me/sabzrea ->
+                </ul>
             </div>
             <div class="col-lg-2 col-sm-6 footer-box">
                 <p>خدمات مشتریان</p>
@@ -654,7 +654,7 @@
                     <li class="mb-3"><a href="contact-us.html">شیوه‌های پرداخت</a></li>
                     <li class="mb-3"><a href="contact-us.html">رویه‌های بازگرداندن کالا</a></li>
                 </ul>
-            </div><!- https://t.me/sabzrea ->
+            </div>
             <div class="col-lg-5 col-sm-6 footer-box">
                 <p class="mb-4">همراه ما باشید!</p>
                 <div class="social-list">
@@ -668,7 +668,7 @@
                     <input type="email" class="form-control form-control-lg" placeholder="ایمیل شما">
                     <button type="submit" class="btn btn-danger font-13 px-3">ارسال</button>
                 </div>
-            </div><!- https://t.me/sabzrea ->
+            </div>
         </div><!-- end footer box -->
         <div class="row d-none d-sm-block"><!-- start app download -->
             <div class="col-12 app-download">
@@ -682,7 +682,7 @@
                         <a href="#"><img src="front_assets/images/sib-app.svg" class="img-fluid rounded"></a>
                     </div>
                 </div>
-            </div><!- https://t.me/sabzrea ->
+            </div>
         </div><!-- end app download -->
         <div class="row"><!-- start footer details -->
             <div class="col-md-8 col-12 footer-details ps-0">
@@ -698,7 +698,7 @@
             <div class="col-md-4 col-12 d-flex align-items-center justify-content-end footer-pic pe-0">
                 <img src="front_assets/images/f-1.png" class="footer-detail-pic">
                 <img src="front_assets/images/f-2.png" class="footer-detail-pic">
-            </div><!- https://t.me/sabzrea ->
+            </div>
         </div><!-- end footer details -->
         <div class="row"><!-- start copy right -->
             <div class="col-12 copy-right">
