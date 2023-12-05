@@ -13,16 +13,16 @@
 <body>
 
 <!-- start top ads -->
-<livewire:front.layout.front-top-advertising/>
+
 <!-- end top ads -->
 
 
 <!-- start header -->
-<livewire:front.layout.front-header/>
+
 <!-- end header -->
 
 <!-- start main menu -->
-<livewire:front.layout.front-navbar/>
+
 <!-- end main menu -->
 
 <!-- start main slider -->
@@ -36,7 +36,7 @@
 <!-- end main -->
 
 <!-- start footer -->
-<livewire:front.layout.front-footer/>
+
 <!-- end footer -->
 
 
