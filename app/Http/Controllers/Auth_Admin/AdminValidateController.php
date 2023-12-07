@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dash\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;

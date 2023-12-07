@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\Dash\AdminController;
-use App\Http\Controllers\Dash\Auth\AdminLoginController;
-use App\Http\Controllers\Dash\Auth\AdminProfileController;
-use App\Http\Controllers\Dash\Auth\AdminValidateController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\Auth\AdminLoginController;
+use App\Http\Controllers\Admin\Auth\AdminProfileController;
+use App\Http\Controllers\Admin\Auth\AdminValidateController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
