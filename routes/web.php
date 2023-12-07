@@ -47,7 +47,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/category/index', [AdminCategory::class])->name('category.index');
+    Route::get('/category/index', AdminCategory::class)->name('category.index');
 
 
 });

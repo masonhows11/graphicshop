@@ -99,7 +99,6 @@ class AdminCategory extends Component
         return view('livewire.admin.category.admin-category')
             ->extends('admin.include.master_dash')
             ->section('dash_main_content')
-            ->with(['categories' => Category::where('title_persian','like','%'.$this->search.'%')
-                ->Orwhere('title_english','like','%'.$this->search.'%')->paginate(10)]);
+            ->with(['categories' => Category::where('title','like','%'.$this->search.'%')->paginate(10)]);
     }
 }

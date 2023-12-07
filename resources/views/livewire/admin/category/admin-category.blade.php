@@ -12,7 +12,7 @@
 
         <div class="row my-4 bg-white">
             <div class="col-lg-4 col-md-4 col my-2">
-                <a href="{{ route('admin.category.create') }}"
+                <a href="{{--{{ route('admin.category.create') }}--}}"
                    class="btn btn-sm btn-primary">{{ __('messages.new_category') }}</a>
             </div>
         </div>
@@ -44,8 +44,8 @@
                     @foreach($categories as $category)
                         <tr class="text-center">
                             <td>{{ $category->id }}</td>
-                            <td>{{ $category->title_persian }}</td>
-                            <td>{{ $category->parent_id ? $category->parent->title_persian : __('messages.main_category') }}</td>
+                            <td>{{ $category->title }}</td>
+                            <td>{{ $category->parent_id ? $category->parent->title : __('messages.main_category') }}</td>
                             <td><img src="{{ $category->image_path ?
                                               asset('storage/images/category/'.$category->image_path) :
                                               asset('dash/images/no-image-icon-23494.png')  }}"
