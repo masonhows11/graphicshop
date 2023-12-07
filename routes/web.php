@@ -4,6 +4,7 @@ use App\Http\Controllers\Dash\AdminController;
 use App\Http\Controllers\Dash\Auth\AdminLoginController;
 use App\Http\Controllers\Dash\Auth\AdminProfileController;
 use App\Http\Controllers\Dash\Auth\AdminValidateController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'home'])->name('home');
 
 Route::group(['prefix' => 'admin'], function () {
 
