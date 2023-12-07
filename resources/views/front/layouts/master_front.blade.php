@@ -13,20 +13,16 @@
 <body>
 
 <!-- start top ads -->
-
 <!-- end top ads -->
 
 
 <!-- start header -->
-
 <!-- end header -->
 
 <!-- start main menu -->
-
 <!-- end main menu -->
 
 <!-- start main slider -->
-{{--<livewire:front.layout.front-main-slider/>--}}
 <!-- end main slider -->
 
 <!-- start main -->
@@ -36,9 +32,7 @@
 <!-- end main -->
 
 <!-- start footer -->
-
 <!-- end footer -->
-
 
 @include('front.layouts.footer_scripts' )
 @include('front.layouts.alert.delete_confirm',['className'=> 'delete-item'])
