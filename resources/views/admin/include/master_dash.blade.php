@@ -16,7 +16,7 @@
     <div class="page d-flex flex-row flex-column-fluid">
         @include('admin.include.sidebar')
         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-            @include('dash.include.header')
+            @include('admin.include.header')
             <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                 @include('admin.include.breadcrumb')
                 @include('admin.include.header_toolbar')

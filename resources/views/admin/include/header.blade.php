@@ -38,7 +38,7 @@
                             </a>
                         </div>
                         <div class="menu-item me-lg-1">
-                            <a class="menu-link active py-3" href="{{ route('admin.dashboard') }}">
+                            <a class="menu-link active py-3" href="{{ route('admin.index') }}">
                                 <span class="menu-title">{{ __('messages.admin_dashboard') }}</span>
                             </a>
                         </div>

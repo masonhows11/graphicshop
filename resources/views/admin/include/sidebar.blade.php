@@ -41,8 +41,8 @@
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
                 id="#kt_aside_menu" data-kt-menu="true">
                 <div class="menu-item">
-                    <a class="menu-link {{ $route === 'admin.dashboard' ? 'active' : '' }} "
-                        href="{{ route('admin.dashboard') }}">
+                    <a class="menu-link {{ $route === 'admin.index' ? 'active' : '' }} "
+                        href="{{ route('admin.index') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
@@ -100,7 +100,7 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.users' ? 'active' : '' }}"
-                                href="{{ route('admin.users') }}">
+                                href="{{--{{ route('admin.users') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -109,14 +109,14 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.admins' ? 'active' : '' }}"
-                                href="{{ route('admin.admins') }}">
+                                href="{{--{{ route('admin.admins') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">لیست مدیران</span>
                             </a>
                         </div>
-                        @if( $user->hasRole('super_admin') )
+                       {{-- @if( $user->hasRole('super_admin') )
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.roles' ? 'active' : '' }}"
                                 href="{{ route('admin.roles') }}">
@@ -155,7 +155,7 @@
                         </div>
                         @else
 
-                        @endif
+                        @endif--}}
                     </div>
                 </div>
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -179,7 +179,7 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.category.index' ? 'active' : '' }}"
-                                href="{{ route('admin.category.index') }}">
+                                href="{{--{{ route('admin.category.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -188,7 +188,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.category.create' ? 'active' : '' }}"
-                                href="{{ route('admin.category.create') }}">
+                                href="{{--{{ route('admin.category.create') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -198,7 +198,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.brand.index' ? 'active' : '' }}"
-                                href="{{ route('admin.brand.index') }}">
+                                href="{{--{{ route('admin.brand.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -207,7 +207,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.brand.create' ? 'active' : '' }}"
-                                href="{{ route('admin.brand.create') }}">
+                                href="{{--{{ route('admin.brand.create') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -216,7 +216,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.colors.index' ? 'active' : '' }}"
-                                href="{{ route('admin.colors.index') }}">
+                                href="{{--{{ route('admin.colors.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -225,7 +225,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.category.attribute.index' ? 'active' : '' }}"
-                                href="{{ route('admin.category.attribute.index') }}">
+                                href="{{--{{ route('admin.category.attribute.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -234,7 +234,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.tag.index' ? 'active' : '' }}"
-                               href="{{ route('admin.tag.index') }}">
+                               href="{{--{{ route('admin.tag.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -309,7 +309,7 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.product.index' ? 'active' : '' }}"
-                                href="{{ route('admin.product.index') }}">
+                                href="{{--{{ route('admin.product.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -318,7 +318,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.product.create.basic' ? 'active' : '' }}"
-                                href="{{ route('admin.product.create.basic') }}">
+                                href="{{--{{ route('admin.product.create.basic') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -327,7 +327,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.stock.product.index' ? 'active' : '' }}"
-                                href="{{ route('admin.stock.product.index') }}">
+                                href="{{--{{ route('admin.stock.product.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -362,7 +362,7 @@
 
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.payments.all.index' ? 'active' : '' }}"
-                                href="{{ route('admin.payments.all.index') }}">
+                                href="{{--{{ route('admin.payments.all.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -371,7 +371,7 @@
                         </div>
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.payments.offline.index' ? 'active' : '' }}"
-                                href="{{ route('admin.payments.offline.index') }}">
+                                href="{{--{{ route('admin.payments.offline.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -380,7 +380,7 @@
                         </div>
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.payments.online.index' ? 'active' : '' }}"
-                                href="{{ route('admin.payments.online.index') }}">
+                                href="{{--{{ route('admin.payments.online.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -389,7 +389,7 @@
                         </div>
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.payments.cash.index' ? 'active' : '' }}"
-                                href="{{ route('admin.payments.cash.index') }}">
+                                href="{{--{{ route('admin.payments.cash.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -424,7 +424,7 @@
                         {{--   all orders   --}}
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.orders.index' ? 'active' : '' }}"
-                               href="{{ route('admin.orders.index') }}">
+                               href="{{--{{ route('admin.orders.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -434,7 +434,7 @@
                         {{--   new orders   --}}
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.orders.new' ? 'active' : '' }}"
-                               href="{{ route('admin.orders.new') }}">
+                               href="{{--{{ route('admin.orders.new') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -446,7 +446,7 @@
                         {{--   sending orders   --}}
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.orders.sending' ? 'active' : '' }}"
-                               href="{{ route('admin.orders.sending') }}">
+                               href="{{--{{ route('admin.orders.sending') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -456,7 +456,7 @@
                         {{--   unpaid orders   --}}
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.orders.unpaid' ? 'active' : '' }}"
-                               href="{{ route('admin.orders.unpaid') }}">
+                               href="{{--{{ route('admin.orders.unpaid') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -467,7 +467,7 @@
                         {{--   canceled orders   --}}
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.orders.canceled' ? 'active' : '' }}"
-                               href="{{ route('admin.orders.canceled') }}">
+                               href="{{--{{ route('admin.orders.canceled') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -477,7 +477,7 @@
                         {{--   retuended orders   --}}
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.orders.returned' ? 'active' : '' }}"
-                               href="{{ route('admin.orders.returned') }}">
+                               href="{{--{{ route('admin.orders.returned') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -511,7 +511,7 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.common.discount.index' ? 'active' : '' }}"
-                               href="{{ route('admin.common.discount.index') }}">
+                               href="{{--{{ route('admin.common.discount.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -520,7 +520,7 @@
                         </div>
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.coupons.index' ? 'active' : '' }}"
-                               href="{{ route('admin.coupons.index') }}">
+                               href="{{--{{ route('admin.coupons.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -529,7 +529,7 @@
                         </div>
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.amazing.sale.index' ? 'active' : '' }}"
-                               href="{{ route('admin.amazing.sale.index') }}">
+                               href="{{--{{ route('admin.amazing.sale.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -562,7 +562,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.delivery.index' ? 'active' : '' }}"
-                               href="{{ route('admin.delivery.index') }}">
+                               href="{{--{{ route('admin.delivery.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -573,7 +573,7 @@
 
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.delivery.create' ? 'active' : '' }}"
-                               href="{{ route('admin.delivery.create') }}">
+                               href="{{--{{ route('admin.delivery.create') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -607,7 +607,7 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
                             <a class="menu-link  {{ $route === 'admin.province.index' ? 'active' : '' }}"
-                               href="{{ route('admin.province.index') }}">
+                               href="{{--{{ route('admin.province.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -639,7 +639,7 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
                             <a class="menu-link  {{ $route === 'admin.product_comments.index' ? 'active' : '' }}"
-                               href="{{ route('admin.product_comments.index') }}">
+                               href="{{--{{ route('admin.product_comments.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -674,7 +674,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.category.tickets' ? 'active' : '' }}"
-                               href="{{ route('admin.category.tickets') }}">
+                               href="{{--{{ route('admin.category.tickets') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -684,7 +684,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.priority.tickets' ? 'active' : '' }}"
-                               href="{{ route('admin.priority.tickets') }}">
+                               href="{{--{{ route('admin.priority.tickets') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -694,7 +694,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.admin.tickets.index' ? 'active' : '' }}"
-                               href="{{ route('admin.admin.tickets.index') }}">
+                               href="{{--{{ route('admin.admin.tickets.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -704,7 +704,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.all.tickets' ? 'active' : '' }}"
-                               href="{{ route('admin.all.tickets') }}">
+                               href="{{--{{ route('admin.all.tickets') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -714,7 +714,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.new.tickets' ? 'active' : '' }}"
-                               href="{{ route('admin.new.tickets') }}">
+                               href="{{--{{ route('admin.new.tickets') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -724,7 +724,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.open.tickets' ? 'active' : '' }}"
-                               href="{{ route('admin.open.tickets') }}">
+                               href="{{--{{ route('admin.open.tickets') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -734,7 +734,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.close.tickets' ? 'active' : '' }}"
-                               href="{{ route('admin.close.tickets') }}">
+                               href="{{--{{ route('admin.close.tickets') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -774,7 +774,7 @@
                         {{--   top banner    --}}
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.top.banner.index' ? 'active' : '' }}"
-                               href="{{ route('admin.top.banner.index') }}">
+                               href="{{--{{ route('admin.top.banner.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -784,7 +784,7 @@
                         {{--    amazing product banner    --}}
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.amazing.banner.index' ? 'active' : '' }}"
-                               href="{{ route('admin.amazing.banner.index') }}">
+                               href="{{--{{ route('admin.amazing.banner.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -796,7 +796,7 @@
                         {{--    bottom two banner    --}}
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.bottom.banner.index' ? 'active' : '' }}"
-                               href="{{ route('admin.bottom.banner.index') }}">
+                               href="{{--{{ route('admin.bottom.banner.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -832,7 +832,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.main.slider.index' ? 'active' : '' }}"
-                               href="{{ route('admin.main.slider.index') }}">
+                               href="{{--{{ route('admin.main.slider.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -842,7 +842,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.product.category.index' ? 'active' : '' }}"
-                               href="{{ route('admin.product.category.index') }}">
+                               href="{{--{{ route('admin.product.category.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -879,7 +879,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.email.notices.index' ? 'active' : '' }}"
-                               href="{{ route('admin.email.notices.index') }}">
+                               href="{{--{{ route('admin.email.notices.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -889,7 +889,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.sms.notices.index' ? 'active' : '' }}"
-                               href="{{ route('admin.sms.notices.index') }}">
+                               href="{{--{{ route('admin.sms.notices.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -926,7 +926,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.setting.index' ? 'active' : '' }} "
-                               href="{{ route('admin.setting.index') }}">
+                               href="{{--{{ route('admin.setting.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
