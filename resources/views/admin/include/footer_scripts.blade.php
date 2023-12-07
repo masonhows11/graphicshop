@@ -3,7 +3,7 @@
 
 {{--<script src="{{ asset('admin_assets/plugins/toastify/toastify-js.js') }}"></script>--}}
 
-{{--<livewire:scripts/>--}}
+<livewire:scripts/>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.alert-div').delay(3000).fadeOut();

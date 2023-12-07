@@ -7,6 +7,6 @@
 <link rel="stylesheet" href="{{ asset('admin_assets/plugins/select2/css/select2.min.css') }}">
 {{--<link rel="stylesheet" href="{{ asset('admin_assets/plugins/toastify/toastify.min.css') }}">--}}
 
-{{--<livewire:styles />--}}
+<livewire:styles />
 
 
