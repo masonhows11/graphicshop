@@ -29,10 +29,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/validate', [AdminValidateController::class, 'validateEmail'])->name('admin.validate.email');
 
 });
+// ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
 
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
-
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/index', [AdminController::class, 'index'])->name('index');
 
     Route::get('/profile', [AdminProfileController::class, 'profile'])->name('profile');
     Route::post('/update/profile', [AdminProfileController::class, 'update'])->name('update.profile');
