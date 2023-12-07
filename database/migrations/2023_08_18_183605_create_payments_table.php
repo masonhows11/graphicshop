@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedInteger('res_id')->nullable();
             $table->unsignedInteger('ref_id')->nullable();
             $table->string('gateway')->nullable();
-            $table->decimal('amount',20,3);
+            $table->unsignedInteger('amount');
             $table->enum('status',['paid','unpaid']);
             $table->softDeletes();
             $table->timestamps();

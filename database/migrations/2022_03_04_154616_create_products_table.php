@@ -21,12 +21,16 @@ class CreateProductsTable extends Migration
             $table->string('thumbnail_path')->nullable();
             $table->string('demo_url')->nullable();
             $table->string('source_url')->nullable();
+            $table->tinyInteger('status')->nullable();
             $table->unsignedInteger('price')->nullable();
             $table->timestamp('published_at')->nullable();
+
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->softDeletes();
             $table->timestamps();
         });

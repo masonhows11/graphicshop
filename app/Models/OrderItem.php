@@ -15,13 +15,8 @@ class  OrderItem extends Model
         'order_id',
         'user_id',
         'product_id',
-        'amazing_sale_id',
-        'product_color_id',
-        'guarantee_id',
         'number',
-        'amazing_sale_discount_amount',
-        'final_product_price',
-        'final_total_price'
+        'price'
     ];
 
     public function product(){

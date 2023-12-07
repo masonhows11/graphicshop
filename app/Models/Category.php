@@ -13,13 +13,10 @@ class Category extends Model
     use HasFactory,HasRecursiveRelationships,HasPersianSlug;
 
     protected $table = 'categories';
-    protected $fillable = ['title_english',
-                          'title_persian',
+    protected $fillable = ['title',
                           'image_path',
-                          'show_in_menu',
-                          'tags',
                           'slug',
-                          'icon',
+                         'tags',
                           'status',
                           'parent_id'];
 
