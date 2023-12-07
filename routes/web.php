@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\AdminLoginController;
 use App\Http\Controllers\Admin\Auth\AdminProfileController;
 use App\Http\Controllers\Admin\Auth\AdminValidateController;
 use App\Http\Controllers\HomeController;
+use App\Livewire\Admin\Category\AdminCategory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/update/mobile',[AdminProfileController::class,'updateMobile'])->name('update.mobile');
 
     Route::get('/logout', [AdminLoginController::class, 'logOut'])->name('logout');
+
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/category/index', [AdminCategory::class])->name('category.index');
+
 
 });
 

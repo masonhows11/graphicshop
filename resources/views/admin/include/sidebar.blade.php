@@ -179,7 +179,7 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.category.index' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.category.index') }}--}}">
+                                href="{{ route('admin.category.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
