@@ -11,7 +11,7 @@
 </head>
 <body>
 @yield('main_content')
-@include( 'front.layouts.footer_scripts')
+@include('front.layouts.footer_scripts')
 @include('front.layouts.alert.alert')
 @stack('front_custom_scripts')
 </body>

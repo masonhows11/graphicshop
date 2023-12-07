@@ -7,23 +7,21 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('front/image/icon.png') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('page_title')</title>
-    @include( 'front.layouts.header_styles')
+    @include('front.layouts.header_styles')
 
 </head>
 <body>
-
-<!-- start top ads -->
-<!-- end top ads -->
-
-
 <!-- start header -->
+@include('front.layouts.include.header')
 <!-- end header -->
 
-<!-- start main menu -->
-<!-- end main menu -->
+<!-- start responsive header-->
+@include('front.layouts.include.header_responsive')
+<!-- end responsive header-->
 
-<!-- start main slider -->
-<!-- end main slider -->
+<!-- start main menu -->
+@include('front.layouts.include.nav')
+<!-- end main menu -->
 
 <!-- start main -->
 <main>
@@ -32,6 +30,7 @@
 <!-- end main -->
 
 <!-- start footer -->
+@include('front.layouts.include.footer')
 <!-- end footer -->
 
 @include('front.layouts.footer_scripts' )
