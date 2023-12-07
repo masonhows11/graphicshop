@@ -18,9 +18,18 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'auth_type',
         'name',
+        'first_name',
+        'last_name',
+        'subscribe_news',
+        'national_code',
         'email',
-        'password',
+        'mobile',
+        'email_verified_at',
+        'mobile_verified_at',
+        'token',
+        'token_guid',
     ];
 
     /**
@@ -42,4 +51,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function payments(){
+
+        return $this->hasMany(Payment::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getFullNameAttribute(){
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }
