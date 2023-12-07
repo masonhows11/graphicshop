@@ -1,9 +1,9 @@
-<script src="{{ asset('dash/plugins/global/plugins.bundle.js') }}"></script>
-<script src="{{ asset('dash/js/scripts.bundle.js') }}"></script>
+<script src="{{ asset('admin_assets/plugins/global/plugins.bundle.js') }}"></script>
+<script src="{{ asset('admin_assets/js/scripts.bundle.js') }}"></script>
 
-{{--<script src="{{ asset('dash/plugins/toastify/toastify-js.js') }}"></script>--}}
+{{--<script src="{{ asset('admin_assets/plugins/toastify/toastify-js.js') }}"></script>--}}
 
-<livewire:scripts/>
+{{--<livewire:scripts/>--}}
 <script type="text/javascript">
     $(document).ready(function () {
         $('.alert-div').delay(3000).fadeOut();

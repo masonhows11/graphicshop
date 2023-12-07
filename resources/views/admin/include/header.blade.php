@@ -19,16 +19,7 @@
             </div>
         </div>
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-            <a href="#" class="d-lg-none">
-                @php
-                    $model = \App\Models\Setting::first();
-                @endphp
-                @if( !empty($model->logo) )
-                <img alt="Logo" src=" {{ $model !== null ? asset('storage'.$model->logo) : asset('dash/images/no-image-icon-23494.png') }}" class="h-30px"/>
-                @else
-                    <img alt="Logo" src=" {{ asset('dash/images/no-image-icon-23494.png') }}" class="h-30px"/>
-                @endif
-            </a>
+            <a href="#" class="d-lg-none text-danger">گرافیک شاپ</a>
         </div>
         <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
             <div class="d-flex align-items-stretch" id="kt_header_nav">
