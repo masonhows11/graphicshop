@@ -9,7 +9,7 @@
         $('.alert-div').delay(3000).fadeOut();
     })
 </script>
-<script>
+{{--<script>
     $(document).ready(function () {
         let notificationDropDown = document.getElementById('notification-section');
           notificationDropDown.addEventListener('click', function () {
@@ -27,6 +27,5 @@
               })
         })
     })
-
-</script>
+</script>--}}
 

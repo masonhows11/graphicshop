@@ -60,7 +60,7 @@
                                                                 </svg>
                                                         </span>
                                                     <span class="menu-title ms-4">
-                                                       {{ $unseenComments->count() !== 0 ? $unseenComments->count() : '0' }}
+                                                     {{--  {{ $unseenComments->count() !== 0 ? $unseenComments->count() : '0' }}--}}
                                                     </span>
 
 													<span class="menu-arrow d-lg-none"></span>
@@ -71,7 +71,7 @@
 
                                     <div class="col border-left-lg-1">
                                         <div class="menu-inline menu-column menu-active-bg">
-                                            @if( $unseenComments->count() !== 0)
+                                          {{--  @if( $unseenComments->count() !== 0)
                                                 @foreach($unseenComments as $comment)
                                                     <div class="menu-item bg-light-info my-2">
                                                        <a href="#" class="menu-link">
@@ -86,7 +86,7 @@
                                                 <div class="menu-item">
                                                     {{ __('messages.no_new_comment') }}
                                                 </div>
-                                            @endif
+                                            @endif--}}
 
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@
                                                             </svg>
                                                         </span>
                                                     <span class="menu-title ms-4">
-                                                        {{ $notifications->count() !== 0 ? $notifications->count() : '0' }}
+                                                      {{--  {{ $notifications->count() !== 0 ? $notifications->count() : '0' }}--}}
                                                     </span>
 
 													<span class="menu-arrow d-lg-none"></span>
@@ -120,7 +120,7 @@
                                     <div class="col border-left-lg-1">
                                         <div class="menu-inline menu-column menu-active-bg">
 
-                                           @if( $notifications->count() !== 0)
+                                          {{-- @if( $notifications->count() !== 0)
                                                 @foreach($notifications as $notification)
                                                     <div class="menu-item bg-light-info my-2">
                                                         <p class="mx-2">
@@ -132,7 +132,7 @@
                                                 <div class="menu-item">
                                                     {{ __('messages.no_new_messages') }}
                                                 </div>
-                                            @endif
+                                            @endif--}}
                                         </div>
                                     </div>
 
@@ -213,7 +213,7 @@
                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px"
                              data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                              data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
-                            <img src="{{ asset('dash/images/150-2.jpg') }}" alt="goodshop"/>
+                            <img src="{{ asset('admin_assets/images/150-2.jpg') }}" alt="graphicshop"/>
                         </div>
                         <div
                             class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold py-4 fs-6 w-275px"
@@ -221,22 +221,20 @@
                             <div class="menu-item px-3">
                                 <div class="menu-content d-flex align-items-center px-3">
                                     <div class="symbol symbol-50px me-5">
-                                        <img alt="Logo" src="{{ asset('dash/images/150-2.jpg') }}"/>
+                                        <img alt="Logo" src="{{ asset('admin_assets/images/150-2.jpg') }}"/>
                                     </div>
                                     <div class="d-flex flex-column">
-                                        <div
-                                            class="fw-bolder d-flex align-items-center fs-5">{{ \Illuminate\Support\Facades\Auth::user('admin')->name }}
-                                            <span
-                                                class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
+                                        <div class="fw-bolder d-flex align-items-center fs-5">{{--{{ \Illuminate\Support\Facades\Auth::user('admin')->name }}--}}
+                                            <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
                                         </div>
                                         <a href="#"
-                                           class="fw-bold text-muted text-hover-primary fs-7">{{ \Illuminate\Support\Facades\Auth::user('admin')->email }}</a>
+                                           class="fw-bold text-muted text-hover-primary fs-7">{{--{{ \Illuminate\Support\Facades\Auth::user('admin')->email }}--}}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="separator my-2"></div>
                             <div class="menu-item px-5">
-                                <a href="{{ route('admin.profile') }}" class="menu-link px-5">پروفایل من</a>
+                                <a href="{{--{{ route('admin.profile') }}--}}" class="menu-link px-5">پروفایل من</a>
                             </div>
                             <div class="menu-item px-5">
                                 <a href="#" class="menu-link px-5">

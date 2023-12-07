@@ -34,7 +34,7 @@
 </div>
 @include( 'admin.include.footer_scripts')
 @include( 'admin.include.alert.delete_confirm',['className'=> 'delete-item'])
-@include( 'admin.include.master_dash.include.alert.alert_response')
+@include( 'admin.include.alert.alert_response')
 @stack('dash_custom_script')
 </body>
 </html>
