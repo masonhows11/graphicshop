@@ -54,16 +54,8 @@ class Category extends Model
            // ->orderby('created_at','ASC');
     }
 
-    // for many to many with brand model
-    public function brands()
-    {
-        return $this->belongsToMany(Brand::class);
-    }
 
-    // for one to many category attribute
-    public function attributes()
-    {
-        return $this->hasMany(CategoryAttribute::class);
-    }
+
+
 
 }

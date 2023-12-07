@@ -39,24 +39,6 @@ class  OrderItem extends Model
         return $this->belongsTo(Product::class,'product_id');
     }
 
-    public function amazingSale(){
 
-        return $this->belongsTo(AmazingSales::class);
-    }
-
-    public function color()
-    {
-        return $this->belongsTo(ProductColor::class,'product_color_id');
-    }
-
-    public function warranty()
-    {
-        return $this->belongsTo(Warranty::class);
-    }
-
-    public function orderItemAttribute()
-    {
-        return $this->hasMany(OrderItemSelectedAttribute::class);
-    }
 
 }

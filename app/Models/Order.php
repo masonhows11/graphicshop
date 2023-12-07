@@ -35,11 +35,6 @@ class Order extends Model
         'delivery_status',
     ];
 
-    public function cashPayment(){
-
-        return $this->hasOne(CashPayment::class);
-    }
-
 
     public function payment()
     {
@@ -57,20 +52,7 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function address()
-    {
-        return $this->belongsTo(Address::class);
-    }
 
-    public function coupon()
-    {
-        return $this->belongsTo(Coupon::class);
-    }
-
-    public function commonDiscount()
-    {
-        return $this->belongsTo(CommonDiscount::class);
-    }
 
 
     public function orderItems()
@@ -82,82 +64,5 @@ class Order extends Model
         return $this->hasOne(Transaction::class,'order_id');
     }
 
-    public function getPaymentStatusValueAttribute()
-    {
-        switch ($this->payment_status) {
-            case 0:
-                $result = __('messages.unpaid');
-                break;
-            case 1:
-                $result = __('messages.paid');
-                break;
-            case 2:
-                $result = __('messages.pay_returned');
-                break;
-            default:
-                $result = __('messages.unpaid');
-
-        }
-
-        return $result;
-    }
-    public function getPaymentTypeValueAttribute()
-    {
-        switch ($this->payment_type) {
-            case 0:
-                $result = __('messages.online_pay');
-                break;
-            case 1:
-                $result = __('messages.offline_pay');
-                break;
-            case 2:
-                $result = __('messages.payment_on_the_spot');
-                break;
-            default:
-                $result = __('messages.payment_on_the_spot');
-        }
-        return $result;
-    }
-
-    public function getDeliveryStatusValueAttribute()
-    {
-        switch ($this->delivery_status) {
-            case 0:
-                $result = __('messages.order_not_sent');
-                break;
-            case 1:
-                $result = __('messages.order_sending');
-                break;
-            case 2:
-                $result = __('messages.order_sent');
-                break;
-            case 3:
-                $result = __('messages.order_delivered');
-                break;
-        }
-        return $result;
-    }
-
-    public function getOrderStatusValueAttribute()
-    {
-        switch ($this->order_status) {
-            case 0:
-                $result = __('messages.order_wait_for_confirmed');
-                break;
-            case 1:
-                $result = __('messages.order_not_confirmed');
-                break;
-            case 2:
-                $result = __('messages.order_confirmed');
-                break;
-            case 3:
-                $result = __('messages.order_returned');
-                break;
-            case 4:
-                $result = __('messages.order_canceled');
-                break;
-        }
-        return $result;
-    }
 
 }

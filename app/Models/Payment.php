@@ -14,8 +14,7 @@ class Payment extends Model
         'amount',
         'status',
         'type',
-        'paymentable_id',
-        'paymentable_type'
+
     ];
 
 
@@ -25,8 +24,5 @@ class Payment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function paymentable(){
 
-        return $this->morphTo();
-    }
 }
