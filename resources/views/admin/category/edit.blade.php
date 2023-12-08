@@ -66,8 +66,8 @@
                             <label for="status"></label>
                             <select id="status" class="form-select mb-2" name="status">
                                 <option selected="selected" data-select2-id="select2-data-135-v7e1">{{ __('messages.choose') }}</option>
-                                <option value="1">{{ __('messages.active') }}</option>
-                                <option value="0">{{ __('messages.deactivate') }}</option>
+                                <option value="1" {{ $category->status == 1 ? 'selected' : '' }}>{{ __('messages.active') }}</option>
+                                <option value="0" {{ $category->status == 0 ? 'selected' : '' }}>{{ __('messages.deactivate') }}</option>
                             </select>
                             @error('status')
                             <div class="alert alert-danger">
@@ -89,7 +89,8 @@
 
                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                 <label for="title" class="required form-label">{{ __('messages.title') }}</label>
-                                <input type="text" id="title" name="title" class="form-control mb-2" placeholder="نام دسته بندی" value="{{ old('title') }}">
+                                <input type="text" id="title" name="title" class="form-control mb-2"
+                                       placeholder="نام دسته بندی" value="{{ $category->title }}">
                                 @error('title')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -98,7 +99,8 @@
                             </div>
                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                 <label for="slug" class="required form-label">{{ __('messages.slug') }}</label>
-                                <input type="text" id="slug" name="slug" class="form-control mb-2" placeholder="نامک دسته بندی" value="{{ old('slug') }}">
+                                <input type="text" id="slug" name="slug" class="form-control mb-2"
+                                       placeholder="نامک دسته بندی" value="{{ $category->slug }}">
                                 @error('slug')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -123,7 +125,7 @@
                             <div>
                                 <label for="description" class="form-label">{{ __('messages.description') }}</label>
                                 <div class="">
-                                    <textarea id="description" rows="10" class="form-control" name="description">{{ old('description') }}</textarea>
+                                    <textarea id="description" rows="10" class="form-control" name="description">{{ $category->description }}</textarea>
                                 </div>
                             </div>
                         </div>

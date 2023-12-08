@@ -24,16 +24,16 @@ class AdminCategoryController extends Controller
             'title' => ['required','unique:categories','min:2', 'max:30'],
             'slug' => ['required','min:2', 'max:30'],
             'status' => ['required'],
-            'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
+            'avatar_remove' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
         ]);
 
         try {
 
             $category = new Category();
 
-            if ($request->hasFile('image_path')) {
+            if ($request->hasFile('avatar_remove')) {
                 $imageSave = new ImageServiceSave();
-                $image_path =  $imageSave->customSavePublicPath($request->image_path,'category');
+                $image_path =  $imageSave->customSavePublicPath($request->avatar_remove,'category');
                 $category->image_path = $image_path;
 
             }
@@ -69,23 +69,23 @@ class AdminCategoryController extends Controller
 
     public function update(Request $request)
     {
-
+        //dd($request->avatar_remove);
         $request->validate([
             'title' => ['required','unique:categories','min:2', 'max:30'],
             'slug' => ['required','min:2', 'max:30'],
             'status' => ['required'],
-            'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
+            'avatar_remove' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
         ]);
 
         try {
 
             $category = new Category();
 
-            if ($request->hasFile('image_path'))
+            if ($request->hasFile('avatar_remove'))
             {
-                ImageServiceSave::deleteOldPublicImage($category->image_path);
+                ImageServiceSave::deleteOldPublicImage($category->avatar_remove);
                 $imageSave = new ImageServiceSave();
-                $image_path =  $imageSave->customSavePublicPath($request->image_path,'category');
+                $image_path =  $imageSave->customSavePublicPath($request->avatar_remove,'category');
                 $category->image_path = $image_path;
 
             }
