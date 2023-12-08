@@ -3,13 +3,13 @@
 namespace App\Livewire\Admin\Category;
 
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class AdminCategory extends Component
 {
     use WithPagination;
-    protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
     public $search = '';
 
@@ -37,7 +37,7 @@ class AdminCategory extends Component
 
         try {
             if ($category->parent_id == null) {
-                $this->dispatch('show-result',
+                $this->dispatchBrowserEvent('show-result',
                     ['type' => 'warning',
                         'message' => __('messages.It_is_not_possible_to_delete')]);
             } else {
@@ -45,7 +45,7 @@ class AdminCategory extends Component
                     Storage::disk('public')->delete('/images/category/' . $category->image_path);
                 }
                 $category->delete();
-                $this->dispatch('show-result',
+                $this->dispatchBrowserEvent('show-result',
                     ['type' => 'success',
                         'message' => __('messages.The_deletion_was_successful')]);
 
@@ -85,18 +85,18 @@ class AdminCategory extends Component
             }
             $category->save();
 
-            $this->dispatch('show-result',
+            $this->dispatchBrowserEvent('show-result',
                 ['type' => 'success',
                     'message' => __('messages.The_changes_were_made_successfully')]);
         } catch (\Exception $ex) {
-            $this->dispatch('show-result',
+            $this->dispatchBrowserEvent('show-result',
                 ['type' => 'error',
                     'message' => __('messages.An_error_occurred')]);
         }
     }
     public function render()
     {
-        return view('livewire.admin.category.admin-category')
+        return view('livewire.admin.category.admin_category')
             ->extends('admin.include.master_dash')
             ->section('dash_main_content')
             ->with(['categories' => Category::where('title','like','%'.$this->search.'%')->paginate(10)]);
