@@ -9,10 +9,11 @@
 
     <div class="container-fluid">
         <div id="kt_content_container" class="container-xxl" data-select2-id="select2-data-kt_content_container">
-            <form id="kt_ecommerce_add_category_form"
+            <form action="{{ route('admin.category.store') }}" method="post" id="kt_ecommerce_add_category_form"
                   class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework"
-                  data-select2-id="select2-data-kt_ecommerce_add_category_form">
-
+                  data-select2-id="select2-data-kt_ecommerce_add_category_form"
+                    enctype="multipart/form-data">
+                @csrf
                 <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10"
                      data-select2-id="select2-data-131-q2wc">
 
@@ -63,10 +64,10 @@
                         </div>
                         <div class="card-body pt-0" data-select2-id="select2-data-129-eku1">
                             <label for="status"></label>
-                            <select id="status" class="form-select mb-2">
+                            <select id="status" class="form-select mb-2" name="status">
                                 <option selected="selected" data-select2-id="select2-data-135-v7e1">{{ __('messages.choose') }}</option>
-                                <option value="published" data-select2-id="select2-data-11-1xgm">{{ __('messages.active') }}</option>
-                                <option value="scheduled" data-select2-id="select2-data-136-1n4h">{{ __('messages.deactivate') }}</option>
+                                <option value="1">{{ __('messages.active') }}</option>
+                                <option value="0">{{ __('messages.deactivate') }}</option>
                             </select>
                             @error('status')
                              <div class="alert alert-danger">
@@ -88,7 +89,7 @@
 
                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                 <label for="title" class="required form-label">{{ __('messages.title') }}</label>
-                                <input type="text" id="title" name="title" class="form-control mb-2" placeholder="نام دسته بندی">
+                                <input type="text" id="title" name="title" class="form-control mb-2" placeholder="نام دسته بندی" value="{{ old('title') }}">
                                 @error('title')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -97,7 +98,7 @@
                             </div>
                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                 <label for="slug" class="required form-label">{{ __('messages.slug') }}</label>
-                                <input type="text" id="slug" name="title" class="form-control mb-2" placeholder="نامک دسته بندی">
+                                <input type="text" id="slug" name="slug" class="form-control mb-2" placeholder="نامک دسته بندی" value="{{ old('slug') }}">
                                 @error('slug')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -107,10 +108,10 @@
 
                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                 <label for="parent" class="required form-label">{{ __('messages.category_parent') }}</label>
-                                <select id="parent" class="form-select mb-2">
-                                    <option selected="selected" data-select2-id="select2-data-135-v7e1">{{ __('messages.choose') }}</option>
+                                <select id="parent" name="parent" class="form-select mb-2">
+                                    <option  value="">{{ __('messages.choose') }}</option>
                                     @foreach( $categories as $category)
-                                        <option value="{{ $category->id }}" data-select2-id="select2-data-11-1xgm">{{ $category->title }}</option>
+                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
                                     @endforeach
                                 </select>
                                 @error('parent')
@@ -122,7 +123,7 @@
                             <div>
                                 <label for="description" class="form-label">{{ __('messages.description') }}</label>
                                 <div class="">
-                                    <textarea id="description" rows="10" class="form-control" name="description"></textarea>
+                                    <textarea id="description" rows="10" class="form-control" name="description">{{ old('description') }}</textarea>
                                 </div>
                             </div>
                         </div>

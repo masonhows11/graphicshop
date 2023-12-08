@@ -6,7 +6,6 @@
       {{--  {{ Breadcrumbs::render('admin.category.index') }}--}}
     @endsection
     <div class="container-fluid">
-        <!-- list categories -->
 
         <div class="row my-4 bg-white">
             <div class="col  my-4">
@@ -54,15 +53,15 @@
                                      width="100" height="100" alt="image_category">
                             </td>
                             <td><a href="#" wire:click.prevent="changeState({{ $category->id }})"
-                                   class="mx-4 btn btn-sm {{ $category->is_active === 0 ? 'btn-danger' : 'btn-success' }} ">
-                                    {{ $category->is_active === 0 ? __('messages.deactivate') : __('messages.active') }}
+                                   class="mx-4 btn btn-sm {{ $category->status === 0 ? 'btn-danger' : 'btn-success' }} ">
+                                    {{ $category->status === 0 ? __('messages.deactivate') : __('messages.active') }}
                                 </a>
                             </td>
                             <td><a href="#" wire:click.prevent="detachCategory({{ $category->id }})" class="mx-4">
                                     <i class="fa fa-unlink"></i>
                                 </a>
                             </td>
-                            <td><a href="{{ route('admin.category.edit',['id'=>$category->id]) }}" class="mx-4">
+                            <td><a href="{{ route('admin.category.edit',[$category->id]) }}" class="mx-4">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </td>

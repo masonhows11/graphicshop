@@ -18,8 +18,9 @@ class AdminCategoryController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
-            'title' => ['required','exists:title','min:2', 'max:30'],
+            'title' => ['required','unique:categories','min:2', 'max:30'],
             'slug' => ['required','min:2', 'max:30'],
             'status' => ['required'],
             'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
@@ -38,7 +39,8 @@ class AdminCategoryController extends Controller
                 $category->image_path = $path;
             }
 
-            if ($this->parent != null) {
+            if ($request->has('parent'))
+            {
                 $category->title = $request->title;
                 $category->status = $request->status;
                 $category->slug = $request->slug;
@@ -52,6 +54,7 @@ class AdminCategoryController extends Controller
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.category.index');
         } catch (\Exception $ex) {
+            return $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
 
