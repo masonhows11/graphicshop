@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\AdminLoginController;
 use App\Http\Controllers\Admin\Auth\AdminProfileController;
 use App\Http\Controllers\Admin\Auth\AdminValidateController;
+use App\Http\Controllers\Admin\Category\AdminCategoryController;
 use App\Http\Controllers\HomeController;
 use App\Livewire\Admin\Category\AdminCategory;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/category/index', AdminCategory::class)->name('category.index');
+
+    Route::get('/category/create', [AdminCategoryController::class,'create'])->name('category.create');
+    Route::get('/category/store', [AdminCategoryController::class,'store'])->name('category.store');
+
+    Route::get('/category/edit/{category}', [AdminCategoryController::class,'edit'])->name('category.edit');
+    Route::get('/category/update', [AdminCategoryController::class,'update'])->name('category.update');
 
 
 });

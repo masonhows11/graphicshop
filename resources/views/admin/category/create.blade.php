@@ -24,7 +24,7 @@
         </div>
 
 
-        <form action="{{ route('admin.delivery.store') }}" method="post">
+        <form action="{{ route('admin.category.store') }}" method="post">
             @csrf
 
 
