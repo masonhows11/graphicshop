@@ -36,7 +36,7 @@
                                     data-kt-image-input-action="change" data-bs-toggle="tooltip" title=""
                                     data-bs-original-title="تعویض آواتار">
                                     <i class="bi bi-pencil-fill fs-7"></i>
-                                    <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+                                    <input type="file" name="image_path" accept=".png, .jpg, .jpeg">
                                     <input type="hidden" name="avatar_remove">
                                 </label>
                                 <span
@@ -68,6 +68,11 @@
                                 <option value="published" data-select2-id="select2-data-11-1xgm">{{ __('messages.active') }}</option>
                                 <option value="scheduled" data-select2-id="select2-data-136-1n4h">{{ __('messages.deactivate') }}</option>
                             </select>
+                            @error('status')
+                             <div class="alert alert-danger">
+                                 {{ $message }}
+                             </div>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -80,10 +85,26 @@
                             </div>
                         </div>
                         <div class="card-body pt-0">
+
                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                 <label for="title" class="required form-label">{{ __('messages.title') }}</label>
                                 <input type="text" id="title" name="title" class="form-control mb-2" placeholder="نام دسته بندی">
+                                @error('title')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
+                            <div class="mb-10 fv-row fv-plugins-icon-container">
+                                <label for="slug" class="required form-label">{{ __('messages.slug') }}</label>
+                                <input type="text" id="slug" name="title" class="form-control mb-2" placeholder="نامک دسته بندی">
+                                @error('slug')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                 <label for="parent" class="required form-label">{{ __('messages.category_parent') }}</label>
                                 <select id="parent" class="form-select mb-2">
@@ -92,6 +113,11 @@
                                         <option value="{{ $category->id }}" data-select2-id="select2-data-11-1xgm">{{ $category->title }}</option>
                                     @endforeach
                                 </select>
+                                @error('parent')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                             <div>
                                 <label for="description" class="form-label">{{ __('messages.description') }}</label>

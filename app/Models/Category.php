@@ -20,12 +20,12 @@ class Category extends Model
                           'status',
                           'parent_id'];
 
-    public function getSlugOptions()
+    /*public function getSlugOptions()
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title_english')
             ->saveSlugsTo('slug');
-    }
+    }*/
     public function getParentKeyName()
     {
         return 'parent_id';
