@@ -85,6 +85,7 @@ return [
     'category' => 'دسته بندی',
     'categories' => 'دسته بندی ها',
     'new_category' => 'دسته بندی جدید',
+    'edit_category' => 'ویرایش دسته بندی',
     'status' => 'وضعیت',
     'image' => 'تصویر',
     'images' => 'تصاویر',

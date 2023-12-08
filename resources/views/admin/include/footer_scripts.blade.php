@@ -1,6 +1,6 @@
-<script src="{{ asset('admin_assets/plugins/global/plugins.bundle.js') }}"></script>
+<script src="{{ asset('admin_assets/js/jquery-3.5.1.min.js') }}"></script>
 <script src="{{ asset('admin_assets/js/scripts.bundle.js') }}"></script>
-
+<script src="{{ asset('admin_assets/plugins/global/plugins.bundle.js') }}"></script>
 {{--<script src="{{ asset('admin_assets/plugins/toastify/toastify-js.js') }}"></script>--}}
 
 <livewire:scripts/>

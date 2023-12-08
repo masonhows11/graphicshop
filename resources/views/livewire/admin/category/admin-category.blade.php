@@ -61,7 +61,7 @@
                                     <i class="fa fa-unlink"></i>
                                 </a>
                             </td>
-                            <td><a href="{{ route('admin.category.edit',[$category->id]) }}" class="mx-4">
+                            <td><a href="{{ route('admin.category.edit',['id'=>$category->id]) }}" class="mx-4">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </td>
@@ -121,12 +121,12 @@
                 title: message
             })
         })
-        @if(session()->has('warning'))
+        @if( session()->has('warning') )
         Toast.fire({
             icon: 'warning',
             title: '{{ session()->get('warning') }}'
         })
-        @elseif(session()->has('success'))
+        @elseif( session()->has('success'))
         Toast.fire({
             icon: 'success',
             title: '{{ session()->get('success') }}'

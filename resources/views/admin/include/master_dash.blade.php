@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html direction="rtl" dir="rtl" style="direction: rtl">
+<html direction="rtl"  lang="fa" dir="rtl" style="direction: rtl">
 <head>
     <base href="">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

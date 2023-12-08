@@ -24,7 +24,7 @@ class AdminCategory extends Component
     public function deleteConfirmation($id)
     {
         $this->delete_id = $id;
-        $this->dispatchBrowserEvent('show-delete-confirmation');
+        $this->dispatch('show-delete-confirmation');
     }
 
     protected $listeners = [
@@ -37,7 +37,7 @@ class AdminCategory extends Component
 
         try {
             if ($category->parent_id == null) {
-                $this->dispatchBrowserEvent('show-result',
+                $this->dispatch('show-result',
                     ['type' => 'warning',
                         'message' => __('messages.It_is_not_possible_to_delete')]);
             } else {
@@ -45,7 +45,7 @@ class AdminCategory extends Component
                     Storage::disk('public')->delete('/images/category/' . $category->image_path);
                 }
                 $category->delete();
-                $this->dispatchBrowserEvent('show-result',
+                $this->dispatch('show-result',
                     ['type' => 'success',
                         'message' => __('messages.The_deletion_was_successful')]);
 
@@ -85,11 +85,11 @@ class AdminCategory extends Component
             }
             $category->save();
 
-            $this->dispatchBrowserEvent('show-result',
+            $this->dispatch('show-result',
                 ['type' => 'success',
                     'message' => __('messages.The_changes_were_made_successfully')]);
         } catch (\Exception $ex) {
-            $this->dispatchBrowserEvent('show-result',
+            $this->dispatch('show-result',
                 ['type' => 'error',
                     'message' => __('messages.An_error_occurred')]);
         }

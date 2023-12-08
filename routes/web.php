@@ -55,7 +55,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/category/create', [AdminCategoryController::class,'create'])->name('category.create');
     Route::post('/category/store', [AdminCategoryController::class,'store'])->name('category.store');
 
-    Route::get('/category/edit/{category}', [AdminCategoryController::class,'edit'])->name('category.edit');
+    Route::get('/category/edit/{id}', [AdminCategoryController::class,'edit'])->name('category.edit');
     Route::post('/category/update', [AdminCategoryController::class,'update'])->name('category.update');
 
 

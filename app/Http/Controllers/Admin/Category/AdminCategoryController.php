@@ -54,7 +54,6 @@ class AdminCategoryController extends Controller
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.category.index');
         } catch (\Exception $ex) {
-            return $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
 
@@ -62,9 +61,12 @@ class AdminCategoryController extends Controller
 
     }
 
-    public function edit(Category $category)
+    public function edit(Request $request)
     {
-        return view('admin.category.edit',['category' => $category]);
+
+        $category = Category::findOrFail($request->id);
+        $categories = Category::select('id','title')->get();
+        return view('admin.category.edit',['category' => $category,'categories' => $categories]);
     }
 
     public function update(Request $request)
