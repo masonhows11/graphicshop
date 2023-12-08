@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\Auth\AdminLoginController;
 use App\Http\Controllers\Admin\Auth\AdminProfileController;
 use App\Http\Controllers\Admin\Auth\AdminValidateController;
 use App\Http\Controllers\Admin\Category\AdminCategoryController;
+use App\Http\Controllers\Front\AboutUs\AboutUsController;
+use App\Http\Controllers\Front\ContactUs\ContactUsController;
 use App\Http\Controllers\HomeController;
 use App\Livewire\Admin\Category\AdminCategory;
 use Illuminate\Support\Facades\Route;
@@ -59,5 +61,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 });
 
-Route::get('/about_us',[\App\Http\Controllers\Front\AboutUs\AboutUsController::class,'aboutUs'])->name('about_us');
-Route::get('/contact_us',[\App\Http\Controllers\Front\ContactUs\ContactUsController::class,'contactUs'])->name('contact_us');
+Route::get('/about_us',[AboutUsController::class,'aboutUs'])->name('about_us');
+Route::get('/contact_us',[ContactUsController::class,'contactUs'])->name('contact_us');
