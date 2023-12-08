@@ -14,8 +14,8 @@
                   data-select2-id="select2-data-kt_ecommerce_add_category_form"
                   enctype="multipart/form-data">
                 @csrf
-                <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10"
-                     data-select2-id="select2-data-131-q2wc">
+                <input type="hidden" name="id" value="{{ $category->id }}">
+                <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10" data-select2-id="select2-data-131-q2wc">
 
                     <div class="card card-flush py-4">
 

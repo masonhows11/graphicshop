@@ -55,8 +55,6 @@ class AdminCategoryController extends Controller
             return view('errors_custom.model_store_error');
         }
 
-
-
     }
 
     public function edit(Request $request)
@@ -71,7 +69,7 @@ class AdminCategoryController extends Controller
     {
         //dd($request->avatar_remove);
         $request->validate([
-            'title' => ['required','unique:categories','min:2', 'max:30'],
+            'title' => ['required','min:2', 'max:30'],
             'slug' => ['required','min:2', 'max:30'],
             'status' => ['required'],
             'avatar_remove' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
@@ -79,14 +77,22 @@ class AdminCategoryController extends Controller
 
         try {
 
-            $category = new Category();
+            //dd($request->image_path);
+            $category = Category::findOrFail($request->id);
 
-            if ($request->hasFile('avatar_remove'))
+            if ($request->hasFile('image_path'))
             {
-                ImageServiceSave::deleteOldPublicImage($category->avatar_remove);
+               // dd($request->image_path );
+                if($category->image_path != null) {
+                    ImageServiceSave::deleteOldPublicImage($category->image_path);
+                    $imageSave = new ImageServiceSave();
+                    $image_path =  $imageSave->customSavePublicPath($request->image_path,'category');
+                    $category->image_path = $image_path;
+                }
                 $imageSave = new ImageServiceSave();
-                $image_path =  $imageSave->customSavePublicPath($request->avatar_remove,'category');
+                $image_path =  $imageSave->customSavePublicPath($request->image_path,'category');
                 $category->image_path = $image_path;
+
 
             }
 
@@ -105,6 +111,7 @@ class AdminCategoryController extends Controller
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.category.index');
         } catch (\Exception $ex) {
+            return  $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
 
