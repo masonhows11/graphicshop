@@ -17,16 +17,15 @@
                     <a href="{{ route('admin.category.create') }}" class="btn btn-primary">{{ __('messages.new_category') }}</a>
                 </div>
             </div>
-        </div>
-
-
-        <div class="row d-flex justify-content-center search-category-section">
-            <div class="col">
+            <div class="col-12">
                 <div class="mb-3 mt-3">
                     <input wire:model.debounce.500ms="search" placeholder="{{ __('messages.search') }}" type="text" class="form-control" id="search">
                 </div>
             </div>
         </div>
+
+
+
 
         <div class="row  category-list bg-white">
             <div class="my-5">
