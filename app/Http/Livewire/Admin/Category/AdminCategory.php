@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin\Category;
+namespace App\Http\Livewire\Admin\Category;
 
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
@@ -24,7 +24,7 @@ class AdminCategory extends Component
     public function deleteConfirmation($id)
     {
         $this->delete_id = $id;
-        $this->dispatch('show-delete-confirmation');
+        $this->dispatchBrowserEvent('show-delete-confirmation');
     }
 
     protected $listeners = [

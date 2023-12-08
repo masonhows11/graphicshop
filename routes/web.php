@@ -8,7 +8,9 @@ use App\Http\Controllers\Admin\Category\AdminCategoryController;
 use App\Http\Controllers\Front\AboutUs\AboutUsController;
 use App\Http\Controllers\Front\ContactUs\ContactUsController;
 use App\Http\Controllers\HomeController;
-use App\Livewire\Admin\Category\AdminCategory;
+
+
+use App\Http\Livewire\Admin\Category\AdminCategory;
 use Illuminate\Support\Facades\Route;
 
 /*
