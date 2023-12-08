@@ -8,20 +8,17 @@
     <div class="container-fluid">
         <!-- list categories -->
 
-        <div class="row d-flex justify-content-start my-4 bg-white">
-            <div class="col-lg-4 col-md-4 col  my-5  border-bottom title-add-to-stock">
-                <div class="alert my-4">
-                    <h3> {{ __('messages.categories') }}</h3>
+        <div class="row my-4 bg-white">
+            <div class="col  my-4">
+                    <h3 class="h3 my-4"> {{ __('messages.categories') }}</h3>
+            </div>
+            <div class="col d-flex justify-content-end my-4">
+                <div>
+                    <a href="{{ route('admin.category.create') }}" class="btn btn-primary">{{ __('messages.new_category') }}</a>
                 </div>
             </div>
         </div>
 
-        <div class="row my-4 bg-white">
-            <div class="col-lg-4 col-md-4 col my-2">
-                <a href="{{--{{ route('admin.category.create') }}--}}"
-                   class="btn btn-sm btn-primary">{{ __('messages.new_category') }}</a>
-            </div>
-        </div>
 
         <div class="row d-flex justify-content-center search-category-section">
             <div class="col">
