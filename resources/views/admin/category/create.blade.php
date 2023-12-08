@@ -55,20 +55,18 @@
 
                     </div>
 
-                    <div class="card card-flush py-4" data-select2-id="select2-data-130-t5sc">
+                    <div class="card card-flush py-4" style="height: 210px" data-select2-id="select2-data-130-t5sc">
                         <div class="card-header">
                             <div class="card-title">
                                 <h2>وضعیت</h2>
                             </div>
                         </div>
                         <div class="card-body pt-0" data-select2-id="select2-data-129-eku1">
-                            <select class="form-select mb-2">
-                                <option selected="selected"
-                                        data-select2-id="select2-data-135-v7e1">{{ __('messages.choose') }}</option>
-                                <option value="published"
-                                        data-select2-id="select2-data-11-1xgm">{{ __('messages.active') }}</option>
-                                <option value="scheduled"
-                                        data-select2-id="select2-data-136-1n4h">{{ __('messages.deactivate') }}</option>
+                            <label for="status"></label>
+                            <select id="status" class="form-select mb-2">
+                                <option selected="selected" data-select2-id="select2-data-135-v7e1">{{ __('messages.choose') }}</option>
+                                <option value="published" data-select2-id="select2-data-11-1xgm">{{ __('messages.active') }}</option>
+                                <option value="scheduled" data-select2-id="select2-data-136-1n4h">{{ __('messages.deactivate') }}</option>
                             </select>
                         </div>
                     </div>
@@ -84,13 +82,11 @@
                         <div class="card-body pt-0">
                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                 <label for="title" class="required form-label">{{ __('messages.title') }}</label>
-                                <input type="text" name="title" class="form-control mb-2" placeholder="نام دسته بندی"
-                                       value="">
+                                <input type="text" id="title" name="title" class="form-control mb-2" placeholder="نام دسته بندی">
                             </div>
                             <div class="mb-10 fv-row fv-plugins-icon-container">
-                                <label for="parent"
-                                       class="required form-label">{{ __('messages.category_parent') }}</label>
-                                <select class="form-select mb-2">
+                                <label for="parent" class="required form-label">{{ __('messages.category_parent') }}</label>
+                                <select id="parent" class="form-select mb-2">
                                     <option selected="selected" data-select2-id="select2-data-135-v7e1">{{ __('messages.choose') }}</option>
                                     @foreach( $categories as $category)
                                         <option value="{{ $category->id }}" data-select2-id="select2-data-11-1xgm">{{ $category->title }}</option>
