@@ -41,7 +41,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($categories as $category)
+                    @foreach( $categories as $category)
                         <tr class="text-center">
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->title }}</td>
@@ -81,6 +81,7 @@
                 {{ $categories->links() }}
             </div>
         </div>
+    </div>
 </div>
 @push('dash_custom_script')
     <script type="text/javascript">

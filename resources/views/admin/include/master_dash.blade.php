@@ -9,9 +9,7 @@
     @include('admin.include.header_styles')
     @stack('dash_custom_style')
 </head>
-<body id="kt_body"
-      class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed"
-      style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
         @include('admin.include.sidebar')
@@ -21,9 +19,11 @@
                 @include('admin.include.breadcrumb')
                 @include('admin.include.header_toolbar')
                 <div class="post" id="kt_post">
+                  {{--  <div id="kt_content_container" class="container-xxl">--}}
                     <!--begin::main container------------------------------------------------------>
-                @yield('dash_main_content')
-                <!--end::main container------------------------------------------------------>
+                    @yield('dash_main_content')
+                    <!--end::main container------------------------------------------------------>
+                   {{-- </div>--}}
                 </div>
             </div>
             <!--begin::Footer------------------------------------------------------------------->
