@@ -1,4 +1,10 @@
 <div>
+    @section('dash_page_title')
+        دسته بندی ها
+    @endsection
+    @section('breadcrumb')
+      {{--  {{ Breadcrumbs::render('admin.category.index') }}--}}
+    @endsection
     <div class="container-fluid">
         <!-- list categories -->
 

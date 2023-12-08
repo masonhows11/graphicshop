@@ -1,4 +1,4 @@
-@foreach($child as $category)
+@foreach( $child as $category)
     <div class="card  item-category">
         <div class="card-header">
             {{--start category content --}}
