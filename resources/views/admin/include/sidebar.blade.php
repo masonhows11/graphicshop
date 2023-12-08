@@ -196,9 +196,9 @@
                             </a>
                         </div>
 
-                        <div class="menu-item">
+                        {{--<div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.brand.index' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.brand.index') }}--}}">
+                                href="--}}{{--{{ route('admin.brand.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -207,7 +207,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.brand.create' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.brand.create') }}--}}">
+                                href="--}}{{--{{ route('admin.brand.create') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -216,7 +216,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.colors.index' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.colors.index') }}--}}">
+                                href="--}}{{--{{ route('admin.colors.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -225,7 +225,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.category.attribute.index' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.category.attribute.index') }}--}}">
+                                href="--}}{{--{{ route('admin.category.attribute.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -234,13 +234,13 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.tag.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.tag.index') }}--}}">
+                               href="--}}{{--{{ route('admin.tag.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">مدیریت تگ ها</span>
                             </a>
-                        </div>
+                        </div>--}}
                         {{-- <div class="menu-item">
                            <a class="menu-link {{ $route === 'admin.tags.index' ? 'active' : '' }}"
                               href="{{ route('admin.tags.index') }}">
@@ -303,7 +303,7 @@
                                 </svg>
                             </span>
                         </span>
-                        <span class="menu-title">مدیریت کالاها</span>
+                        <span class="menu-title">مدیریت فایل ها</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
@@ -313,7 +313,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">لیست کالاها</span>
+                                <span class="menu-title">لیست فایل ها</span>
                             </a>
                         </div>
                         <div class="menu-item">
@@ -322,16 +322,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">کالای جدید</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.stock.product.index' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.stock.product.index') }}--}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.stock_management') }}</span>
+                                <span class="menu-title">اپلود فایل جدید</span>
                             </a>
                         </div>
                     </div>
@@ -369,9 +360,9 @@
                                 <span class="menu-title">{{ __('messages.all_payments') }}</span>
                             </a>
                         </div>
-                        <div class="menu-item ">
+                       {{-- <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.payments.offline.index' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.payments.offline.index') }}--}}">
+                                href="--}}{{--{{ route('admin.payments.offline.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -380,7 +371,7 @@
                         </div>
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.payments.online.index' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.payments.online.index') }}--}}">
+                                href="--}}{{--{{ route('admin.payments.online.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -389,13 +380,13 @@
                         </div>
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.payments.cash.index' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.payments.cash.index') }}--}}">
+                                href="--}}{{--{{ route('admin.payments.cash.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">{{ __('messages.payment_on_the_spot') }}</span>
                             </a>
-                        </div>
+                        </div>--}}
 
                     </div>
                 </div>
@@ -441,19 +432,6 @@
                                 <span class="menu-title">{{ __('messages.orders_new') }}</span>
                             </a>
                         </div>
-
-
-                        {{--   sending orders   --}}
-                        <div class="menu-item ">
-                            <a class="menu-link {{ $route === 'admin.orders.sending' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.orders.sending') }}--}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.orders_sending') }}</span>
-                            </a>
-                        </div>
-                        {{--   unpaid orders   --}}
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.orders.unpaid' ? 'active' : '' }}"
                                href="{{--{{ route('admin.orders.unpaid') }}--}}">
@@ -474,156 +452,16 @@
                                 <span class="menu-title">{{ __('messages.orders_canceled') }}</span>
                             </a>
                         </div>
-                        {{--   retuended orders   --}}
-                        <div class="menu-item ">
-                            <a class="menu-link {{ $route === 'admin.orders.returned' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.orders.returned') }}--}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.orders_returned') }}</span>
-                            </a>
-                        </div>
-
 
                     </div>
                 </div>
-                {{-- end orders --}}
-                {{-- start common discount  --}}
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                    viewBox="0 0 24 24" version="1.1">
-                                    <path
-                                        d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
-                                        fill="#000000" opacity="0.3" />
-                                    <path
-                                        d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
-                                        fill="#000000" />
-                                </svg>
-                            </span>
-                        </span>
-                        <span class="menu-title">{{ __('messages.discount_management') }}</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div class="menu-sub menu-sub-accordion menu-active-bg">
-                        <div class="menu-item ">
-                            <a class="menu-link {{ $route === 'admin.common.discount.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.common.discount.index') }}--}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.common_discount_list') }}</span>
-                            </a>
-                        </div>
-                        <div class="menu-item ">
-                            <a class="menu-link {{ $route === 'admin.coupons.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.coupons.index') }}--}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.coupon_discount_list') }}</span>
-                            </a>
-                        </div>
-                        <div class="menu-item ">
-                            <a class="menu-link {{ $route === 'admin.amazing.sale.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.amazing.sale.index') }}--}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.amazing_sales_list') }}</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                {{-- end discount     --}}
-                {{-- start shipment    --}}
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                     viewBox="0 0 24 24" version="1.1">
-                                    <path
-                                        d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
-                                        fill="#000000" opacity="0.3" />
-                                    <path
-                                        d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
-                                        fill="#000000" />
-                                </svg>
-                            </span>
-                        </span>
-                        <span class="menu-title">{{ __('messages.delivery_management') }}</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div class="menu-sub menu-sub-accordion menu-active-bg">
-
-                        <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.delivery.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.delivery.index') }}--}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.delivery_types') }}</span>
-                            </a>
-                        </div>
-
-
-                        <div class="menu-item ">
-                            <a class="menu-link {{ $route === 'admin.delivery.create' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.delivery.create') }}--}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.new_delivery') }}</span>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-                {{-- end shipment --}}
-
-                {{-- start  address   --}}
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                    viewBox="0 0 24 24" version="1.1">
-                                    <path
-                                        d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
-                                        fill="#000000" opacity="0.3" />
-                                    <path
-                                        d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
-                                        fill="#000000" />
-                                </svg>
-                            </span>
-                        </span>
-                        <span class="menu-title">آدرس ها</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div class="menu-sub menu-sub-accordion menu-active-bg">
-                        <div class="menu-item">
-                            <a class="menu-link  {{ $route === 'admin.province.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.province.index') }}--}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.cities_and_provinces_management') }}</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                {{-- end  address   --}}
                 {{-- start comments --}}
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                    viewBox="0 0 24 24" version="1.1">
+                                     viewBox="0 0 24 24" version="1.1">
                                     <path
                                         d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
                                         fill="#000000" opacity="0.3" />
@@ -670,8 +508,6 @@
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
-
-
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.category.tickets' ? 'active' : '' }}"
                                href="{{--{{ route('admin.category.tickets') }}--}}">
@@ -681,7 +517,6 @@
                                 <span class="menu-title">{{ __('messages.category_tickets') }}</span>
                             </a>
                         </div>
-
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.priority.tickets' ? 'active' : '' }}"
                                href="{{--{{ route('admin.priority.tickets') }}--}}">
@@ -691,7 +526,6 @@
                                 <span class="menu-title">{{ __('messages.priority_tickets') }}</span>
                             </a>
                         </div>
-
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.admin.tickets.index' ? 'active' : '' }}"
                                href="{{--{{ route('admin.admin.tickets.index') }}--}}">
@@ -701,7 +535,6 @@
                                 <span class="menu-title">{{ __('messages.admin_tickets') }}</span>
                             </a>
                         </div>
-
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.all.tickets' ? 'active' : '' }}"
                                href="{{--{{ route('admin.all.tickets') }}--}}">
@@ -711,7 +544,6 @@
                                 <span class="menu-title">{{ __('messages.all_tickets') }}</span>
                             </a>
                         </div>
-
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.new.tickets' ? 'active' : '' }}"
                                href="{{--{{ route('admin.new.tickets') }}--}}">
@@ -721,7 +553,6 @@
                                 <span class="menu-title">{{ __('messages.new_tickets') }}</span>
                             </a>
                         </div>
-
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.open.tickets' ? 'active' : '' }}"
                                href="{{--{{ route('admin.open.tickets') }}--}}">
@@ -731,7 +562,6 @@
                                 <span class="menu-title">{{ __('messages.open_tickets') }}</span>
                             </a>
                         </div>
-
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.close.tickets' ? 'active' : '' }}"
                                href="{{--{{ route('admin.close.tickets') }}--}}">
@@ -741,10 +571,6 @@
                                 <span class="menu-title">{{ __('messages.close_tickets') }}</span>
                             </a>
                         </div>
-
-
-
-
                     </div>
                 </div>
                 {{-- end tickets --}}
@@ -807,7 +633,6 @@
                     </div>
                 </div>
                 {{-- end banner --}}
-
 
                 {{-- start slider --}}
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -937,8 +762,138 @@
                 </div>
                 {{-- end setting --}}
 
-            </div>
 
+                {{-- start common discount  --}}
+                {{--  <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                    viewBox="0 0 24 24" version="1.1">
+                                    <path
+                                        d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
+                                        fill="#000000" opacity="0.3" />
+                                    <path
+                                        d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
+                                        fill="#000000" />
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="menu-title">{{ __('messages.discount_management') }}</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+                        <div class="menu-item ">
+                            <a class="menu-link {{ $route === 'admin.common.discount.index' ? 'active' : '' }}"
+                               href="--}}{{--{{ route('admin.common.discount.index') }}--}}{{--">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">{{ __('messages.common_discount_list') }}</span>
+                            </a>
+                        </div>
+                        <div class="menu-item ">
+                            <a class="menu-link {{ $route === 'admin.coupons.index' ? 'active' : '' }}"
+                               href="--}}{{--{{ route('admin.coupons.index') }}--}}{{--">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">{{ __('messages.coupon_discount_list') }}</span>
+                            </a>
+                        </div>
+                        <div class="menu-item ">
+                            <a class="menu-link {{ $route === 'admin.amazing.sale.index' ? 'active' : '' }}"
+                               href="--}}{{--{{ route('admin.amazing.sale.index') }}--}}{{--">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">{{ __('messages.amazing_sales_list') }}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>--}}
+                {{-- end discount     --}}
+                {{-- start shipment    --}}
+                {{--  <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                     viewBox="0 0 24 24" version="1.1">
+                                    <path
+                                        d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
+                                        fill="#000000" opacity="0.3" />
+                                    <path
+                                        d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
+                                        fill="#000000" />
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="menu-title">{{ __('messages.delivery_management') }}</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+
+                        <div class="menu-item">
+                            <a class="menu-link {{ $route === 'admin.delivery.index' ? 'active' : '' }}"
+                               href="--}}{{--{{ route('admin.delivery.index') }}--}}{{--">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">{{ __('messages.delivery_types') }}</span>
+                            </a>
+                        </div>
+
+
+                        <div class="menu-item ">
+                            <a class="menu-link {{ $route === 'admin.delivery.create' ? 'active' : '' }}"
+                               href="--}}{{--{{ route('admin.delivery.create') }}--}}{{--">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">{{ __('messages.new_delivery') }}</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>--}}
+                {{-- end shipment --}}
+                {{-- start  address   --}}
+                {{--  <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                    viewBox="0 0 24 24" version="1.1">
+                                    <path
+                                        d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
+                                        fill="#000000" opacity="0.3" />
+                                    <path
+                                        d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
+                                        fill="#000000" />
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="menu-title">آدرس ها</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+                        <div class="menu-item">
+                            <a class="menu-link  {{ $route === 'admin.province.index' ? 'active' : '' }}"
+                               href="--}}{{--{{ route('admin.province.index') }}--}}{{--">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">{{ __('messages.cities_and_provinces_management') }}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>--}}
+                {{-- end  address   --}}
+
+
+
+            </div>
         </div>
     </div>
 
