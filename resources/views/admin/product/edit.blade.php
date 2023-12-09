@@ -10,7 +10,7 @@
     <div class="container-fluid">
 
 
-        <div class="row product-create-body mx-auto my-5 bg-white">
+        <div class="row product-create-body mx-auto my-5 bg-white rounded-3">
             <form action="{{ route('admin.product.edit') }}" method="post" enctype="multipart/form-data" id="product-form">
                 @csrf
 
@@ -21,7 +21,7 @@
                     <div class="col-sm-4 mt-5 mb-5">
 
                         <div class="col mt-5 mb-5">
-                            <label for="title" class="form-label">عنوان کالا </label>
+                            <label for="title" class="form-label">عنوان</label>
                             <input type="text"
                                    class="form-control"
                                    id="title"
@@ -36,14 +36,14 @@
                         </div>
 
                         <div class="col mt-5 mb-5">
-                            <label for="active" class="form-label">وضعیت نمایش کالا</label>
-                            <select name="is_active" id="active" class="form-select">
+                            <label for="status" class="form-label">وضعیت نمایش کالا</label>
+                            <select name="status" id="status" class="form-select">
                                 <option
                                     {{ $product->status == 0 ? 'selected' : '' }} value="0">{{ __('messages.unpublished') }}</option>
                                 <option
                                     {{ $product->status == 1 ? 'selected' : '' }} value="1">{{ __('messages.published') }}</option>
                             </select>
-                            @error('is_active')
+                            @error('status')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
                             </div>
@@ -182,10 +182,10 @@
                 <div class="row my-4 mx-2">
                     <div class="col d-flex justify-content-start">
                         <div>
-                            <button type="submit" class="btn btn-success">ذخیره</button>
+                            <button type="submit" class="btn btn-primary">{{ __('messages.save') }}</button>
                         </div>
                         <div class="ms-2">
-                            <a href="{{ route('admin.product.index') }}" class="btn btn-secondary">لیست محصولات</a>
+                            <a href="{{ route('admin.product.index') }}" class="btn btn-secondary">{{ __('products') }}</a>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@
     <div class="container-fluid">
 
 
-        <div class="row product-create-body mx-auto my-5 bg-white">
+        <div class="row product-create-body mx-auto my-5 bg-white rounded-3">
             <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data" id="product-form">
                 @csrf
 
@@ -22,7 +22,7 @@
                     <div class="col-sm-4 mt-5 mb-5">
 
                         <div class="col mt-5 mb-5">
-                            <label for="title" class="form-label">عنوان کالا ( فارسی )</label>
+                            <label for="title" class="form-label">عنوان</label>
                             <input type="text"
                                    class="form-control"
                                    id="title"
@@ -37,14 +37,14 @@
                         </div>
 
                         <div class="col mt-5 mb-5">
-                            <label for="active" class="form-label">وضعیت کالا</label>
-                            <select name="is_active" id="active" class="form-select">
+                            <label for="status" class="form-label">وضعیت کالا</label>
+                            <select name="status" id="status" class="form-select">
                                 <option>انتخاب کنید...</option>
-                                <option value="1" @if( old('is_active') == 1) selected @endif >{{ __('messages.published') }}</option>
-                                <option value="0" @if( old('is_active') == 0) selected @endif >{{ __('messages.unpublished') }}</option>
+                                <option value="1" >{{ __('messages.published') }}</option>
+                                <option value="0">{{ __('messages.unpublished') }}</option>
 
                             </select>
-                            @error('is_active')
+                            @error('status')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
                             </div>
@@ -67,7 +67,7 @@
                         <div class="col mt-5 mb-5">
                             <label for="category-select" class="form-label">انتخاب دسته بندی</label>
                             <select class="category-select form-select" multiple id="category-select" name="categories[]">
-                                @foreach($categories as $category)
+                                @foreach( $categories as $category)
                                     <option value="{{ $category->id }}" {{ (collect(old("categories"))->contains($category->id)  ? "selected":"") }} >{{ $category->title_persian }}</option>
                                 @endforeach
                             </select>
@@ -128,7 +128,7 @@
                         {{--  image section  --}}
                         <div class="row d-flex flex-column justify-content-center align-content-center product-image">
                             <div class="col-lg-8">
-                                <img src="{{ asset('dash/images/no-image-icon-23494.png') }}"
+                                <img src="{{ asset('admin_assets/images/no-image-icon-23494.png') }}"
                                      id="image_view"
                                      class="img-thumbnail"
                                      height="300" width="300"
@@ -180,10 +180,10 @@
                 <div class="row my-4 mx-2">
                     <div class="col d-flex justify-content-start">
                         <div>
-                            <button type="submit" class="btn btn-success">ذخیره</button>
+                            <button type="submit" class="btn btn-primary">{{ __('messages.save') }}</button>
                         </div>
                         <div class="ms-2">
-                            <a href="{{ route('admin.product.index') }}" class="btn btn-secondary">لیست محصولات</a>
+                            <a href="{{ route('admin.product.index') }}" class="btn btn-secondary">{{ __('messages.products') }}</a>
                         </div>
                     </div>
                 </div>
