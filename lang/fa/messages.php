@@ -23,6 +23,7 @@ return [
     'not_confirmed' => 'تایید نشده',
     'confirm_status' => 'وضعیت تایید',
     'published' => 'منتشر شده',
+    'publish_date'=> 'تاریخ انتشار',
     'unpublished' => 'منتشر نشده',
     'active' => 'فعال',
     'deactivate' => 'غیر فعال',

@@ -31,7 +31,7 @@
                             <th class="text-muted">{{ __('messages.id') }} </th>
                             <th  class="text-muted">{{ __('messages.title')}}</th>
                             <th  class="text-muted">{{ __('messages.slug') }}</th>
-                            <th  class="text-muted">{{ __('messages.status') }}</th>
+                            <th  class="text-muted">{{ __('messages.publish_date') }}</th>
                             <th  class="text-muted">{{ __('messages.image')}}</th>
                             <th  class="text-muted">{{ __('messages.status')}}</th>
                             <th  class="text-muted">{{ __('messages.edit_model')}}</th>
