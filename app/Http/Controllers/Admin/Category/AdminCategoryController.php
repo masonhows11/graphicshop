@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\Category;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CreateCategoryRequest;
+use App\Http\Requests\Admin\EditCategoryRequest;
 use App\Models\Category;
 use App\Services\image\ImageServiceSave;
 use Illuminate\Http\Request;
@@ -17,39 +19,27 @@ class AdminCategoryController extends Controller
         return view('admin.category.create', ['categories' => $categories]);
     }
 
-    public function store(Request $request)
+    public function store(CreateCategoryRequest $request)
     {
-
-        $request->validate([
-            'title' => ['required', 'unique:categories', 'min:2', 'max:30'],
-            'slug' => ['required', 'unique:categories','min:2', 'max:30'],
-            'status' => ['required'],
-            'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
-        ]);
-
         try {
-
             $category = new Category();
-
             if ($request->hasFile('image_path')) {
                 $imageSave = new ImageServiceSave();
                 $image_path = $imageSave->customSavePublicPath($request->image_path, 'category');
                 $category->image_path = $image_path;
 
             }
-
             if ($request->has('parent')) {
                 $category->parent_id = $request->parent;
             }
             $category->title = $request->title;
             $category->status = $request->status;
             $category->slug = $request->slug;
-
             $category->save();
+
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.category.index');
         } catch (\Exception $ex) {
-            return $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
 
@@ -63,16 +53,16 @@ class AdminCategoryController extends Controller
         return view('admin.category.edit', ['category' => $category, 'categories' => $categories]);
     }
 
-    public function update(Request $request)
+    public function update(EditCategoryRequest $request)
     {
         $category = Category::findOrFail($request->id);
 
-        $request->validate([
+      /*  $request->validate([
             'title' => ['required',Rule::unique('categories')->ignore($category->id), 'min:2', 'max:30'],
             'slug' => ['required',Rule::unique('categories')->ignore($category->id),'min:2', 'max:30'],
             'status' => ['required'],
             'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
-        ]);
+        ]);*/
 
         try {
 

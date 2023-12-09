@@ -23,8 +23,8 @@ class EditCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required',Rule::unique('categories')->ignore($this->id), 'min:2', 'max:30'],
-            'slug' => ['required',Rule::unique('categories')->ignore($category->id),'min:2', 'max:30'],
+            'title' => ['required',Rule::unique('categories','title')->ignore($this->request->get('id')), 'min:2', 'max:30'],
+            'slug' => ['required',Rule::unique('categories','slug')->ignore($this->request->get('id')),'min:2', 'max:30'],
             'status' => ['required'],
             'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
         ];

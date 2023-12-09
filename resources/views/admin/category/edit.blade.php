@@ -15,6 +15,7 @@
                   enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{ $category->id }}">
+
                 <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10" data-select2-id="select2-data-131-q2wc">
                     @if( $category->image_path != null )
                         <div class="card card-flush py-1">
