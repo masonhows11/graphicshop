@@ -21,12 +21,12 @@
                     <div class="col-sm-4 mt-5 mb-5">
 
                         <div class="col mt-5 mb-5">
-                            <label for="title_persian" class="form-label">عنوان کالا </label>
+                            <label for="title" class="form-label">عنوان کالا </label>
                             <input type="text"
                                    class="form-control"
-                                   id="title_persian"
+                                   id="title"
                                    placeholder=""
-                                   name="title_persian"
+                                   name="title"
                                    value="{{ $product->title}}">
                             @error('title')
                             <div class="alert alert-danger mt-3">
@@ -34,21 +34,7 @@
                             </div>
                             @enderror
                         </div>
-                        <div class="col mt-5 mb-5">
-                            <label for="title_english" class="form-label">عنوان کالا ( انگلیسی )</label>
-                            <input type="text"
-                                   dir="ltr"
-                                   class="form-control"
-                                   id="title_english"
-                                   placeholder=""
-                                   name="title_english"
-                                   value="{{ $product->title_english }}">
-                            @error('title_english')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
+
                         <div class="col mt-5 mb-5">
                             <label for="active" class="form-label">وضعیت نمایش کالا</label>
                             <select name="is_active" id="active" class="form-select">

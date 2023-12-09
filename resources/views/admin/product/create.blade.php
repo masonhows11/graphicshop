@@ -22,34 +22,20 @@
                     <div class="col-sm-4 mt-5 mb-5">
 
                         <div class="col mt-5 mb-5">
-                            <label for="title_persian" class="form-label">عنوان کالا ( فارسی )</label>
+                            <label for="title" class="form-label">عنوان کالا ( فارسی )</label>
                             <input type="text"
                                    class="form-control"
-                                   id="title_persian"
+                                   id="title"
                                    placeholder=""
-                                   name="title_persian"
-                                   value="{{ old('title_persian') }}">
-                            @error('title_persian')
+                                   name="title"
+                                   value="{{ old('title') }}">
+                            @error('title')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
-                        <div class="col mt-5 mb-5">
-                            <label for="title_english" class="form-label">عنوان کالا ( انگلیسی )</label>
-                            <input type="text"
-                                   dir="ltr"
-                                   class="form-control"
-                                   id="title_english"
-                                   placeholder=""
-                                   name="title_english"
-                                   value="{{ old('title_english') }}">
-                            @error('title_english')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
+
                         <div class="col mt-5 mb-5">
                             <label for="active" class="form-label">وضعیت کالا</label>
                             <select name="is_active" id="active" class="form-select">
@@ -64,23 +50,7 @@
                             </div>
                             @enderror
                         </div>
-                        <div class="col mt-5 mb-5">
-                            <label for="brands" class="form-label">برند کالا</label>
-                            <select name="brand_id" class="form-select" id="brands">
-                                <option>انتخاب کنید...</option>
-                                @foreach($brands as $brand)
-                                    <option value="{{ $brand->id }}"
-                                            @if(old('brand_id') == $brand->id) selected @endif >
-                                        {{ $brand->title_persian }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('brand_id')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
+
                         <div class="col mt-5 mb-5">
                             <label for="product_tags" class="form-label">تگ ها</label>
                             <input type="hidden" name="product_tags" id="product_tags"
@@ -109,78 +79,12 @@
                             @enderror
                         </div>
 
-                        <div class="col mt-5 mb-5">
-                            <label for="marketable" class="form-label">قابل فروش بودن</label>
-                            <select class="form-select" id="marketable" name="marketable">
-
-                                <option value="1" @if( old('marketable') == 1) selected @endif >بله</option>
-                                <option value="0" @if( old('marketable') == 0) selected @endif >خیر</option>
-                            </select>
-
-                            @error('marketable')
-                            <div class="my-5 alert alert-danger">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
 
                     </div>
 
                     <div class="col-sm-4 mt-5 mb-5">
 
-                        <div class="col mt-5 mb-5">
-                            <label for="weight" class="form-label">وزن</label>
-                            <input type="number" dir="ltr" min="1" class="form-control" id="weight" name="weight"
-                                   value="{{ old('weight') }}">
-                            @error('weight')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
 
-                        <div class="col mt-5 mb-5">
-                            <label for="length" class="form-label">طول</label>
-                            <input type="number" dir="ltr" min="1" class="form-control" id="length" name="length"
-                                   value="{{ old('length') }}">
-                            @error('length')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                        <div class="col mt-5 mb-5">
-                            <label for="width" class="form-label">عرض</label>
-                            <input type="number" dir="ltr" min="1" class="form-control" id="width" name="width"
-                                   value="{{ old('width') }}">
-                            @error('width')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                        <div class="col mt-5 mb-5">
-                            <label for="height" class="form-label">ارتفاع</label>
-                            <input type="number" dir="ltr" min="1" class="form-control" id="height" name="height"
-                                   value="{{ old('height') }}">
-                            @error('height')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                        <div class="col mt-5 mb-5">
-                            <label for="available_in_stock" class="form-label">تعداد</label>
-                            <input type="text" class="form-control" id="available_in_stock" name="available_in_stock" value="{{ old('available_in_stock') }}">
-                            @error('available_in_stock')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
 
                         <div class="col mt-5 mb-5">
                             <label for="sku" class="form-label">شناسه محصول (SKU)</label>
@@ -193,10 +97,10 @@
                         </div>
 
                         <div class="col mt-5 mb-5">
-                            <label for="origin_price" class="form-label">{{ __('messages.origin_price') }}</label>
-                            <input type="number" dir="ltr" min="1" class="form-control" id="origin_price"
-                                   name="origin_price" value="{{ old('origin_price') }}">
-                            @error('origin_price')
+                            <label for="price" class="form-label">{{ __('messages.price') }}</label>
+                            <input type="number" dir="ltr" min="1" class="form-control" id="price"
+                                   name="price" value="{{ old('price') }}">
+                            @error('price')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
                             </div>
