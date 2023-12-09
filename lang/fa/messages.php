@@ -63,6 +63,7 @@ return [
     'discount' => 'در صد تخفیف',
     'maximum_orders' => 'حداکثر تعداد سفارش',
     'thumbnail_image' => 'تصویر شاخص',
+    'preview_image' => 'پیش نمایش',
     'in_stock' => 'تعداد در انبار',
     'You_can_choose_up_to_4_images' => 'حداکثر 4 تصویر می تونید برای کالا انتخاب کنید.',
     'First_save_the_basic_product_information' => 'ابتدا اطلاعت پایه محصول را  ذخیره کنید.',
