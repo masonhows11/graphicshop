@@ -153,17 +153,7 @@
 
                 <div class="row product-description mx-2">
 
-                    <div class="col-sm mt-5">
-                        <label for="short_description" class="mb-5">چکیده</label>
-                        <textarea class="form-control mt-5" id="short_description" name="short_description">
-                            {{ old('short_description') }}
-                           </textarea>
-                        @error('short_description')
-                        <div class="alert alert-danger mt-3">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
+
                     <div class="col-sm mt-5">
                         <label for="full_description" class="mb-5">توضیحات</label>
                         <textarea class="form-control mt-5" id="full_description" name="full_description">
@@ -209,11 +199,7 @@
             src="{{ asset('dash/plugins/jalalidatepicker/dist/js/persian-datepicker.min.js')  }}"></script>
     <script type="javascript" src="{{ asset('dash/plugins/select2/js/select2.min.js') }}"></script>
     <script>
-        CKEDITOR.replace('full_description', {
-            language: 'fa',
-            removePlugins: 'image',
-        });
-        CKEDITOR.replace('short_description', {
+        CKEDITOR.replace('description', {
             language: 'fa',
             removePlugins: 'image',
         });
