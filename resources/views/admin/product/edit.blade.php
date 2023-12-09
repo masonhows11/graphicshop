@@ -63,20 +63,7 @@
                             </div>
                             @enderror
                         </div>
-                        <div class="col mt-5 mb-5">
-                            <label for="brands" class="form-label">برند کالا</label>
-                            <select name="brand_id" class="form-select" id="brands">
-                                @foreach($brands as $brand)
-                                    <option value="{{ $brand->id }}"
-                                            @if(old('brands',$product->brand_id) == $brand->id) selected @endif >{{ $brand->title_persian }}</option>
-                                @endforeach
-                            </select>
-                            @error('brand')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
+
                         <div class="col mt-5 mb-5">
                             <label for="product_tags" class="form-label">تگ ها</label>
                             <input type="hidden" name="product_tags" id="product_tags"
@@ -110,78 +97,13 @@
                         </div>
 
 
-                        <div class="col mt-5 mb-5">
-                            <label for="marketable" class="form-label">قابل فروش بودن</label>
-                            <select class="form-select" id="marketable" name="marketable">
 
-                                <option value="1" {{ $product->marketable == 1 ? 'selected' : '' }} >بله</option>
-                                <option value="0" {{ $product->marketable == 0 ? 'selected' : '' }} >خیر</option>
-                            </select>
-
-                            @error('marketable')
-                            <div class="my-5 alert alert-danger">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
 
                     </div>
 
                     <div class="col-sm-4 mt-5 mb-5">
 
-                        <div class="col mt-5 mb-5">
-                            <label for="weight" class="form-label">وزن</label>
-                            <input type="number" dir="ltr" min="1" class="form-control" id="weight" name="weight"
-                                   value="{{ $product->weight  }}">
-                            @error('weight')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
 
-                        <div class="col mt-5 mb-5">
-                            <label for="length" class="form-label">طول</label>
-                            <input type="number" dir="ltr" min="1" class="form-control" id="length" name="length"
-                                   value="{{ $product->length }}">
-                            @error('length')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                        <div class="col mt-5 mb-5">
-                            <label for="width" class="form-label">عرض</label>
-                            <input type="number" dir="ltr" min="1" class="form-control" id="width" name="width"
-                                   value="{{ $product->width }}">
-                            @error('width')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                        <div class="col mt-5 mb-5">
-                            <label for="height" class="form-label">ارتفاع</label>
-                            <input type="number" dir="ltr" min="1" class="form-control" id="height" name="height"
-                                   value="{{ $product->height }}">
-                            @error('height')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                        <div class="col mt-5 mb-5">
-                            <label for="available_in_stock" class="form-label">تعداد</label>
-                            <input type="text" class="form-control" id="available_in_stock" name="available_in_stock" value="{{ $product->available_in_stock }}">
-                            @error('available_in_stock')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
 
                         <div class="col mt-5 mb-5">
                             <label for="sku" class="form-label">شناسه محصول (SKU)</label>
@@ -197,8 +119,8 @@
                         <div class="col mt-5 mb-5">
                             <label for="origin_price" class="form-label">{{ __('messages.origin_price') }}</label>
                             <input type="number" dir="ltr" min="1" class="form-control" id="origin_price"
-                                   name="origin_price" value="{{ $product->origin_price }}">
-                            @error('origin_price')
+                                   name="origin_price" value="{{ $product->price }}">
+                            @error('price')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
                             </div>
@@ -248,7 +170,7 @@
                     <div class="col-sm mt-5">
                         <label for="short_description" class="mb-5">چکیده</label>
                         <textarea class="form-control mt-5" id="short_description" name="short_description">
-                            {{ $product->short_description }}
+                            {{ $product->description }}
                            </textarea>
                         @error('short_description')
                         <div class="alert alert-danger mt-3">
@@ -257,27 +179,17 @@
                         @enderror
                     </div>
                     <div class="col-sm mt-5">
-                        <label for="full_description" class="mb-5">توضیحات</label>
-                        <textarea class="form-control mt-5" id="full_description" name="full_description">
-                            {{ $product->full_description }}
+                        <label for="description" class="mb-5">توضیحات</label>
+                        <textarea class="form-control mt-5" id="description" name="description">
+                            {{ $product->description }}
                             </textarea>
-                        @error('full_description')
+                        @error('description')
                         <div class="alert alert-danger mt-3">
                             {{ $message }}
                         </div>
                         @enderror
                     </div>
-                    <div class="col-sm mt-5">
-                        <label for="seo_desc" class="mb-5">توضیحات سئو</label>
-                        <textarea class="form-control" rows="8" dir="rtl" name="seo_desc" id="seo_desc">
-                            {{ $product->seo_desc }}
-                            </textarea>
-                        @error('seo_desc')
-                        <div class="alert alert-danger mt-3">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
+
                 </div>
                 <div class="row my-4 mx-2">
                     <div class="col d-flex justify-content-start">
@@ -301,11 +213,7 @@
             src="{{ asset('dash/plugins/jalalidatepicker/dist/js/persian-datepicker.min.js')  }}"></script>
     <script type="javascript" src="{{ asset('dash/plugins/select2/js/select2.min.js') }}"></script>
     <script>
-        CKEDITOR.replace('full_description', {
-            language: 'fa',
-            removePlugins: 'image',
-        });
-        CKEDITOR.replace('short_description', {
+        CKEDITOR.replace('description', {
             language: 'fa',
             removePlugins: 'image',
         });
