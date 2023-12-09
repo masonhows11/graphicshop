@@ -7,7 +7,7 @@
     @endsection
     <div class="container-fluid">
 
-        <div class="row my-4 bg-white">
+        <div class="row my-4 bg-white rounded-3">
             <div class="col  my-4">
                     <h3 class="h3 my-4"> {{ __('messages.categories') }}</h3>
             </div>
@@ -23,23 +23,20 @@
             </div>
         </div>
 
-
-
-
-        <div class="row  category-list bg-white">
+        <div class="row  category-list bg-white rounded-3">
             <div class="my-5">
                 <table class="table table-striped">
-                    <thead class="border-bottom-3 border-top-3">
+                    <thead class="">
                     <tr class="text-center">
-                        <th>{{ __('messages.id') }} </th>
-                        <th>{{ __('messages.title')}}</th>
-                        <th>{{ __('messages.slug') }}</th>
-                        <th>{{ __('messages.category_parent')}}</th>
-                        <th>{{ __('messages.image')}}</th>
-                        <th>{{ __('messages.status')}}</th>
-                        <th>{{ __('messages.Detach')}}</th>
-                        <th>{{ __('messages.edit_model')}}</th>
-                        <th>{{ __('messages.delete_model')}}</th>
+                        <th class="text-muted">{{ __('messages.id') }} </th>
+                        <th  class="text-muted">{{ __('messages.title')}}</th>
+                        <th  class="text-muted">{{ __('messages.slug') }}</th>
+                        <th  class="text-muted">{{ __('messages.category_parent')}}</th>
+                        <th  class="text-muted">{{ __('messages.image')}}</th>
+                        <th  class="text-muted">{{ __('messages.status')}}</th>
+                        <th  class="text-muted">{{ __('messages.detach')}}</th>
+                        <th  class="text-muted">{{ __('messages.edit_model')}}</th>
+                        <th  class="text-muted">{{ __('messages.delete_model')}}</th>
                     </tr>
                     </thead>
                     <tbody>

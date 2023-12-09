@@ -102,7 +102,6 @@ class AdminCategoryController extends Controller
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.category.index');
         } catch (\Exception $ex) {
-            return $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
 
