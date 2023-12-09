@@ -22,7 +22,7 @@ class AdminCategoryController extends Controller
 
         $request->validate([
             'title' => ['required', 'unique:categories', 'min:2', 'max:30'],
-            'slug' => ['required', 'min:2', 'max:30'],
+            'slug' => ['required', 'unique:categories','min:2', 'max:30'],
             'status' => ['required'],
             'avatar_remove' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
         ]);
@@ -49,6 +49,7 @@ class AdminCategoryController extends Controller
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.category.index');
         } catch (\Exception $ex) {
+            return $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
 
@@ -64,21 +65,20 @@ class AdminCategoryController extends Controller
 
     public function update(Request $request)
     {
-       // dd($request);
+        $category = Category::findOrFail($request->id);
+
         $request->validate([
-            'title' => ['required', 'min:2', 'max:30'],
-            'slug' => ['required', 'min:2', 'max:30'],
+            'title' => ['required',Rule::unique('categories')->ignore($category->id), 'min:2', 'max:30'],
+            'slug' => ['required',Rule::unique('categories')->ignore($category->id),'min:2', 'max:30'],
             'status' => ['required'],
             'avatar_remove' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
         ]);
 
         try {
 
-            //dd($request->image_path);
-            $category = Category::findOrFail($request->id);
 
             if ($request->hasFile('image_path')) {
-                // dd($request->image_path );
+
                 if ($category->image_path != null) {
                     ImageServiceSave::deleteOldPublicImage($category->image_path);
                     $imageSave = new ImageServiceSave();
@@ -102,6 +102,7 @@ class AdminCategoryController extends Controller
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.category.index');
         } catch (\Exception $ex) {
+            return $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
 

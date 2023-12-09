@@ -10,7 +10,8 @@ use Spatie\Sluggable\SlugOptions;
 
 class Category extends Model
 {
-    use HasFactory,HasRecursiveRelationships,HasPersianSlug;
+    //use HasPersianSlug;
+    use HasFactory,HasRecursiveRelationships;
 
     protected $table = 'categories';
     protected $fillable = ['title',

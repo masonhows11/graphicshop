@@ -248,6 +248,7 @@ return [
         'subject' => 'عنوان',
         'priority' => 'اولویت',
         'available_in_stock' => 'موجود در انبار',
+        'slug' => 'نامک',
 
 
     ],
