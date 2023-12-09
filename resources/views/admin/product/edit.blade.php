@@ -81,14 +81,31 @@
                             </div>
                             @enderror
                         </div>
-
-
-
-
+                        
                     </div>
 
                     <div class="col-sm-4 mt-5 mb-5">
 
+                        <div class="col mt-5 mb-5">
+                            <label for="demo_url" class="form-label">تصویر محصول</label>
+                            <input type="file" class="form-control" id="demo_url" name="demo_url" value="{{ old('demo_url') }}">
+                            @error('demo_url')
+                            <div class="alert alert-danger mt-3">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+
+                        <div class="col mt-5 mb-5">
+                            <label for="source_url" class="form-label">فایل اصلی</label>
+                            <input type="file" class="form-control" id="source_url" name="source_url" value="{{ old('source_url') }}">
+                            @error('sku')
+                            <div class="alert alert-danger mt-3">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
 
 
                         <div class="col mt-5 mb-5">
