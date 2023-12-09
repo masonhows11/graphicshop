@@ -48,18 +48,20 @@
                                 <td><img class="img-thumbnail" src="{{ $product->image_path ?
                                               asset($product->image_path) :
                                               asset('admin_assets/images/no-image-icon-23494.png')  }}"
-                                         width="60" height="60" alt="image_category">
+                                              width="60" height="60" alt="image_category">
                                 </td>
                                 <td><a href="#" wire:click.prevent="changeState({{ $product->id }})"
                                        class="mx-4 btn btn-sm {{ $product->status === 0 ? 'btn-danger' : 'btn-success' }} ">
                                         {{ $product->status === 0 ? __('messages.deactivate') : __('messages.active') }}
                                     </a>
                                 </td>
-                                <td><a href="{{ route('admin.product.edit',['id'=>$product->id]) }}" class="mx-4">
+                                <td>
+                                    <a href="{{ route('admin.product.edit',['id'=>$product->id]) }}" class="mx-4">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
-                                <td><a href="#" wire:click.prevent="deleteConfirmation({{ $product->id }})">
+                                <td>
+                                    <a href="#" wire:click.prevent="deleteConfirmation({{ $product->id }})">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>

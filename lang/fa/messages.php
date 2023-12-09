@@ -3,7 +3,7 @@
 
 return [
     'site_name' => 'خرید خوب',
-    'site_name_english' => 'goodshop.ir',
+    'site_name_english' => 'grapichshop.ir',
     'good_shopping_online_store' => 'فروشگاه اینترنتی خرید خوب',
     'home_page' => 'صفحه اصلی سایت',
     'admin_dashboard' => 'پنل مدیریت',
