@@ -303,26 +303,26 @@
                                 </svg>
                             </span>
                         </span>
-                        <span class="menu-title">مدیریت فایل ها</span>
+                        <span class="menu-title">مدیریت محصولات</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.product.index' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.product.index') }}--}}">
+                                href="{{ route('admin.product.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">لیست فایل ها</span>
+                                <span class="menu-title">لیست محصولات</span>
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.product.create.basic' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.product.create.basic') }}--}}">
+                            <a class="menu-link {{ $route === 'admin.product.create' ? 'active' : '' }}"
+                                href="{{ route('admin.product.create') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">اپلود فایل جدید</span>
+                                <span class="menu-title">اپلود محصول جدید</span>
                             </a>
                         </div>
                     </div>

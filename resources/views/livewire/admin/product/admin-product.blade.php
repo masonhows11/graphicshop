@@ -9,11 +9,11 @@
 
             <div class="row my-4 bg-white rounded-3">
                 <div class="col  my-4">
-                    <h3 class="h3 my-4"> {{ __('messages.categories') }}</h3>
+                    <h3 class="h3 my-4"> {{ __('messages.products') }}</h3>
                 </div>
                 <div class="col d-flex justify-content-end my-4">
                     <div>
-                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary">{{ __('messages.new_category') }}</a>
+                        <a href="{{ route('admin.product.create') }}" class="btn btn-primary">{{ __('messages.new_product') }}</a>
                     </div>
                 </div>
                 <div class="col-12">
@@ -31,7 +31,7 @@
                             <th class="text-muted">{{ __('messages.id') }} </th>
                             <th  class="text-muted">{{ __('messages.title')}}</th>
                             <th  class="text-muted">{{ __('messages.slug') }}</th>
-                            <th class="text-muted">{{ __('messages.published') }}</th>
+                            <th  class="text-muted">{{ __('messages.status') }}</th>
                             <th  class="text-muted">{{ __('messages.image')}}</th>
                             <th  class="text-muted">{{ __('messages.status')}}</th>
                             <th  class="text-muted">{{ __('messages.edit_model')}}</th>

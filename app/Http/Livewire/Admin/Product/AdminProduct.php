@@ -80,6 +80,6 @@ class AdminProduct extends Component
         return view('livewire.admin.product.admin-product')
             ->extends('admin.include.master_dash')
             ->section('dash_main_content')
-            ->with(['products' => Product::all()]);
+            ->with(['products' => Product::paginate(10)]);
     }
 }
