@@ -153,23 +153,25 @@
                 </div>
                 <div class="row product-description mx-2">
 
-                    <div class="col-sm mt-5">
-                        <label for="short_description" class="mb-5">چکیده</label>
-                        <textarea class="form-control mt-5" id="short_description" name="short_description">
-                            {{ $product->description }}
-                           </textarea>
-                        @error('short_description')
-                        <div class="alert alert-danger mt-3">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
+
                     <div class="col-sm mt-5">
                         <label for="description" class="mb-5">توضیحات</label>
                         <textarea class="form-control mt-5" id="description" name="description">
                             {{ $product->description }}
                             </textarea>
                         @error('description')
+                        <div class="alert alert-danger mt-3">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    <div class="col-sm mt-5">
+                        <label for="seo_desc" class="mb-5">توضیحات سئو</label>
+                        <textarea class="form-control" rows="8" dir="rtl" name="seo_desc" id="seo_desc">
+                            {{ $product->seo  }}
+                            </textarea>
+                        @error('seo_desc')
                         <div class="alert alert-danger mt-3">
                             {{ $message }}
                         </div>
@@ -192,11 +194,11 @@
     </div>
 @endsection
 @push('dash_custom_script')
-    <script type="text/javascript" src="{{ asset('dash/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('admin_assets/plugins/ckeditor/ckeditor.js') }}"></script>
     <script type="text/javascript"
-            src="{{ asset('dash/plugins/jalalidatepicker/assets/persian-date.min.js')  }}"></script>
+            src="{{ asset('admin_assets/plugins/jalalidatepicker/assets/persian-date.min.js')  }}"></script>
     <script type="text/javascript"
-            src="{{ asset('dash/plugins/jalalidatepicker/dist/js/persian-datepicker.min.js')  }}"></script>
+            src="{{ asset('admin_assets/plugins/jalalidatepicker/dist/js/persian-datepicker.min.js')  }}"></script>
     <script type="javascript" src="{{ asset('dash/plugins/select2/js/select2.min.js') }}"></script>
     <script>
         CKEDITOR.replace('description', {

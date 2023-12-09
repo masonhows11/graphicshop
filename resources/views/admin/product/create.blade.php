@@ -155,11 +155,11 @@
 
 
                     <div class="col-sm mt-5">
-                        <label for="full_description" class="mb-5">توضیحات</label>
-                        <textarea class="form-control mt-5" id="full_description" name="full_description">
-                            {{ old('full_description') }}
+                        <label for="description" class="mb-5">توضیحات</label>
+                        <textarea class="form-control mt-5" id="description" name="description">
+                            {{ old('description') }}
                             </textarea>
-                        @error('full_description')
+                        @error('description')
                         <div class="alert alert-danger mt-3">
                             {{ $message }}
                         </div>
@@ -192,11 +192,11 @@
     </div>
 @endsection
 @push('dash_custom_script')
-    <script type="text/javascript" src="{{ asset('dash/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('admin_assets/plugins/ckeditor/ckeditor.js') }}"></script>
     <script type="text/javascript"
-            src="{{ asset('dash/plugins/jalalidatepicker/assets/persian-date.min.js')  }}"></script>
+            src="{{ asset('admin_assets/plugins/jalalidatepicker/assets/persian-date.min.js')  }}"></script>
     <script type="text/javascript"
-            src="{{ asset('dash/plugins/jalalidatepicker/dist/js/persian-datepicker.min.js')  }}"></script>
+            src="{{ asset('admin_assets/plugins/jalalidatepicker/dist/js/persian-datepicker.min.js')  }}"></script>
     <script type="javascript" src="{{ asset('dash/plugins/select2/js/select2.min.js') }}"></script>
     <script>
         CKEDITOR.replace('description', {
