@@ -31,9 +31,9 @@ class AdminCategoryController extends Controller
 
             $category = new Category();
 
-            if ($request->hasFile('avatar_remove')) {
+            if ($request->hasFile('image_path')) {
                 $imageSave = new ImageServiceSave();
-                $image_path =  $imageSave->customSavePublicPath($request->avatar_remove,'category');
+                $image_path =  $imageSave->customSavePublicPath($request->image_path,'category');
                 $category->image_path = $image_path;
 
             }
