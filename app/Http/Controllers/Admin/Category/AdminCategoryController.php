@@ -13,16 +13,16 @@ class AdminCategoryController extends Controller
     //
     public function create()
     {
-            $categories = Category::select('id','title')->get();
-            return view('admin.category.create',['categories' => $categories]);
+        $categories = Category::select('id', 'title')->get();
+        return view('admin.category.create', ['categories' => $categories]);
     }
 
     public function store(Request $request)
     {
 
         $request->validate([
-            'title' => ['required','unique:categories','min:2', 'max:30'],
-            'slug' => ['required','min:2', 'max:30'],
+            'title' => ['required', 'unique:categories', 'min:2', 'max:30'],
+            'slug' => ['required', 'min:2', 'max:30'],
             'status' => ['required'],
             'avatar_remove' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
         ]);
@@ -33,21 +33,18 @@ class AdminCategoryController extends Controller
 
             if ($request->hasFile('image_path')) {
                 $imageSave = new ImageServiceSave();
-                $image_path =  $imageSave->customSavePublicPath($request->image_path,'category');
+                $image_path = $imageSave->customSavePublicPath($request->image_path, 'category');
                 $category->image_path = $image_path;
 
             }
 
             if ($request->has('parent')) {
-                $category->title = $request->title;
-                $category->status = $request->status;
-                $category->slug = $request->slug;
                 $category->parent_id = $request->parent;
-            } else {
-                $category->title = $request->title;
-                $category->slug = $request->slug;
-                $category->status = $request->status;
             }
+            $category->title = $request->title;
+            $category->status = $request->status;
+            $category->slug = $request->slug;
+
             $category->save();
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.category.index');
@@ -61,16 +58,16 @@ class AdminCategoryController extends Controller
     {
 
         $category = Category::findOrFail($request->id);
-        $categories = Category::select('id','title')->get();
-        return view('admin.category.edit',['category' => $category,'categories' => $categories]);
+        $categories = Category::select('id', 'title')->get();
+        return view('admin.category.edit', ['category' => $category, 'categories' => $categories]);
     }
 
     public function update(Request $request)
     {
-        //dd($request->avatar_remove);
+       // dd($request);
         $request->validate([
-            'title' => ['required','min:2', 'max:30'],
-            'slug' => ['required','min:2', 'max:30'],
+            'title' => ['required', 'min:2', 'max:30'],
+            'slug' => ['required', 'min:2', 'max:30'],
             'status' => ['required'],
             'avatar_remove' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
         ]);
@@ -80,38 +77,31 @@ class AdminCategoryController extends Controller
             //dd($request->image_path);
             $category = Category::findOrFail($request->id);
 
-            if ($request->hasFile('image_path'))
-            {
-               // dd($request->image_path );
-                if($category->image_path != null) {
+            if ($request->hasFile('image_path')) {
+                // dd($request->image_path );
+                if ($category->image_path != null) {
                     ImageServiceSave::deleteOldPublicImage($category->image_path);
                     $imageSave = new ImageServiceSave();
-                    $image_path =  $imageSave->customSavePublicPath($request->image_path,'category');
+                    $image_path = $imageSave->customSavePublicPath($request->image_path, 'category');
                     $category->image_path = $image_path;
                 }
                 $imageSave = new ImageServiceSave();
-                $image_path =  $imageSave->customSavePublicPath($request->image_path,'category');
+                $image_path = $imageSave->customSavePublicPath($request->image_path, 'category');
                 $category->image_path = $image_path;
-
-
             }
 
-            if ($request->has('parent'))
-            {
-                $category->title = $request->title;
-                $category->status = $request->status;
-                $category->slug = $request->slug;
+            if ($request->has('parent')) {
                 $category->parent_id = $request->parent;
-            } else {
-                $category->title = $request->title;
-                $category->slug = $request->slug;
-                $category->status = $request->status;
             }
+
+            $category->title = $request->title;
+            $category->status = $request->status;
+            $category->slug = $request->slug;
+
             $category->save();
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.category.index');
         } catch (\Exception $ex) {
-            return  $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
 

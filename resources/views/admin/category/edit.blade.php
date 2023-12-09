@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                             <div class="card-body text-center pt-0">
-                                <img src="{{  asset($category->image_path) }}" width="100" height="100" alt="">
+                                <img src="{{  asset($category->image_path) }}" class="img-thumbnail" width="180" height="180" alt="">
                             </div>
                         </div>
                     @else
@@ -107,8 +107,7 @@
                             </div>
                             <div class="mb-10 fv-row fv-plugins-icon-container">
                                 <label for="slug" class="required form-label">{{ __('messages.slug') }}</label>
-                                <input type="text" id="slug" name="slug" class="form-control mb-2"
-                                       placeholder="نامک دسته بندی" value="{{ $category->slug }}">
+                                <input type="text" id="slug" name="slug" class="form-control mb-2" placeholder="نامک دسته بندی" value="{{ $category->slug }}">
                                 @error('slug')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}

@@ -32,7 +32,8 @@
                     <thead class="border-bottom-3 border-top-3">
                     <tr class="text-center">
                         <th>{{ __('messages.id') }} </th>
-                        <th>{{ __('messages.name')}}</th>
+                        <th>{{ __('messages.title')}}</th>
+                        <th>{{ __('messages.slug') }}</th>
                         <th>{{ __('messages.category_parent')}}</th>
                         <th>{{ __('messages.image')}}</th>
                         <th>{{ __('messages.status')}}</th>
@@ -46,6 +47,7 @@
                         <tr class="text-center">
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->title }}</td>
+                            <td>{{ $category->slug }}</td>
                             <td>{{ $category->parent_id ? $category->parent->title : __('messages.main_category') }}</td>
                             <td><img src="{{ $category->image_path ?
                                               asset($category->image_path) :
