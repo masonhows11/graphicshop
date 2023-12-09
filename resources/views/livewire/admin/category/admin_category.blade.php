@@ -48,9 +48,9 @@
                             <td>{{ $category->title }}</td>
                             <td>{{ $category->parent_id ? $category->parent->title : __('messages.main_category') }}</td>
                             <td><img src="{{ $category->image_path ?
-                                              asset('storage/images/category/'.$category->image_path) :
-                                              asset('dash/images/no-image-icon-23494.png')  }}"
-                                     width="100" height="100" alt="image_category">
+                                              asset($category->image_path) :
+                                              asset('admin_assets/images/no-image-icon-23494.png')  }}"
+                                     width="60" height="60" alt="image_category">
                             </td>
                             <td><a href="#" wire:click.prevent="changeState({{ $category->id }})"
                                    class="mx-4 btn btn-sm {{ $category->status === 0 ? 'btn-danger' : 'btn-success' }} ">
