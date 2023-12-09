@@ -101,6 +101,7 @@ return [
     'product_colors' => 'مدیریت رنگها',
     'product_guarantee' => 'گارانتی کالا',
     'new_product' => 'محصول جدید',
+    'edit_product' => 'ویرایش محصول',
     'search_product' => 'جستجوی کالا',
     'choose' => 'انتخاب کنید...',
     'color_code' => 'کد رنگ',

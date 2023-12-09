@@ -1,6 +1,6 @@
 @extends('dash.include.master_dash')
 @section('dash_page_title')
-    ویرایش مشخصات عمومی کالا
+   {{ __('messages.edit_product') }}
 @endsection
 @section('breadcrumb')
         {{--{{ Breadcrumbs::render('admin.edit.product.basic',$product->title_persian) }}--}}
@@ -11,8 +11,7 @@
 
 
         <div class="row product-create-body mx-auto my-5 bg-white">
-            <form action="" method="post" enctype="multipart/form-data"
-                  id="product-form">
+            <form action="{{ route('admin.product.edit') }}" method="post" enctype="multipart/form-data" id="product-form">
                 @csrf
 
                 <div class="row mx-2">
@@ -22,14 +21,14 @@
                     <div class="col-sm-4 mt-5 mb-5">
 
                         <div class="col mt-5 mb-5">
-                            <label for="title_persian" class="form-label">عنوان کالا ( فارسی )</label>
+                            <label for="title_persian" class="form-label">عنوان کالا </label>
                             <input type="text"
                                    class="form-control"
                                    id="title_persian"
                                    placeholder=""
                                    name="title_persian"
-                                   value="{{ $product->title_persian }}">
-                            @error('title_persian')
+                                   value="{{ $product->title}}">
+                            @error('title')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
                             </div>

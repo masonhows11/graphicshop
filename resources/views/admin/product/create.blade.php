@@ -1,6 +1,6 @@
 @extends('admin.include.master_dash')
 @section('dash_page_title')
-    مشخصات عمومی کالا
+    {{ __('messages.new_product') }}
 @endsection
 @push('dash_custom_style')
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/jalalidatepicker/dist/css/persian-datepicker.min.css') }}">
@@ -14,8 +14,7 @@
 
 
         <div class="row product-create-body mx-auto my-5 bg-white">
-            <form action="" method="post" enctype="multipart/form-data"
-                  id="product-form">
+            <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data" id="product-form">
                 @csrf
 
                 <div class="row product-basic-field mx-2">
