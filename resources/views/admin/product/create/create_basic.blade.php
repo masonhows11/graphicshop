@@ -1,12 +1,12 @@
-@extends('dash.include.master_dash')
+@extends('admin.include.master_dash')
 @section('dash_page_title')
     مشخصات عمومی کالا
 @endsection
 @push('dash_custom_style')
-    <link rel="stylesheet" href="{{ asset('dash/plugins/jalalidatepicker/dist/css/persian-datepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin_assets/plugins/jalalidatepicker/dist/css/persian-datepicker.min.css') }}">
 @endpush
 @section('breadcrumb')
-    {{ Breadcrumbs::render('admin.create.product.basic') }}
+    {{--{{ Breadcrumbs::render('admin.create.product.basic') }}--}}
 @endsection
 @section('dash_main_content')
 
@@ -14,7 +14,7 @@
 
 
         <div class="row product-create-body mx-auto my-5 bg-white">
-            <form action="{{ route('admin.product.store.basic') }}" method="post" enctype="multipart/form-data"
+            <form action="" method="post" enctype="multipart/form-data"
                   id="product-form">
                 @csrf
 

@@ -8,7 +8,6 @@ use App\Http\Requests\Admin\EditCategoryRequest;
 use App\Models\Category;
 use App\Services\image\ImageServiceSave;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class AdminCategoryController extends Controller
 {
@@ -47,7 +46,6 @@ class AdminCategoryController extends Controller
 
     public function edit(Request $request)
     {
-
         $category = Category::findOrFail($request->id);
         $categories = Category::select('id', 'title')->get();
         return view('admin.category.edit', ['category' => $category, 'categories' => $categories]);
@@ -56,19 +54,9 @@ class AdminCategoryController extends Controller
     public function update(EditCategoryRequest $request)
     {
         $category = Category::findOrFail($request->id);
-
-      /*  $request->validate([
-            'title' => ['required',Rule::unique('categories')->ignore($category->id), 'min:2', 'max:30'],
-            'slug' => ['required',Rule::unique('categories')->ignore($category->id),'min:2', 'max:30'],
-            'status' => ['required'],
-            'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
-        ]);*/
-
         try {
 
-
             if ($request->hasFile('image_path')) {
-
                 if ($category->image_path != null) {
                     ImageServiceSave::deleteOldPublicImage($category->image_path);
                     $imageSave = new ImageServiceSave();
@@ -83,7 +71,6 @@ class AdminCategoryController extends Controller
             if ($request->has('parent')) {
                 $category->parent_id = $request->parent;
             }
-
             $category->title = $request->title;
             $category->status = $request->status;
             $category->slug = $request->slug;

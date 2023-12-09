@@ -3,15 +3,15 @@
     ویرایش مشخصات عمومی کالا
 @endsection
 @section('breadcrumb')
-        {{ Breadcrumbs::render('admin.edit.product.basic',$product->title_persian) }}
+        {{--{{ Breadcrumbs::render('admin.edit.product.basic',$product->title_persian) }}--}}
 @endsection
 @section('dash_main_content')
-    <link rel="stylesheet" href="{{ asset('dash/plugins/jalalidatepicker/dist/css/persian-datepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin_assets/plugins/jalalidatepicker/dist/css/persian-datepicker.min.css') }}">
     <div class="container-fluid">
 
 
         <div class="row product-create-body mx-auto my-5 bg-white">
-            <form action="{{ route('admin.product.update.basic') }}" method="post" enctype="multipart/form-data"
+            <form action="" method="post" enctype="multipart/form-data"
                   id="product-form">
                 @csrf
 
