@@ -98,7 +98,7 @@
                         <div class="col mt-5 mb-5">
                             <label for="source_url" class="form-label">فایل اصلی</label>
                             <input type="file" class="form-control" id="source_url" name="source_url" value="{{ old('source_url') }}">
-                            @error('sku')
+                            @error('source_url')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
                             </div>
