@@ -24,7 +24,7 @@ class AdminCategoryController extends Controller
             'title' => ['required', 'unique:categories', 'min:2', 'max:30'],
             'slug' => ['required', 'unique:categories','min:2', 'max:30'],
             'status' => ['required'],
-            'avatar_remove' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
+            'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
         ]);
 
         try {
@@ -71,7 +71,7 @@ class AdminCategoryController extends Controller
             'title' => ['required',Rule::unique('categories')->ignore($category->id), 'min:2', 'max:30'],
             'slug' => ['required',Rule::unique('categories')->ignore($category->id),'min:2', 'max:30'],
             'status' => ['required'],
-            'avatar_remove' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
+            'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
         ]);
 
         try {

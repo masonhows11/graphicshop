@@ -46,7 +46,7 @@
                             <td>{{ $category->title }}</td>
                             <td>{{ $category->slug }}</td>
                             <td>{{ $category->parent_id ? $category->parent->title : __('messages.main_category') }}</td>
-                            <td><img src="{{ $category->image_path ?
+                            <td><img class="img-thumbnail" src="{{ $category->image_path ?
                                               asset($category->image_path) :
                                               asset('admin_assets/images/no-image-icon-23494.png')  }}"
                                      width="60" height="60" alt="image_category">
