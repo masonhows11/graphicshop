@@ -348,6 +348,7 @@ return [
 
     'brands' => 'برندها',
     'new_brand' => 'برند جدید',
+    'products' => 'محصولات',
 
     'sliders_management' => 'مدیریت اسلایدرها',
     'slider_product_by_category' => 'اسلایدر محصولات یک دسته بندی',

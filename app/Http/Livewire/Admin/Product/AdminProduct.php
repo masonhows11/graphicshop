@@ -2,12 +2,83 @@
 
 namespace App\Http\Livewire\Admin\Product;
 
+use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AdminProduct extends Component
 {
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
+    public $search = '';
+
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public $delete_id;
+
+    public function deleteConfirmation($id)
+    {
+        $this->delete_id = $id;
+        $this->dispatchBrowserEvent('show-delete-confirmation');
+    }
+
+    protected $listeners = [
+        'deleteConfirmed' => 'deleteCategory',
+    ];
+
+    public function deleteCategory()
+    {
+        $product = Product::findOrFail($this->delete_id);
+
+        try {
+            if ($product->image_path != null) {
+                Storage::disk('public')->delete('/images/product/' . $product->image_path);
+            }
+            $product->delete();
+            $this->dispatchBrowserEvent('show-result',
+                ['type' => 'success',
+                    'message' => __('messages.The_deletion_was_successful')]);
+
+        } catch (\Exception $ex) {
+            session()->flash('error', __('messages.The_desired_record_does_not_exist'));
+        }
+        return null;
+    }
+
+
+    public function changeState($id)
+    {
+        try {
+            $product = Product::findOrFail($id);
+            if ($product->status == 0) {
+                $product->status = 1;
+                $this->status = 1;
+            } else {
+                $product->status = 0;
+                $this->status = 0;
+            }
+            $product->save();
+
+            $this->dispatchBrowserEvent('show-result',
+                ['type' => 'success',
+                    'message' => __('messages.The_changes_were_made_successfully')]);
+        } catch (\Exception $ex) {
+            $this->dispatchBrowserEvent('show-result',
+                ['type' => 'error',
+                    'message' => __('messages.An_error_occurred')]);
+        }
+    }
+
     public function render()
     {
-        return view('livewire.admin.product.admin-product');
+        return view('livewire.admin.product.admin-product')
+            ->extends('admin.include.master_dash')
+            ->section('dash_main_content');
     }
 }

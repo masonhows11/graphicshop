@@ -7,10 +7,12 @@ use App\Http\Controllers\Admin\Auth\AdminValidateController;
 use App\Http\Controllers\Admin\Category\AdminCategoryController;
 use App\Http\Controllers\Front\AboutUs\AboutUsController;
 use App\Http\Controllers\Front\ContactUs\ContactUsController;
+use App\Http\Controllers\Admin\Product\AdminProductController;
 use App\Http\Controllers\HomeController;
 
 
 use App\Http\Livewire\Admin\Category\AdminCategory;
+use App\Http\Livewire\Admin\Product\AdminProduct;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,6 +61,19 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/category/edit/{id}', [AdminCategoryController::class,'edit'])->name('category.edit');
     Route::post('/category/update', [AdminCategoryController::class,'update'])->name('category.update');
+
+
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/product/index', AdminProduct::class)->name('product.index');
+
+    Route::get('/product/create', [AdminProductController::class,'create'])->name('product.create');
+    Route::post('/product/store', [AdminProductController::class,'store'])->name('product.store');
+
+    Route::get('/product/edit/{id}', [AdminProductController::class,'edit'])->name('product.edit');
+    Route::post('/product/update', [AdminProductController::class,'update'])->name('product.update');
 
 
 });
