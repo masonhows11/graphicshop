@@ -25,7 +25,7 @@ class AdminProductController extends Controller
     {
         try {
 
-            dd($request);
+            dd($request->validated());
 
         }catch (\Exception $ex){
 
