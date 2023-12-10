@@ -44,6 +44,20 @@ return [
             'throw' => false,
         ],
 
+        // custom disk
+        'public_storage' => [
+            'driver' => 'local',
+            'root' => public_path(''),
+            'url' => env('APP_URL').'/',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+        'local_storage' => [
+            'driver' => 'local',
+            'root' => storage_path('app/local_storage'),
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
