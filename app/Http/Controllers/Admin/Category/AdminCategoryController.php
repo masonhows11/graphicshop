@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin\Category;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CreateCategoryRequest;
-use App\Http\Requests\Admin\EditCategoryRequest;
+use App\Http\Requests\Admin\Category\CreateCategoryRequest;
+use App\Http\Requests\Admin\Category\EditCategoryRequest;
+
 use App\Models\Category;
 use App\Services\image\ImageServiceSave;
 use Illuminate\Http\Request;

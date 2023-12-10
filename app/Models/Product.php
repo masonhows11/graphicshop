@@ -33,7 +33,7 @@ class Product extends Model
     public function getSlugOptions()
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('title_english')
+            ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
 

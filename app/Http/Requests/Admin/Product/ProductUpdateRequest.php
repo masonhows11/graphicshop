@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Admin\Product;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateCategoryRequest extends FormRequest
+class ProductUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,10 +22,7 @@ class CreateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'unique:categories', 'min:2', 'max:30'],
-            'slug' => ['required', 'unique:categories','min:2', 'max:30'],
-            'status' => ['required'],
-            'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg', 'max:1999'],
+            //
         ];
     }
 }
