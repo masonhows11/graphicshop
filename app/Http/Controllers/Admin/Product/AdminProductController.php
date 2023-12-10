@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Product\ProductStoreRequest;
+use App\Http\Requests\Admin\Product\ProductUpdateRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +21,7 @@ class AdminProductController extends Controller
         return view('admin.product.create',['categories' => $categories]);
     }
 
-    public function store(Request $request)
+    public function store(ProductStoreRequest $request)
     {
         try {
 
@@ -34,7 +36,7 @@ class AdminProductController extends Controller
         return view('admin.product.edit');
     }
 
-    public function update(Request $request)
+    public function update(ProductUpdateRequest $request)
     {
         try {
 

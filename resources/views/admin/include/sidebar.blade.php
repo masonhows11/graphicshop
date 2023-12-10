@@ -322,7 +322,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">اپلود محصول جدید</span>
+                                <span class="menu-title">محصول جدید</span>
                             </a>
                         </div>
                     </div>

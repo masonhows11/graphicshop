@@ -157,7 +157,7 @@
                                 <label for="image_label"
                                        class="mt-5 form-label">{{ __('messages.thumbnail_image') }}</label>
                                 <input type="file" class="form-control" accept="image/png, image/jpeg" id="image_select"
-                                       name="thumbnail_image" value="{{ old('thumbnail_image') }}" readonly>
+                                       name="thumbnail_path" value="{{ old('thumbnail_image') }}" readonly>
                                 @error('thumbnail_image')
                                 <div class="alert alert-danger mt-3">
                                     {{ $message }}
