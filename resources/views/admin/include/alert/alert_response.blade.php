@@ -1,6 +1,21 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
+        window.addEventListener('show-delete-confirmation', event => {
+            Swal.fire({
+                title: 'آیا مطمئن هستید این ایتم حذف شود؟',
+                icon: 'error',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'بله حذف کن!',
+                cancelButtonText: 'خیر',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emit('deleteConfirmed')
+                }
+            });
+        });
         const Toast = Swal.mixin({
             toast: true,
             position: 'top',
