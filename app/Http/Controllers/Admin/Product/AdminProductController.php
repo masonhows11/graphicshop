@@ -25,6 +25,8 @@ class AdminProductController extends Controller
     {
         try {
 
+            dd($request);
+
         }catch (\Exception $ex){
 
         }

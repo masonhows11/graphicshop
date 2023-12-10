@@ -151,14 +151,14 @@
 
                         <div class="row d-flex flex-column justify-content-center align-content-center product-image">
                             <div class="col-lg-8">
-                                <img src="{{ $product->thumbnail_image ?  asset('storage/'.$product->thumbnail_image) :   asset('dash/images/no-image-icon-23494.png') }}"
+                                <img src="{{ $product->thumbnail_path ?  asset('storage/'.$product->thumbnail_path) :   asset('dash/images/no-image-icon-23494.png') }}"
                                      id="image_view" class="img-thumbnail" height="300" width="300" alt="image"></div>
                             <div class="col-lg-8">
-                                <label for="image_label" class="mt-5 form-label">{{ __('messages.thumbnail_image') }}</label>
+                                <label for="image_label" class="mt-5 form-label">{{ __('messages.thumbnail_path') }}</label>
                                 <input type="file" class="form-control" accept="image/png, image/jpeg" id="image_select"
-                                       name="thumbnail_image" value="{{ asset('storage/'.$product->thumbnail_image) }}"
+                                       name="thumbnail_path" value="{{ asset('storage/'.$product->thumbnail_path) }}"
                                        readonly>
-                                @error('thumbnail_image')
+                                @error('thumbnail_path')
                                 <div class="alert alert-danger mt-3">
                                     {{ $message }}
                                 </div>

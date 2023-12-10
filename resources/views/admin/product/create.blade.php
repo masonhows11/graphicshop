@@ -68,7 +68,7 @@
                             <label for="category-select" class="form-label">انتخاب دسته بندی</label>
                             <select class="category-select form-select" multiple id="category-select" name="categories[]">
                                 @foreach( $categories as $category)
-                                    <option value="{{ $category->id }}" {{ (collect(old("categories"))->contains($category->id)  ? "selected":"") }} >{{ $category->title_persian }}</option>
+                                    <option value="{{ $category->id }}" {{ (collect(old("categories"))->contains($category->id)  ? "selected":"") }} >{{ $category->title }}</option>
                                 @endforeach
                             </select>
 
@@ -157,8 +157,8 @@
                                 <label for="image_label"
                                        class="mt-5 form-label">{{ __('messages.thumbnail_image') }}</label>
                                 <input type="file" class="form-control" accept="image/png, image/jpeg" id="image_select"
-                                       name="thumbnail_path" value="{{ old('thumbnail_image') }}" readonly>
-                                @error('thumbnail_image')
+                                       name="thumbnail_path" value="{{ old('thumbnail_path') }}" readonly>
+                                @error('thumbnail_path')
                                 <div class="alert alert-danger mt-3">
                                     {{ $message }}
                                 </div>
