@@ -9,8 +9,8 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use App\Services\image\ImageUploader;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\DB;
 
 
 class AdminProductController extends Controller
@@ -30,7 +30,6 @@ class AdminProductController extends Controller
             $user = User::first();
             $updated = null;
 
-
             $product = Product::create([
                 'title' => $request->title,
                 'description' => $request->description,
@@ -38,9 +37,7 @@ class AdminProductController extends Controller
                 'price' => $request->price,
                 'user_id' => $user->id,
             ]);
-
             $product->categories()->sync($request->categories);
-
             // for upload file
             $basPath = 'products/' . $product->id . '/';
             $sourceImagePath = $basPath . 'source_url' . $request->source_url->getClientOriginalName();
@@ -76,8 +73,8 @@ class AdminProductController extends Controller
 
     public function edit(Product $product)
     {
-        dd($product);
-        return view('admin.product.edit');
+
+        return view('admin.product.edit',['product' => $product]);
     }
 
     public function update(ProductUpdateRequest $request)
