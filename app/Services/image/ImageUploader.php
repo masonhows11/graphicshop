@@ -4,15 +4,24 @@
 namespace App\Services\image;
 
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
 class ImageUploader
 {
-        public static function upload($image,$path,$model)
-        {
+    public static function upload($image, $path, $model)
+    {
 
+    }
+
+    public static function uploadMany(array $images, $path, $disk = 'public_storage')
+    {
+        $images_path = [];
+        foreach ($images as $key => $image) {
+            $fullPath = $path . $key . '_' . $image->getClientOriginalName();
+            Storage::disk($disk)->put($fullPath, File::get($image));
+            $images_path += [ $key => $fullPath];
         }
-
-        public static function uploadMany(array  $images,$path,$disk = 'public_storage')
-        {
-
-        }
+        return $images_path;
+    }
 }
