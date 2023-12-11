@@ -70,7 +70,7 @@
                                     name="categories[]">
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}"{{ in_array($category->id,$category_ids) ? 'selected' : '' }} >
-                                        {{ $category->title_persian }}
+                                        {{ $category->title }}
                                     </option>
                                 @endforeach
                             </select>
@@ -150,10 +150,10 @@
 
                         <div class="row d-flex flex-column justify-content-center align-content-center product-image">
                             <div class="col-lg-8">
-                                <img src="{{ $product->thumbnail_path ?  asset('storage/'.$product->thumbnail_path) :   asset('dash/images/no-image-icon-23494.png') }}"
+                                <img src="{{ $product->thumbnail_path ?  asset($product->thumbnail_path) :   asset('dash/images/no-image-icon-23494.png') }}"
                                      id="image_view" class="img-thumbnail" height="300" width="300" alt="image"></div>
                             <div class="col-lg-8">
-                                <label for="image_label" class="mt-5 form-label">{{ __('messages.thumbnail_path') }}</label>
+                                <label for="image_label" class="mt-5 form-label">{{ __('messages.thumbnail_image') }}</label>
                                 <input type="file" class="form-control" accept="image/png, image/jpeg" id="image_select"
                                        name="thumbnail_path" value="{{ asset('storage/'.$product->thumbnail_path) }}"
                                        readonly>
