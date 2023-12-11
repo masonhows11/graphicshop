@@ -1,4 +1,4 @@
-@extends('dash.include.master_dash')
+@extends('admin.include.master_dash')
 @section('dash_page_title')
    {{ __('messages.edit_product') }}
 @endsection
@@ -53,7 +53,7 @@
                         <div class="col mt-5 mb-5">
                             <label for="product_tags" class="form-label">تگ ها</label>
                             <input type="hidden" name="product_tags" id="product_tags"
-                                   value="{{ old('product_tags',$product->tags) }}">
+                                   value="{{ old('product_tags',$product->product_tags) }}">
                             <select class="form-select" id="product_selected_tags" multiple>
                             </select>
                             @error('product_tags')
@@ -69,8 +69,7 @@
                             <select class="category-select form-select" multiple id="category-select"
                                     name="categories[]">
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->id }}"
-                                        {{ in_array($category->id,$category_ids) ? 'selected' : '' }} >
+                                    <option value="{{ $category->id }}"{{ in_array($category->id,$category_ids) ? 'selected' : '' }} >
                                         {{ $category->title_persian }}
                                     </option>
                                 @endforeach
@@ -202,7 +201,7 @@
                             <button type="submit" class="btn btn-primary">{{ __('messages.save') }}</button>
                         </div>
                         <div class="ms-2">
-                            <a href="{{ route('admin.product.index') }}" class="btn btn-secondary">{{ __('products') }}</a>
+                            <a href="{{ route('admin.product.index') }}" class="btn btn-secondary">{{ __('messages.products') }}</a>
                         </div>
                     </div>
                 </div>
@@ -212,11 +211,9 @@
 @endsection
 @push('dash_custom_script')
     <script type="text/javascript" src="{{ asset('admin_assets/plugins/ckeditor/ckeditor.js') }}"></script>
-    <script type="text/javascript"
-            src="{{ asset('admin_assets/plugins/jalalidatepicker/assets/persian-date.min.js')  }}"></script>
-    <script type="text/javascript"
-            src="{{ asset('admin_assets/plugins/jalalidatepicker/dist/js/persian-datepicker.min.js')  }}"></script>
-    <script type="javascript" src="{{ asset('dash/plugins/select2/js/select2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('admin_assets/plugins/jalalidatepicker/assets/persian-date.min.js')  }}"></script>
+    <script type="text/javascript" src="{{ asset('admin_assets/plugins/jalalidatepicker/dist/js/persian-datepicker.min.js')  }}"></script>
+    <script type="javascript" src="{{ asset('admin_assets/plugins/select2/js/select2.min.js') }}"></script>
     <script>
         CKEDITOR.replace('description', {
             language: 'fa',
