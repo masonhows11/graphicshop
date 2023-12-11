@@ -105,4 +105,9 @@ class AdminProductController extends Controller
 
     }
 
+    public function downloadSourceFile($id)
+    {
+
+    }
+
 }

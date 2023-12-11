@@ -74,7 +74,7 @@
                                 </a>
                             </td>
                             <td>
-                                <a class="btn btn-secondary  p-2" href="{{ route('admin.product.download.demo',$product->id) }}"><i class="fa fa-link p-2"></i></a>
+                                <a class="btn btn-secondary  p-2" href="{{ route('admin.product.download.source',$product->id) }}"><i class="fa fa-link p-2"></i></a>
                             </td>
                             <td>
                                 <a class="btn btn-secondary  p-2" href="{{ route('admin.product.download.demo',$product->id) }}"><i class="fa fa-link p-2"></i></a></td>
