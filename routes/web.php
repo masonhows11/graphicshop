@@ -75,6 +75,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/product/edit/{product}', [AdminProductController::class,'edit'])->name('product.edit');
     Route::post('/product/update', [AdminProductController::class,'update'])->name('product.update');
 
+    Route::get('/product/download/demo/{id}',[AdminProductController::class,'downloadDemoFile'])->name('product.download.demo');
+
 
 });
 

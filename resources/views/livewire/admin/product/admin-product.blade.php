@@ -27,7 +27,7 @@
 
         <div class="row  category-list bg-white rounded-3">
             <div class="my-5">
-                <table class="table table-striped">
+                <table class="table">
                     <thead class="">
                     <tr class="text-center">
                         <th class="text-muted">{{ __('messages.id') }} </th>
@@ -73,8 +73,11 @@
                                     {{ $product->status === 0 ? __('messages.deactivate') : __('messages.active') }}
                                 </a>
                             </td>
-                            <td><a href="#"><i class="fa fa-chain"></i></a></td>
-                            <td><a href="#"><i class="fa fa-chain"></i></a></td>
+                            <td>
+                                <a class="btn btn-secondary  p-2" href="{{ route('admin.product.download.demo',$product->id) }}"><i class="fa fa-link p-2"></i></a>
+                            </td>
+                            <td>
+                                <a class="btn btn-secondary  p-2" href="{{ route('admin.product.download.demo',$product->id) }}"><i class="fa fa-link p-2"></i></a></td>
                             <td>
                                 <a href="{{ route('admin.product.edit',$product) }}" class="mx-4">
                                     <i class="fas fa-edit"></i>

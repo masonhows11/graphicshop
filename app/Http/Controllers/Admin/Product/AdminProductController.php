@@ -94,5 +94,15 @@ class AdminProductController extends Controller
         }
     }
 
+    public function downloadDemoFile($id)
+    {
+        try {
+            $product = Product::findOrfail($id);
+            return  response()->download(public_path($product->demo_url));
+        }catch (\Exception $ex){
+            return view('errors_custom.404_error');
+        }
+
+    }
 
 }
