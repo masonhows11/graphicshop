@@ -45,8 +45,8 @@
                                 <td>{{ $product->title }}</td>
                                 <td>{{ $product->slug }}</td>
                                 <td>{{ customJalaliDate($product->created_at) }}</td>
-                                <td><img class="img-thumbnail" src="{{ $product->image_path ?
-                                              asset($product->image_path) :
+                                <td><img class="img-thumbnail" src="{{ $product->thumbnail_path ?
+                                              asset($product->thumbnail_path) :
                                               asset('admin_assets/images/no-image-icon-23494.png')  }}"
                                               width="60" height="60" alt="image_category">
                                 </td>
