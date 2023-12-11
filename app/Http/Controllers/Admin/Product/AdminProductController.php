@@ -28,10 +28,13 @@ class AdminProductController extends Controller
         try {
 
             $user = User::first();
+            $updated = null;
+
 
             $product = Product::create([
                 'title' => $request->title,
                 'description' => $request->description,
+                'status' => $request->status,
                 'price' => $request->price,
                 'user_id' => $user->id,
             ]);
@@ -57,9 +60,11 @@ class AdminProductController extends Controller
             ]);
 
             if (!$updated) {
-                session()->flash('success', __('messages.An_error_occurred_while_uploading_images'));
+                session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
                 return redirect()->back();
             }
+
+
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.product.index');
         } catch (\Exception $ex) {
