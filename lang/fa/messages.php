@@ -3,7 +3,7 @@
 
 return [
     'site_name' => 'خرید خوب',
-    'site_name_english' => 'grapichshop.ir',
+    'site_name_english' => 'grapicshop.ir',
     'good_shopping_online_store' => 'فروشگاه اینترنتی خرید خوب',
     'home_page' => 'صفحه اصلی سایت',
     'admin_dashboard' => 'پنل مدیریت',
@@ -59,6 +59,7 @@ return [
     'The_category_was_removed_from_its_parent' => 'دسته بندی از والد خود حذف شد.',
     'A_category_cannot_be_its_own_parent' => 'یک دسته بندی نمی تواند والد خودش باشد.',
     'An_error_occurred' => 'خطایی رخ داده',
+    'An_error_occurred_while_uploading_images' => 'خطای هنگام اپلود تصاویر رخ داده',
     'origin_price' => 'قیمت اصلی ',
     'sales_price' => 'قیمت با تخفیف',
     'discount' => 'در صد تخفیف',

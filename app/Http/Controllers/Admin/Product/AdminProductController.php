@@ -50,16 +50,20 @@ class AdminProductController extends Controller
             $images_path = ImageUploader::uploadMany($images, $basPath);
             ImageUploader::upload($request->source_url, $sourceImagePath, 'storage_path');
 
-            $product->update([
-               'thumbnail_path' => $images_path['thumbnail_path'],
+            $updated = $product->update([
+                'thumbnail_path' => $images_path['thumbnail_path'],
                 'demo_url' => $images_path['demo_url'],
                 'source_url' => $sourceImagePath,
             ]);
-            session()->flash('success',__('messages.New_record_saved_successfully'));
-            return  redirect()->route('admin.product.index');
+
+            if (!$updated) {
+                session()->flash('success', __('messages.An_error_occurred_while_uploading_images'));
+                return redirect()->back();
+            }
+            session()->flash('success', __('messages.New_record_saved_successfully'));
+            return redirect()->route('admin.product.index');
         } catch (\Exception $ex) {
-           //  return $ex->getMessage();
-            session()->flash('waring',$ex->getMessage());
+            session()->flash('waring', $ex->getMessage());
             return redirect()->back();
         }
     }
