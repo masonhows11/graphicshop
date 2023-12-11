@@ -11,7 +11,7 @@
 
 
         <div class="row product-create-body mx-auto my-5 bg-white rounded-3">
-            <form action="{{ route('admin.product.edit') }}" method="post" enctype="multipart/form-data" id="product-form">
+            <form action="{{ route('admin.product.update') }}" method="post" enctype="multipart/form-data" id="product-form">
                 @csrf
 
                 <div class="row mx-2">

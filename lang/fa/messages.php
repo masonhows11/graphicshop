@@ -13,6 +13,7 @@ return [
     'owner' => 'مالک طرح',
     'download_link' => 'لینک دانلود',
     'demo_link' => 'لینک دمو',
+    'created_at' => 'تاریخ ایجاد',
 
     'first_name' => 'نام',
     'last_name' => 'نام خانوادگی',

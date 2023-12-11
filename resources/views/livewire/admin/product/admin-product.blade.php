@@ -36,7 +36,7 @@
                         <th class="text-muted">{{ __('messages.slug') }}</th>
                         <th class="text-muted">{{ __('messages.category') }}</th>
                         <th class="text-muted">{{ __('messages.description') }}</th>
-                        <th class="text-muted">{{ __('messages.publish_date') }}</th>
+                        <th class="text-muted">{{ __('messages.created_at') }}</th>
                         <th class="text-muted">{{ __('messages.price') }}</th>
                         <th class="text-muted">{{ __('messages.image')}}</th>
                         <th class="text-muted">{{ __('messages.status')}}</th>
@@ -76,7 +76,7 @@
                             <td><a href="#"><i class="fa fa-chain"></i></a></td>
                             <td><a href="#"><i class="fa fa-chain"></i></a></td>
                             <td>
-                                <a href="{{ route('admin.product.edit',['id'=>$product->id]) }}" class="mx-4">
+                                <a href="{{ route('admin.product.edit',$product) }}" class="mx-4">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </td>

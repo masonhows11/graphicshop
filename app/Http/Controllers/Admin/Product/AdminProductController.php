@@ -74,8 +74,9 @@ class AdminProductController extends Controller
     }
 
 
-    public function edit(Request $request)
+    public function edit(Product $product)
     {
+        dd($product);
         return view('admin.product.edit');
     }
 
