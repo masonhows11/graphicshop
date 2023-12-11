@@ -48,7 +48,7 @@ class AdminProductController extends Controller
             ];
 
             $images_path = ImageUploader::uploadMany($images, $basPath);
-            ImageUploader::upload($request->source_url, $sourceImagePath, 'storage_path');
+            ImageUploader::upload($request->source_url, $sourceImagePath, 'local_storage');
 
             $updated = $product->update([
                 'thumbnail_path' => $images_path['thumbnail_path'],
@@ -63,7 +63,7 @@ class AdminProductController extends Controller
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.product.index');
         } catch (\Exception $ex) {
-            session()->flash('waring', $ex->getMessage());
+            session()->flash('warning', $ex->getMessage());
             return redirect()->back();
         }
     }

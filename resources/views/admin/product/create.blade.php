@@ -86,7 +86,7 @@
 
                         <div class="col mt-5 mb-5">
                             <label for="demo_url" class="form-label">تصویر محصول</label>
-                            <input type="file" class="form-control" id="demo_url" name="demo_url" value="{{ old('demo_url') }}">
+                            <input type="file" class="form-control"  accept="image/png, image/jpeg ,image/webp" id="demo_url" name="demo_url" value="{{ old('demo_url') }}">
                             @error('demo_url')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
@@ -156,7 +156,7 @@
                             <div class="col-lg-8">
                                 <label for="image_label"
                                        class="mt-5 form-label">{{ __('messages.thumbnail_image') }}</label>
-                                <input type="file" class="form-control" accept="image/png, image/jpeg" id="image_select"
+                                <input type="file" class="form-control" accept="image/png, image/jpeg ,image/webp" id="image_select"
                                        name="thumbnail_path" value="{{ old('thumbnail_path') }}" readonly>
                                 @error('thumbnail_path')
                                 <div class="alert alert-danger mt-3">
