@@ -107,7 +107,13 @@ class AdminProductController extends Controller
 
     public function downloadSourceFile($id)
     {
-
+        try {
+            $product = Product::findOrfail($id);
+           // dd(storage_path('app/local_storage/'.$product->source_url));
+            return  response()->download(storage_path('app/local_storage/'.$product->source_url));
+        }catch (\Exception $ex){
+            return view('errors_custom.404_error');
+        }
     }
 
 }
