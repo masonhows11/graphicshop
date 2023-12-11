@@ -119,9 +119,9 @@
                         </div>
 
                         <div class="col mt-5 mb-5">
-                            <label for="origin_price" class="form-label">{{ __('messages.origin_price') }}</label>
-                            <input type="number" dir="ltr" min="1" class="form-control" id="origin_price"
-                                   name="origin_price" value="{{ $product->price }}">
+                            <label for="price" class="form-label">{{ __('messages.price') }}</label>
+                            <input type="number" dir="ltr" min="1" class="form-control" id="price"
+                                   name="price" value="{{ $product->price }}">
                             @error('price')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
@@ -131,12 +131,8 @@
 
                         <div class="col mt-5 mb-5">
                             <label for="published_at" class="form-label">تاریخ انتشار</label>
-
-                            <input type="text" id="published_at" class="d-none form-control form-control-sm"
-                                   name="published_at">
-
-                            <input type="text" id="published_at_view" class="form-control form-control-sm"
-                                   value="{{ $product->published_at }}">
+                            <input type="text" id="published_at" class="d-none form-control form-control-sm" name="published_at">
+                            <input type="text" id="published_at_view" class="form-control form-control-sm" value="{{ $product->published_at }}">
                             @error('published_at')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
@@ -185,7 +181,7 @@
                     <div class="col-sm mt-5">
                         <label for="seo_desc" class="mb-5">توضیحات سئو</label>
                         <textarea class="form-control" rows="8" dir="rtl" name="seo_desc" id="seo_desc">
-                            {{ $product->seo  }}
+                            {{ $product->seo_desc  }}
                             </textarea>
                         @error('seo_desc')
                         <div class="alert alert-danger mt-3">

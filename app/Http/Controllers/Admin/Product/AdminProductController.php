@@ -33,6 +33,7 @@ class AdminProductController extends Controller
             $product = Product::create([
                 'title' => $request->title,
                 'description' => $request->description,
+                'seo_desc' => $request->seo_desc,
                 'product_tags' => $request->product_tags,
                 'status' => $request->status,
                 'price' => $request->price,
@@ -85,6 +86,8 @@ class AdminProductController extends Controller
     public function update(ProductUpdateRequest $request)
     {
         try {
+
+            dd($request);
 
         } catch (\Exception $ex) {
 

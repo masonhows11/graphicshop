@@ -249,6 +249,9 @@ return [
         'priority' => 'اولویت',
         'available_in_stock' => 'موجود در انبار',
         'slug' => 'نامک',
+        'thumbnail_path' => 'تصویر شاخص',
+        'demo_url' => 'تصویر محصول',
+        'source_url' => 'فایل اصلی',
 
 
     ],
