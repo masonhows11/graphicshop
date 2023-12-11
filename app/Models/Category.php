@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use \Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
-use Pishran\LaravelPersianSlug\HasPersianSlug;
-use Spatie\Sluggable\SlugOptions;
+// use Pishran\LaravelPersianSlug\HasPersianSlug;
+// use Spatie\Sluggable\SlugOptions;
 
 class Category extends Model
 {
