@@ -32,11 +32,16 @@
                     <tr class="text-center">
                         <th class="text-muted">{{ __('messages.id') }} </th>
                         <th class="text-muted">{{ __('messages.title')}}</th>
+                        <th class="text-muted">{{ __('messages.owner') }}</th>
                         <th class="text-muted">{{ __('messages.slug') }}</th>
                         <th class="text-muted">{{ __('messages.category') }}</th>
+                        <th class="text-muted">{{ __('messages.description') }}</th>
                         <th class="text-muted">{{ __('messages.publish_date') }}</th>
+                        <th class="text-muted">{{ __('messages.price') }}</th>
                         <th class="text-muted">{{ __('messages.image')}}</th>
                         <th class="text-muted">{{ __('messages.status')}}</th>
+                        <th class="text-muted">{{ __('messages.download_link') }}</th>
+                        <th class="text-muted">{{ __('messages.demo_link') }}</th>
                         <th class="text-muted">{{ __('messages.edit_model')}}</th>
                         <th class="text-muted">{{ __('messages.delete_model')}}</th>
                     </tr>
@@ -46,11 +51,15 @@
                         <tr class="text-center">
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->title }}</td>
+                            <td>{{ $product->owner->name }}</td>
                             <td>{{ $product->slug }}</td>
                             <td>
                                 @foreach( $product->categories as $category)
                                     {{  $category->title  }}
                                 @endforeach
+                            </td>
+                            <td>
+                                {!!  \Illuminate\Support\Str::limit($product->description,20) !!}
                             </td>
                             <td>{{ customJalaliDate($product->created_at) }}</td>
                             <td><img class="img-thumbnail" src="{{ $product->thumbnail_path ?
@@ -58,11 +67,14 @@
                                               asset('admin_assets/images/no-image-icon-23494.png')  }}"
                                      width="60" height="60" alt="image_category">
                             </td>
+                            <td>{{ priceFormat($product->price ) }} {{ __('messages.toman') }}</td>
                             <td><a href="#" wire:click.prevent="changeState({{ $product->id }})"
                                    class="mx-4 btn btn-sm {{ $product->status === 0 ? 'btn-danger' : 'btn-success' }} ">
                                     {{ $product->status === 0 ? __('messages.deactivate') : __('messages.active') }}
                                 </a>
                             </td>
+                            <td><a href="#"><i class="fa fa-chain"></i></a></td>
+                            <td><a href="#"><i class="fa fa-chain"></i></a></td>
                             <td>
                                 <a href="{{ route('admin.product.edit',['id'=>$product->id]) }}" class="mx-4">
                                     <i class="fas fa-edit"></i>

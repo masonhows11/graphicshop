@@ -10,6 +10,9 @@ return [
     'confirmed' => 'تایید شده',
     'wait_for_confirmed' => 'در انتظار تایید',
     'unknown' => 'نامشخص',
+    'owner' => 'مالک طرح',
+    'download_link' => 'لینک دانلود',
+    'demo_link' => 'لینک دمو',
 
     'first_name' => 'نام',
     'last_name' => 'نام خانوادگی',
