@@ -40,16 +40,27 @@ class AdminProductController extends Controller
 
             // for upload file
             $basPath = 'products/' . $product->id . '/';
+            $sourceImagePath = $basPath . 'source_url' . $request->source_url->getClientOriginalName();
+
             $images = [
                 'thumbnail_path' => $request->thumbnail_path,
                 'demo_url' => $request->demo_url,
             ];
-           $images_path =  ImageUploader::uploadMany($images,$basPath);
 
-           dd($images_path);
+            $images_path = ImageUploader::uploadMany($images, $basPath);
+            ImageUploader::upload($request->source_url, $sourceImagePath, 'storage_path');
+
+            $product->update([
+               'thumbnail_path' => $images_path['thumbnail_path'],
+                'demo_url' => $images_path['demo_url'],
+                'source_url' => $sourceImagePath,
+            ]);
+            session()->flash('success',__('messages.New_record_saved_successfully'));
+            return  redirect()->route('admin.product.index');
         } catch (\Exception $ex) {
-
-            return $ex->getMessage();
+           //  return $ex->getMessage();
+            session()->flash('waring',$ex->getMessage());
+            return redirect()->back();
         }
     }
 
