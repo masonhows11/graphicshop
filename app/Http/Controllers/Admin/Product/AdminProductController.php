@@ -94,7 +94,7 @@ class AdminProductController extends Controller
             if($request->hasFile('source_url')){
 
             }
-            
+
 
             if (!$updated) {
                 session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));

@@ -19,15 +19,9 @@
                     <input type="hidden" name="product" value="{{ $product->id }}">
 
                     <div class="col-sm-4 mt-5 mb-5">
-
                         <div class="col mt-5 mb-5">
                             <label for="title" class="form-label">عنوان</label>
-                            <input type="text"
-                                   class="form-control"
-                                   id="title"
-                                   placeholder=""
-                                   name="title"
-                                   value="{{ $product->title}}">
+                            <input type="text" class="form-control" id="title" placeholder="" name="title" value="{{ $product->title}}">
                             @error('title')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
@@ -38,10 +32,8 @@
                         <div class="col mt-5 mb-5">
                             <label for="status" class="form-label">وضعیت نمایش کالا</label>
                             <select name="status" id="status" class="form-select">
-                                <option
-                                    {{ $product->status == 0 ? 'selected' : '' }} value="0">{{ __('messages.unpublished') }}</option>
-                                <option
-                                    {{ $product->status == 1 ? 'selected' : '' }} value="1">{{ __('messages.published') }}</option>
+                                <option {{ $product->status == 0 ? 'selected' : '' }} value="0">{{ __('messages.unpublished') }}</option>
+                                <option {{ $product->status == 1 ? 'selected' : '' }} value="1">{{ __('messages.published') }}</option>
                             </select>
                             @error('status')
                             <div class="alert alert-danger mt-3">
@@ -49,86 +41,6 @@
                             </div>
                             @enderror
                         </div>
-
-                        <div class="col mt-5 mb-5">
-                            <label for="product_tags" class="form-label">تگ ها</label>
-                            <input type="hidden" name="product_tags" id="product_tags"
-                                   value="{{ old('product_tags',$product->product_tags) }}">
-                            <select class="form-select" id="product_selected_tags" multiple>
-                            </select>
-                            @error('product_tags')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-
-                        <div class="col mt-5 mb-5">
-                            <label for="category-select" class="form-label">انتخاب دسته بندی</label>
-                            <select class="category-select form-select" multiple id="category-select"
-                                    name="categories[]">
-                                @foreach($categories as $category)
-                                    <option value="{{ $category->id }}"{{ in_array($category->id,$category_ids) ? 'selected' : '' }} >
-                                        {{ $category->title }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('categories')
-                            <div class="my-5 alert alert-danger">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                    </div>
-
-                    <div class="col-sm-4 mt-5 mb-5">
-
-                        <div class="col mt-5 mb-5">
-                            <label for="demo_url" class="form-label">تصویر محصول</label>
-                            <input type="file" class="form-control" id="demo_url" name="demo_url" value="{{ $product->demo_url  }}">
-                            @error('demo_url')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-
-                        <div class="col mt-5 mb-5">
-                            <label for="source_url" class="form-label">فایل اصلی</label>
-                            <input type="file" class="form-control" id="source_url" name="source_url" value="{{ $product->source_url }}">
-                            @error('source_url')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-
-                        <div class="col mt-5 mb-5">
-                            <label for="sku" class="form-label">شناسه محصول (SKU)</label>
-                            <input type="text" class="form-control" id="sku" name="sku"
-                                   value="{{ $product->sku }}">
-                            @error('sku')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
-                        <div class="col mt-5 mb-5">
-                            <label for="price" class="form-label">{{ __('messages.price') }}</label>
-                            <input type="number" dir="ltr" min="1" class="form-control" id="price"
-                                   name="price" value="{{ $product->price }}">
-                            @error('price')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-
                         <div class="col mt-5 mb-5">
                             <label for="published_at" class="form-label">تاریخ انتشار</label>
                             <input type="text" id="published_at" class="d-none form-control form-control-sm" name="published_at">
@@ -141,8 +53,65 @@
                         </div>
                     </div>
 
-                    {{--  image section  --}}
                     <div class="col-sm-4 mt-5 mb-5">
+                        <div class="col mt-5 mb-5">
+                            <label for="sku" class="form-label">شناسه محصول (SKU)</label>
+                            <input type="text" class="form-control" id="sku" name="sku" value="{{ $product->sku }}">
+                            @error('sku')
+                            <div class="alert alert-danger mt-3">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="col mt-5 mb-5">
+                            <label for="price" class="form-label">{{ __('messages.price') }}</label>
+                            <input type="number" dir="ltr" min="1" class="form-control" id="price" name="price" value="{{ $product->price }}">
+                            @error('price')
+                            <div class="alert alert-danger mt-3">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 mt-5 mb-5">
+                        <div class="col mt-5 mb-5">
+                            <label for="product_tags" class="form-label">تگ ها</label>
+                            <input type="hidden" name="product_tags" id="product_tags" value="{{ old('product_tags',$product->product_tags) }}">
+                            <select class="form-select" id="product_selected_tags" multiple>
+                            </select>
+                            @error('product_tags')
+                            <div class="alert alert-danger mt-3">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+
+                        <div class="col mt-5 mb-5">
+                            <label for="category-select" class="form-label">انتخاب دسته بندی</label>
+                            <select class="category-select form-select" multiple id="category-select" name="categories[]">
+                                @foreach( $categories as $category)
+                                    <option value="{{ $category->id }}"{{ in_array($category->id,$category_ids) ? 'selected' : '' }} >
+                                        {{ $category->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('categories')
+                            <div class="my-5 alert alert-danger">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="row product-image mx-2">
+                    {{--  image section  --}}
+                    <div class="col mt-5 mb-5">
 
                         <div class="row d-flex flex-column justify-content-center align-content-center product-image">
                             <div class="col-lg-8">
@@ -161,8 +130,30 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col mt-5 mb-5">
+                        <label for="demo_url" class="form-label">تصویر محصول</label>
+                        <input type="file" class="form-control" id="demo_url" name="demo_url" value="{{ $product->demo_url  }}">
+                        @error('demo_url')
+                        <div class="alert alert-danger mt-3">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+
+                    <div class="col mt-5 mb-5">
+                        <label for="source_url" class="form-label">فایل اصلی</label>
+                        <input type="file" class="form-control" id="source_url" name="source_url" value="{{ $product->source_url }}">
+                        @error('source_url')
+                        <div class="alert alert-danger mt-3">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
 
                 </div>
+
+
                 <div class="row product-description mx-2">
 
 
