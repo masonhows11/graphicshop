@@ -29,7 +29,7 @@ class EditUserRequest extends FormRequest
             'last_name' => ['nullable', 'min:1', 'max:64', 'string'],
             'email' => ['required','email','min:3', 'max:128',Rule::unique('users')->ignore($this->request->get('id'))],
             'national_code' => ['required', 'min:1', 'max:10', new NationalCode(),Rule::unique('users')->ignore($this->request->get('id'))],
-            'mobile' => ['required','digits:11','unique:users,mobile',Rule::unique('users')->ignore($this->request->get('id'))],
+            'mobile' => ['required','digits:11',Rule::unique('users')->ignore($this->request->get('id'))],
             'role' => ['required','in:user,admin,seller']
         ];
     }

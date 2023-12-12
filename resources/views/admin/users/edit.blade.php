@@ -71,7 +71,11 @@
                                         <span class="required">نام کاربری</span>
                                     </label>
                                     <input type="text" class="form-control form-control-solid" name="name" value="{{ $user->name }}">
-                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                    @error('name')
+                                    <div class="fv-plugins-message-container invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="col">
                                     <div class="fv-row mb-7 fv-plugins-icon-container">
@@ -79,6 +83,11 @@
                                             <span class="required">ایمیل</span>
                                         </label>
                                         <input type="email" class="form-control form-control-solid" name="email" value="{{ $user->email }}">
+                                        @error('email')
+                                        <div class="fv-plugins-message-container invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col">
@@ -87,6 +96,11 @@
                                             <span class="required">تلفن</span>
                                         </label>
                                         <input type="text" class="form-control form-control-solid" name="mobile" value="{{ $user->mobile }}">
+                                        @error('mobile')
+                                        <div class="fv-plugins-message-container invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col">
@@ -94,12 +108,16 @@
                                         <label class="fs-6 fw-semibold form-label mt-3">
                                             <span class="required">نقش</span>
                                         </label>
-                                        <select class="form-control form-control-solid" name="email">
-                                            <option value="">{{ __('messages.choose') }}</option>
+                                        <select class="form-control form-control-solid" name="role">
                                             <option value="user" {{ $user->role == 'user' ? 'selected' : '' }} >کاربر</option>
                                             <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }} >ادمین</option>
                                             <option value="seller" {{ $user->role == 'seller' ? 'selected' : '' }} >طراح یا فروشنده</option>
                                         </select>
+                                        @error('role')
+                                        <div class="fv-plugins-message-container invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +130,11 @@
                                         <span class="required">نام</span>
                                     </label>
                                     <input type="text" class="form-control form-control-solid" name="first_name" value="{{ $user->first_name }}">
-                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                    @error('first_name')
+                                    <div class="fv-plugins-message-container invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="col">
                                     <div class="fv-row mb-7 fv-plugins-icon-container">
@@ -120,6 +142,11 @@
                                             <span class="required">نام خانوادگی</span>
                                         </label>
                                         <input type="text" class="form-control form-control-solid" name="last_name" value="{{ $user->last_name }}">
+                                        @error('last_name')
+                                        <div class="fv-plugins-message-container invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col">
@@ -128,6 +155,11 @@
                                             <span class="required">کد ملی</span>
                                         </label>
                                         <input type="text" class="form-control form-control-solid" name="national_code" value="{{ $user->national_code }}">
+                                        @error('national_code')
+                                        <div class="fv-plugins-message-container invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +169,7 @@
 
                     <div class="separator mb-6"></div>
                     <div class="d-flex justify-content-end">
-                        <button type="{{ route('admin.users.index') }}" data-kt-contacts-type="cancel" class="btn btn-light me-3">{{ __('messages.cancel') }}</button>
+                        <a href="{{ route('admin.users.index') }}"  class="btn btn-light me-3">{{ __('messages.cancel') }}</a>
 
                         <button type="submit" data-kt-contacts-type="submit" class="btn btn-primary">
                             <span class="indicator-label">{{ __('messages.save') }}</span>

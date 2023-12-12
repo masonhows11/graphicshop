@@ -46,10 +46,10 @@ class AdminUsersController extends Controller
         try {
             $user = User::find($request->id);
             $user->update($validatedData);
-            session()->flash('success', __('messages.New_record_saved_successfully'));
+            session()->flash('success', __('messages.The_update_was_completed_successfully'));
             return redirect()->route('admin.users.index');
         } catch (\Exception $ex) {
-            session()->flash('success', __('messages.An_error_occurred_while_created'));
+            session()->flash('success', __('messages.An_error_occurred_while_updated'));
             return redirect()->back();
         }
 
