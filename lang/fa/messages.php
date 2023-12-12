@@ -65,6 +65,7 @@ return [
     'An_error_occurred' => 'خطایی رخ داده',
     'An_error_occurred_while_uploading_images' => 'خطای هنگام اپلود تصاویر رخ داده',
     'An_error_occurred_while_created_product' => 'خطای هنگام ذخیره سازی رخ داده',
+    'An_error_occurred_while_updated_product' => 'خطای هنگام بروز رسانی رخ داده',
     'origin_price' => 'قیمت اصلی ',
     'sales_price' => 'قیمت با تخفیف',
     'discount' => 'در صد تخفیف',

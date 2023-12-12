@@ -43,14 +43,13 @@ class AdminProductController extends Controller
             ]);
             $product->categories()->sync($request->categories);
 
-            return  $this->uploadImages($product,$validatedData);
+            if(!$this->uploadImages($product,$validatedData)){
+                session()->flash('warning', __('messages.An_error_occurred_while_created_product'));
+               return redirect()->back();
+            }
+            session()->flash('success', __('messages.New_record_saved_successfully'));
+            return redirect()->route('admin.product.index');
 
-//            if (!$updated) {
-//                session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
-//                return redirect()->back();
-//            }
-//            session()->flash('success', __('messages.New_record_saved_successfully'));
-//            return redirect()->route('admin.product.index');
         } catch (\Exception $ex) {
             session()->flash('warning',__('messages.An_error_occurred_while_created_product'));
             return redirect()->back();
@@ -87,11 +86,19 @@ class AdminProductController extends Controller
                 'user_id' => $user->id,
             ]);
             $product->categories()->sync($request->categories);
-             return  $this->uploadImages($product,$validatedData);
+
+             if(!$this->uploadImages($product,$validatedData)){
+                 session()->flash('warning', __('messages.An_error_occurred_while_updated_product'));
+                 return redirect()->back();
+             }
+
+            session()->flash('success', __('messages.The_update_was_completed_successfully'));
+            return redirect()->route('admin.product.index');
+
 
         } catch (\Exception $ex) {
-
-            return $ex->getMessage();
+            session()->flash('warning', __('messages.An_error_occurred_while_updated_product'));
+            return redirect()->back();
         }
     }
 
@@ -122,33 +129,41 @@ class AdminProductController extends Controller
         $sourceImagePath = null;
         $data = [];
         $basPath = 'products/' . $createdProduct->id . '/';
-        if (isset($validateData['source_url']))
-        {
-            $sourceImagePath = $basPath . 'source_url_' . $validateData['source_url']->getClientOriginalName();
-            ImageUploader::upload($validateData['source_url'], $sourceImagePath, 'local_storage');
-            $data += ['source_url' => $sourceImagePath];
-        }
-        if (isset($validateData['thumbnail_path']))
-        {
-            $full_path = $basPath . 'thumbnail_path' . '_' . $validateData['thumbnail_path']->getClientOriginalName();
-            ImageUploader::upload($validateData['thumbnail_path'], $full_path,'public_storage');
-            $data += ['thumbnail_path' => $full_path];
 
-        }
-        if (isset($validateData['demo_url']))
-        {
-            $full_path = $basPath . 'demo_url' . '_' . $validateData['demo_url']->getClientOriginalName();
-            ImageUploader::upload($validateData['demo_url'], $full_path,'public_storage');
-            $data += ['demo_url' => $full_path];
+        try {
 
+            if (isset($validateData['source_url']))
+            {
+                $sourceImagePath = $basPath . 'source_url_' . $validateData['source_url']->getClientOriginalName();
+                ImageUploader::upload($validateData['source_url'], $sourceImagePath, 'local_storage');
+                $data += ['source_url' => $sourceImagePath];
+            }
+            if (isset($validateData['thumbnail_path']))
+            {
+                $full_path = $basPath . 'thumbnail_path' . '_' . $validateData['thumbnail_path']->getClientOriginalName();
+                ImageUploader::upload($validateData['thumbnail_path'], $full_path,'public_storage');
+                $data += ['thumbnail_path' => $full_path];
+
+            }
+            if (isset($validateData['demo_url']))
+            {
+                $full_path = $basPath . 'demo_url' . '_' . $validateData['demo_url']->getClientOriginalName();
+                ImageUploader::upload($validateData['demo_url'], $full_path,'public_storage');
+                $data += ['demo_url' => $full_path];
+
+            }
+            $updated = $createdProduct->update($data);
+            if (!$updated) {
+                session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
+                return redirect()->back();
+            }
+            return true;
+            //            session()->flash('success', __('messages.The_update_was_completed_successfully'));
+            //            return redirect()->route('admin.product.index');
+        }catch (\Exception $ex){
+            return false;
         }
-        $updated = $createdProduct->update($data);
-        if (!$updated) {
-            session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
-            return redirect()->back();
-        }
-        session()->flash('success', __('messages.The_update_was_completed_successfully'));
-        return redirect()->route('admin.product.index');
+
     }
 
 }
