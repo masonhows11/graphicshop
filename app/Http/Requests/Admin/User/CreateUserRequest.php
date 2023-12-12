@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin\User;
 
+use App\Rules\NationalCode;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateUserRequest extends FormRequest
@@ -22,7 +23,13 @@ class CreateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['min:3', 'max:64', 'string'],
+            'first_name' => ['min:3', 'max:64', 'string'],
+            'last_name' => ['min:3', 'max:64', 'string'],
+            'email' => ['required','email','min:3', 'max:128','unique:users,email'],
+            'national_code' => ['required', 'min:1', 'max:10', new NationalCode()],
+            'mobile' => ['required','digits:11','unique:users,mobile'],
+            'role' => ['required','in:user,admin,seller']
         ];
     }
 }

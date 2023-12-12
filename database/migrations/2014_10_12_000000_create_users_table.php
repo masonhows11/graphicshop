@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->string('role',255)->nullable();
             $table->string('national_code')->nullable();
             $table->tinyInteger('subscribe_news')->nullable();
             $table->tinyInteger('auth_type')->default(1);

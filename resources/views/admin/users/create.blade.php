@@ -89,6 +89,19 @@
                                         <input type="text" class="form-control form-control-solid" name="mobile" value="">
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <div class="fv-row mb-7 fv-plugins-icon-container">
+                                        <label class="fs-6 fw-semibold form-label mt-3">
+                                            <span class="required">نقش</span>
+                                        </label>
+                                        <select class="form-control form-control-solid" name="email">
+                                            <option value="">{{ __('messages.choose') }}</option>
+                                            <option value="user">کاربر</option>
+                                            <option value="admin">ادمین</option>
+                                            <option value="seller">طراح یا فروشنده</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
