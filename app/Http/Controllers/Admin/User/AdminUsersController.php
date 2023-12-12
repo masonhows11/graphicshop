@@ -15,13 +15,14 @@ class AdminUsersController extends Controller
         return view('admin.users.create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
     }
 
     public function edit(User $user)
     {
-            return view('admin.users.edit');
+        return view('admin.users.edit');
     }
 
     public function update(Request $request)

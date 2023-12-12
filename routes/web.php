@@ -61,7 +61,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/user/create', [AdminUsersController::class,'create'])->name('user.create');
     Route::post('/user/store', [AdminUsersController::class,'store'])->name('user.store');
 
-    Route::get('/user/edit', [AdminUsersController::class,'edit'])->name('user.edit');
+    Route::get('/user/edit/{user}', [AdminUsersController::class,'edit'])->name('user.edit');
     Route::post('/user/update', [AdminUsersController::class,'update'])->name('user.update');
 
 });

@@ -19,6 +19,7 @@ return [
     'last_name' => 'نام خانوادگی',
     'users_management' => 'مدیریت کاربران',
     'new_user' => 'کاربر جدید',
+    'add_new_user' => 'افزودن مخاطب جدید',
     'edit_user' => 'ویرایش کاربر',
 
     'manage_roles' => 'مدیریت نقش ها',

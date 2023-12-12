@@ -108,6 +108,15 @@
                             </a>
                         </div>
                         <div class="menu-item">
+                            <a class="menu-link {{ $route === 'admin.user.create' ? 'active' : '' }}"
+                               href="{{ route('admin.user.create') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">کاربر جدید</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.admins' ? 'active' : '' }}"
                                 href="{{--{{ route('admin.admins') }}--}}">
                                 <span class="menu-bullet">
