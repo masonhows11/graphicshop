@@ -40,23 +40,6 @@ class AdminProductController extends Controller
                 'user_id' => $user->id,
             ]);
             $product->categories()->sync($request->categories);
-            // for upload file
-            $basPath = 'products/' . $product->id . '/';
-            $sourceImagePath = $basPath . 'source_url' . $request->source_url->getClientOriginalName();
-
-            $images = [
-                'thumbnail_path' => $request->thumbnail_path,
-                'demo_url' => $request->demo_url,
-            ];
-
-            $images_path = ImageUploader::uploadMany($images, $basPath);
-            ImageUploader::upload($request->source_url, $sourceImagePath, 'local_storage');
-
-            $updated = $product->update([
-                'thumbnail_path' => $images_path['thumbnail_path'],
-                'demo_url' => $images_path['demo_url'],
-                'source_url' => $sourceImagePath,
-            ]);
 
             if (!$updated) {
                 session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
@@ -111,24 +94,7 @@ class AdminProductController extends Controller
             if($request->hasFile('source_url')){
 
             }
-
-
-            $basPath = 'products/' . $product->id . '/';
-            $sourceImagePath = $basPath . 'source_url' . $request->source_url->getClientOriginalName();
-
-            $images = [
-                'thumbnail_path' => $request->thumbnail_path,
-                'demo_url' => $request->demo_url,
-            ];
-
-            $images_path = ImageUploader::uploadMany($images, $basPath);
-            ImageUploader::upload($request->source_url, $sourceImagePath, 'local_storage');
-
-            $updated = $product->update([
-                'thumbnail_path' => $images_path['thumbnail_path'],
-                'demo_url' => $images_path['demo_url'],
-                'source_url' => $sourceImagePath,
-            ]);
+            
 
             if (!$updated) {
                 session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
@@ -164,6 +130,28 @@ class AdminProductController extends Controller
         }catch (\Exception $ex){
             return view('errors_custom.404_error');
         }
+    }
+
+    private function uploadImages($createdProduct,$validateData)
+    {
+        // for upload file
+        $basPath = 'products/' . $product->id . '/';
+        $sourceImagePath = $basPath . 'source_url' . $request->source_url->getClientOriginalName();
+
+        $images = [
+            'thumbnail_path' => $request->thumbnail_path,
+            'demo_url' => $request->demo_url,
+        ];
+
+        $images_path = ImageUploader::uploadMany($images, $basPath);
+        ImageUploader::upload($request->source_url, $sourceImagePath, 'local_storage');
+
+        $updated = $product->update([
+            'thumbnail_path' => $images_path['thumbnail_path'],
+            'demo_url' => $images_path['demo_url'],
+            'source_url' => $sourceImagePath,
+        ]);
+
     }
 
 }
