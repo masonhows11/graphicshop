@@ -99,8 +99,8 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.users' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.users') }}--}}">
+                            <a class="menu-link {{ $route === 'admin.users.index' ? 'active' : '' }}"
+                                href="{{ route('admin.users.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -188,7 +188,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.category.create' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.category.create') }}--}}">
+                                href="{{ route('admin.category.create') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>

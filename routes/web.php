@@ -5,12 +5,14 @@ use App\Http\Controllers\Admin\Auth\AdminLoginController;
 use App\Http\Controllers\Admin\Auth\AdminProfileController;
 use App\Http\Controllers\Admin\Auth\AdminValidateController;
 use App\Http\Controllers\Admin\Category\AdminCategoryController;
+use App\Http\Controllers\Admin\User\AdminUsersController;
 use App\Http\Controllers\Front\AboutUs\AboutUsController;
 use App\Http\Controllers\Front\ContactUs\ContactUsController;
 use App\Http\Controllers\Admin\Product\AdminProductController;
 use App\Http\Controllers\HomeController;
 
 
+use App\Http\Livewire\Admin\Users\AdminUsers;
 use App\Http\Livewire\Admin\Category\AdminCategory;
 use App\Http\Livewire\Admin\Product\AdminProduct;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +51,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/update/mobile',[AdminProfileController::class,'updateMobile'])->name('update.mobile');
 
     Route::get('/logout', [AdminLoginController::class, 'logOut'])->name('logout');
+
+});
+// ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/users/index', AdminUsers::class)->name('users.index');
+    Route::get('/user/create', [AdminUsersController::class,'create'])->name('user.create');
+    Route::get('/user/store', [AdminUsersController::class,'store'])->name('user.store');
 
 });
 

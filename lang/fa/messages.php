@@ -17,6 +17,8 @@ return [
 
     'first_name' => 'نام',
     'last_name' => 'نام خانوادگی',
+    'users_management' => 'مدیریت کاربران',
+    'create_user' => 'کاربر جدید',
 
     'manage_roles' => 'مدیریت نقش ها',
     'manage_perms' => 'مدیریت مجوز ها',

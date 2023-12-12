@@ -101,6 +101,7 @@
                 {{ $products->links() }}
             </div>
         </div>
+
     </div>
 </div>
 @include('admin.include.alert.alert_response')
