@@ -115,7 +115,8 @@
 
                         <div class="row d-flex flex-column justify-content-center align-content-center product-image">
                             <div class="col-lg-8">
-                                <img src="{{ $product->thumbnail_path ?  asset($product->thumbnail_path) :   asset('dash/images/no-image-icon-23494.png') }}"
+                                <img src="{{ $product->thumbnail_path != null ?  asset($product->thumbnail_path) :
+                                         asset('admin_assets/images/no-image-icon-23494.png') }}"
                                      id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
                             </div>
                             <div class="col-lg-8">
@@ -137,8 +138,8 @@
                         <div class="row d-flex flex-column justify-content-center align-content-center">
 
                             <div class="col-lg-8">
-                                <img src="{{ $product->demo_url ?  asset($product->demo_url) :
-                                asset('dash/images/no-image-icon-23494.png') }}" id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
+                                <img src="{{ $product->demo_url != null ?  asset($product->demo_url) :
+                                asset('admin_assets/images/no-image-icon-23494.png') }}" id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
                             </div>
                             <div class="col-lg-8">
                                 <label for="demo_url" class="mt-5 form-label">تصویر محصول</label>

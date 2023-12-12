@@ -25,6 +25,7 @@ class Product extends Model
         'description',
         'thumbnail_path',
         'demo_url',
+        'seo_desc',
         'source_url',
         'status',
         'price',

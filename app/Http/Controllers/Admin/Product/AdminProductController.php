@@ -28,6 +28,7 @@ class AdminProductController extends Controller
     {
         try {
 
+            $validatedData = $request->validated();
             $user = User::first();
             $updated = null;
 
@@ -42,14 +43,15 @@ class AdminProductController extends Controller
             ]);
             $product->categories()->sync($request->categories);
 
-            if (!$updated) {
-                session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
-                return redirect()->back();
-            }
+            return  $this->uploadImages($product,$validatedData);
 
-
-            session()->flash('success', __('messages.New_record_saved_successfully'));
-            return redirect()->route('admin.product.index');
+//            if (!$updated) {
+//                session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
+//                return redirect()->back();
+//            }
+//
+//            session()->flash('success', __('messages.New_record_saved_successfully'));
+//            return redirect()->route('admin.product.index');
         } catch (\Exception $ex) {
             session()->flash('warning', $ex->getMessage());
             return redirect()->back();
