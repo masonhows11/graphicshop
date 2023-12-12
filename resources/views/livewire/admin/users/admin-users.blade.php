@@ -34,6 +34,7 @@
                     <tr class="text-center">
                         <th>{{__('messages.id')}}</th>
                         <th>{{ __('messages.user_name') }}</th>
+                        <th>{{ __('messages.created_at') }}</th>
                         <th>{{ __('messages.edit_model') }}</th>
                         <th>{{ __('messages.delete_model') }}</th>
                         <th>{{ __('messages.status') }}</th>
@@ -45,6 +46,7 @@
                             <tr class="text-center">
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
+                                <td>{{ customJalaliDate($user->created_at) }}</td>
                                 <td>
                                     <a  href="{{ route('admin.user.edit',$user) }}" class="btn btn-sm btn-primary mx-4">
                                         <i class="fas fa-edit"></i>

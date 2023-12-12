@@ -18,19 +18,30 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    //    protected $fillable = [
+    //        'auth_type',
+    //        'name',
+    //        'first_name',
+    //        'last_name',
+    //        'subscribe_news',
+    //        'national_code',
+    //        'email',
+    //        'mobile',
+    //        'email_verified_at',
+    //        'mobile_verified_at',
+    //        'token',
+    //        'token_guid',
+    //    ];
     protected $fillable = [
-        'auth_type',
+
         'name',
         'first_name',
         'last_name',
-        'subscribe_news',
-        'national_code',
         'email',
         'mobile',
-        'email_verified_at',
-        'mobile_verified_at',
-        'token',
-        'token_guid',
+        'role',
+        'national_code',
+
     ];
 
     /**

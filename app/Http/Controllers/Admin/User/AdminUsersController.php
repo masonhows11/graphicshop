@@ -19,7 +19,18 @@ class AdminUsersController extends Controller
 
     public function store(CreateUserRequest $request)
     {
+
         $validatedData = $request->validated();
+        try {
+            $user = User::create($validatedData);
+            session()->flash('success', __('messages.New_record_saved_successfully'));
+            return redirect()->route('admin.users.index');
+        }catch (\Exception $ex){
+            session()->flash('success', __('messages.An_error_occurred_while_created'));
+            return redirect()->back();
+        }
+
+
     }
 
     public function edit(User $user)

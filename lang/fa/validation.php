@@ -252,6 +252,7 @@ return [
         'thumbnail_path' => 'تصویر شاخص',
         'demo_url' => 'تصویر محصول',
         'source_url' => 'فایل اصلی',
+        'role' => 'نقش',
 
 
     ],

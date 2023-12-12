@@ -44,14 +44,14 @@ class AdminProductController extends Controller
             $product->categories()->sync($request->categories);
 
             if(!$this->uploadImages($product,$validatedData)){
-                session()->flash('warning', __('messages.An_error_occurred_while_created_product'));
+                session()->flash('warning', __('messages.An_error_occurred_while_created'));
                 return redirect()->back();
             }
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.product.index');
 
         } catch (\Exception $ex) {
-            session()->flash('warning',__('messages.An_error_occurred_while_created_product'));
+            session()->flash('warning',__('messages.An_error_occurred_while_created'));
             return redirect()->back();
         }
     }
@@ -88,7 +88,7 @@ class AdminProductController extends Controller
             $product->categories()->sync($request->categories);
 
              if(!$this->uploadImages($product,$validatedData)){
-                 session()->flash('warning', __('messages.An_error_occurred_while_updated_product'));
+                 session()->flash('warning', __('messages.An_error_occurred_while_updated'));
                  return redirect()->back();
              }
 
@@ -97,7 +97,7 @@ class AdminProductController extends Controller
 
 
         } catch (\Exception $ex) {
-            session()->flash('warning', __('messages.An_error_occurred_while_updated_product'));
+            session()->flash('warning', __('messages.An_error_occurred_while_updated'));
             return redirect()->back();
         }
     }

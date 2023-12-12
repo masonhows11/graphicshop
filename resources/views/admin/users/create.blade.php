@@ -70,15 +70,24 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">نام کاربری</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="name" value="">
-                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                    <input type="text" class="form-control form-control-solid" name="name" value="{{ old('name') }}">
+                                    @error('name')
+                                    <div class="fv-plugins-message-container invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="col">
                                     <div class="fv-row mb-7 fv-plugins-icon-container">
                                         <label class="fs-6 fw-semibold form-label mt-3">
                                             <span class="required">ایمیل</span>
                                         </label>
-                                        <input type="email" class="form-control form-control-solid" name="email" value="">
+                                        <input type="email" class="form-control form-control-solid" name="email" value="{{ old('email') }}">
+                                        @error('email')
+                                        <div class="fv-plugins-message-container invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col">
@@ -86,7 +95,12 @@
                                         <label class="fs-6 fw-semibold form-label mt-3">
                                             <span class="required">تلفن</span>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" name="mobile" value="">
+                                        <input type="text" class="form-control form-control-solid" name="mobile" value="{{ old('mobile') }}">
+                                        @error('mobile')
+                                        <div class="fv-plugins-message-container invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col">
@@ -94,12 +108,17 @@
                                         <label class="fs-6 fw-semibold form-label mt-3">
                                             <span class="required">نقش</span>
                                         </label>
-                                        <select class="form-control form-control-solid" name="email">
+                                        <select class="form-control form-control-solid" name="role">
                                             <option value="">{{ __('messages.choose') }}</option>
                                             <option value="user">کاربر</option>
                                             <option value="admin">ادمین</option>
                                             <option value="seller">طراح یا فروشنده</option>
                                         </select>
+                                        @error('role')
+                                        <div class="fv-plugins-message-container invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -111,15 +130,24 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">نام</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="first_name" value="">
-                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                    <input type="text" class="form-control form-control-solid" name="first_name" value="{{ old('first_name') }}">
+                                    @error('first_name')
+                                    <div class="fv-plugins-message-container invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="col">
                                     <div class="fv-row mb-7 fv-plugins-icon-container">
                                         <label class="fs-6 fw-semibold form-label mt-3">
                                             <span class="required">نام خانوادگی</span>
                                         </label>
-                                        <input type="email" class="form-control form-control-solid" name="last_name" value="">
+                                        <input type="text" class="form-control form-control-solid" name="last_name" value="{{ old('last_name') }}">
+                                        @error('last_name')
+                                        <div class="fv-plugins-message-container invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col">
@@ -127,7 +155,12 @@
                                         <label class="fs-6 fw-semibold form-label mt-3">
                                             <span class="required">کد ملی</span>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" name="national_code" value="">
+                                        <input type="text" class="form-control form-control-solid" name="national_code" value="{{ old('national_code') }}">
+                                        @error('national_code')
+                                        <div class="fv-plugins-message-container invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
