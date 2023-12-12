@@ -116,7 +116,8 @@
                         <div class="row d-flex flex-column justify-content-center align-content-center product-image">
                             <div class="col-lg-8">
                                 <img src="{{ $product->thumbnail_path ?  asset($product->thumbnail_path) :   asset('dash/images/no-image-icon-23494.png') }}"
-                                     id="image_view" class="img-thumbnail" height="300" width="300" alt="image"></div>
+                                     id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
+                            </div>
                             <div class="col-lg-8">
                                 <label for="image_label" class="mt-5 form-label">{{ __('messages.thumbnail_image') }}</label>
                                 <input type="file" class="form-control" accept="image/png, image/jpeg" id="image_select"
@@ -130,25 +131,39 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col mt-5 mb-5">
-                        <label for="demo_url" class="form-label">تصویر محصول</label>
-                        <input type="file" class="form-control" id="demo_url" name="demo_url" value="{{ $product->demo_url  }}">
-                        @error('demo_url')
-                        <div class="alert alert-danger mt-3">
-                            {{ $message }}
+
+                        <div class="row d-flex flex-column justify-content-center align-content-center">
+
+                            <div class="col-lg-8">
+                                <img src="{{ $product->demo_url ?  asset($product->demo_url) :
+                                asset('dash/images/no-image-icon-23494.png') }}" id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
+                            </div>
+                            <div class="col-lg-8">
+                                <label for="demo_url" class="mt-5 form-label">تصویر محصول</label>
+                                <input type="file" class="form-control" id="demo_url" name="demo_url" value="{{ $product->demo_url  }}">
+                                @error('demo_url')
+                                <div class="alert alert-danger mt-3">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
                         </div>
-                        @enderror
+
                     </div>
 
 
                     <div class="col mt-5 mb-5">
                         <label for="source_url" class="form-label">فایل اصلی</label>
                         <input type="file" class="form-control" id="source_url" name="source_url" value="{{ $product->source_url }}">
+                        <a class="btn btn-secondary mt-2 w-100" href="{{ route('admin.product.download.source',$product->id) }}"><i class="fa fa-link p-2"></i>{{ __('messages.download_link') }}</a>
                         @error('source_url')
                         <div class="alert alert-danger mt-3">
                             {{ $message }}
                         </div>
                         @enderror
+
                     </div>
 
                 </div>
