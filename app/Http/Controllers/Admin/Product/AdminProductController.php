@@ -76,7 +76,8 @@ class AdminProductController extends Controller
             $user = User::first();
             $updated = null;
 
-            $product = Product::create([
+            $product = Product::find($request->product);
+            $updatedProduct = $product->update([
                 'title' => $request->title,
                 'description' => $request->description,
                 'seo_desc' => $request->seo_desc,
@@ -97,6 +98,7 @@ class AdminProductController extends Controller
 
         } catch (\Exception $ex) {
 
+            return $ex->getMessage();
         }
     }
 
