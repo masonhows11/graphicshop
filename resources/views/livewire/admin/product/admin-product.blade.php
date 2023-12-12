@@ -68,8 +68,8 @@
                                      width="60" height="60" alt="image_category">
                             </td>
                             <td>{{ priceFormat($product->price ) }} {{ __('messages.toman') }}</td>
-                            <td><a href="#" wire:click.prevent="changeState({{ $product->id }})"
-                                   class="mx-4 btn btn-sm {{ $product->status === 0 ? 'btn-danger' : 'btn-success' }} ">
+                            <td>
+                                <a href="#" wire:click.prevent="changeState({{ $product->id }})" class="mx-4 btn btn-sm {{ $product->status === 0 ? 'btn-danger' : 'btn-success' }} ">
                                     {{ $product->status === 0 ? __('messages.deactivate') : __('messages.active') }}
                                 </a>
                             </td>
@@ -79,12 +79,12 @@
                             <td>
                                 <a class="btn btn-secondary  p-2" href="{{ route('admin.product.download.demo',$product->id) }}"><i class="fa fa-link p-2"></i></a></td>
                             <td>
-                                <a href="{{ route('admin.product.edit',$product) }}" class="mx-4">
+                                <a  href="{{ route('admin.product.edit',$product) }}" class="btn btn-sm btn-primary mx-4">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </td>
                             <td>
-                                <a href="#" wire:click.prevent="deleteConfirmation({{ $product->id }})">
+                                <a href="#" class="btn btn-sm btn-danger mx-4" wire:click.prevent="deleteConfirmation({{ $product->id }})">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>

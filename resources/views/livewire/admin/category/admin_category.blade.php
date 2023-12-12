@@ -60,11 +60,13 @@
                                     <i class="fa fa-unlink"></i>
                                 </a>
                             </td>
-                            <td><a href="{{ route('admin.category.edit',['id'=>$category->id]) }}" class="mx-4">
+                            <td>
+                                <a href="{{ route('admin.category.edit',['id'=>$category->id]) }}"  class="btn btn-sm btn-primary mx-4">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </td>
-                            <td><a href="#" wire:click.prevent="deleteConfirmation({{ $category->id }})">
+                            <td>
+                                <a href="#" class="btn btn-sm btn-danger mx-4" wire:click.prevent="deleteConfirmation({{ $category->id }})">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>

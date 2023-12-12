@@ -23,7 +23,7 @@ class ProductUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required',Rule::unique('products','title')->ignore($this->request->get('id')), 'min:2', 'max:100'],
+            'title' => ['required',Rule::unique('products','title')->ignore($this->request->get('product')), 'min:2', 'max:100'],
             'thumbnail_path' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:1999',
             'demo_url' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:1999',
             'source_url' => 'nullable |mimes:zip|max:1999',

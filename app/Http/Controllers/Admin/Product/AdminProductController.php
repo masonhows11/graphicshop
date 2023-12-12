@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use App\Services\image\ImageUploader;
+
 // use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\DB;
 
@@ -63,14 +64,15 @@ class AdminProductController extends Controller
             $category_ids[] = $cat->id;
         }
         return view('admin.product.edit')
-            ->with(['product' => $product,'categories' => $categories,'category_ids' => $category_ids]);
+            ->with(['product' => $product, 'categories' => $categories, 'category_ids' => $category_ids]);
     }
 
     public function update(ProductUpdateRequest $request)
     {
         try {
 
-            dd($request);
+            $validatedData = $request->validated();
+            //  dd($validatedData);
             $user = User::first();
             $updated = null;
 
@@ -85,25 +87,13 @@ class AdminProductController extends Controller
             ]);
             $product->categories()->sync($request->categories);
             // for upload file
-            if($request->hasFile('thumbnail_path')){
-
-            }
-            if($request->hasFile('demo_url')){
-
-            }
-            if($request->hasFile('source_url')){
-
-            }
+           return  $this->uploadImages($product,$validatedData);
 
 
-            if (!$updated) {
-                session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
-                return redirect()->back();
-            }
 
 
-            session()->flash('success', __('messages.New_record_saved_successfully'));
-            return redirect()->route('admin.product.index');
+
+
 
         } catch (\Exception $ex) {
 
@@ -114,8 +104,8 @@ class AdminProductController extends Controller
     {
         try {
             $product = Product::findOrfail($id);
-            return  response()->download(public_path($product->demo_url));
-        }catch (\Exception $ex){
+            return response()->download(public_path($product->demo_url));
+        } catch (\Exception $ex) {
             return view('errors_custom.404_error');
         }
 
@@ -125,33 +115,51 @@ class AdminProductController extends Controller
     {
         try {
             $product = Product::findOrfail($id);
-           // dd(storage_path('app/local_storage/'.$product->source_url));
-            return  response()->download(storage_path('app/local_storage/'.$product->source_url));
-        }catch (\Exception $ex){
+            // dd(storage_path('app/local_storage/'.$product->source_url));
+            return response()->download(storage_path('app/local_storage/' . $product->source_url));
+        } catch (\Exception $ex) {
             return view('errors_custom.404_error');
         }
     }
 
-    private function uploadImages($createdProduct,$validateData)
+    private function uploadImages($createdProduct, $validateData)
     {
         // for upload file
+        // $images_path = [];
+
+        $sourceImagePath = null;
+        $data = [];
+        $product = $createdProduct;
         $basPath = 'products/' . $product->id . '/';
-        $sourceImagePath = $basPath . 'source_url' . $request->source_url->getClientOriginalName();
 
-        $images = [
-            'thumbnail_path' => $request->thumbnail_path,
-            'demo_url' => $request->demo_url,
-        ];
+        if (isset($validateData['source_url']))
+        {
+            $sourceImagePath = $basPath . 'source_url' . $validateData['source_url']->getClientOriginalName();
+            ImageUploader::upload($validateData['source_url'], $sourceImagePath, 'local_storage');
+            $data += ['thumbnail_path' => $sourceImagePath];
+        }
+        if (isset($validateData['thumbnail_path']))
+        {
+            $full_path = $basPath . 'thumbnail_path' . '_' . $validateData['thumbnail_path']->getClientOriginalName();
+            ImageUploader::upload($validateData['thumbnail_path'], $full_path,'public_storage');
+            $data += ['thumbnail_path' => $full_path];
 
-        $images_path = ImageUploader::uploadMany($images, $basPath);
-        ImageUploader::upload($request->source_url, $sourceImagePath, 'local_storage');
+        }
+        if (isset($validateData['demo_url']))
+        {
+            $full_path = $basPath . 'demo_url' . '_' . $validateData['demo_url']->getClientOriginalName();
+            ImageUploader::upload($validateData['demo_url'], $full_path,'public_storage');
+            $data += ['demo_url' => $full_path];
 
-        $updated = $product->update([
-            'thumbnail_path' => $images_path['thumbnail_path'],
-            'demo_url' => $images_path['demo_url'],
-            'source_url' => $sourceImagePath,
-        ]);
+        }
+        $updated = $product->update([$data]);
 
+        if (!$updated) {
+            session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
+            return redirect()->back();
+        }
+        session()->flash('success', __('messages.New_record_saved_successfully'));
+        return redirect()->route('admin.product.index');
     }
 
 }

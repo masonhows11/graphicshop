@@ -11,7 +11,10 @@ class ImageUploader
 {
     public static function upload($image, $path, $disk)
     {
-        Storage::disk($disk)->put($path, File::get($image));
+        if(!is_null($image)){
+            Storage::disk($disk)->put($path, File::get($image));
+        }
+
     }
 
     public static function uploadMany(array $images, $path, $disk = 'public_storage')
