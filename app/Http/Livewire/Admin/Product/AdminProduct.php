@@ -37,8 +37,12 @@ class AdminProduct extends Component
         $product = Product::findOrFail($this->delete_id);
 
         try {
-            if ($product->image_path != null) {
-                Storage::disk('public')->delete('/images/product/' . $product->image_path);
+            if ($product->thumbnail_path != null) {
+                Storage::disk('public_storage')->delete('/images/product/' . $product->image_path);
+            }
+            if ($product->demo_url != null && $product->source_url != null )
+            {
+                Storage::disk('local_storage')->delete('/images/product/' . $product->image_path);
             }
             $product->delete();
             $this->dispatchBrowserEvent('show-result',
