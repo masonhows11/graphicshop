@@ -102,6 +102,17 @@ class AdminProductController extends Controller
             ]);
             $product->categories()->sync($request->categories);
             // for upload file
+            if($request->hasFile('thumbnail_path')){
+
+            }
+            if($request->hasFile('demo_url')){
+
+            }
+            if($request->hasFile('source_url')){
+
+            }
+
+
             $basPath = 'products/' . $product->id . '/';
             $sourceImagePath = $basPath . 'source_url' . $request->source_url->getClientOriginalName();
 
