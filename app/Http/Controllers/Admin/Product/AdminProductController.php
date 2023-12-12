@@ -74,12 +74,11 @@ class AdminProductController extends Controller
         try {
 
             $validatedData = $request->validated();
-            //  dd($validatedData);
             $user = User::first();
-            $updated = null;
+
 
             $product = Product::find($request->product);
-            $updatedProduct = $product->update([
+            $product->update([
                 'title' => $request->title,
                 'description' => $request->description,
                 'seo_desc' => $request->seo_desc,
@@ -122,19 +121,18 @@ class AdminProductController extends Controller
 
     private function uploadImages($createdProduct, $validateData)
     {
-        // for upload file
-        // $images_path = [];
+
 
         $sourceImagePath = null;
         $data = [];
-        $product = $createdProduct;
-        $basPath = 'products/' . $product->id . '/';
+
+        $basPath = 'products/' . $createdProduct->id . '/';
 
         if (isset($validateData['source_url']))
         {
-            $sourceImagePath = $basPath . 'source_url' . $validateData['source_url']->getClientOriginalName();
+            $sourceImagePath = $basPath . 'source_url_' . $validateData['source_url']->getClientOriginalName();
             ImageUploader::upload($validateData['source_url'], $sourceImagePath, 'local_storage');
-            $data += ['thumbnail_path' => $sourceImagePath];
+            $data += ['source_url' => $sourceImagePath];
         }
         if (isset($validateData['thumbnail_path']))
         {
@@ -150,7 +148,8 @@ class AdminProductController extends Controller
             $data += ['demo_url' => $full_path];
 
         }
-        $updated = $product->update([$data]);
+       // dd($data);
+        $updated = $createdProduct->update($data);
 
         if (!$updated) {
             session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));

@@ -158,7 +158,9 @@
                     <div class="col mt-5 mb-5">
                         <label for="source_url" class="form-label">فایل اصلی</label>
                         <input type="file" class="form-control" id="source_url" name="source_url" value="{{ $product->source_url }}">
+                        @if($product->source_url != null)
                         <a class="btn btn-secondary mt-2 w-100" href="{{ route('admin.product.download.source',$product->id) }}"><i class="fa fa-link p-2"></i>{{ __('messages.download_link') }}</a>
+                        @endif
                         @error('source_url')
                         <div class="alert alert-danger mt-3">
                             {{ $message }}
