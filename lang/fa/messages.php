@@ -20,6 +20,7 @@ return [
     'users_management' => 'مدیریت کاربران',
     'new_user' => 'کاربر جدید',
     'add_new_user' => 'افزودن مخاطب جدید',
+    'update_avatar' => 'بروز رسانی آواتار',
     'edit_user' => 'ویرایش کاربر',
 
     'manage_roles' => 'مدیریت نقش ها',
