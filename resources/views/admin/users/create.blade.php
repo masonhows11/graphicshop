@@ -9,8 +9,6 @@
 
     <div class="container-fluid">
 
-        <div class="col">
-
             <div class="card card-flush h-lg-100" id="kt_contacts_main">
                 <div class="card-header pt-7" id="kt_chat_contacts_header">
                     <div class="card-title">
@@ -21,7 +19,7 @@
 
                 <div class="card-body pt-5">
 
-                    <form action="{{ route('admin.user.store') }}" method="post" id="kt_ecommerce_settings_general_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" >
+                    <form action="{{ route('admin.user.store') }}" method="post" enctype="multipart/form-data" id="kt_ecommerce_settings_general_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" >
                         @csrf
 
                     <div class="row">
@@ -126,7 +124,7 @@
 
                         <div class="separator mb-6"></div>
                         <div class="d-flex justify-content-end">
-                            <button type="reset" data-kt-contacts-type="cancel" class="btn btn-light me-3">انصراف</button>
+                            <button type="{{ route('admin.users.index') }}" data-kt-contacts-type="cancel" class="btn btn-light me-3">{{ __('messages.cancel') }}</button>
 
                             <button type="submit" data-kt-contacts-type="submit" class="btn btn-primary">
                                 <span class="indicator-label">{{ __('messages.save') }}</span>
@@ -135,7 +133,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+
     </div>
 @endsection
 

@@ -15,6 +15,8 @@ return [
     'demo_link' => 'لینک دمو',
     'created_at' => 'تاریخ ایجاد',
 
+
+    'cancel' => 'انصراف',
     'first_name' => 'نام',
     'last_name' => 'نام خانوادگی',
     'users_management' => 'مدیریت کاربران',
