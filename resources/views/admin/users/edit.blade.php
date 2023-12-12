@@ -21,6 +21,7 @@
                 <form action="{{ route('admin.user.update') }}" method="post" enctype="multipart/form-data" id="kt_ecommerce_settings_general_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" >
                     @csrf
 
+                    <input type="hidden" name="id" value="{{ $user->id }}">
                     <div class="row">
 
 
@@ -69,7 +70,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">نام کاربری</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="name" value="">
+                                    <input type="text" class="form-control form-control-solid" name="name" value="{{ $user->name }}">
                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                 </div>
                                 <div class="col">
@@ -77,7 +78,7 @@
                                         <label class="fs-6 fw-semibold form-label mt-3">
                                             <span class="required">ایمیل</span>
                                         </label>
-                                        <input type="email" class="form-control form-control-solid" name="email" value="">
+                                        <input type="email" class="form-control form-control-solid" name="email" value="{{ $user->email }}">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -85,7 +86,7 @@
                                         <label class="fs-6 fw-semibold form-label mt-3">
                                             <span class="required">تلفن</span>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" name="mobile" value="">
+                                        <input type="text" class="form-control form-control-solid" name="mobile" value="{{ $user->mobile }}">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -95,9 +96,9 @@
                                         </label>
                                         <select class="form-control form-control-solid" name="email">
                                             <option value="">{{ __('messages.choose') }}</option>
-                                            <option value="user">کاربر</option>
-                                            <option value="admin">ادمین</option>
-                                            <option value="seller">طراح یا فروشنده</option>
+                                            <option value="user" {{ $user->role == 'user' ? 'selected' : '' }} >کاربر</option>
+                                            <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }} >ادمین</option>
+                                            <option value="seller" {{ $user->role == 'seller' ? 'selected' : '' }} >طراح یا فروشنده</option>
                                         </select>
                                     </div>
                                 </div>
@@ -110,7 +111,7 @@
                                     <label class="fs-6 fw-semibold form-label mt-3">
                                         <span class="required">نام</span>
                                     </label>
-                                    <input type="text" class="form-control form-control-solid" name="first_name" value="">
+                                    <input type="text" class="form-control form-control-solid" name="first_name" value="{{ $user->first_name }}">
                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                 </div>
                                 <div class="col">
@@ -118,7 +119,7 @@
                                         <label class="fs-6 fw-semibold form-label mt-3">
                                             <span class="required">نام خانوادگی</span>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" name="last_name" value="">
+                                        <input type="text" class="form-control form-control-solid" name="last_name" value="{{ $user->last_name }}">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -126,7 +127,7 @@
                                         <label class="fs-6 fw-semibold form-label mt-3">
                                             <span class="required">کد ملی</span>
                                         </label>
-                                        <input type="text" class="form-control form-control-solid" name="national_code" value="">
+                                        <input type="text" class="form-control form-control-solid" name="national_code" value="{{ $user->national_code }}">
                                     </div>
                                 </div>
                             </div>

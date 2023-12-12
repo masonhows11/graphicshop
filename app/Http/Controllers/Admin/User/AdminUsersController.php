@@ -25,7 +25,7 @@ class AdminUsersController extends Controller
             $user = User::create($validatedData);
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.users.index');
-        }catch (\Exception $ex){
+        } catch (\Exception $ex) {
             session()->flash('success', __('messages.An_error_occurred_while_created'));
             return redirect()->back();
         }
@@ -35,12 +35,23 @@ class AdminUsersController extends Controller
 
     public function edit(User $user)
     {
-        return view('admin.users.edit',['user' => $user]);
+        return view('admin.users.edit', ['user' => $user]);
     }
 
     public function update(EditUserRequest $request)
     {
         $validatedData = $request->validated();
+
+
+        try {
+            $user = User::find($request->id);
+            $user->update($validatedData);
+            session()->flash('success', __('messages.New_record_saved_successfully'));
+            return redirect()->route('admin.users.index');
+        } catch (\Exception $ex) {
+            session()->flash('success', __('messages.An_error_occurred_while_created'));
+            return redirect()->back();
+        }
 
     }
 }

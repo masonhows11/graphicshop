@@ -24,12 +24,12 @@ class EditUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => [Rule::requiredIf(filled($request->name)), 'min:1', 'max:64', 'string', Rule::unique('users')->ignore($request->user),],
-            'first_name' => [Rule::requiredIf(filled($request->first_name)), 'min:1', 'max:64', 'string', Rule::unique('users')->ignore($request->user),],
-            'last_name' => [Rule::requiredIf(filled($request->first_name)), 'min:1', 'max:64', 'string', Rule::unique('users')->ignore($request->user),],
-            'email' => ['required','email','min:3', 'max:128','unique:users,email'],
-            'national_code' => ['required', 'min:1', 'max:10', new NationalCode()],
-            'mobile' => ['required','digits:11','unique:users,mobile'],
+            'name' => ['nullable', 'min:1', 'max:64', 'string', Rule::unique('users')->ignore($this->request->get('id')),],
+            'first_name' => ['nullable', 'min:1', 'max:64', 'string'],
+            'last_name' => ['nullable', 'min:1', 'max:64', 'string'],
+            'email' => ['required','email','min:3', 'max:128',Rule::unique('users')->ignore($this->request->get('id'))],
+            'national_code' => ['required', 'min:1', 'max:10', new NationalCode(),Rule::unique('users')->ignore($this->request->get('id'))],
+            'mobile' => ['required','digits:11','unique:users,mobile',Rule::unique('users')->ignore($this->request->get('id'))],
             'role' => ['required','in:user,admin,seller']
         ];
     }
