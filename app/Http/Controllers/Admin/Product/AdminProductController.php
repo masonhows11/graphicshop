@@ -90,12 +90,6 @@ class AdminProductController extends Controller
             // for upload file
            return  $this->uploadImages($product,$validatedData);
 
-
-
-
-
-
-
         } catch (\Exception $ex) {
 
             return $ex->getMessage();
@@ -160,7 +154,7 @@ class AdminProductController extends Controller
             session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
             return redirect()->back();
         }
-        session()->flash('success', __('messages.New_record_saved_successfully'));
+        session()->flash('success', __('messages.The_update_was_completed_successfully'));
         return redirect()->route('admin.product.index');
     }
 
