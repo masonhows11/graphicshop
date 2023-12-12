@@ -45,7 +45,7 @@ class AdminProductController extends Controller
 
             if(!$this->uploadImages($product,$validatedData)){
                 session()->flash('warning', __('messages.An_error_occurred_while_created_product'));
-               return redirect()->back();
+                return redirect()->back();
             }
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.product.index');
