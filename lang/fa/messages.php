@@ -18,7 +18,8 @@ return [
     'first_name' => 'نام',
     'last_name' => 'نام خانوادگی',
     'users_management' => 'مدیریت کاربران',
-    'create_user' => 'کاربر جدید',
+    'new_user' => 'کاربر جدید',
+    'edit_user' => 'ویرایش کاربر',
 
     'manage_roles' => 'مدیریت نقش ها',
     'manage_perms' => 'مدیریت مجوز ها',
@@ -317,7 +318,6 @@ return [
     'register' => 'ثبت نام',
     'login' => 'وارد شوید',
     'already_registered' => 'قبلا درخرید خوب ثبت‌ نام کرده‌اید؟',
-    'new_user' => 'کاربر جدید هستید',
     'register_in_good_shop' => 'ثبت نام در خرید خوب',
     'recover_password' => 'بازیابی رزم عبور',
     'forget_password' => 'رمز عبور خود را فراموش کرده اید ؟',

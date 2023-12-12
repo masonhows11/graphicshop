@@ -15,7 +15,7 @@
             <div class="col d-flex justify-content-end my-4">
                 <div>
                     <a href="{{ route('admin.user.create') }}"
-                       class="btn btn-primary">{{ __('messages.create_user') }}</a>
+                       class="btn btn-primary">{{ __('messages.new_user') }}</a>
                 </div>
             </div>
             <div class="col-12">

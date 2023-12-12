@@ -12,7 +12,7 @@ class AdminUsersController extends Controller
 
     public function create()
     {
-
+        return view('admin.users.create');
     }
 
     public function store(Request $request){
@@ -21,7 +21,7 @@ class AdminUsersController extends Controller
 
     public function edit(User $user)
     {
-
+            return view('admin.users.edit');
     }
 
     public function update(Request $request)
