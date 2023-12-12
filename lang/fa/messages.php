@@ -64,6 +64,7 @@ return [
     'A_category_cannot_be_its_own_parent' => 'یک دسته بندی نمی تواند والد خودش باشد.',
     'An_error_occurred' => 'خطایی رخ داده',
     'An_error_occurred_while_uploading_images' => 'خطای هنگام اپلود تصاویر رخ داده',
+    'An_error_occurred_while_created_product' => 'خطای هنگام ذخیره سازی رخ داده',
     'origin_price' => 'قیمت اصلی ',
     'sales_price' => 'قیمت با تخفیف',
     'discount' => 'در صد تخفیف',

@@ -49,11 +49,10 @@ class AdminProductController extends Controller
 //                session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
 //                return redirect()->back();
 //            }
-//
 //            session()->flash('success', __('messages.New_record_saved_successfully'));
 //            return redirect()->route('admin.product.index');
         } catch (\Exception $ex) {
-            session()->flash('warning', $ex->getMessage());
+            session()->flash('warning',__('messages.An_error_occurred_while_created_product'));
             return redirect()->back();
         }
     }
@@ -88,8 +87,7 @@ class AdminProductController extends Controller
                 'user_id' => $user->id,
             ]);
             $product->categories()->sync($request->categories);
-            // for upload file
-           return  $this->uploadImages($product,$validatedData);
+             return  $this->uploadImages($product,$validatedData);
 
         } catch (\Exception $ex) {
 
@@ -121,13 +119,9 @@ class AdminProductController extends Controller
 
     private function uploadImages($createdProduct, $validateData)
     {
-
-
         $sourceImagePath = null;
         $data = [];
-
         $basPath = 'products/' . $createdProduct->id . '/';
-
         if (isset($validateData['source_url']))
         {
             $sourceImagePath = $basPath . 'source_url_' . $validateData['source_url']->getClientOriginalName();
@@ -148,9 +142,7 @@ class AdminProductController extends Controller
             $data += ['demo_url' => $full_path];
 
         }
-       // dd($data);
         $updated = $createdProduct->update($data);
-
         if (!$updated) {
             session()->flash('warning', __('messages.An_error_occurred_while_uploading_images'));
             return redirect()->back();
