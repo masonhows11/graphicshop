@@ -26,6 +26,9 @@ class AdminUsers extends Component
             $user->save();
             $this->stateUser = false;
         }
+        $this->dispatchBrowserEvent('show-result',
+            ['type' => 'success',
+                'message' => __('messages.The_update_was_completed_successfully')]);
     }
 
     // step 1 : confirm delete alert
@@ -45,7 +48,7 @@ class AdminUsers extends Component
             User::destroy($this->delete_id);
             $this->dispatchBrowserEvent('show-result',
                 ['type' => 'success',
-                    'message' => 'رکورد با موفقیت حذف شد']);
+                    'message' => __('messages.The_deletion_was_successful')]);
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }

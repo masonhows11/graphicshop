@@ -56,7 +56,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" wire:click.prevent="changeState({{ $user->id }})" class="mx-4 btn btn-sm {{ $user->activate === 0 ? 'btn-danger' : 'btn-success' }} ">
+                                    <a href="#" wire:click.prevent="activeUser({{ $user->id }})" class="mx-4 btn btn-sm {{ $user->activate === 0 ? 'btn-danger' : 'btn-success' }} ">
                                         {{ $user->activate === 0 ? __('messages.deactivate') : __('messages.active') }}
                                     </a>
                                 </td>
