@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $categories = Category::tree()->get()->toTree();
-        $relatedProducts = Product::where('category_id',$product->category_id)->take(4)->get();
+        $relatedProducts = Product::where('category_id',$product->category_id)->take(4)->get()->except($product->id);
         //->except('id',$product->id);
         return view('front.product.product')
             ->with(['product' => $product,'categories' => $categories ,'relatedProducts' => $relatedProducts]);
