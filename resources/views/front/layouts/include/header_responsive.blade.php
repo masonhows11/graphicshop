@@ -7,12 +7,13 @@
                 <div class="offcanvas offcanvas-start" tabindex="-1" data-bs-scroll="true" id="mobile-menu">
                     <div class="offcanvas-header">
                         <a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک لند</h2></a>
-                      {{--  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>--}}
+                        {{--  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>--}}
                     </div>
                     <div class="offcanvas-body px-0">
                         <div class="input-group search-box px-3"><!-- start search box -->
                             <input type="search" class="form-control form-control-lg" placeholder="جستجو در نیک کالا">
-                            <button type="submit" class="btn btn-danger"><img src="front_assets/images/search.png"></button>
+                            <button type="submit" class="btn btn-danger"><img src="front_assets/images/search.png">
+                            </button>
                         </div><!-- end search box -->
                         <ul class="mobile-menu-level-1"><!-- start mobile menu level 1 -->
                             <li class="has-mobile-submenu"><a href="#">دسته بندی محصولات</a>
@@ -20,7 +21,11 @@
                                 <ul class="mobile-menu-level-2">
                                     @foreach( $categories as $child )
                                         <li class="has-mobile-submenu-2">
-                                            <a href="javascript:void(0)" class="d-inline">{{ $child->title }}</a>
+                                            @if( $child->children != null )
+                                                <a href="javascript:void(0)" class="d-inline">{{ $child->title }}</a>
+                                            @else
+                                                <a href="{{ route('search.category',['slug' => $child->title]) }}" class="d-inline">{{ $child->title }}</a>
+                                            @endif
                                             <ul class="mobile-menu-level-3 me-2">
                                                 @if( $child->children != null  )
                                                     @include('front.partials.responsive_child_category',['category' => $child->children])
@@ -40,29 +45,30 @@
                         </ul><!-- end mobiile menu level 1 -->
                     </div>
                 </div>
-              {{--  <img src="front_assets/images/logo.png" class="img-fluid"><!-- logo -->--}}
-               <div class="ms-4"> <a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک لند</h2></a></div>
+                {{--  <img src="front_assets/images/logo.png" class="img-fluid"><!-- logo -->--}}
+                <div class="ms-4"><a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک لند</h2></a>
+                </div>
             </div>
 
             <!-- start signup & login dropdown -->
             <div class="col-4 d-flex align-items-center justify-content-end">
-               {{-- <div class="dropdown">
-                    <a href="#" data-bs-toggle="dropdown"><i class="fa fa-user-lock signup-login-icon"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-custom"><!-- start dropdown box -->
-                        <li class="d-flex">
-                            <img src="front_assets/images/avatar.jpg" class="avatar">
-                            <div class="ms-2">
-                                <a href="javascript:void(0)" class="font-14 text-dark">امیرحسین رضایی</a>
-                                <a href="javascript:void(0)" class="font-12 d-block text-info mt-2">مشاهده حساب کاربری <i class="fa fa-chevron-left align-middle mt-1"></i></a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="login-link"><i class="fa fa-shopping-basket text-muted font-14 me-1"></i> سفارش های من</a>
-                            <a href="javascript:void(0)" class="login-link"><i class="fa fa-gift text-muted font-14 me-1"></i>جوایز نیک کلاب</a>
-                            <a href="#" class="login-link"><i class="fas fa-sign-out-alt text-muted font-14 me-1"></i>خروج از حساب  کاربری</a>
-                        </li>
-                    </ul><!-- end dropdown box -->
-                </div>--}}
+                {{-- <div class="dropdown">
+                     <a href="#" data-bs-toggle="dropdown"><i class="fa fa-user-lock signup-login-icon"></i></a>
+                     <ul class="dropdown-menu dropdown-menu-custom"><!-- start dropdown box -->
+                         <li class="d-flex">
+                             <img src="front_assets/images/avatar.jpg" class="avatar">
+                             <div class="ms-2">
+                                 <a href="javascript:void(0)" class="font-14 text-dark">امیرحسین رضایی</a>
+                                 <a href="javascript:void(0)" class="font-12 d-block text-info mt-2">مشاهده حساب کاربری <i class="fa fa-chevron-left align-middle mt-1"></i></a>
+                             </div>
+                         </li>
+                         <li>
+                             <a href="javascript:void(0)" class="login-link"><i class="fa fa-shopping-basket text-muted font-14 me-1"></i> سفارش های من</a>
+                             <a href="javascript:void(0)" class="login-link"><i class="fa fa-gift text-muted font-14 me-1"></i>جوایز نیک کلاب</a>
+                             <a href="#" class="login-link"><i class="fas fa-sign-out-alt text-muted font-14 me-1"></i>خروج از حساب  کاربری</a>
+                         </li>
+                     </ul><!-- end dropdown box -->
+                 </div>--}}
             </div>
             <!-- end signup & login dropdown -->
 
@@ -81,9 +87,11 @@
                     </div>
                     <div class="offcanvas-body">
                         <div class="row">
-                            <div class="col-4"><img src="{{ asset('front_assets/images/mobile1.jpg') }}" class="img-fluid img-thumbnail"></div>
+                            <div class="col-4"><img src="{{ asset('front_assets/images/mobile1.jpg') }}"
+                                                    class="img-fluid img-thumbnail"></div>
                             <div class="col-8 d-flex align-items-center">
-                                <a href="#" class="cart-product-title">گوشی موبایل سامسونگ مدل Galaxy A21S SM-A217F/DS</a>
+                                <a href="#" class="cart-product-title">گوشی موبایل سامسونگ مدل Galaxy A21S
+                                    SM-A217F/DS</a>
                             </div>
                         </div>
                         <div class="row my-3 border-bottom">
