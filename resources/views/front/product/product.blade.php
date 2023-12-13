@@ -93,7 +93,7 @@
 
                     <div class="col-lg-5 col-md-8 d-flex align-items-end product-details">
                         <div class="alert alert-light font-12 line-height text-justify mt-5">
-                            {!! substr($product->description,3,650) !!} ...
+                            {!!  substr($product->description,3,500)    !!}
                         </div>
                     </div>
 
