@@ -424,7 +424,7 @@
                         {{--   all orders   --}}
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.orders.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.orders.index') }}--}}">
+                               href="{{ route('admin.orders.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>

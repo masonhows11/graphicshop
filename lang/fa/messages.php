@@ -75,6 +75,7 @@ return [
     'An_error_occurred_while_updated' => 'خطای هنگام بروز رسانی رخ داده',
     'origin_price' => 'قیمت اصلی ',
     'sales_price' => 'قیمت با تخفیف',
+    'single_price' => 'قیمت',
     'discount' => 'در صد تخفیف',
     'maximum_orders' => 'حداکثر تعداد سفارش',
     'thumbnail_image' => 'تصویر شاخص',

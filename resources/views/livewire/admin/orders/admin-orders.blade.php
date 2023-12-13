@@ -1,6 +1,6 @@
 <div>
     @section('dash_page_title')
-        {{ __('messages.products') }}
+        {{ __('messages.orders') }}
     @endsection
     @section('breadcrumb')
         {{--  {{ Breadcrumbs::render('admin.category.index') }}--}}
@@ -9,13 +9,7 @@
 
         <div class="row my-4 bg-white rounded-3">
             <div class="col  my-4">
-                <h3 class="h3 my-4"> {{ __('messages.products') }}</h3>
-            </div>
-            <div class="col d-flex justify-content-end my-4">
-                <div>
-                    <a href="{{ route('admin.product.create') }}"
-                       class="btn btn-primary">{{ __('messages.new_product') }}</a>
-                </div>
+                <h3 class="h3 my-4"> {{ __('messages.orders') }}</h3>
             </div>
             <div class="col-12">
                 <div class="mb-3 mt-3">
@@ -31,23 +25,16 @@
                     <thead class="">
                     <tr class="text-center">
                         <th class="text-muted">{{ __('messages.id') }} </th>
-                        <th class="text-muted">{{ __('messages.title')}}</th>
-                        <th class="text-muted">{{ __('messages.owner') }}</th>
-                        <th class="text-muted">{{ __('messages.slug') }}</th>
-                        <th class="text-muted">{{ __('messages.category') }}</th>
+
                         <th class="text-muted">{{ __('messages.description') }}</th>
                         <th class="text-muted">{{ __('messages.created_at') }}</th>
-                        <th class="text-muted">{{ __('messages.image')}}</th>
                         <th class="text-muted">{{ __('messages.single_price') }}</th>
-                        <th class="text-muted">{{ __('messages.status')}}</th>
-                        <th class="text-muted">{{ __('messages.download_link') }}</th>
-                        <th class="text-muted">{{ __('messages.demo_link') }}</th>
                         <th class="text-muted">{{ __('messages.edit_model')}}</th>
                         <th class="text-muted">{{ __('messages.delete_model')}}</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach( $products as $product)
+                    {{--@foreach( $products as $product)
                         <tr class="text-center">
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->title }}</td>
@@ -89,7 +76,7 @@
                                 </a>
                             </td>
                         </tr>
-                    @endforeach
+                    @endforeach--}}
                     </tbody>
                 </table>
 
@@ -98,7 +85,7 @@
 
         <div class="row d-flex justify-content-center bg-white my-4 ">
             <div class="col-lg-2 col-md-2 my-2 pt-2 pb-2 ">
-                {{ $products->links() }}
+                {{--{{ $products->links() }}--}}
             </div>
         </div>
 

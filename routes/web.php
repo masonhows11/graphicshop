@@ -15,6 +15,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Livewire\Admin\Users\AdminUsers;
 use App\Http\Livewire\Admin\Category\AdminCategory;
 use App\Http\Livewire\Admin\Product\AdminProduct;
+use App\Http\Livewire\Admin\Orders\AdminOrders;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -91,6 +92,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/product/download/demo/{id}',[AdminProductController::class,'downloadDemoFile'])->name('product.download.demo');
     Route::get('/product/download/source/{id}',[AdminProductController::class,'downloadSourceFile'])->name('product.download.source');
+
+
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/orders/index', AdminOrders::class)->name('orders.index');
+
+
+
+
 
 
 });
