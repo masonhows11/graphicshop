@@ -23,13 +23,13 @@
 <main>
     <div class="container">
         <!-- start ads -->
-        @include('front.layouts.include.main_top_adds')
+        {{--  @include('front.layouts.include.main_top_adds')--}}
         <!-- end ads -->
         <!-- start product slider -->
         @include('front.layouts.include.product_slider')
         <!-- end product slider -->
         <!-- start ads -->
-        @include('front.layouts.include.main_bottom_ads')
+        {{--  @include('front.layouts.include.main_bottom_ads')--}}
         <!-- end ads -->
         <!-- start category box -->
         @include('front.layouts.include.categories')

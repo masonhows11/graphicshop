@@ -1,11 +1,11 @@
 @extends( 'front.layouts.master_front')
 @section( 'page_title')
-    {{ $product->title_persian }}
+    {{ $product->title }}
 @endsection
 @section('main_content')
 
     <!-- start breadcrumb -->
-    @include('front.product.partials.breadcrumb_product',['productCategories' => $productCategories])
+    {{--@include('front.product.partials.breadcrumb_product',['productCategories' => $productCategories])--}}
     <!-- end breadcrumb -->
 
     <main><!-- start main -->
@@ -18,12 +18,6 @@
                         <div class="row">
                             <!-- start product icons -->
                             <div class="col-1 text-center product-icons">
-                                <div class="d-flex flex-column product-color">
-                                    @foreach( $colors as $color)
-                                        <div class="mt-2 mb-2  rounded rounded-pill"
-                                             style="background-color:{{ $color->color_code }}"></div>
-                                    @endforeach
-                                </div>
                                 <!-- add to Favorites -->
                                 @guest
                                     <span style="font-size: 1.2em;" class="my-4">
@@ -36,7 +30,7 @@
                                          </i>
                                     </span>
                                 @endguest
-                                @auth
+                                {{--@auth
                                     @if( $product->user->contains(auth()->user()->id))
                                         <span class="" style="font-size: 1.2em">
                                         <i class="add-to-fav-product fa-solid fa-heart  heart  text-danger  d-block my-4"
@@ -56,8 +50,8 @@
                                                 data-bs-placement="top"
                                                 title="{{ __('messages.add_to_favorites') }}"></i>
                                         </span>
-                                @endif
-                            @endauth
+                                  @endif
+                                 @endauth--}}
                             <!-- end add to Favorites -->
                                 <span data-bs-toggle="modal" data-bs-target="#share-modal"><i
                                         class="fa fa-share-alt share d-block my-4" data-bs-toggle="tooltip"
@@ -70,7 +64,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p class="font-12">این کالا را با دوستان خود به اشتراک بگذارید!</p>
+                                                <p class="font-12">این محصول را با دوستان خود به اشتراک بگذارید!</p>
                                                 <a href="#" class="btn btn-share"><i class="fa fa-copy me-2"></i>کپی
                                                     کردن لینک</a>
                                                 <div class="d-flex justify-content-center mt-4">
@@ -100,7 +94,7 @@
                                          </i>
                                     </span>
                                 @endguest
-                                @auth
+                               {{-- @auth
                                     @if( $product->compares->contains(function ($compare,$key){
                                             if ( auth()->user()->compare != null ){
                                                 $compareUser = auth()->user()->compare->id;
@@ -127,8 +121,8 @@
                                                 data-bs-placement="top"
                                                 title="{{ __('messages.add_to_compare') }}"></i>
                                         </span>
-                                @endif
-                            @endauth
+                                   @endif
+                                 @endauth--}}
                              <!-- end add to compare -->
 
                             </div>
