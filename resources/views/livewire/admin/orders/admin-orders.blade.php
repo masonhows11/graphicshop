@@ -25,58 +25,26 @@
                     <thead class="">
                     <tr class="text-center">
                         <th class="text-muted">{{ __('messages.id') }} </th>
-
-                        <th class="text-muted">{{ __('messages.description') }}</th>
+                        <th class="text-muted">{{ __('messages.show_order') }} </th>
+                        <th class="text-muted">{{ __('messages.user') }}</th>
                         <th class="text-muted">{{ __('messages.created_at') }}</th>
                         <th class="text-muted">{{ __('messages.single_price') }}</th>
-                        <th class="text-muted">{{ __('messages.edit_model')}}</th>
-                        <th class="text-muted">{{ __('messages.delete_model')}}</th>
+                        <th class="text-muted">{{ __('messages.status')}}</th>
+                        <th class="text-muted">{{ __('messages.ref_code')}}</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {{--@foreach( $products as $product)
+                   @foreach( $orders as $order)
                         <tr class="text-center">
-                            <td>{{ $product->id }}</td>
-                            <td>{{ $product->title }}</td>
-                            <td>{{ $product->owner->name }}</td>
-                            <td>{{ $product->slug }}</td>
-                            <td>
-                                @foreach( $product->categories as $category)
-                                    {{  $category->title  }}
-                                @endforeach
-                            </td>
-                            <td>
-                                {!!  \Illuminate\Support\Str::limit($product->description,20) !!}
-                            </td>
-                            <td>{{ customJalaliDate($product->created_at) }}</td>
-                            <td><img class="img-thumbnail" src="{{ $product->thumbnail_path ?
-                                              asset($product->thumbnail_path) :
-                                              asset('admin_assets/images/no-image-icon-23494.png')  }}"
-                                     width="60" height="60" alt="image_category">
-                            </td>
-                            <td>{{ priceFormat($product->price ) }} {{ __('messages.toman') }}</td>
-                            <td>
-                                <a href="#" wire:click.prevent="changeState({{ $product->id }})" class="mx-4 btn btn-sm {{ $product->status === 0 ? 'btn-danger' : 'btn-success' }} ">
-                                    {{ $product->status === 0 ? __('messages.deactivate') : __('messages.active') }}
-                                </a>
-                            </td>
-                            <td>
-                                <a class="btn btn-secondary  p-2" href="{{ route('admin.product.download.source',$product->id) }}"><i class="fa fa-link p-2"></i></a>
-                            </td>
-                            <td>
-                                <a class="btn btn-secondary  p-2" href="{{ route('admin.product.download.demo',$product->id) }}"><i class="fa fa-link p-2"></i></a></td>
-                            <td>
-                                <a  href="{{ route('admin.product.edit',$product) }}" class="btn btn-sm btn-primary mx-4">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#" class="btn btn-sm btn-danger mx-4" wire:click.prevent="deleteConfirmation({{ $product->id }})">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </td>
+                            <td>{{ $order->id }}</td>
+                            <td><a href="#"><i class="fa fa-shopping-basket"></i></a></td>
+                            <td>{{ $order->owner->name }}</td>
+                            <td>{{ customJalaliDate($order->created_at) }}</td>
+                            <td>{{ priceFormat($order->amount ) }} {{ __('messages.toman') }}</td>
+                            <td>{{ $order->payment_status }}</td>
+                            <td>{{ $order->order_number }}</td>
                         </tr>
-                    @endforeach--}}
+                    @endforeach
                     </tbody>
                 </table>
 
@@ -85,7 +53,7 @@
 
         <div class="row d-flex justify-content-center bg-white my-4 ">
             <div class="col-lg-2 col-md-2 my-2 pt-2 pb-2 ">
-                {{--{{ $products->links() }}--}}
+               {{ $orders->links() }}
             </div>
         </div>
 

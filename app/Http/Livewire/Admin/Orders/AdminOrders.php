@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Orders;
 
+use App\Models\Order;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -16,6 +17,6 @@ class AdminOrders extends Component
     {
         return view('livewire.admin.orders.admin-orders')
             ->extends('admin.include.master_dash')
-            ->section('dash_main_content');
+            ->section('dash_main_content')->with(['orders' => Order::paginate(10)]);
     }
 }

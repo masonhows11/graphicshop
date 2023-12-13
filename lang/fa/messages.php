@@ -183,7 +183,7 @@ return [
 
     'discount_management' => 'مدیریت تخفیف ها',
     'orders_management' => 'مدیریت سفارشات',
-
+    'show_order' => 'مشاهده سفارش',
     'common_discount' => 'کد تخفیف عمومی',
     'maximum_common_discount' => 'حداکثر تخیف عمومی :',
     'common_discount_amount' => ' میزان تخفیف عمومی :',
@@ -519,4 +519,5 @@ return [
     'product_tags' => 'مدیریت تگ ها',
     'new_tag' => 'جدید',
     'edit_mobile' => 'تغییر شماره موبایل',
+    'ref_code' => 'کد رهگیری',
 ];
