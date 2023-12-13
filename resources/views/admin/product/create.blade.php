@@ -66,7 +66,8 @@
 
                         <div class="col mt-5 mb-5">
                             <label for="category-select" class="form-label">انتخاب دسته بندی</label>
-                            <select class="category-select form-select" multiple id="category-select" name="categories[]">
+                            <select class="form-select"  id="category-select" name="categories">
+                                <option value="">{{ __('messages.choose') }}</option>
                                 @foreach( $categories as $category)
                                     <option value="{{ $category->id }}" {{ (collect(old("categories"))->contains($category->id)  ? "selected":"") }} >{{ $category->title }}</option>
                                 @endforeach
@@ -78,6 +79,21 @@
                             </div>
                             @enderror
                         </div>
+
+                      {{--  <div class="col mt-5 mb-5">
+                            <label for="category-select" class="form-label">انتخاب دسته بندی</label>
+                            <select class="category-select form-select" multiple id="category-select" name="categories[]">
+                                @foreach( $categories as $category)
+                                    <option value="{{ $category->id }}" {{ (collect(old("categories"))->contains($category->id)  ? "selected":"") }} >{{ $category->title }}</option>
+                                @endforeach
+                            </select>
+
+                            @error('categories')
+                            <div class="my-5 alert alert-danger">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>--}}
 
 
                     </div>
@@ -283,7 +299,7 @@
             });
         })
         $(document).ready(function () {
-            @if(session('success'))
+            @if( session('success'))
             Toastify({
                 text: "{{ session('success') }}",
                 duration: 3000,

@@ -87,8 +87,23 @@
                             @enderror
                         </div>
 
-
                         <div class="col mt-5 mb-5">
+                            <label for="category-select" class="form-label">انتخاب دسته بندی</label>
+                            <select class=" form-select"  id="category-select" name="categories">
+                                @foreach( $categories as $category)
+                                    <option value="{{ $category->id }}"{{ in_array($category->id,$category_ids) ? 'selected' : '' }} >
+                                        {{ $category->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('categories')
+                            <div class="my-5 alert alert-danger">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        {{--<div class="col mt-5 mb-5">
                             <label for="category-select" class="form-label">انتخاب دسته بندی</label>
                             <select class="category-select form-select" multiple id="category-select" name="categories[]">
                                 @foreach( $categories as $category)
@@ -102,7 +117,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div>--}}
                     </div>
 
 
