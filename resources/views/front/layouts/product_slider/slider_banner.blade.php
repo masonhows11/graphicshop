@@ -5,7 +5,7 @@
                 <h4>بنر</h4>
             </div>
             <div class="owl-carousel owl-theme custom-product-slider">
-               
+
                 @forelse( $banners as $banner)
                 <div class="item"><!-- start item -->
                     <div class="card border-0 custom-card mt-3">
