@@ -19,7 +19,7 @@ class Order extends Model
     ];
     public function payment()
     {
-        return $this->belongsTo(Payment::class);
+        return $this->hasOne(Payment::class);
     }
     public function user()
     {
@@ -33,10 +33,5 @@ class Order extends Model
         return $this->hasOne(Transaction::class,'order_id');
     }
 
-
-    /* public function delivery()
-   {
-       return $this->belongsTo(Delivery::class);
-   }*/
 
 }
