@@ -11,8 +11,8 @@
                     </div>
                     <div class="offcanvas-body px-0">
                         <div class="input-group search-box px-3">
-                            <input type="search" class="form-control form-control-lg" placeholder="جستجو در نیک کالا">
-                            <button type="submit" class="btn btn-danger"><img src="front_assets/images/search.png">
+                            <input type="search" class="form-control form-control-lg" placeholder="جستجو در گرافیک شاپ">
+                            <button type="submit" class="btn btn-danger"><img src="{{ asset('front_assets/images/search.png') }}">
                             </button>
                         </div>
                         <ul class="mobile-menu-level-1">

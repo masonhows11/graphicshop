@@ -26,9 +26,9 @@
                 @empty
                     <div class="item"><!-- start item -->
                         <div class="card border-0 custom-card mt-3">
-                            <a href="product.html" class="d-block w-100"><img src="front_assets/images/mobile1.jpg" class="slider-pic"></a>
+                            <a href="{{ route('not.found') }}" class="d-block w-100"><img src="{{ asset('front_assets/images/mobile1.jpg') }}" class="slider-pic"></a>
                             <div class="card-body">
-                                <a href="product.html" class="product-title">گوشی موبایل سامسونگ مدل Galaxy A21S SM-A217F/DS</a>
+                                <a href="{{ route('not.found') }}" class="product-title">گوشی موبایل سامسونگ مدل Galaxy A21S SM-A217F/DS</a>
                                 <div class="d-flex justify-content-between">
                                     <div class="mt-3 ps-4">
                                         <span class="heart"><i class="far fa-heart font-14 text-muted me-2"></i></span>

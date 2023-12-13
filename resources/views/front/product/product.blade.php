@@ -47,8 +47,7 @@
                                         </div>
                                     </div>
                                 </div><!-- end share modal -->
-                                <i class="fas fa-random random d-block my-4" data-bs-toggle="tooltip"
-                                   data-bs-placement="top" title="مقایسه کالا"></i>
+                                <i class="fas fa-random random d-block my-4" data-bs-toggle="tooltip" data-bs-placement="top" title="مقایسه کالا"></i>
                             </div><!-- end product icons -->
 
                             <div class="col-11 pb-5 mb-3"><!-- start product slider pic -->
@@ -92,11 +91,9 @@
                     </div>
 
                     <!-- start product details -->
-                    <div class="col-lg-5 col-md-8 product-details">
-                        <div class="alert alert-warning font-12 line-height text-justify mt-5">
-                            هشدار سامانه همتا: حتما در زمان تحویل دستگاه، به کمک کد فعال‌سازی چاپ شده روی جعبه یا کارت
-                            گارانتی، دستگاه را
-                            از طریق #7777*، برای سیم‌کارت خود فعال‌سازی کنید. آموزش تصویری در آدرس اینترنتی hmti.ir/05
+                    <div class="col-lg-5 col-md-8 d-flex align-items-end product-details">
+                        <div class="alert alert-light font-12 line-height text-justify mt-5">
+                            {!! substr($product->description,3,650) !!} ...
                         </div>
                     </div>
                     <!-- end product details -->
