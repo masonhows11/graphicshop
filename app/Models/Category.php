@@ -28,6 +28,12 @@ class Category extends Model
             ->generateSlugsFrom('title_english')
             ->saveSlugsTo('slug');
     }*/
+
+    public function products(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Product::class);
+    }
+
     public function getParentKeyName()
     {
         return 'parent_id';
@@ -46,12 +52,13 @@ class Category extends Model
         return  self::where('id',$parent_id)->first();
     }
 
+
     // for many to many with products table
-    public function products()
-    {
-        return $this->belongsToMany(Product::class, 'category_product');
-           // ->orderby('created_at','ASC');
-    }
+    //    public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    //    {
+    //        return $this->belongsToMany(Product::class, 'category_product');
+    //           // ->orderby('created_at','ASC');
+    //    }
 
 
 

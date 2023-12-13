@@ -20,7 +20,10 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $categories = Category::tree()->get()->toTree();
-        return view('front.product.product')->with(['product' => $product,'categories' => $categories]);
+        $relatedProducts = Product::where('category_id',$product->category_id)->take(4)->get();
+        //->except('id',$product->id);
+        return view('front.product.product')
+            ->with(['product' => $product,'categories' => $categories ,'relatedProducts' => $relatedProducts]);
     }
 
     public function addToFavoriteProducts(Request $request)

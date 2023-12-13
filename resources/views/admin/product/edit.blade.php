@@ -91,7 +91,7 @@
                             <label for="category-select" class="form-label">انتخاب دسته بندی</label>
                             <select class=" form-select"  id="category-select" name="categories">
                                 @foreach( $categories as $category)
-                                    <option value="{{ $category->id }}"{{ in_array($category->id,$category_ids) ? 'selected' : '' }} >
+                                    <option value="{{ $category->id }}"{{ $product->category_id === $category->id ? 'selected' : '' }} >
                                         {{ $category->title }}
                                     </option>
                                 @endforeach

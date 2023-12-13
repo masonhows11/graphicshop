@@ -127,7 +127,7 @@
 
             <!-- product slider related products -->
             <div class="product-slider related-products">
-                @include('front.product.partials.related_products',['related_products' => $productCategories ])
+                @include('front.product.partials.related_products',['products' => $relatedProducts])
             </div>
             <!--end product slider related products -->
 

@@ -61,11 +61,15 @@ class AdminProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::select('title', 'id')->get();
-        foreach ($product->categories as $cat) {
-            $category_ids[] = $cat->id;
+        $category_ids = [];
+        foreach ($categories as $cat) {
+            $category_ids[] += $cat->id;
         }
+        //  dd($category_ids);
         return view('admin.product.edit')
-            ->with(['product' => $product, 'categories' => $categories, 'category_ids' => $category_ids]);
+            ->with(['product' => $product,
+                'categories' => $categories,
+                'category_ids' => $category_ids]);
     }
 
     public function update(ProductUpdateRequest $request)
