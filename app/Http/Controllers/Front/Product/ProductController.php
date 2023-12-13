@@ -14,7 +14,7 @@ class ProductController extends Controller
 
     public function products()
     {
-        
+
     }
 
     public function show(Product $product)
