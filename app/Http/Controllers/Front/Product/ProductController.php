@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Front\Product;
 
 use App\Http\Controllers\Controller;
-use App\Models\Compare;
 use App\Models\Product;
-use App\Models\ProductColor;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,30 +11,17 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
     //
+
+    public function products()
+    {
+        
+    }
+
     public function show(Product $product)
     {
 
-        $product_id = $product->id;
-        $productCategories = $product->categories()->get(['title_persian']);
-        $relatedProducts = Product::with('tags')->whereHas('tags',function ($q) use ($product){
-            $q->whereIn('tag_id',$product->tags()->select('tag_id'));
-        })->where('status', 1)
-          ->where('available_in_stock', '>', 0)
-          ->select(['id', 'title_persian', 'origin_price', 'thumbnail_image', 'slug'])
-          ->take(4)->get()->except($product->id);
-        $colors = ProductColor::where('product_id', $product_id)->where('status', 1)->get();
-        $images = ProductImage::where('product_id', $product_id)->where('is_active', 1)->get();
-        $categories = $productCategories->implode('title_persian', ' - ');
 
-
-        return view('front.product.product')
-            ->with(['product' => $product,
-                'categories' => $categories,
-                'product_id' => $product_id,
-                'colors' => $colors,
-                'images' => $images,
-                'relatedProducts' => $relatedProducts,
-                'productCategories' => $productCategories]);
+        return view('front.product.product');
     }
 
     public function addToFavoriteProducts(Request $request)
