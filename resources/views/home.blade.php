@@ -26,7 +26,12 @@
         {{--  @include('front.layouts.include.main_top_adds')--}}
         <!-- end ads -->
         <!-- start product slider -->
-        @include('front.layouts.include.product_slider')
+        @include('front.layouts.product_slider.slider_banner')
+
+        @include('front.layouts.product_slider.slider_visit_card')
+
+        @include('front.layouts.product_slider.slider_tract')
+
         <!-- end product slider -->
         <!-- start ads -->
         {{--  @include('front.layouts.include.main_bottom_ads')--}}

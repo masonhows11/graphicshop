@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <div class="title">
-                <h4>گوشی موبایل</h4>
+                <h4>کارت ویزیت</h4>
             </div>
             <div class="owl-carousel owl-theme custom-product-slider">
 
@@ -95,3 +95,4 @@
         </div>
     </div>
 </div>
+
