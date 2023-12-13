@@ -10,22 +10,18 @@
                         {{--  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>--}}
                     </div>
                     <div class="offcanvas-body px-0">
-                        <div class="input-group search-box px-3"><!-- start search box -->
+                        <div class="input-group search-box px-3">
                             <input type="search" class="form-control form-control-lg" placeholder="جستجو در نیک کالا">
                             <button type="submit" class="btn btn-danger"><img src="front_assets/images/search.png">
                             </button>
-                        </div><!-- end search box -->
-                        <ul class="mobile-menu-level-1"><!-- start mobile menu level 1 -->
+                        </div>
+                        <ul class="mobile-menu-level-1">
                             <li class="has-mobile-submenu"><a href="#">دسته بندی محصولات</a>
-                                <!-- start mobile menu level 2 -->
+
                                 <ul class="mobile-menu-level-2">
                                     @foreach( $categories as $child )
                                         <li class="has-mobile-submenu-2">
-                                            @if( $child->children != null )
                                                 <a href="javascript:void(0)" class="d-inline">{{ $child->title }}</a>
-                                            @else
-                                                <a href="{{ route('search.category',['slug' => $child->title]) }}" class="d-inline">{{ $child->title }}</a>
-                                            @endif
                                             <ul class="mobile-menu-level-3 me-2">
                                                 @if( $child->children != null  )
                                                     @include('front.partials.responsive_child_category',['category' => $child->children])
@@ -34,7 +30,6 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                                <!-- end mobile menu level 2 -->
                             </li>
                             <li><a href="#">تخفیف‌ها و پیشنهادها</a></li>
                             <li><a href="signup.html">ثبت نام / ورود</a></li>
@@ -42,7 +37,7 @@
                             <li><a href="blog.html">وبلاگ</a></li>
                             <li><a href="contact-us.html">تماس با ما</a></li>
                             <li><a href="about-us.html">درباره ما</a></li>
-                        </ul><!-- end mobiile menu level 1 -->
+                        </ul>
                     </div>
                 </div>
                 {{--  <img src="front_assets/images/logo.png" class="img-fluid"><!-- logo -->--}}

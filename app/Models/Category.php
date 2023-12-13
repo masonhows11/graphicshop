@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use \Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 // use Pishran\LaravelPersianSlug\HasPersianSlug;
 // use Spatie\Sluggable\SlugOptions;
@@ -11,7 +12,7 @@ use \Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 class Category extends Model
 {
     //use HasPersianSlug;
-    use HasFactory,HasRecursiveRelationships;
+    use HasFactory,HasRecursiveRelationships,SoftDeletes;
 
     protected $table = 'categories';
     protected $fillable = ['title',
