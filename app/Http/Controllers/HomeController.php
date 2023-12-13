@@ -32,6 +32,7 @@ class HomeController extends Controller
 
     public function notFound()
     {
-        return view('errors_custom.404_error');
+        $categories = Category::tree()->get()->toTree();
+        return view('errors_custom.404_error')->with(['categories' => $categories]);
     }
 }

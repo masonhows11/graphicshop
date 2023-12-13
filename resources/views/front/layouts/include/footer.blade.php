@@ -1,38 +1,29 @@
 <footer>
     <div class="container">
-        <div class="row footer-svg-icons border-bottom mx-2 py-2">
-            <div class="col-6 col-md text-center"><img src="front_assets/images/1.svg"><p>تحویل اکسپرس</p></div>
-            <div class="col-6 col-md text-center"><img src="front_assets/images/2.svg"><p >پشتیبانی 24 ساعته </p></div>
-            <div class="col-6 col-md text-center"><img src="front_assets/images/3.svg"><p>پرداخت در محل </p></div>
-            <div class="col-6 col-md text-center"><img src="front_assets/images/4.svg"><p>7 روز ضمانت بازگشت کالا</p></div>
-            <div class="col-12 col-md text-center"><img src="front_assets/images/5.svg"><p>ضمانت اصل بودن کالا</p></div>
-        </div>
-        <div class="row"><!-- start footer box -->
+        <div class="row">
             <div class="col-lg-2 col-sm-6 footer-box">
-                <p>با نیک کالا </p>
+                <p>با گرافیک شاپ </p>
                 <ul class="ps-0">
-                    <li class="mb-3"><a href="contact-us.html">اتاق خبر نیک کالا</a></li>
-                    <li class="mb-3"><a href="contact-us.html">فرصت های شغلی</a></li>
-                    <li class="mb-3"><a href="contact-us.html">تماس با نیک کالا</a></li>
-                    <li class="mb-3"><a href="contact-us.html">درباره نیک کالا</a></li>
+                    <li class="mb-3"><a href="{{ route('not.found') }}">اتاق خبر گرافیک شاپ</a></li>
+                    <li class="mb-3"><a href="{{ route('not.found') }}">فرصت های شغلی</a></li>
+                    <li class="mb-3"><a href="{{ route('not.found') }}">تماس با گرافیک شاپ</a></li>
+                    <li class="mb-3"><a href="{{ route('not.found') }}">درباره گرافیک شاپ</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-sm-6 footer-box">
                 <p>خدمات مشتریان</p>
                 <ul class="ps-0">
-                    <li class="mb-3"><a href="contact-us.html">پرسش‌های متداول</a></li>
-                    <li class="mb-3"><a href="contact-us.html">شرایط استفاده</a></li>
-                    <li class="mb-3"><a href="contact-us.html">حریم خصوصی</a></li>
-                    <li class="mb-3"><a href="contact-us.html">گزارش تخلف</a></li>
+                    <li class="mb-3"><a href="{{ route('not.found') }}">پرسش‌های متداول</a></li>
+                    <li class="mb-3"><a href="{{ route('not.found') }}">شرایط استفاده</a></li>
+                    <li class="mb-3"><a href="{{ route('not.found') }}">حریم خصوصی</a></li>
+                    <li class="mb-3"><a href="{{ route('not.found') }}">گزارش تخلف</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-sm-6 footer-box">
-                <p>راهنمای خرید از نیک کالا</p>
+                <p>راهنمای خرید از گرافیک شاپ</p>
                 <ul class="ps-0">
-                    <li class="mb-3"><a href="contact-us.html">نحوه ثبت سفارش</a></li>
-                    <li class="mb-3"><a href="contact-us.html">رویه ارسال سفارش</a></li>
-                    <li class="mb-3"><a href="contact-us.html">شیوه‌های پرداخت</a></li>
-                    <li class="mb-3"><a href="contact-us.html">رویه‌های بازگرداندن کالا</a></li>
+                    <li class="mb-3"><a href="{{ route('not.found') }}">نحوه ثبت سفارش</a></li>
+                    <li class="mb-3"><a href="{{ route('not.found') }}">شیوه‌های پرداخت</a></li>
                 </ul>
             </div>
             <div class="col-lg-5 col-sm-6 footer-box">
@@ -50,39 +41,18 @@
                 </div>
             </div>
         </div><!-- end footer box -->
-        <div class="row d-none d-sm-block"><!-- start app download -->
-            <div class="col-12 app-download">
-                <div class="row">
-                    <div class="col-5 d-flex align-items-center">
-                        <img src="front_assets/images/footerLogo.png" class="p-2">
-                        <span class="text-white ms-2"> دانلود اپلیکیشن</span>
-                    </div>
-                    <div class="col-7 d-flex align-items-center justify-content-end">
-                        <a href="#"><img src="front_assets/images/bazzar.svg" class="img-fluid me-2 rounded"></a>
-                        <a href="#"><img src="front_assets/images/sib-app.svg" class="img-fluid rounded"></a>
-                    </div>
-                </div>
-            </div>
-        </div><!-- end app download -->
         <div class="row"><!-- start footer details -->
             <div class="col-md-8 col-12 footer-details ps-0">
-                <p>فروشگاه اینترنتی نیک کالا، بررسی، انتخاب و خرید آنلاین</p>
-                <span>
-                        نیک کالا به عنوان یکی از قدیمی‌ترین فروشگاه های
-                        اینترنتی با بیش از یک دهه تجربه،
-                        با پایبندی به سه اصل، پرداخت در محل، هفت روز ضمانت بازگشت کالا و تضمین اصل‌بودن
-                        کالا موفق شده تا همگام با فروشگاه‌های معتبر جهان، به بزرگ‌ترین فروشگاه اینترنتی
-                        ایران تبدیل شود.
-                    </span>
+                <p>فروشگاه اینترنتی گرافیک شاپ ، بررسی، انتخاب و خرید آنلاین</p>
             </div>
             <div class="col-md-4 col-12 d-flex align-items-center justify-content-end footer-pic pe-0">
-                <img src="front_assets/images/f-1.png" class="footer-detail-pic">
-                <img src="front_assets/images/f-2.png" class="footer-detail-pic">
+                <img src="{{ asset('front_assets/images/f-1.png') }}" class="footer-detail-pic">
+                <img src="{{ asset('front_assets/images/f-2.png') }}" class="footer-detail-pic">
             </div>
         </div><!-- end footer details -->
         <div class="row"><!-- start copy right -->
             <div class="col-12 copy-right">
-                <p>استفاده از مطالب فروشگاه اینترنتی نیک کالا فقط برای مقاصد غیرتجاری و
+                <p>استفاده از مطالب فروشگاه اینترنتی گرافیک شاپ فقط برای مقاصد غیرتجاری و
                     با ذکر منبع بلامانع است. کلیه حقوق این سایت متعلق به یاس دیزاین می‌باشد.
                 </p>
             </div>
