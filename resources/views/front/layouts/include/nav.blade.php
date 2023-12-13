@@ -20,12 +20,12 @@
                 </ul>
                 <!-- end mega menu-->
             </li>
-            <li><a href="javascript:void(0)">تخفیف‌ها و پیشنهادها</a></li>
-            <li><a href="signup.html">ثبت نام / ورود</a></li>
-            <li><a href="blog.html">وبلاگ</a></li>
-            <li><a href="cart.html">سبد خرید</a></li>
-            <li><a href="contact-us.html">تماس با ما</a></li>
-            <li><a href="about-us.html">درباره ما</a></li>
+            <li><a href="{{ route('not.found') }}">تخفیف‌ها و پیشنهادها</a></li>
+            <li><a href="{{ route('not.found') }}">ثبت نام / ورود</a></li>
+            <li><a href="{{ route('not.found') }}">وبلاگ</a></li>
+            <li><a href="#">سبد خرید</a></li>
+            <li><a href="{{ route('not.found') }}">تماس با ما</a></li>
+            <li><a href="{{ route('not.found') }}">درباره ما</a></li>
         </ul>
     </div>
 </nav>
