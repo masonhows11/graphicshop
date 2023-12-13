@@ -358,7 +358,7 @@ input::placeholder, select ,textarea::placeholder{
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12) !important;
-    border-bottom: 3px solid #ef5661;
+    /*border-bottom: 3px solid #ef5661;*/
     visibility: hidden;
     opacity: 0;
     transition: all ease-in-out 0.3s;

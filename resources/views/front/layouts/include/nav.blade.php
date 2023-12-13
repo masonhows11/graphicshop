@@ -1,7 +1,8 @@
 <nav class="d-none d-lg-block navigation"><!-- start main menu -->
     <div class="container">
         <ul class="main-menu">
-            <li class="has-mega-menu"><a href="#"> دسته بندی محصولات <i class="fa fa-angle-down"></i></a>
+            <li class="has-mega-menu">
+                <a href="#"> دسته بندی محصولات <i class="fa fa-angle-down"></i></a>
                 <!-- start mega menu-->
                 <ul class="row mega-menu">
                     @foreach( $categories as $child )
