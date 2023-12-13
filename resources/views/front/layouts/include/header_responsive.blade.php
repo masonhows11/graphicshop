@@ -40,13 +40,14 @@
                             <li><a href="about-us.html">درباره ما</a></li>
                         </ul><!-- end mobiile menu level 1 -->
                     </div>
-                </div><!-- end mobile menu-->
+                </div>
               {{--  <img src="front_assets/images/logo.png" class="img-fluid"><!-- logo -->--}}
                <div class="ms-4"> <a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک لند</h2></a></div>
             </div>
 
-            <div class="col-4 d-flex align-items-center justify-content-end"><!-- start signup & login dropdown -->
-                <div class="dropdown">
+            <!-- start signup & login dropdown -->
+            <div class="col-4 d-flex align-items-center justify-content-end">
+               {{-- <div class="dropdown">
                     <a href="#" data-bs-toggle="dropdown"><i class="fa fa-user-lock signup-login-icon"></i></a>
                     <ul class="dropdown-menu dropdown-menu-custom"><!-- start dropdown box -->
                         <li class="d-flex">
@@ -62,28 +63,28 @@
                             <a href="#" class="login-link"><i class="fas fa-sign-out-alt text-muted font-14 me-1"></i>خروج از حساب  کاربری</a>
                         </li>
                     </ul><!-- end dropdown box -->
-                </div><!-- end signup & login dropdown -->
+                </div>--}}
             </div>
+            <!-- end signup & login dropdown -->
 
             <!-- start shopping cart responsive-->
             <div class="col-1 d-flex align-items-center justify-content-end">
                 <a href="#shopping-cart-responsive" class="position-relative" data-bs-toggle="offcanvas">
                     <img src="{{ asset('front_assets/images/cart.png') }}">
-                    <div class="count">2</div>
+                    <div class="count">5</div>
                 </a>
-                <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" id="shopping-cart-responsive"><!-- start shopping cart offcanvas -->
 
-                    <div class="offcanvas-header"><!-- start offcanvas header -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" id="shopping-cart-responsive">
+
+                    <div class="offcanvas-header">
                         <p class="offcanvas-title font-12">سبد خرید (4 کالا)</p>
                         <button type="button" class="text-reset btn-close" data-bs-dismiss="offcanvas"></button>
-                    </div><!-- end offcanvas header -->
-
-                    <div class="offcanvas-body"><!-- start cart body -->
-
-                        <div class="row"><!-- start cart item -->
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="row">
                             <div class="col-4"><img src="{{ asset('front_assets/images/mobile1.jpg') }}" class="img-fluid img-thumbnail"></div>
                             <div class="col-8 d-flex align-items-center">
-                                <a href="product.html" class="cart-product-title">گوشی موبایل سامسونگ مدل Galaxy A21S SM-A217F/DS</a>
+                                <a href="#" class="cart-product-title">گوشی موبایل سامسونگ مدل Galaxy A21S SM-A217F/DS</a>
                             </div>
                         </div>
                         <div class="row my-3 border-bottom">
@@ -95,12 +96,9 @@
                             <div class="col-6 d-flex justify-content-end">
                                 <p class="cart-product-price">4,169,000 تومان</p>
                             </div>
-                        </div><!-- end cart item -->
-
-
-                    </div><!-- end cart body -->
-
-                    <div class="row cart-footer"><!-- start cart footer-->
+                        </div>
+                    </div>
+                    <div class="row cart-footer">
                         <div class="col-5">
                             <p>مبلغ قابل پرداخت:</p>
                             <p>12,480,000 تومان</p>
@@ -108,9 +106,9 @@
                         <div class="col-7">
                             <a href="login.html" class="btn btn-info font-13 btn-lg ms-4">ورود و ثبت سفارش</a>
                         </div>
-                    </div><!-- end cart footer-->
+                    </div>
+                </div>
 
-                </div><!-- end shopping cart offcanvas -->
             </div>
             <!-- end shopping cart responsive-->
         </div>
