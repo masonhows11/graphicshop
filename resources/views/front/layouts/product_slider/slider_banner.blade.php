@@ -7,7 +7,7 @@
             <div class="owl-carousel owl-theme custom-product-slider">
 
                 @forelse( $products as $product)
-                <div class="item"><!-- start item -->
+                <div class="item">
                     <div class="card border-0 custom-card mt-3">
                         <a href="{{ route('product',$product->title) }}" class="d-block w-100"><img src="{{ asset($product->thumbnail_path) }}" class="slider-pic"></a>
                         <div class="card-body">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 @empty
-                    <div class="item"><!-- start item -->
+                    <div class="item">
                         <div class="card border-0 custom-card mt-3">
                             <a href="{{ route('not.found') }}" class="d-block w-100"><img src="{{ asset('front_assets/images/mobile1.jpg') }}" class="slider-pic"></a>
                             <div class="card-body">

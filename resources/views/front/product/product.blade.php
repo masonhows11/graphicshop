@@ -8,21 +8,21 @@
     {{--@include('front.product.partials.breadcrumb_product',['productCategories' => $productCategories])--}}
     <!-- end breadcrumb -->
 
-    <main><!-- start main -->
+    <main>
         <div class="container">
 
-            <!-- start product content -->
+
             <div class="product-content mt-5">
                 <div class="row mt-5">
                     <div class="col-lg-4 col-12">
                         <div class="row">
-                            <div class="col-1 text-center product-icons"><!-- start product icons -->
+                            <div class="col-1 text-center product-icons">
                                 <i class="far fa-heart heart d-block my-4" data-bs-toggle="tooltip"
                                    data-bs-placement="top" title="افزودن به علاقمندی ها"></i>
                                 <span data-bs-toggle="modal" data-bs-target="#share-modal"><i
                                         class="fa fa-share-alt share d-block my-4" data-bs-toggle="tooltip"
                                         data-bs-placement="top" title="اشتراک گذاری"></i></span>
-                                <div class="modal fade" id="share-modal"><!-- start share modal -->
+                                <div class="modal fade" id="share-modal">
                                     <div class="modal-dialog  modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -46,11 +46,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div><!-- end share modal -->
+                                </div>
                                 <i class="fas fa-random random d-block my-4" data-bs-toggle="tooltip" data-bs-placement="top" title="مقایسه کالا"></i>
-                            </div><!-- end product icons -->
+                            </div>
 
-                            <div class="col-11 pb-5 mb-3"><!-- start product slider pic -->
+                            <div class="col-11 pb-5 mb-3">
                                 <div class="carousel slide pb-5 product-slider-2" id="product-slider" data-bs-ride="carousel">
                                     @if( $product->thumbnail_path != null)
                                      <div class="carousel-indicators carousel-indicator-custom">
@@ -90,15 +90,13 @@
                         </div>
                     </div>
 
-                    <!-- start product details -->
+
                     <div class="col-lg-5 col-md-8 d-flex align-items-end product-details">
                         <div class="alert alert-light font-12 line-height text-justify mt-5">
                             {!! substr($product->description,3,650) !!} ...
                         </div>
                     </div>
-                    <!-- end product details -->
 
-                    <!-- start add to cart box -->
                     <div class="col-lg-3 col-md-4">
                         <div class="add-cart-box">
                             <div class="product-seller-row">
@@ -116,7 +114,7 @@
             </div>
 
 
-            <!-- start product tab content -->
+
             <div class="product-tab-content">
                 <div class="row pb-3">
                     <div class="col-12">
@@ -125,7 +123,7 @@
                     </div>
                 </div>
             </div>
-            <!-- end product tab content -->
+
         </div>
         {{--   <div class="container">
                <!-- start product content -->
