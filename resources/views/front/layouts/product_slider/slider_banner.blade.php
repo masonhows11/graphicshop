@@ -6,19 +6,19 @@
             </div>
             <div class="owl-carousel owl-theme custom-product-slider">
 
-                @forelse( $banners as $banner)
+                @forelse( $products as $product)
                 <div class="item"><!-- start item -->
                     <div class="card border-0 custom-card mt-3">
-                        <a href="#" class="d-block w-100"><img src="{{ asset($banner->thumbnail_path) }}}" class="slider-pic"></a>
+                        <a href="#" class="d-block w-100"><img src="{{ asset($product->thumbnail_path) }}" class="slider-pic"></a>
                         <div class="card-body">
-                            <a href="#" class="product-title">{{ $banner->title }}</a>
+                            <a href="#" class="product-title">{{ $product->title }}</a>
                             <div class="d-flex justify-content-between">
                                 <div class="mt-3 ps-4">
                                     <span class="heart"><i class="far fa-heart font-14 text-muted me-2"></i></span>
                                     <span class="random"><i class="fa fa-random font-14 text-muted me-2"></i></span>
                                     <span class="add-to-cart"><i class="fa fa-cart-plus font-13 text-muted"></i></span>
                                 </div>
-                                <p class="font-13 mt-3 pe-4"> {{ priceFormat($banner->price) }} تومان </p>
+                                <p class="font-13 mt-3 pe-4"> {{ priceFormat($product->price) }} تومان </p>
                             </div>
                         </div>
                     </div>
