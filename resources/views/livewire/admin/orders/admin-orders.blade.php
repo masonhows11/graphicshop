@@ -25,24 +25,24 @@
                     <thead class="">
                     <tr class="text-center">
                         <th class="text-muted">{{ __('messages.id') }} </th>
-                        <th class="text-muted">{{ __('messages.show_order') }} </th>
                         <th class="text-muted">{{ __('messages.user') }}</th>
                         <th class="text-muted">{{ __('messages.created_at') }}</th>
                         <th class="text-muted">{{ __('messages.single_price') }}</th>
                         <th class="text-muted">{{ __('messages.status')}}</th>
                         <th class="text-muted">{{ __('messages.ref_code')}}</th>
+                        <th class="text-muted">{{ __('messages.show_order') }} </th>
                     </tr>
                     </thead>
                     <tbody>
                    @foreach( $orders as $order)
                         <tr class="text-center">
                             <td>{{ $order->id }}</td>
-                            <td><a href="#"><i class="fa fa-shopping-basket"></i></a></td>
-                            <td>{{ $order->owner->name }}</td>
+                            <td>{{ $order->user->name }}</td>
                             <td>{{ customJalaliDate($order->created_at) }}</td>
                             <td>{{ priceFormat($order->amount ) }} {{ __('messages.toman') }}</td>
                             <td>{{ $order->payment_status }}</td>
                             <td>{{ $order->order_number }}</td>
+                            <td><a href="#"><i class="fa fa-shopping-basket"></i></a></td>
                         </tr>
                     @endforeach
                     </tbody>

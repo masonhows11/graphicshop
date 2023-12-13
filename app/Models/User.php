@@ -33,7 +33,6 @@ class User extends Authenticatable
     //        'token_guid',
     //    ];
     protected $fillable = [
-
         'name',
         'first_name',
         'last_name',
@@ -68,16 +67,13 @@ class User extends Authenticatable
 
         return $this->hasMany(Payment::class);
     }
-
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Order::class,'user_id');
     }
-
     public function getFullNameAttribute(){
         return $this->first_name . ' ' . $this->last_name;
     }
-
     public function product(){
         return $this->hasMany(Product::class,'user_id');
     }
