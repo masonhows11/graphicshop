@@ -30,7 +30,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// front end routes
 Route::get('/', [HomeController::class,'home'])->name('home');
+
+Route::get('/search/products',[HomeController::class,'products'])->name('search.products');
+
+
+Route::get('/search/category/{slug?}',[HomeController::class,'searchCategory'])->name('search.category');
+
+
+// admin panel routes
 
 Route::group(['prefix' => 'admin'], function () {
 

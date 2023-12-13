@@ -15,7 +15,9 @@ class HomeController extends Controller
     //
     public function home()
     {
-        return view('home');
+        $categories = Category::tree()->get()->toTree();
+        return view('home')
+            ->with(['categories' => $categories]);
     }
 
     public function products(Request $request)
