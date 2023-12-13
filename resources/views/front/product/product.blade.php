@@ -110,6 +110,7 @@
                             <button type="button" class="btn add-cart-btn">افزودن به سبد خرید</button>
                         </div>
                     </div>
+
                 </div>
             </div>
 
