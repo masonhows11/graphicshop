@@ -18,9 +18,7 @@
 <!-- start main menu -->
 @include('front.layouts.include.nav')
 <!-- end main menu -->
-<!-- start main slider -->
-{{--@include('front.layouts.include.main_slider')--}}
-<!-- end main slider -->
+
 <!-- start main content -->
 <main>
     <div class="container">

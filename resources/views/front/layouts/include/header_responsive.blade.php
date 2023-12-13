@@ -2,68 +2,47 @@
     <div class="container">
         <div class="row py-2">
 
-            <div class="col-7">
-                <a href="#mobile-menu" data-bs-toggle="offcanvas"><i class="fa fa-bars mobile-menu-icon"></i></a><!-- mobile menu icon -->
-                <div class="offcanvas offcanvas-start" tabindex="-1" data-bs-scroll="true" id="mobile-menu"><!-- start mobile menu-->
-
-                    <div class="offcanvas-header"><!-- start menu header -->
-                        <img src="front_assets/images/logo.png">
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-                    </div><!-- end menu header -->
-
+            <div class="col-7 d-flex flex-row">
+                <a href="#mobile-menu" data-bs-toggle="offcanvas"><i class="fa fa-bars mobile-menu-icon"></i></a>
+                <div class="offcanvas offcanvas-start" tabindex="-1" data-bs-scroll="true" id="mobile-menu">
+                    <div class="offcanvas-header">
+                        <a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک لند</h2></a>
+                      {{--  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>--}}
+                    </div>
                     <div class="offcanvas-body px-0">
-
                         <div class="input-group search-box px-3"><!-- start search box -->
                             <input type="search" class="form-control form-control-lg" placeholder="جستجو در نیک کالا">
                             <button type="submit" class="btn btn-danger"><img src="front_assets/images/search.png"></button>
                         </div><!-- end search box -->
-
                         <ul class="mobile-menu-level-1"><!-- start mobile menu level 1 -->
                             <li class="has-mobile-submenu"><a href="#">دسته بندی محصولات</a>
-
-                                <ul class="mobile-menu-level-2"><!-- start mobile menu level 2 -->
-                                    <li class="has-mobile-submenu-2"><a href="#">کالای دیجیتال</a>
-
-                                        <ul class="mobile-menu-level-3"><!-- start mobile menu level 3 -->
-                                            <li><a href="javascript:void(0)">گوشی موبایل</a></li>
-                                            <li><a href="javascript:void(0)">لوازم جانبی گوشی</a></li>
-                                            <li><a href="javascript:void(0)">تبلت</a></li>
-                                            <li><a href="javascript:void(0)">دوربین عکاسی</a></li>
-                                        </ul><!-- start mobile menu level 3 -->
-
-                                    </li>
-                                    <li><a href="javascript:void(0)">زیبایی و سلامت</a></li>
-                                    <li><a href="javascript:void(0)">مد و پوشاک</a></li>
-                                    <li><a href="javascript:void(0)">خانه و آشپزخانه</a></li>
-                                    <li><a href="javascript:void(0)">کتاب و لوازم تحریر</a></li>
-                                </ul><!-- end mobile menu level 2 -->
-
+                                <!-- start mobile menu level 2 -->
+                                <ul class="mobile-menu-level-2">
+                                    @foreach( $categories as $child )
+                                        <li class="has-mobile-submenu-2">
+                                            <a href="javascript:void(0)" class="d-inline">{{ $child->title }}</a>
+                                            <ul class="mobile-menu-level-3 me-2">
+                                                @if( $child->children != null  )
+                                                    @include('front.partials.responsive_child_category',['category' => $child->children])
+                                                @endif
+                                            </ul>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                                <!-- end mobile menu level 2 -->
                             </li>
                             <li><a href="#">تخفیف‌ها و پیشنهادها</a></li>
                             <li class="has-mobile-submenu"><a href="#">صفحات</a>
-
-                                <ul class="mobile-menu-level-2"><!-- start mobile menu level 2 -->
-                                    <li><a href="signup.html">ثبت نام / ورود</a></li>
-                                    <li class="has-mobile-submenu-2"><a href="#"> محصولات </a>
-
-                                        <ul class="mobile-menu-level-3"><!-- start mobile menu level 3 -->
-                                            <li><a href="product.html">محصول موجود</a></li>
-                                            <li><a href="product-unavailable.html">محصول ناموجود</a></li>
-                                        </ul><!-- start mobile menu level 3 -->
-
-                                    </li>
-                                    <li><a href="javascript:void(0)">پروفایل کاربر</a></li>
-                                    <li><a href="blog.html">وبلاگ</a></li>
-                                </ul><!-- end mobile menu level 2 -->
-
-                            </li>
+                            <li><a href="signup.html">ثبت نام / ورود</a></li>
+                            <li><a href="#"> محصولات </a>
+                            <li><a href="blog.html">وبلاگ</a></li>
                             <li><a href="contact-us.html">تماس با ما</a></li>
                             <li><a href="about-us.html">درباره ما</a></li>
                         </ul><!-- end mobiile menu level 1 -->
-
                     </div>
                 </div><!-- end mobile menu-->
-                <img src="front_assets/images/logo.png" class="img-fluid"><!-- logo -->
+              {{--  <img src="front_assets/images/logo.png" class="img-fluid"><!-- logo -->--}}
+               <div class="ms-4"> <a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک لند</h2></a></div>
             </div>
 
             <div class="col-4 d-flex align-items-center justify-content-end"><!-- start signup & login dropdown -->
