@@ -337,69 +337,6 @@
                     </div>
                 </div>
 
-
-
-                {{-- start  payments  --}}
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                    viewBox="0 0 24 24" version="1.1">
-                                    <path
-                                        d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
-                                        fill="#000000" opacity="0.3" />
-                                    <path
-                                        d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
-                                        fill="#000000" />
-                                </svg>
-                            </span>
-                        </span>
-                        <span class="menu-title">مدیریت پرداخت ها</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div class="menu-sub menu-sub-accordion menu-active-bg">
-
-                        <div class="menu-item ">
-                            <a class="menu-link {{ $route === 'admin.payments.all.index' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.payments.all.index') }}--}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.all_payments') }}</span>
-                            </a>
-                        </div>
-                       {{-- <div class="menu-item ">
-                            <a class="menu-link {{ $route === 'admin.payments.offline.index' ? 'active' : '' }}"
-                                href="--}}{{--{{ route('admin.payments.offline.index') }}--}}{{--">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.offline_payments') }}</span>
-                            </a>
-                        </div>
-                        <div class="menu-item ">
-                            <a class="menu-link {{ $route === 'admin.payments.online.index' ? 'active' : '' }}"
-                                href="--}}{{--{{ route('admin.payments.online.index') }}--}}{{--">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.online_payments') }}</span>
-                            </a>
-                        </div>
-                        <div class="menu-item ">
-                            <a class="menu-link {{ $route === 'admin.payments.cash.index' ? 'active' : '' }}"
-                                href="--}}{{--{{ route('admin.payments.cash.index') }}--}}{{--">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.payment_on_the_spot') }}</span>
-                            </a>
-                        </div>--}}
-
-                    </div>
-                </div>
-                {{-- end payments     --}}
                 {{-- start  orders   --}}
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
@@ -464,8 +401,74 @@
 
                     </div>
                 </div>
-                {{-- start comments --}}
+                {{-- end  orders   --}}
+
+                {{-- start  payments  --}}
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                    viewBox="0 0 24 24" version="1.1">
+                                    <path
+                                        d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
+                                        fill="#000000" opacity="0.3" />
+                                    <path
+                                        d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
+                                        fill="#000000" />
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="menu-title">مدیریت پرداخت ها</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+
+                        <div class="menu-item ">
+                            <a class="menu-link {{ $route === 'admin.payments.index' ? 'active' : '' }}"
+                                href="{{ route('admin.payments.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">{{ __('messages.payments') }}</span>
+                            </a>
+                        </div>
+                       {{-- <div class="menu-item ">
+                            <a class="menu-link {{ $route === 'admin.payments.offline.index' ? 'active' : '' }}"
+                                href="--}}{{--{{ route('admin.payments.offline.index') }}--}}{{--">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">{{ __('messages.offline_payments') }}</span>
+                            </a>
+                        </div>
+                        <div class="menu-item ">
+                            <a class="menu-link {{ $route === 'admin.payments.online.index' ? 'active' : '' }}"
+                                href="--}}{{--{{ route('admin.payments.online.index') }}--}}{{--">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">{{ __('messages.online_payments') }}</span>
+                            </a>
+                        </div>
+                        <div class="menu-item ">
+                            <a class="menu-link {{ $route === 'admin.payments.cash.index' ? 'active' : '' }}"
+                                href="--}}{{--{{ route('admin.payments.cash.index') }}--}}{{--">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">{{ __('messages.payment_on_the_spot') }}</span>
+                            </a>
+                        </div>--}}
+
+                    </div>
+                </div>
+                {{-- end payments     --}}
+
+
+
+                {{-- start comments --}}
+                {{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -486,7 +489,7 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
                             <a class="menu-link  {{ $route === 'admin.product_comments.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.product_comments.index') }}--}}">
+                               href="--}}{{--{{ route('admin.product_comments.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -494,11 +497,11 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 {{-- end comment --}}
 
                 {{-- start tickets --}}
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                {{--  <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -519,7 +522,7 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.category.tickets' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.category.tickets') }}--}}">
+                               href="--}}{{--{{ route('admin.category.tickets') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -528,7 +531,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.priority.tickets' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.priority.tickets') }}--}}">
+                               href="--}}{{--{{ route('admin.priority.tickets') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -537,7 +540,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.admin.tickets.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.admin.tickets.index') }}--}}">
+                               href="--}}{{--{{ route('admin.admin.tickets.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -546,7 +549,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.all.tickets' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.all.tickets') }}--}}">
+                               href="--}}{{--{{ route('admin.all.tickets') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -555,7 +558,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.new.tickets' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.new.tickets') }}--}}">
+                               href="--}}{{--{{ route('admin.new.tickets') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -564,7 +567,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.open.tickets' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.open.tickets') }}--}}">
+                               href="--}}{{--{{ route('admin.open.tickets') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -573,7 +576,7 @@
                         </div>
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.close.tickets' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.close.tickets') }}--}}">
+                               href="--}}{{--{{ route('admin.close.tickets') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -581,12 +584,12 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 {{-- end tickets --}}
 
 
                 {{-- start banner --}}
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                {{--  <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -606,20 +609,20 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
 
-                        {{--   top banner    --}}
+                        --}}{{--   top banner    --}}{{--
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.top.banner.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.top.banner.index') }}--}}">
+                               href="--}}{{--{{ route('admin.top.banner.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">{{ __('messages.top_banner') }}</span>
                             </a>
                         </div>
-                        {{--    amazing product banner    --}}
+                        --}}{{--    amazing product banner    --}}{{--
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.amazing.banner.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.amazing.banner.index') }}--}}">
+                               href="--}}{{--{{ route('admin.amazing.banner.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -628,10 +631,10 @@
                         </div>
 
 
-                        {{--    bottom two banner    --}}
+                        --}}{{--    bottom two banner    --}}{{--
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.bottom.banner.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.bottom.banner.index') }}--}}">
+                               href="--}}{{--{{ route('admin.bottom.banner.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -640,11 +643,11 @@
                         </div>
 
                     </div>
-                </div>
+                </div>--}}
                 {{-- end banner --}}
 
                 {{-- start slider --}}
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                {{--<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -666,7 +669,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.main.slider.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.main.slider.index') }}--}}">
+                               href="--}}{{--{{ route('admin.main.slider.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -676,7 +679,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.product.category.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.product.category.index') }}--}}">
+                               href="--}}{{--{{ route('admin.product.category.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -687,11 +690,11 @@
 
 
                     </div>
-                </div>
+                </div>--}}
                 {{-- end slider --}}
 
                 {{-- notification emial sms --}}
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+              {{--  <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -713,7 +716,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.email.notices.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.email.notices.index') }}--}}">
+                               href="--}}{{--{{ route('admin.email.notices.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -723,7 +726,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.sms.notices.index' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.sms.notices.index') }}--}}">
+                               href="--}}{{--{{ route('admin.sms.notices.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -734,11 +737,11 @@
 
 
                     </div>
-                </div>
+                </div>--}}
                 {{-- end notification emial sms --}}
 
                 {{-- start setting --}}
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+              {{--  <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -760,7 +763,7 @@
 
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.setting.index' ? 'active' : '' }} "
-                               href="{{--{{ route('admin.setting.index') }}--}}">
+                               href="--}}{{--{{ route('admin.setting.index') }}--}}{{--">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -768,7 +771,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 {{-- end setting --}}
 
 

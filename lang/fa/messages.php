@@ -157,7 +157,7 @@ return [
     'name_of_deliver' => 'نام تحویل دهنده',
     'numbers' => 'تعداد',
     'description' => 'توضیحات',
-    'all_payments' => 'تمام پرداخت ها',
+    'payments' => 'پرداخت ها',
     'online_payments' => 'پرداخت های آنلاین',
     'offline_payments' => 'پرداخت های آفلاین',
     'payment_on_the_spot' => 'پرداخت در محل',

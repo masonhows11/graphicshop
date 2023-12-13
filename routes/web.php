@@ -16,6 +16,7 @@ use App\Http\Livewire\Admin\Users\AdminUsers;
 use App\Http\Livewire\Admin\Category\AdminCategory;
 use App\Http\Livewire\Admin\Product\AdminProduct;
 use App\Http\Livewire\Admin\Orders\AdminOrders;
+use App\Http\Livewire\Admin\Payments\AdminPayments;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -100,10 +101,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/orders/index', AdminOrders::class)->name('orders.index');
 
+});
 
+Route::prefix('admin')->name('admin.')->group(function () {
 
-
-
+    Route::get('/payments/index', AdminPayments::class)->name('payments.index');
 
 });
 
