@@ -6,6 +6,28 @@
             {!! $product->description !!}
         </p>
     </div>
+    <div class="tab-pane fade show" id="detail"><!-- start detail -->
+        <p class="mt-3 mx-3 font-14"><i class="fa fa-chevron-left align-middle text-danger font-12 me-1"></i> مشخصات محصول</p>
+
+        <div class="row mx-3">
+            <div class="col-sm-4 mb-2">
+                <div class="box-line">{{ __('messages.owner') }}</div>
+            </div>
+            <div class="col-sm-8 mb-2">
+                <div class="box-line">{{ $product->owner->name }}</div>
+            </div>
+        </div>
+
+        <div class="row mx-3">
+            <div class="col-sm-4 mb-2">
+                <div class="box-line">{{ __('messages.created_at') }}</div>
+            </div>
+            <div class="col-sm-8 mb-2">
+                <div class="box-line">{{ customJalaliDate($product->created_at) }}</div>
+            </div>
+        </div>
+    </div>
+
     <div class="tab-pane fade show" id="comment">
         <p class="m-3 font-14">امتیاز کاربران</p>
         <div class="row mx-3">
