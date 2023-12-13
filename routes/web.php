@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\User\AdminUsersController;
 use App\Http\Controllers\Front\AboutUs\AboutUsController;
 use App\Http\Controllers\Front\ContactUs\ContactUsController;
 use App\Http\Controllers\Admin\Product\AdminProductController;
+use App\Http\Controllers\Front\Product\ProductController;
 use App\Http\Controllers\HomeController;
 
 
@@ -36,6 +37,8 @@ Route::get('/', [HomeController::class,'home'])->name('home');
 Route::get('/search/products',[HomeController::class,'products'])->name('search.products');
 
 Route::get('/search/category/{slug?}',[HomeController::class,'searchCategory'])->name('search.category');
+
+Route::get('/product/{product:title}',[ProductController::class,'show'])->name('product');
 
 Route::get('/notFound',[HomeController::class,'notFound'])->name('not.found');
 

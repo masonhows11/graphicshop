@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Front\Product;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
-use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,9 +19,9 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-
-
-        return view('front.product.product');
+        $categories = Category::tree()->get()->toTree();
+        return view('front.product.product')
+            ->with(['product' => $product,'categories' => $categories]);
     }
 
     public function addToFavoriteProducts(Request $request)
