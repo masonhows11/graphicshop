@@ -9,7 +9,7 @@
                         <li class="col-3 mega-menu-box">
                             <ul>
                                 <li class="menu-title">
-                                    <a href="{{ route('search.category',['slug' => $child->slug]) }}"><i class="fa fa-angle-left me-2"></i>{{ $child->title}}</a>
+                                    <a href="{{ route('search.category',['slug' => $child->title]) }}"><i class="fa fa-angle-left me-2"></i>{{ $child->title}}</a>
                                 </li>
                                 @if( $child->children != null  )
                                     @include('front.partials.child_category',['category' => $child->children])

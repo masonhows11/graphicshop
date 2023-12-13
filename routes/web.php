@@ -35,9 +35,9 @@ Route::get('/', [HomeController::class,'home'])->name('home');
 
 Route::get('/search/products',[HomeController::class,'products'])->name('search.products');
 
-
 Route::get('/search/category/{slug?}',[HomeController::class,'searchCategory'])->name('search.category');
 
+Route::get('/notFound',[HomeController::class,'notFound'])->name('not.found');
 
 // admin panel routes
 

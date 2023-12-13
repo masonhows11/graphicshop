@@ -32,7 +32,6 @@
                                 <!-- end mobile menu level 2 -->
                             </li>
                             <li><a href="#">تخفیف‌ها و پیشنهادها</a></li>
-                            <li class="has-mobile-submenu"><a href="#">صفحات</a>
                             <li><a href="signup.html">ثبت نام / ورود</a></li>
                             <li><a href="#"> محصولات </a>
                             <li><a href="blog.html">وبلاگ</a></li>
