@@ -20,21 +20,9 @@
                 <!-- end mega menu-->
             </li>
             <li><a href="javascript:void(0)">تخفیف‌ها و پیشنهادها</a></li>
-            <li class="has-sub-menu"><a href="#">صفحات <i class="fa fa-angle-down"></i></a>
-                <ul class="sub-menu"><!-- start sub menu-->
-                    <li><a href="signup.html">ثبت نام / ورود</a></li>
-                    <li class="has-sub-menu-level-2"><a href="#">محصولات</a><i class="fa fa-angle-down"></i>
-                        <ul class="sub-menu-level-2"><!-- start sub menu level 2 -->
-                            <li><a href="product.html">محصول موجود</a></li>
-                            <li><a href="product-unavailable.html">محصول ناموجود</a></li>
-                            <li><a href="404.html">خطای 404</a></li>
-                        </ul><!-- end sub menu level 2 -->
-                    </li>
-                    <li><a href="javascript:void(0)">پروفایل کاربر</a></li>
-                    <li><a href="blog.html">وبلاگ</a></li>
-                    <li><a href="cart.html">سبد خرید</a></li>
-                </ul><!-- end sub menu-->
-            </li>
+            <li><a href="signup.html">ثبت نام / ورود</a></li>
+            <li><a href="blog.html">وبلاگ</a></li>
+            <li><a href="cart.html">سبد خرید</a></li>
             <li><a href="contact-us.html">تماس با ما</a></li>
             <li><a href="about-us.html">درباره ما</a></li>
         </ul>
