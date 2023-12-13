@@ -27,6 +27,7 @@ class ProductUpdateRequest extends FormRequest
             'thumbnail_path' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:1999',
             'demo_url' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:1999',
             'source_url' => 'nullable |mimes:zip|max:1999',
+            'category_id' => 'nullable',
             'description' => ['required', 'min:2','string','max:5000'],
             'categories' => ['required','exists:categories,id'],
             'seo_desc' => ['nullable', 'min:2','string','max:150'],

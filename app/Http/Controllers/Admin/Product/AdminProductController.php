@@ -37,11 +37,12 @@ class AdminProductController extends Controller
                 'description' => $request->description,
                 'seo_desc' => $request->seo_desc,
                 'product_tags' => $request->product_tags,
+                'category_id' => $request->categories,
                 'status' => $request->status,
                 'price' => $request->price,
                 'user_id' => $user->id,
             ]);
-            $product->categories()->sync($request->categories);
+           // $product->categories()->sync($request->categories);
 
             if(!$this->uploadImages($product,$validatedData)){
                 session()->flash('warning', __('messages.An_error_occurred_while_created'));
@@ -79,13 +80,14 @@ class AdminProductController extends Controller
             $product->update([
                 'title' => $request->title,
                 'description' => $request->description,
+                'category_id' => $request->categories,
                 'seo_desc' => $request->seo_desc,
                 'product_tags' => $request->product_tags,
                 'status' => $request->status,
                 'price' => $request->price,
                 'user_id' => $user->id,
             ]);
-            $product->categories()->sync($request->categories);
+           // $product->categories()->sync($request->categories);
 
              if(!$this->uploadImages($product,$validatedData)){
                  session()->flash('warning', __('messages.An_error_occurred_while_updated'));

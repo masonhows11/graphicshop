@@ -20,6 +20,7 @@ class Product extends Model
         'user_id',
         'title',
         'slug',
+        'category_id',
         'product_tags',
         'published_at',
         'description',
