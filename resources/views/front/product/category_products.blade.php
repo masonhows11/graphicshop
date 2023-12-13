@@ -36,13 +36,14 @@
 
         <div class="row">
             <!-- sidebar section-->
-            <div class="col-lg-3">
+           {{-- <div class="col-lg-3">
                 @include('front.product.partials.sidebar_category_products')
-            </div>
+            </div>--}}
             <!-- products section -->
             <div class="col-lg-9">
                 <div class="product-items">
-                    <div class="row d-flex flex-column">
+
+                   {{-- <div class="row d-flex flex-column">
 
                         <div class="col-12 my-2">
                             @if( request()->search )
@@ -62,14 +63,14 @@
                             </span>
                             @endif
 
-                            {{-- @if( request()->categories )
+                            --}}{{-- @if( request()->categories )
                                  <span class="d-inline-block border p-1 rounded bg-light">
                                  {{ __('messages.category') }}
                                  <span class="badge bg-blue-100 text-dark">
                                      {{ request()->categoies }}
                                  </span>
                              </span>
-                             @endif--}}
+                             @endif--}}{{--
 
                             @if( request()->min_price )
                                 <span class="d-inline-block border p-1 rounded bg-light">
@@ -105,7 +106,7 @@
                                     <a href="{{ route('search.category',['slug' => request()->slug ,'search' => request()->category_search ,'sort' => '5' , 'min_price' => request()->min_price , 'max_price' => request()->max_price  ,'brands' => request()->brands ]) }}" class="nav-link font-13 {{ request()->sort == 5 ? 'active' : 'text-dark' }}">پر فروش ترین </a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div>--}}
 
 
                     @if( count($products) > 0 )

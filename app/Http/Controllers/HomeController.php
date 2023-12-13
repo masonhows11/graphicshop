@@ -27,7 +27,7 @@ class HomeController extends Controller
 
     public function searchCategory(Request $request)
     {
-
+        return view('front.product.category_products');
     }
 
     public function notFound()
