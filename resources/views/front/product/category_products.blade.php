@@ -109,12 +109,12 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4 product-items">
                     @foreach( $products as $product)
                         <div class="col">
-                            <a href="{{ route('product',$product->slug) }}" class="d-block">
+                            <a href="{{ route('product',$product->title) }}" class="d-block">
                                 <div class="card custom-card mt-3">
                                     <div class="d-flex">
                                         <img src="{{ asset( $product->thumbnail_path) }}"
                                              alt="{{ asset( $product->thumbnail_path ) . '-' . ( $product->id ) }}"
-                                             class="slider-pic" loading="lazy">
+                                             class="slider-pic " loading="lazy">
                                     </div>
 
                                     <div class="card-body">

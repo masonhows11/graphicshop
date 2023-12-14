@@ -2511,3 +2511,7 @@ footer{
 .main-logo{
     font-weight: bold;
 }
+/* ----- custom style ----- */
+.custom-card img{
+    height: 250px; !important;
+}

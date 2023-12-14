@@ -6,7 +6,7 @@
 
 </div>
 <form action="{{ route('search.products') }}" method="get">
-    
+
     <div class="custom-sidebar">
         <p class="font-12 border-bottom pb-2">جستجو در نتایج</p>
         <div class="search-in-result  position-relative mt-3">
