@@ -7,10 +7,9 @@
             </div>
             <div class="col-lg-6 d-flex align-items-center justify-content-center">
                 <form action="{{ route('search.products') }}" method="get" class="w-100">
-
                 <div class="input-group search-box">
-                    <input type="search" class="form-control form-control-lg" placeholder="جستجو در گرافیک شاپ">
-                    <button type="submit" class="btn btn-danger"><img src="{{ asset('front_assets/images/search.png') }}"></button>
+                    <input type="search" name="search" class="form-control form-control-lg" placeholder="جستجو در گرافیک شاپ">
+                    <button type="submit" class="btn btn-danger"><img src="{{ asset('front_assets/images/search.png') }}" alt="search"></button>
                 </div>
                 </form>
             </div><!-- end search box -->

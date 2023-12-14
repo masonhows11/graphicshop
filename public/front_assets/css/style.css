@@ -2513,6 +2513,6 @@ footer{
 }
 /* ----- custom style ----- */
 .custom-card img{
-    height: 250px; !important;
+    height: 220px; !important;
     border-radius: 8px;
 }
