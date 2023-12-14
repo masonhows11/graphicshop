@@ -33,7 +33,7 @@
     </div>--}}
 
 
-    <div class="custom-sidebar">
+    {{--<div class="custom-sidebar">
         <p class="font-12 border-bottom pb-2">برند</p>
         <div class="mt-3 px-2 brands-select">
             @forelse( $brands as $brand )
@@ -53,11 +53,11 @@
             @endforelse
 
         </div>
-    </div>
+    </div>--}}
 
 
 
-    <div class="custom-sidebar">
+   {{-- <div class="custom-sidebar">
         <p class="font-12 border-bottom pb-2">انتخاب رنگ</p>
         @forelse( $colors as $color)
             <div>
@@ -72,24 +72,27 @@
                 {{ __('messages.not_record_found') }}
             </label>
         @endforelse
-    </div>
+    </div>--}}
 
     <div class="custom-sidebar">
         <p class="font-12 border-bottom pb-2">محدوده قیمت (تومان)</p>
         <div class="d-flex flex-column">
             <div class="d-flex justify-content-between mt-2">
-                <div>{{ __('messages.from') }}
-                    : {{ priceFormat($min_price) .' ' . __('messages.toman') }}</div>
-                <div>{{ __('messages.to') }}
-                    : {{ priceFormat($max_price) .' ' . __('messages.toman') }} </div>
+                <div>{{ __('messages.from') }}:{{-- {{ priceFormat($min_price) .' ' . __('messages.toman') }}--}}</div>
+                <div>{{ __('messages.to') }}: {{--{{ priceFormat($max_price) .' ' . __('messages.toman') }}--}} </div>
             </div>
             <div class="d-flex flex-column mt-2">
-                <div class="mt-1"><input type="number" value="{{ request()->min_price }}"
-                                         min="{{$min_price}}" name="min_price" class="form-control"
-                                         placeholder="از قیمت..."></div>
-                <div class="mt-1"><input type="number" value="{{ request()->max_price }}"
-                                         min="{{$min_price}}" max="{{$max_price}}" name="max_price"
-                                         class="form-control" placeholder="تا قیمت..."></div>
+                <div class="mt-1">
+                    <input type="number" value="{{ request()->min_price }}"
+                           min="{{--{{ $min_price }}--}}"
+                           name="min_price" class="form-control"
+                           placeholder="از قیمت...">
+                </div>
+                <div class="mt-1">
+                    <input type="number" value="{{ request()->max_price }}"
+                           min="{{--{{ $min_price}}--}} " max="{{--{{ $max_price }}--}}"
+                           name="max_price" class="form-control"
+                           placeholder="تا قیمت..."></div>
             </div>
 
         </div>

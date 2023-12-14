@@ -7,6 +7,7 @@
             </div>
             <div class="col-lg-6 d-flex align-items-center justify-content-center">
                 <form action="{{ route('search.products') }}" method="post" class="w-100">
+                    @csrf
                 <div class="input-group search-box">
                     <input type="search" class="form-control form-control-lg" placeholder="جستجو در گرافیک شاپ">
                     <button type="submit" class="btn btn-danger"><img src="{{ asset('front_assets/images/search.png') }}"></button>

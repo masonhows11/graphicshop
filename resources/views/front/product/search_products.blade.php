@@ -111,37 +111,28 @@
 
                     @if( count($products) > 0 )
                         <div class="row">
-                            @foreach($products as $key => $product)
+                            @foreach( $products as $key => $product)
                                 <div class="col-lg-4 col-md-6">
-                                    <a href="{{ route('product.details',$product->slug) }}" class="d-block">
+                                    <a href="{{ route('product',$product->slug) }}" class="d-block">
                                         <div class="card custom-card mt-3">
 
                                             <!-- image & color section in product card -->
                                             <div class="d-flex">
-                                                <div class="d-flex flex-column product-color">
-                                                    @foreach( $product->colors()->get() as $color)
-                                                        <div class="mt-2 mb-2 ms-1 rounded rounded-pill"
-                                                             style="background-color:{{ $color->color_code }}"></div>
-                                                    @endforeach
-                                                </div>
-                                                <img src="{{ asset('storage/' . $product->thumbnail_image) }}"
-                                                     alt="{{ asset('storage/' . $product->thumbnail_image) . '-' . ($key) }}"
+                                                <img src="{{ asset( $product->thumbnail_path) }}"
+                                                     alt="{{ asset( $product->thumbnail_path) . '-' . ($key) }}"
                                                      class="slider-pic" loading="lazy">
                                             </div>
                                             <!-- description section in product card -->
                                             <div class="card-body">
-                                                <a href="{{ route('product.details',$product->slug) }}"
-                                                   class="product-title">{{ Str::limit($product->title_persian,50)}}</a>
+                                                <a href="{{ route('product',$product->title) }}"
+                                                   class="product-title">{{ Str::limit($product->title,50)}}</a>
                                                 <div class="d-flex justify-content-between">
                                                     <div class="mt-3 ps-4">
-                                                        <span class="heart"><i
-                                                                class="far fa-heart font-14 text-muted me-2"></i></span>
-                                                        <span class="random"><i
-                                                                class="fa fa-random font-14 text-muted me-2"></i></span>
-                                                        <span class="add-to-cart"><i
-                                                                class="fa fa-cart-plus font-13 text-muted"></i></span>
+                                                        <span class="heart"><i class="far fa-heart font-14 text-muted me-2"></i></span>
+                                                        <span class="random"><i class="fa fa-random font-14 text-muted me-2"></i></span>
+                                                        <span class="add-to-cart"><i class="fa fa-cart-plus font-13 text-muted"></i></span>
                                                     </div>
-                                                    <p class="font-13 mt-3 pe-4">{{ priceFormat($product->origin_price) }} {{ __('messages.toman') }}</p>
+                                                    <p class="font-13 mt-3 pe-4">{{ priceFormat($product->price) }} {{ __('messages.toman') }}</p>
                                                 </div>
                                             </div>
                                         </div>

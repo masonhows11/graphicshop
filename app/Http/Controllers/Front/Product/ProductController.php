@@ -16,6 +16,10 @@ class ProductController extends Controller
     public function searchProducts(Request $request)
     {
 
+        $categories = Category::tree()->get()->toTree();
+        $products = Product::paginate(10);
+        return view('front.product.search_products')
+            ->with(['products' => $products,'categories' => $categories]);
     }
 
     public function searchCategory(Request $request)
