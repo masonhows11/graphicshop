@@ -116,24 +116,10 @@
                                     <a href="{{ route('product.details',$product->slug) }}" class="d-block">
                                         <div class="card custom-card mt-3">
 
-
-                                            <!-- image & color section in product card -->
-
-                                           <div class="d-flex">
-                                                <div class="d-flex flex-column product-color">
-                                                   @foreach( $product->colors as $color)
-                                                        <div class="mt-2 mb-2 ms-1 rounded rounded-pill"
-                                                             style="background-color:{{ $color->color_code }}"></div>
-                                                    @endforeach
-                                                </div>
-                                               <img src="{{ asset('storage/' . $product->thumbnail_image) }}"
-                                                    alt="{{ asset('storage/' . $product->thumbnail_image) . '-' . ( $product->id ) }}"
-                                                    class="slider-pic" loading="lazy">
-                                            </div>
                                             <!-- description section in product card -->
                                             <div class="card-body">
-                                                <a href="{{ route('product.details',$product->slug) }}"
-                                                   class="product-title">{{ Str::limit($product->title_persian,50) }}</a>
+                                                <a href="{{ route('product.details',$product->title) }}"
+                                                   class="product-title">{{ Str::limit($product->title,50) }}</a>
                                                 <div class="d-flex justify-content-between">
                                                     <div class="mt-3 ps-4">
                                                         <span class="heart"><i
@@ -143,7 +129,7 @@
                                                         <span class="add-to-cart"><i
                                                                 class="fa fa-cart-plus font-13 text-muted"></i></span>
                                                     </div>
-                                                    <p class="font-13 mt-3 pe-4">{{ priceFormat($product->origin_price) }} {{ __('messages.toman') }}</p>
+                                                    <p class="font-13 mt-3 pe-4">{{ priceFormat($product->price) }} {{ __('messages.toman') }}</p>
                                                 </div>
                                             </div>
                                         </div>
