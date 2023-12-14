@@ -12,9 +12,14 @@ class ProductController extends Controller
 {
     //
 
-    public function products()
+    public function products(Request $request)
     {
 
+    }
+
+    public function searchCategory(Request $request)
+    {
+        return view('front.product.category_products');
     }
 
     public function show(Product $product)

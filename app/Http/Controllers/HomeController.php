@@ -20,15 +20,7 @@ class HomeController extends Controller
             ->with(['categories' => $categories]);
     }
 
-    public function products(Request $request)
-    {
 
-    }
-
-    public function searchCategory(Request $request)
-    {
-        return view('front.product.category_products');
-    }
 
     public function notFound()
     {
