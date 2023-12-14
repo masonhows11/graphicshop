@@ -85,8 +85,7 @@
         </div>
     </div>
 </div>
-@include('admin.include.alert.alert_response')
-{{--@push('dash_custom_script')
+@push('dash_custom_script')
     <script type="text/javascript">
         window.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
@@ -135,4 +134,4 @@
         })
         @endif
     </script>
-@endpush--}}
+@endpush
