@@ -8,7 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('page_title')</title>
     @include('front.layouts.header_styles')
-
 </head>
 <body>
 <!-- start header -->

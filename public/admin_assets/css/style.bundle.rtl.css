@@ -1,7 +1,9 @@
 @font-face {
     font-family: "IRANSansWeb";
-    src: url("../fonts/IRANSansWeb.eot"); /* IE */
-    src: url("../fonts/IRANSansWeb.eot?#iefix") format("embedded-opentype"), /* IE */ url("../fonts/IRANSansWeb.woff") format("woff"), /* Modern Browsers */ url("../fonts/IRANSansWeb.ttf") format("truetype"); /* Safari, Android, iOS */
+    src: url("../fonts/IRANSansWeb.eot") format('opentype'); /* IE */
+    src: url("../fonts/IRANSansWeb.eot?#iefix") format("embedded-opentype"), /* IE */
+    url("../fonts/IRANSansWeb.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/IRANSansWeb.ttf") format("truetype"); /* Safari, Android, iOS */
     font-weight: normal;
 }
 
