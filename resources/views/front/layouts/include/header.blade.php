@@ -6,10 +6,12 @@
                 <a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک لند</h2></a>
             </div>
             <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                <form action="{{ route('search.products') }}" method="post" class="w-100">
                 <div class="input-group search-box">
                     <input type="search" class="form-control form-control-lg" placeholder="جستجو در گرافیک شاپ">
                     <button type="submit" class="btn btn-danger"><img src="{{ asset('front_assets/images/search.png') }}"></button>
                 </div>
+                </form>
             </div><!-- end search box -->
             <div class="col-lg-3 d-flex align-items-center justify-content-end px-0">
                 <div class="dropdown">
