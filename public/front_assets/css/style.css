@@ -2514,4 +2514,5 @@ footer{
 /* ----- custom style ----- */
 .custom-card img{
     height: 250px; !important;
+    border-radius: 8px;
 }
