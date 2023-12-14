@@ -5,10 +5,10 @@
                 <i  class="font-11 mt-1 me-3 fa fa-xs fa-chevron-left"></i>
             @endif
            <span><a class="font-12 mt-1 child-category link-dark text-decoration-none"
-                    href="{{ route('search.category',['slug' => $child->title ]) }}">{{ $child->title_persian }}</a></span>
+                    href="{{ route('search.category',['slug' => $child->title ]) }}">{{ $child->title }}</a></span>
         </li>
         @if( $child->children != null  )
-            @include('front.partials.child_category',['category' => $child->children])
+            @include('front.layouts.partials.child_category',['category' => $child->children])
         @endif
     </ul>
 @endforeach

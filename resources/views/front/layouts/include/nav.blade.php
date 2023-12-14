@@ -12,7 +12,7 @@
                                     <a href="{{ route('search.category',['slug' => $child->title]) }}"><i class="fa fa-angle-left me-2"></i>{{ $child->title}}</a>
                                 </li>
                                 @if( $child->children != null  )
-                                    @include('front.partials.child_category',['category' => $child->children])
+                                    @include('front.layouts.partials.child_category',['category' => $child->children])
                                 @endif
                             </ul>
                         </li>

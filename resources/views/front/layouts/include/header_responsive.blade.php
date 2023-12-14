@@ -24,7 +24,7 @@
                                                 <a href="javascript:void(0)" class="d-inline">{{ $child->title }}</a>
                                             <ul class="mobile-menu-level-3 me-2">
                                                 @if( $child->children != null  )
-                                                    @include('front.partials.responsive_child_category',['category' => $child->children])
+                                                    @include('front.layouts.partials.responsive_child_category',['category' => $child->children])
                                                 @endif
                                             </ul>
                                         </li>

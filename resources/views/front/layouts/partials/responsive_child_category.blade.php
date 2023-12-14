@@ -4,7 +4,7 @@
                href="{{ route('search.category',['slug' => $child->title]) }}">{{ $child->title }}</a>
         </li>
         @if( $child->children != null  )
-            @include('front.partials.child_category',['category' => $child->children])
+            @include('front.layouts.partials.child_category',['category' => $child->children])
         @endif
 @endforeach
 
