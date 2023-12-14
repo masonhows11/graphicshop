@@ -5,7 +5,7 @@
                         <i  class="font-11 mt-1 me-2 fa fa-xs fa-chevron-left"></i>
                     @endif
                      <span>
-                         <a class="font-12 mt-2 mb-1 child-category" href="{{ route('search.category',['slug' => $child->slug]) }}">{{ $child->title_persian }}</a>
+                         <a class="font-12 mt-2 mb-1 child-category" href="{{ route('search.category',['slug' => $child->title]) }}">{{ $child->title }}</a>
                     </span>
                 </div>
                 @if( $child->children != null  )

@@ -8,7 +8,7 @@
                    aria-controls="collapseOne" class="font-11 mt-1 ms-2 fa fa-xs fa-chevron-left"></i>
             @endif
             <span class="ms-2">
-            <a href="{{ route('search.category',['slug' => $child->slug]) }}" class="font-12 d-inline">{{ $child->title_persian }}</a>
+            <a href="{{ route('search.category',['slug' => $child->title]) }}" class="font-12 d-inline">{{ $child->title }}</a>
         </span>
         </div>
         <div id="collapseOne" class="ms-4 accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
