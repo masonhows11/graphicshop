@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,12 @@ class ProductController extends Controller
 
     public function searchCategory(Request $request)
     {
-        return view('front.product.category_products');
+
+        $category = Category::where('title',$request->slug)->select('id','title')->first();
+        $products = Product::whereHas('category', function (Builder $query) use ($category) {
+            $query->where('category_id', '=', $category->id);
+        })->get();
+        return view('front.product.category_products',['products' => $products]);
     }
 
     public function show(Product $product)
