@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 // front end routes
 Route::get('/', [HomeController::class,'home'])->name('home');
 
-Route::get('/search/products',[ProductController::class,'products'])->name('search.products');
+Route::get('/search/products',[ProductController::class,'searchProducts'])->name('search.products');
 
 Route::get('/search/category/{slug?}',[ProductController::class,'searchCategory'])->name('search.category');
 

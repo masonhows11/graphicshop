@@ -29,6 +29,53 @@
      </div>--}}
     <!-- end breadcrumb -->
 
+    <!-- list filters -->
+    {{--  <div class="col-12 my-2">
+          @if( request()->search )
+              <span class="d-inline-block border p-1 rounded bg-light">
+              {{ __('messages.search_result') }}
+              <span class="badge bg-blue-100 text-dark">
+                  {{ request()->search }}
+              </span>
+          </span>
+          @endif
+          @if( request()->brands )
+              <span class="d-inline-block border p-1 rounded bg-light">
+              {{ __('messages.brands') }}
+              <span class="badge bg-blue-100 text-dark">
+                  {{ implode(',',$selected_brands)  }}
+              </span>
+          </span>
+          @endif
+
+          --}}{{-- @if( request()->categories )
+               <span class="d-inline-block border p-1 rounded bg-light">
+               {{ __('messages.category') }}
+               <span class="badge bg-blue-100 text-dark">
+                   {{ request()->categoies }}
+               </span>
+           </span>
+           @endif--}}{{--
+
+          @if( request()->min_price )
+              <span class="d-inline-block border p-1 rounded bg-light">
+              {{ __('messages.price_from') }}
+              <span class="badge bg-blue-100 text-dark">
+                  {{ request()->min_price }}
+              </span>
+          </span>
+          @endif
+
+          @if( request()->max_price )
+              <span class="d-inline-block border p-1 rounded bg-light">
+              {{ __('messages.price_to') }}
+              <span class="badge bg-blue-100 text-dark">
+                  {{ request()->max_price }}
+              </span>
+          </span>
+          @endif
+      </div>--}}
+
 
     <div class="container mt-5">
 
@@ -43,51 +90,7 @@
                 <div class="product-items">
                     <div class="row d-flex flex-column">
 
-                        <div class="col-12 my-2">
-                            @if( request()->search )
-                                <span class="d-inline-block border p-1 rounded bg-light">
-                                {{ __('messages.search_result') }}
-                                <span class="badge bg-blue-100 text-dark">
-                                    {{ request()->search }}
-                                </span>
-                            </span>
-                            @endif
-                            @if( request()->brands )
-                                <span class="d-inline-block border p-1 rounded bg-light">
-                                {{ __('messages.brands') }}
-                                <span class="badge bg-blue-100 text-dark">
-                                    {{ implode(',',$selected_brands)  }}
-                                </span>
-                            </span>
-                            @endif
 
-                            {{-- @if( request()->categories )
-                                 <span class="d-inline-block border p-1 rounded bg-light">
-                                 {{ __('messages.category') }}
-                                 <span class="badge bg-blue-100 text-dark">
-                                     {{ request()->categoies }}
-                                 </span>
-                             </span>
-                             @endif--}}
-
-                            @if( request()->min_price )
-                                <span class="d-inline-block border p-1 rounded bg-light">
-                                {{ __('messages.price_from') }}
-                                <span class="badge bg-blue-100 text-dark">
-                                    {{ request()->min_price }}
-                                </span>
-                            </span>
-                            @endif
-
-                            @if( request()->max_price )
-                                <span class="d-inline-block border p-1 rounded bg-light">
-                                {{ __('messages.price_to') }}
-                                <span class="badge bg-blue-100 text-dark">
-                                    {{ request()->max_price }}
-                                </span>
-                            </span>
-                            @endif
-                        </div>
 
                         <div class="col-12 mb-2"><!-- start sort nav -->
                             <ul class="nav nav-pills sort-by">

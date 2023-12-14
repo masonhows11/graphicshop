@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     //
 
-    public function products(Request $request)
+    public function searchProducts(Request $request)
     {
 
     }
