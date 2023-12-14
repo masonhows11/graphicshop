@@ -28,22 +28,11 @@
          </div>
      </div>--}}
     <!-- end breadcrumb -->
-
-    <!-- start main -->
-
-    <div class="container mt-5">
-
-
-        <div class="row">
-            <!-- sidebar section-->
-           {{-- <div class="col-lg-3">
-                @include('front.product.partials.sidebar_category_products')
-            </div>--}}
-            <!-- products section -->
-            <div class="col-lg-9">
-                <div class="product-items">
-
-                   {{-- <div class="row d-flex flex-column">
+    <!-- sidebar section-->
+    {{-- <div class="col-lg-3">
+         @include('front.product.partials.sidebar_category_products')
+     </div>--}}
+    {{-- <div class="row d-flex flex-column">
 
                         <div class="col-12 my-2">
                             @if( request()->search )
@@ -107,51 +96,59 @@
                             </ul>
                         </div>
                     </div>--}}
+    {{-- <div class="col-lg-9">
+               <div class="product-items">
 
 
-                    @if( count($products) > 0 )
-                        <div class="row">
-                            @foreach( $products as $product)
-                                <div class="col-lg-4 col-md-6">
-                                    <a href="{{ route('product',$product->slug) }}" class="d-block">
-                                        <div class="card custom-card mt-3">
+               </div>
+           </div>--}}
 
-                                            <!-- description section in product card -->
-                                            <div class="card-body">
-                                                <a href="{{ route('product',$product->title) }}"
-                                                   class="product-title">{{ Str::limit($product->title,50) }}</a>
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="mt-3 ps-4">
+
+    <div class="container mt-5">
+            @if( count($products) > 0 )
+                <div class="row row-cols-1 row-cols-md-3 g-4 product-items">
+                    @foreach( $products as $product)
+                        <div class="col">
+                            <a href="{{ route('product',$product->slug) }}" class="d-block">
+                                <div class="card custom-card mt-3">
+                                    <div class="d-flex">
+                                        <img src="{{ asset( $product->thumbnail_path) }}"
+                                             alt="{{ asset( $product->thumbnail_path ) . '-' . ( $product->id ) }}"
+                                             class="slider-pic" loading="lazy">
+                                    </div>
+
+                                    <div class="card-body">
+                                        <a href="{{ route('product',$product->title) }}"
+                                           class="product-title">{{ Str::limit($product->title,50) }}</a>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="mt-3 ps-4">
                                                         <span class="heart"><i
                                                                 class="far fa-heart font-14 text-muted me-2"></i></span>
-                                                        <span class="random"><i
-                                                                class="fa fa-random font-14 text-muted me-2"></i></span>
-                                                        <span class="add-to-cart"><i
-                                                                class="fa fa-cart-plus font-13 text-muted"></i></span>
-                                                    </div>
-                                                    <p class="font-13 mt-3 pe-4">{{ priceFormat($product->price) }} {{ __('messages.toman') }}</p>
-                                                </div>
+                                                <span class="random"><i
+                                                        class="fa fa-random font-14 text-muted me-2"></i></span>
+                                                <span class="add-to-cart"><i
+                                                        class="fa fa-cart-plus font-13 text-muted"></i></span>
                                             </div>
+                                            <p class="font-13 mt-3 pe-4">{{ priceFormat($product->price) }} {{ __('messages.toman') }}</p>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                            @endforeach
+                            </a>
                         </div>
-                        <div class="row d-flex justify-content-center product-pagination">
-                            <div class="col-4 mt-2">
-                                {{ $products->links('pagination::my-paginate') }}
-                            </div>
-                        </div>
-                    @else
-                        <div class="row d-flex justify-content-center align-items-center" style="height: 400px">
-                            <div class="col">
-                                <p class="text-center text-danger">{{ __('messages.no_product_found') }}</p>
-                            </div>
-                        </div>
-                    @endif
+                    @endforeach
                 </div>
-            </div>
-        </div>
+                <div class="row d-flex justify-content-center product-pagination">
+                    <div class="col-4 mt-2">
+                        {{ $products->links('pagination::my-paginate') }}
+                    </div>
+                </div>
+            @else
+                <div class="row d-flex justify-content-center align-items-center" style="height: 400px">
+                    <div class="col">
+                        <p class="text-center text-danger">{{ __('messages.no_product_found') }}</p>
+                    </div>
+                </div>
+            @endif
     </div>
 
 @endsection

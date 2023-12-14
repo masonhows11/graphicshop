@@ -10,8 +10,6 @@
 
     <main>
         <div class="container">
-
-
             <div class="product-content mt-5">
                 <div class="row mt-5">
                     <div class="col-lg-4 col-12">
@@ -35,12 +33,9 @@
                                                 <a href="#" class="btn btn-share"><i class="fa fa-copy me-2"></i>کپی
                                                     کردن لینک</a>
                                                 <div class="d-flex justify-content-center mt-4">
-                                                    <a href="#"><i
-                                                            class="fab fa-instagram text-danger social-media"></i></a>
-                                                    <a href="#"><i
-                                                            class="fab fa-telegram text-info social-media"></i></a>
-                                                    <a href="#"><i
-                                                            class="fab fa-whatsapp text-success social-media"></i></a>
+                                                    <a href="#"><i class="fab fa-instagram text-danger social-media"></i></a>
+                                                    <a href="#"><i class="fab fa-telegram text-info social-media"></i></a>
+                                                    <a href="#"><i class="fab fa-whatsapp text-success social-media"></i></a>
                                                     <a href="#"><i class="fab fa-twitter text-primary social-media"></i></a>
                                                 </div>
                                             </div>
