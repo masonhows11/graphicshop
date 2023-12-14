@@ -15,32 +15,36 @@ class ProductController extends Controller
 
     public function searchProducts(Request $request)
     {
-
+        $products = null;
+        if ($request->has('search')) {
+            $products = Product::where('title', 'like', '%' . $request->input('search') . '%')->paginate(10);
+        } else {
+            $products = Product::paginate(10);
+        }
         $categories = Category::tree()->get()->toTree();
-        $products = Product::paginate(10);
         return view('front.product.search_products')
-            ->with(['products' => $products,'categories' => $categories]);
+            ->with(['products' => $products, 'categories' => $categories]);
     }
 
     public function searchCategory(Request $request)
     {
 
         $categories = Category::tree()->get()->toTree();
-        $category = Category::where('title',$request->slug)->select('id','title')->first();
+        $category = Category::where('title', $request->slug)->select('id', 'title')->first();
         $products = Product::whereHas('category', function (Builder $query) use ($category) {
             $query->where('category_id', '=', $category->id);
         })->paginate(10);
         return view('front.product.category_products')
-            ->with(['products' => $products,'categories' => $categories]);
+            ->with(['products' => $products, 'categories' => $categories]);
     }
 
     public function show(Product $product)
     {
         $categories = Category::tree()->get()->toTree();
-        $relatedProducts = Product::where('category_id',$product->category_id)->take(4)->get()->except($product->id);
+        $relatedProducts = Product::where('category_id', $product->category_id)->take(4)->get()->except($product->id);
         //->except('id',$product->id);
         return view('front.product.product')
-            ->with(['product' => $product,'categories' => $categories ,'relatedProducts' => $relatedProducts]);
+            ->with(['product' => $product, 'categories' => $categories, 'relatedProducts' => $relatedProducts]);
     }
 
     public function addToFavoriteProducts(Request $request)
@@ -65,9 +69,9 @@ class ProductController extends Controller
         $product = Product::findOrFail($request->product);
         if (Auth::check()) {
             $user = Auth::user();
-            if($user->compare()->count() > 0){
-                $userCompareList  = $user->compare;
-            }else{
+            if ($user->compare()->count() > 0) {
+                $userCompareList = $user->compare;
+            } else {
                 $userCompareList = Compare::create(['user_id' => $user->id]);
             }
             $product->compares()->toggle([$userCompareList->id]);
