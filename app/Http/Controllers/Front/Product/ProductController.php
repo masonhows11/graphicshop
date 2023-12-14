@@ -21,11 +21,13 @@ class ProductController extends Controller
     public function searchCategory(Request $request)
     {
 
+        $categories = Category::tree()->get()->toTree();
         $category = Category::where('title',$request->slug)->select('id','title')->first();
         $products = Product::whereHas('category', function (Builder $query) use ($category) {
             $query->where('category_id', '=', $category->id);
-        })->get();
-        return view('front.product.category_products',['products' => $products]);
+        })->paginate(10);
+        return view('front.product.category_products')
+            ->with(['products' => $products,'categories' => $categories]);
     }
 
     public function show(Product $product)

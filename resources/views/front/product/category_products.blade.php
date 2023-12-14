@@ -113,12 +113,12 @@
                         <div class="row">
                             @foreach( $products as $product)
                                 <div class="col-lg-4 col-md-6">
-                                    <a href="{{ route('product.details',$product->slug) }}" class="d-block">
+                                    <a href="{{ route('product',$product->slug) }}" class="d-block">
                                         <div class="card custom-card mt-3">
 
                                             <!-- description section in product card -->
                                             <div class="card-body">
-                                                <a href="{{ route('product.details',$product->title) }}"
+                                                <a href="{{ route('product',$product->title) }}"
                                                    class="product-title">{{ Str::limit($product->title,50) }}</a>
                                                 <div class="d-flex justify-content-between">
                                                     <div class="mt-3 ps-4">
