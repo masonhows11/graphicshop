@@ -10,6 +10,7 @@ use App\Http\Controllers\Front\AboutUs\AboutUsController;
 use App\Http\Controllers\Front\ContactUs\ContactUsController;
 use App\Http\Controllers\Admin\Product\AdminProductController;
 use App\Http\Controllers\Front\Product\ProductController;
+use App\Http\Controllers\Front\Basket\BasketController;
 use App\Http\Controllers\HomeController;
 
 
@@ -42,8 +43,13 @@ Route::get('/search/category/{slug?}',[ProductController::class,'searchCategory'
 
 // single product
 Route::get('/product/{product:title}',[ProductController::class,'show'])->name('product');
+
 // for page does not exists
 Route::get('/notFound',[HomeController::class,'notFound'])->name('not.found');
+
+Route::post('/add-to-basket',[BasketController::class,'addToBasket'])->name('add.to.basket');
+
+Route::post('/remove-from-basket',[BasketController::class,'removeFromBasket'])->name('remove.from.basket');
 
 // admin panel routes
 
