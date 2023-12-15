@@ -15,6 +15,11 @@ class ProductController extends Controller
 
     public function searchProducts(Request $request)
     {
+        if(isset($request->filter,$request->action))
+        {
+            $this->findFilter($request->filter ,$request->action );
+        }
+
         $products = null;
         if ($request->has('search')) {
             $products = Product::where('title', 'like', '%' . $request->input('search') . '%')->paginate(10);
@@ -28,7 +33,6 @@ class ProductController extends Controller
 
     public function searchCategory(Request $request)
     {
-
         $categories = Category::tree()->get()->toTree();
         $category = Category::where('title', $request->slug)->select('id', 'title')->first();
         $products = Product::whereHas('category', function (Builder $query) use ($category) {
@@ -83,6 +87,15 @@ class ProductController extends Controller
         } else {
             return response()->json(['status' => 3], 200);
         }
+    }
+
+    private function findFilter(string $className , string  $methodName)
+    {
+       // dd($className,$methodName);
+       // dd(class_exists($className));
+        $baseNameSpace = 'App\Services\Filters';
+        $className = $baseNameSpace. '\\' . (ucfirst($className) . 'Filter');
+
     }
 
 
