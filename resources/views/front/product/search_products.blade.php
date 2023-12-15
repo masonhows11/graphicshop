@@ -83,7 +83,7 @@
         <div class="row">
             <!-- sidebar section-->
             <div class="col-lg-3">
-                @include('front.product.partials.sidebar_search_products')
+                @include('front.product.partials.sidebar_filter_products')
             </div>
             <!-- products section -->
             <div class="col-lg-9">

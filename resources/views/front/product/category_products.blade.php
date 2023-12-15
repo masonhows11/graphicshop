@@ -29,9 +29,11 @@
      </div>--}}
     <!-- end breadcrumb -->
     <!-- sidebar section-->
-    {{-- <div class="col-lg-3">
-         @include('front.product.partials.sidebar_category_products')
-     </div>--}}
+    {{--
+     <div class="col-lg-3">
+    @include('front.product.partials.sidebar_category_products')
+     </div>
+     --}}
     {{-- <div class="row d-flex flex-column">
 
                         <div class="col-12 my-2">
