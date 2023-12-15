@@ -7,7 +7,7 @@ use App\Http\Requests\Admin\Category\CreateCategoryRequest;
 use App\Http\Requests\Admin\Category\EditCategoryRequest;
 
 use App\Models\Category;
-use App\Services\image\ImageServiceSave;
+use App\Services\Image\ImageServiceSave;
 use Illuminate\Http\Request;
 
 class AdminCategoryController extends Controller

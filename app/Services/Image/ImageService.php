@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\image;
+namespace App\Services\Image;
 
 
 class ImageService extends ImageServiceTools

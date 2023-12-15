@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Notifications;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MailNotice\MailNoticeRequest;
 use App\Models\PublicMailFile;
-use App\Services\file\FileService;
+use App\Services\File\FileService;
 use Illuminate\Http\Request;
 
 class AdminEmailNoticeFileController extends Controller

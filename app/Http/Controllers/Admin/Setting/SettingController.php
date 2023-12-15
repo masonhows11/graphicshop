@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Setting;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SettingRequest;
 use App\Models\Setting;
-use App\Services\image\ImageServiceSave;
+use App\Services\Image\ImageServiceSave;
 use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller

@@ -7,7 +7,7 @@ use App\Models\Ticket;
 use App\Models\TicketCategory;
 use App\Models\TicketFile;
 use App\Models\TicketPriority;
-use App\Services\file\FileService;
+use App\Services\File\FileService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

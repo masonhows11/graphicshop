@@ -20,8 +20,14 @@
     <div class="custom-sidebar">
         <p class="font-12 border-bottom pb-2">نوع محصول</p>
         <ul class="nav nav-pills d-flex flex-column sort-by">
-            <li class="nav-item"><a href="{{ route('search.products',['search' => request()->search ,'sort' => '1' , 'min_price' => request()->min_price , 'max_price' => request()->max_price ,'brands' => request()->brands ]) }}" class="nav-link font-13 {{ request()->sort == 1 ? 'active' : 'text-dark' }} ">{{ __('messages.free_products') }}</a></li>
-            <li class="nav-item"><a href="{{ route('search.products',['search' => request()->search ,'sort' => '2' , 'min_price' => request()->min_price , 'max_price' => request()->max_price ,'brands' => request()->brands ]) }}" class="nav-link font-13 {{ request()->sort == 2 ? 'active' : 'text-dark' }}">{{ __('messages.cash_products') }}</a></li>
+            <li class="nav-item">
+                <a href="{{ route('search.products',
+                        ['search' => request()->search ,'sort' => '1' , 'min_price' => request()->min_price , 'max_price' => request()->max_price ,'brands' => request()->brands ]) }}"
+                   class="nav-link font-13 {{ request()->sort == 1 ? 'active' : 'text-dark' }} ">{{ __('messages.free_products') }}</a></li>
+            <li class="nav-item">
+                <a href="{{ route('search.products',
+                        ['search' => request()->search ,'sort' => '2' , 'min_price' => request()->min_price , 'max_price' => request()->max_price ,'brands' => request()->brands ]) }}"
+                   class="nav-link font-13 {{ request()->sort == 2 ? 'active' : 'text-dark' }}">{{ __('messages.cash_products') }}</a></li>
         </ul>
     </div>
 
@@ -29,15 +35,20 @@
         <p class="font-12 border-bottom pb-2">مرتب سازی بر اساس</p>
         <ul class="nav d-flex flex-column nav-pills sort-by">
             <li class="nav-item">
-                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '1'   ]) }}" class="nav-link font-13 {{ request()->sort == 1 ? 'active' : 'text-dark' }}">{{ __('messages.newest') }}</a></li>
+                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '1'   ]) }}"
+                   class="nav-link font-13 {{ request()->sort == 1 ? 'active' : 'text-dark' }}">{{ __('messages.newest') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '2' ]) }}" class="nav-link font-13 {{ request()->sort == 2 ? 'active' : 'text-dark' }}">{{ __('messages.cheapest') }}</a></li>
+                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '2' ]) }}"
+                   class="nav-link font-13 {{ request()->sort == 2 ? 'active' : 'text-dark' }}">{{ __('messages.cheapest') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '3' ]) }}" class="nav-link font-13 {{ request()->sort == 3 ? 'active' : 'text-dark' }}">{{ __('messages.most_expensive') }}</a></li>
+                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '3' ]) }}"
+                   class="nav-link font-13 {{ request()->sort == 3 ? 'active' : 'text-dark' }}">{{ __('messages.most_expensive') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '4' ]) }}" class="nav-link font-13 {{ request()->sort == 4 ? 'active' : 'text-dark' }}">{{ __('messages.most_visited') }}</a></li>
+                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '4' ]) }}"
+                   class="nav-link font-13 {{ request()->sort == 4 ? 'active' : 'text-dark' }}">{{ __('messages.most_visited') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '5'  ]) }}" class="nav-link font-13 {{ request()->sort == 5 ? 'active' : 'text-dark' }}">{{ __('messages.bestselling') }}</a></li>
+                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '5'  ]) }}"
+                   class="nav-link font-13 {{ request()->sort == 5 ? 'active' : 'text-dark' }}">{{ __('messages.bestselling') }}</a></li>
         </ul>
     </div>
 

@@ -8,7 +8,7 @@ use App\Http\Requests\Admin\Product\ProductUpdateRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
-use App\Services\image\ImageUploader;
+use App\Services\Image\ImageUploader;
 
 // use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\DB;

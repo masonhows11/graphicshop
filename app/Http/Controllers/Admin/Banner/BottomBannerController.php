@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BannerRequest\BannerRequest;
 use App\Http\Requests\BannerRequest\EditBannerRequest;
 use App\Models\bottomTwoBanner;
-use App\Services\image\ImageServiceSave;
+use App\Services\Image\ImageServiceSave;
 use Illuminate\Http\Request;
 
 

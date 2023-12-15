@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\file;
+namespace App\Services\File;
 
 
 class FileService extends FileToolsService

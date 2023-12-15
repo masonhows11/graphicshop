@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\image;
+namespace App\Services\Image;
 
 
 use Doctrine\Inflector\Rules\French\Inflectible;

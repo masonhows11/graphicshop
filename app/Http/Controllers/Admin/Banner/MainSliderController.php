@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BannerRequest\BannerRequest;
 use App\Http\Requests\BannerRequest\EditBannerRequest;
 use App\Models\MainSlider;
-use App\Services\image\ImageServiceSave;
+use App\Services\Image\ImageServiceSave;
 
 
 class MainSliderController extends Controller
