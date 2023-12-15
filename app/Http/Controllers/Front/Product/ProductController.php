@@ -8,6 +8,7 @@ use App\Models\Product;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Services\Filters\PriceFilter;
 
 class ProductController extends Controller
 {
@@ -16,28 +17,42 @@ class ProductController extends Controller
     public function searchProducts(Request $request)
     {
         $products = null;
+        $prices = collect(Product::select('price')->get());
+        $max_price = $prices->max(['price']);
+        $min_price = $prices->min(['price']);
 
-        // for filter request
-        if (isset($request->filter, $request->action))
+
+        if (isset($request->min_price, $request->max_price))
         {
+           // $priceFilter = new PriceFilter();
+           // $products = $priceFilter->price_filter($request);
+           // dd($products);
+            if ($request->min_price && $request->max_price) {
+                $products = Product::whereBetween('price', [$request->min_price, $request->max_price])->paginate(3);
+            } elseif ($request->min_price) {
+                $products = Product::where('price', '>=', $request->min_price)->paginate(3);
+            } elseif ($request->max_price) {
+                $products= Product::where('price', '<=', $request->max_price)->paginate(3);
+            } else {
+                $products = Product::paginate(3);
+            }
+
+        } elseif (isset($request->filter, $request->action)) {
             $products = $this->findFilter($request->filter, $request->action) ?? Product::paginate(10);
-        } elseif ($request->has('search'))
-        {
+
+        } elseif ($request->filled('search')) {
             $products = Product::where('title', 'like', '%' . $request->input('search') . '%')->paginate(10);
         } else {
-            $products = Product::paginate(10);
+            $products = Product::paginate(3);
         }
 
-
-        // for search request
-        //        if ($request->has('search')) {
-        //            $products = Product::where('title', 'like', '%' . $request->input('search') . '%')->paginate(10);
-        //        } else {
-        //            $products = Product::paginate(10);
-        //        }
+       // dd($products);
         $categories = Category::tree()->get()->toTree();
         return view('front.product.search_products')
-            ->with(['products' => $products, 'categories' => $categories]);
+            ->with(['products' => $products,
+                'categories' => $categories,
+                'min_price' => $min_price,
+                'max_price' => $max_price]);
     }
 
     public function searchCategory(Request $request)
@@ -55,7 +70,6 @@ class ProductController extends Controller
     {
         $categories = Category::tree()->get()->toTree();
         $relatedProducts = Product::where('category_id', $product->category_id)->take(4)->get()->except($product->id);
-        //->except('id',$product->id);
         return view('front.product.product')
             ->with(['product' => $product, 'categories' => $categories, 'relatedProducts' => $relatedProducts]);
     }

@@ -10,11 +10,11 @@
     <div class="custom-sidebar">
         <p class="font-12 border-bottom pb-2">جستجو در نتایج</p>
         <div class="search-in-result  position-relative mt-3">
-            <input type="search" name="search" value="{{ request()->search }}" class="form-control" placeholder=" نام محصول">
-            <input type="hidden" name="sort" value="{{ request()->sort }}">
+            <input type="search" name="search"  class="form-control" placeholder=" نام محصول">
         </div>
     </div>
-
+    {{-- value="{{ request()->search }}"--}}
+    {{--  <input type="hidden" name="sort" value="{{ request()->sort }}">--}}
 
 
     <div class="custom-sidebar">
@@ -54,19 +54,19 @@
         <p class="font-12 border-bottom pb-2">محدوده قیمت (تومان)</p>
         <div class="d-flex flex-column">
             <div class="d-flex justify-content-between mt-2">
-                <div>{{ __('messages.from') }}:{{-- {{ priceFormat($min_price) .' ' . __('messages.toman') }}--}}</div>
-                <div>{{ __('messages.to') }}: {{--{{ priceFormat($max_price) .' ' . __('messages.toman') }}--}} </div>
+                <div>{{ __('messages.from') }} :{{ priceFormat($min_price) .' ' . __('messages.toman') }}</div>
+                <div>{{ __('messages.to') }}: {{ priceFormat($max_price) .' ' . __('messages.toman') }}</div>
             </div>
             <div class="d-flex flex-column mt-2">
                 <div class="mt-1">
-                    <input type="number" value="{{ request()->min_price }}"
-                           min="{{--{{ $min_price }}--}}"
+                    <input type="number" value=""
+                           min="{{ $min_price }}"
                            name="min_price" class="form-control"
                            placeholder="از قیمت...">
                 </div>
                 <div class="mt-1">
-                    <input type="number" value="{{ request()->max_price }}"
-                           min="{{--{{ $min_price}}--}} " max="{{--{{ $max_price }}--}}"
+                    <input type="number" value=""
+                           min="{{ $min_price}}" max="{{ $max_price }}"
                            name="max_price" class="form-control"
                            placeholder="تا قیمت..."></div>
             </div>
