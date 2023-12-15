@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
             $table->unsignedInteger('sale')->nullable();
             $table->tinyInteger('status')->nullable();
             $table->unsignedInteger('price')->nullable();
+            $table->tinyInteger('type')->nullable();
             $table->timestamp('published_at')->nullable();
 
             $table->unsignedBigInteger('category_id')->nullable();

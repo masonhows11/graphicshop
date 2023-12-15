@@ -21,13 +21,11 @@
         <p class="font-12 border-bottom pb-2">نوع محصول</p>
         <ul class="nav nav-pills d-flex flex-column sort-by">
             <li class="nav-item">
-                <a href="{{ route('search.products',
-                        ['search' => request()->search ,'sort' => '1' , 'min_price' => request()->min_price , 'max_price' => request()->max_price ,'brands' => request()->brands ]) }}"
-                   class="nav-link font-13 {{ request()->sort == 1 ? 'active' : 'text-dark' }} ">{{ __('messages.free_products') }}</a></li>
+                <a href="{{ route('search.products',['filter' => 'type' ,'action' => 'free_products']) }}"
+                   class="nav-link font-13">{{ __('messages.free_products') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',
-                        ['search' => request()->search ,'sort' => '2' , 'min_price' => request()->min_price , 'max_price' => request()->max_price ,'brands' => request()->brands ]) }}"
-                   class="nav-link font-13 {{ request()->sort == 2 ? 'active' : 'text-dark' }}">{{ __('messages.cash_products') }}</a></li>
+                <a href="{{ route('search.products', ['filter' => 'type','action' => 'cash_products'  ]) }}"
+                   class="nav-link font-13 ">{{ __('messages.cash_products') }}</a></li>
         </ul>
     </div>
 
