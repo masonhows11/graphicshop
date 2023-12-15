@@ -21,7 +21,8 @@ class ProductController extends Controller
         if (isset($request->filter, $request->action))
         {
             $products = $this->findFilter($request->filter, $request->action);
-        } elseif ($request->has('search')) {
+        } elseif ($request->has('search'))
+        {
             $products = Product::where('title', 'like', '%' . $request->input('search') . '%')->paginate(10);
         } else {
             $products = Product::paginate(10);

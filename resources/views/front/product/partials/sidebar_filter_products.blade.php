@@ -38,17 +38,17 @@
                 <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'newest'   ]) }}"
                    class="nav-link font-13 ">{{ __('messages.newest') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '2' ]) }}"
-                   class="nav-link font-13 {{ request()->sort == 2 ? 'active' : 'text-dark' }}">{{ __('messages.cheapest') }}</a></li>
+                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'cheapest' ]) }}"
+                   class="nav-link font-13 ">{{ __('messages.cheapest') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '3' ]) }}"
-                   class="nav-link font-13 {{ request()->sort == 3 ? 'active' : 'text-dark' }}">{{ __('messages.most_expensive') }}</a></li>
+                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'mostExpensive' ]) }}"
+                   class="nav-link font-13 ">{{ __('messages.most_expensive') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '4' ]) }}"
-                   class="nav-link font-13 {{ request()->sort == 4 ? 'active' : 'text-dark' }}">{{ __('messages.most_visited') }}</a></li>
+                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'mostVisited']) }}"
+                   class="nav-link font-13">{{ __('messages.most_visited') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '5'  ]) }}"
-                   class="nav-link font-13 {{ request()->sort == 5 ? 'active' : 'text-dark' }}">{{ __('messages.bestselling') }}</a></li>
+                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'bestselling'  ]) }}"
+                   class="nav-link font-13 ">{{ __('messages.bestselling') }}</a></li>
         </ul>
     </div>
 

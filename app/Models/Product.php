@@ -28,6 +28,8 @@ class Product extends Model
         'demo_url',
         'seo_desc',
         'source_url',
+        'view',
+        'sale',
         'status',
         'price',
     ];

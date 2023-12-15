@@ -23,6 +23,8 @@ class CreateProductsTable extends Migration
             $table->string('thumbnail_path')->nullable();
             $table->string('demo_url')->nullable();
             $table->string('source_url')->nullable();
+            $table->unsignedInteger('views')->nullable();
+            $table->unsignedInteger('sale')->nullable();
             $table->tinyInteger('status')->nullable();
             $table->unsignedInteger('price')->nullable();
             $table->timestamp('published_at')->nullable();
