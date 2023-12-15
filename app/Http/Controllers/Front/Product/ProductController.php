@@ -32,10 +32,9 @@ class ProductController extends Controller
         } elseif ($request->filled('search')) {
             $products = Product::where('title', 'like', '%' . $request->input('search') . '%')->paginate(10);
         } else {
-            $products = Product::paginate(3);
+            $products = Product::paginate(10);
         }
 
-        // dd($products);
         $categories = Category::tree()->get()->toTree();
         return view('front.product.search_products')
             ->with(['products' => $products,

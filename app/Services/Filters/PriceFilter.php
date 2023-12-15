@@ -21,19 +21,6 @@ class PriceFilter
         } else {
             $result = Product::paginate(10);
         }
-        /* $query = $products;
-         $products = $request->min_price && $request->max_price ?
-
-             $query->whereBetween('price', [$request->min_price, $request->max_price]) :
-
-             $query->when($request->min_price, function ($query) use ($request) {
-                 $query->where('price', '>=', $request->min_price)->get();
-             })->when($request->max_price, function ($query) use ($request) {
-                 $query->where('price', '<=', $request->max_price)->get();
-             })->when(!($request->min_price && $request->max_price), function ($query) {
-                 $query->get();
-             });*/
-
         return $result->appends($request->query());
     }
 
