@@ -520,4 +520,14 @@ return [
     'new_tag' => 'جدید',
     'edit_mobile' => 'تغییر شماره موبایل',
     'ref_code' => 'کد رهگیری',
+
+    // filters translate
+    'newest' => 'جدیدترین',
+    'cheapest' => 'ارزان ترین',
+    'most_expensive' => 'گرانترین',
+    'most_visited' => 'پربازدید ترین',
+    'bestselling' =>  'پر فروش ترین',
+
+    'free_products' => 'رایگان',
+    'cash_products' => 'نقدی',
 ];
