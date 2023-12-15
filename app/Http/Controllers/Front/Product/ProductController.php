@@ -25,7 +25,7 @@ class ProductController extends Controller
         if (isset($request->min_price, $request->max_price)) {
             $priceFilter = new PriceFilter();
             $products = $priceFilter->price_filter($request);
-            
+
         } elseif (isset($request->filter, $request->action)) {
             $products = $this->findFilter($request->filter, $request->action) ?? Product::paginate(10);
 

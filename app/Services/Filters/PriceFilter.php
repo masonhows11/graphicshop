@@ -34,7 +34,7 @@ class PriceFilter
                  $query->get();
              });*/
 
-        return $result; //->appends($request->search);
+        return $result->appends($request->query());
     }
 
 }
