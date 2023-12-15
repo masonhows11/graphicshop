@@ -20,7 +20,7 @@ class ProductController extends Controller
         // for filter request
         if (isset($request->filter, $request->action))
         {
-            $products = $this->findFilter($request->filter, $request->action);
+            $products = $this->findFilter($request->filter, $request->action) ?? Product::paginate(10);
         } elseif ($request->has('search'))
         {
             $products = Product::where('title', 'like', '%' . $request->input('search') . '%')->paginate(10);

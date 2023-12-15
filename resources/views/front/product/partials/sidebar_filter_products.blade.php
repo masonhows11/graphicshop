@@ -38,16 +38,16 @@
                 <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'newest'   ]) }}"
                    class="nav-link font-13 ">{{ __('messages.newest') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'lowToHigh' ]) }}"
+                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'low_to_high' ]) }}"
                    class="nav-link font-13 ">{{ __('messages.cheapest') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'highToLow' ]) }}"
+                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'high_to_low' ]) }}"
                    class="nav-link font-13 ">{{ __('messages.most_expensive') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'mostVisited']) }}"
+                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'most_visited']) }}"
                    class="nav-link font-13">{{ __('messages.most_visited') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'bestselling'  ]) }}"
+                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'best_selling'  ]) }}"
                    class="nav-link font-13 ">{{ __('messages.bestselling') }}</a></li>
         </ul>
     </div>
