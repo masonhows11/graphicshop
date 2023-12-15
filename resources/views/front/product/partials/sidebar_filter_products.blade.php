@@ -38,10 +38,10 @@
                 <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'newest'   ]) }}"
                    class="nav-link font-13 ">{{ __('messages.newest') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'cheapest' ]) }}"
+                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'lowToHigh' ]) }}"
                    class="nav-link font-13 ">{{ __('messages.cheapest') }}</a></li>
             <li class="nav-item">
-                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'mostExpensive' ]) }}"
+                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'highToLow' ]) }}"
                    class="nav-link font-13 ">{{ __('messages.most_expensive') }}</a></li>
             <li class="nav-item">
                 <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'mostVisited']) }}"

@@ -17,20 +17,21 @@ class OrderbyFilter
 
     public function mostVisited()
     {
-        return DB::table('products')->max('views')->paginate(10);
+        return DB::table('products')->orderBy('views','desc')->paginate(10);
     }
 
-    public function cheapest()
+    public function lowToHigh()
     {
-        return DB::table('products')->min('price')->paginate(10);
+        return DB::table('products')->orderBy('price','asc')->paginate(10);
     }
 
-    public function mostExpensive(){
-        return DB::table('products')->max('price')->paginate(10);
+    public function highToLow()
+    {
+        return DB::table('products')->orderBy('price','desc')->paginate(10);
     }
 
     public function bestselling(){
-        return DB::table('products')->max('sale')->paginate(10);
+        return DB::table('products')->orderBy('sale','desc')->paginate(10);
     }
 
 }
