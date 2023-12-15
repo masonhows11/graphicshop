@@ -34,12 +34,15 @@ use Illuminate\Support\Facades\Route;
 // front end routes
 Route::get('/', [HomeController::class,'home'])->name('home');
 
+// for search product
 Route::get('/search',[ProductController::class,'searchProducts'])->name('search.products');
 
+// get product by category
 Route::get('/search/category/{slug?}',[ProductController::class,'searchCategory'])->name('search.category');
 
+// single product
 Route::get('/product/{product:title}',[ProductController::class,'show'])->name('product');
-
+// for page does not exists
 Route::get('/notFound',[HomeController::class,'notFound'])->name('not.found');
 
 // admin panel routes

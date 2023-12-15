@@ -35,8 +35,8 @@
         <p class="font-12 border-bottom pb-2">مرتب سازی بر اساس</p>
         <ul class="nav d-flex flex-column nav-pills sort-by">
             <li class="nav-item">
-                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '1'   ]) }}"
-                   class="nav-link font-13 {{ request()->sort == 1 ? 'active' : 'text-dark' }}">{{ __('messages.newest') }}</a></li>
+                <a href="{{ route('search.products',['filter' => 'orderby' ,'action' => 'newest'   ]) }}"
+                   class="nav-link font-13 ">{{ __('messages.newest') }}</a></li>
             <li class="nav-item">
                 <a href="{{ route('search.products',['search' => request()->search ,'sort' => '2' ]) }}"
                    class="nav-link font-13 {{ request()->sort == 2 ? 'active' : 'text-dark' }}">{{ __('messages.cheapest') }}</a></li>

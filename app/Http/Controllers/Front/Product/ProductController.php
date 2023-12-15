@@ -15,17 +15,25 @@ class ProductController extends Controller
 
     public function searchProducts(Request $request)
     {
-        if(isset($request->filter,$request->action))
-        {
-            $this->findFilter($request->filter ,$request->action );
-        }
-
         $products = null;
-        if ($request->has('search')) {
+
+        // for filter request
+        if (isset($request->filter, $request->action))
+        {
+            $products = $this->findFilter($request->filter, $request->action);
+        } elseif ($request->has('search')) {
             $products = Product::where('title', 'like', '%' . $request->input('search') . '%')->paginate(10);
         } else {
             $products = Product::paginate(10);
         }
+
+
+        // for search request
+        //        if ($request->has('search')) {
+        //            $products = Product::where('title', 'like', '%' . $request->input('search') . '%')->paginate(10);
+        //        } else {
+        //            $products = Product::paginate(10);
+        //        }
         $categories = Category::tree()->get()->toTree();
         return view('front.product.search_products')
             ->with(['products' => $products, 'categories' => $categories]);
@@ -89,12 +97,21 @@ class ProductController extends Controller
         }
     }
 
-    private function findFilter(string $className , string  $methodName)
+    private function findFilter(string $className, string $methodName)
     {
-       // dd($className,$methodName);
-       // dd(class_exists($className));
         $baseNameSpace = 'App\Services\Filters';
-        $className = $baseNameSpace. '\\' . (ucfirst($className) . 'Filter');
+        $className = $baseNameSpace . '\\' . (ucfirst($className) . 'Filter');
+        if (!class_exists($className)) {
+            return null;
+        }
+        $obj = new $className;
+        if (!method_exists($obj, $methodName)) {
+            return null;
+        }
+        // for call method defined in class
+        // this syntax is very important
+        return $obj->{$methodName}();
+
 
     }
 

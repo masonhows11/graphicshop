@@ -11,6 +11,6 @@ class OrderbyFilter
 
     public function newest()
     {
-            return Product::orderBy('desc','created_at')->get();
+            return Product::orderBy('created_at','desc')->paginate(10)   ;
     }
 }

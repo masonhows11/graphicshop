@@ -10,11 +10,13 @@
                         {{--  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>--}}
                     </div>
                     <div class="offcanvas-body px-0">
+                        <form action="{{ route('search.products') }}" method="get" class="w-100">
                         <div class="input-group search-box px-3">
-                            <input type="search" class="form-control form-control-lg" placeholder="جستجو در گرافیک شاپ">
+                            <input type="search" name="search" class="form-control form-control-lg" placeholder="جستجو در گرافیک شاپ">
                             <button type="submit" class="btn btn-danger"><img src="{{ asset('front_assets/images/search.png') }}">
                             </button>
                         </div>
+                        </form>
                         <ul class="mobile-menu-level-1">
                             <li class="has-mobile-submenu"><a href="#">دسته بندی محصولات</a>
 
