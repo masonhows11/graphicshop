@@ -22,21 +22,10 @@ class ProductController extends Controller
         $min_price = $prices->min(['price']);
 
 
-        if (isset($request->min_price, $request->max_price))
-        {
-           // $priceFilter = new PriceFilter();
-           // $products = $priceFilter->price_filter($request);
-           // dd($products);
-            if ($request->min_price && $request->max_price) {
-                $products = Product::whereBetween('price', [$request->min_price, $request->max_price])->paginate(3);
-            } elseif ($request->min_price) {
-                $products = Product::where('price', '>=', $request->min_price)->paginate(3);
-            } elseif ($request->max_price) {
-                $products= Product::where('price', '<=', $request->max_price)->paginate(3);
-            } else {
-                $products = Product::paginate(3);
-            }
-
+        if (isset($request->min_price, $request->max_price)) {
+            $priceFilter = new PriceFilter();
+            $products = $priceFilter->price_filter($request);
+            
         } elseif (isset($request->filter, $request->action)) {
             $products = $this->findFilter($request->filter, $request->action) ?? Product::paginate(10);
 
@@ -46,7 +35,7 @@ class ProductController extends Controller
             $products = Product::paginate(3);
         }
 
-       // dd($products);
+        // dd($products);
         $categories = Category::tree()->get()->toTree();
         return view('front.product.search_products')
             ->with(['products' => $products,
