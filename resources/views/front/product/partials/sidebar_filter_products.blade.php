@@ -15,61 +15,31 @@
         </div>
     </div>
 
-   {{-- <div class="custom-sidebar">
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="send">
-            <label class="form-check-label font-12" for="send">فقط ارسال فوری</label>
-        </div>
+
+
+    <div class="custom-sidebar">
+        <p class="font-12 border-bottom pb-2">نوع محصول</p>
+        <ul class="nav nav-pills d-flex flex-column sort-by">
+            <li class="nav-item"><a href="{{ route('search.products',['search' => request()->search ,'sort' => '1' , 'min_price' => request()->min_price , 'max_price' => request()->max_price ,'brands' => request()->brands ]) }}" class="nav-link font-13 {{ request()->sort == 1 ? 'active' : 'text-dark' }} ">رایگان</a></li>
+            <li class="nav-item"><a href="{{ route('search.products',['search' => request()->search ,'sort' => '2' , 'min_price' => request()->min_price , 'max_price' => request()->max_price ,'brands' => request()->brands ]) }}" class="nav-link font-13 {{ request()->sort == 2 ? 'active' : 'text-dark' }}">نقدی</a></li>
+        </ul>
     </div>
 
     <div class="custom-sidebar">
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="product">
-            <label class="form-check-label font-12" for="product">فقط کالاهای موجود</label>
-        </div>
-    </div>--}}
-
-
-    {{--<div class="custom-sidebar">
-        <p class="font-12 border-bottom pb-2">برند</p>
-        <div class="mt-3 px-2 brands-select">
-            @forelse( $brands as $brand )
-                <div class="form-check mb-3">
-                    <input type="checkbox"
-                           @if ( request()->brands && in_array($brand->id ,request()->brands ) ) checked
-                           @endif name="brands[]" value="{{ $brand->id }}" class="form-check-input"
-                           id="brand-{{ $brand->id }}">
-                    <label class="form-check-label font-12"
-                           for="brand-{{ $brand->id }}">{{ $brand->title_persian }}</label>
-                </div>
-            @empty
-                <div class="form-check mb-3">
-                    <label class="form-check-label font-12"
-                           for="brand">{{ __('messages.no_brand_found') }}</label>
-                </div>
-            @endforelse
-
-        </div>
-    </div>--}}
-
-
-
-   {{-- <div class="custom-sidebar">
-        <p class="font-12 border-bottom pb-2">انتخاب رنگ</p>
-        @forelse( $colors as $color)
-            <div>
-                <label class="select-color mt-2">
-                    <span class="color-shape" style="background-color: {{ $color->code }};"></span>
-                    <input type="radio" name="colors[]" value="{{ $color->id }}">
-                    <span class="color-name">{{ $color->title_persian }}</span>
-                </label>
-            </div>
-        @empty
-            <label for="" class="mt-2">
-                {{ __('messages.not_record_found') }}
-            </label>
-        @endforelse
-    </div>--}}
+        <p class="font-12 border-bottom pb-2">مرتب سازی بر اساس</p>
+        <ul class="nav d-flex flex-column nav-pills sort-by">
+            <li class="nav-item">
+                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '1' , 'min_price' => request()->min_price , 'max_price' => request()->max_price ,'brands' => request()->brands ]) }}" class="nav-link font-13 {{ request()->sort == 1 ? 'active' : 'text-dark' }} ">جدید ترین</a></li>
+            <li class="nav-item">
+                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '2' , 'min_price' => request()->min_price , 'max_price' => request()->max_price ,'brands' => request()->brands ]) }}" class="nav-link font-13 {{ request()->sort == 2 ? 'active' : 'text-dark' }}">ارزان ترین</a></li>
+            <li class="nav-item">
+                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '3' , 'min_price' => request()->min_price , 'max_price' => request()->max_price ,'brands' => request()->brands ]) }}" class="nav-link font-13 {{ request()->sort == 3 ? 'active' : 'text-dark' }}">گران ترین</a></li>
+            <li class="nav-item">
+                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '4' , 'min_price' => request()->min_price , 'max_price' => request()->max_price  ,'brands' => request()->brands ]) }}" class="nav-link font-13 {{ request()->sort == 4 ? 'active' : 'text-dark' }}">پر بازدیدترین</a></li>
+            <li class="nav-item">
+                <a href="{{ route('search.products',['search' => request()->search ,'sort' => '5' , 'min_price' => request()->min_price , 'max_price' => request()->max_price  ,'brands' => request()->brands ]) }}" class="nav-link font-13 {{ request()->sort == 5 ? 'active' : 'text-dark' }}">پر فروش ترین </a></li>
+        </ul>
+    </div>
 
     <div class="custom-sidebar">
         <p class="font-12 border-bottom pb-2">محدوده قیمت (تومان)</p>
@@ -99,3 +69,53 @@
         </button>
     </div>
 </form>
+
+{{-- <div class="custom-sidebar">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="send">
+            <label class="form-check-label font-12" for="send">فقط ارسال فوری</label>
+        </div>
+    </div>
+
+    <div class="custom-sidebar">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="product">
+            <label class="form-check-label font-12" for="product">فقط کالاهای موجود</label>
+        </div>
+    </div>--}}
+{{--<div class="custom-sidebar">
+    <p class="font-12 border-bottom pb-2">برند</p>
+    <div class="mt-3 px-2 brands-select">
+        @forelse( $brands as $brand )
+            <div class="form-check mb-3">
+                <input type="checkbox"
+                       @if ( request()->brands && in_array($brand->id ,request()->brands ) ) checked
+                       @endif name="brands[]" value="{{ $brand->id }}" class="form-check-input"
+                       id="brand-{{ $brand->id }}">
+                <label class="form-check-label font-12"
+                       for="brand-{{ $brand->id }}">{{ $brand->title_persian }}</label>
+            </div>
+        @empty
+            <div class="form-check mb-3">
+                <label class="form-check-label font-12"for="brand">{{ __('messages.no_brand_found') }}</label>
+            </div>
+        @endforelse
+
+    </div>
+</div>--}}
+{{-- <div class="custom-sidebar">
+    <p class="font-12 border-bottom pb-2">انتخاب رنگ</p>
+    @forelse( $colors as $color)
+        <div>
+            <label class="select-color mt-2">
+                <span class="color-shape" style="background-color: {{ $color->code }};"></span>
+                <input type="radio" name="colors[]" value="{{ $color->id }}">
+                <span class="color-name">{{ $color->title_persian }}</span>
+            </label>
+        </div>
+    @empty
+        <label for="" class="mt-2">
+            {{ __('messages.not_record_found') }}
+        </label>
+    @endforelse
+</div>--}}
