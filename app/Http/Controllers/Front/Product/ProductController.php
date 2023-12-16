@@ -23,6 +23,7 @@ class ProductController extends Controller
 
 
         if (isset($request->min_price, $request->max_price)) {
+            
             $priceFilter = new PriceFilter();
             $products = $priceFilter->price_filter($request);
 
