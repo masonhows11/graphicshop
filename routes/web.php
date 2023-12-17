@@ -55,8 +55,8 @@ Route::prefix('auth')->name('auth.')->group(function (){
     Route::get('/login', [LoginUserController::class, 'loginForm'])->name('login.form');
     Route::post('/login-user', [LoginUserController::class, 'login'])->middleware('throttle:auth-login-limiter')->name('login.user');
 
-    Route::get('/validate-mobile-form', [ValidateUserController::class, 'validateForm'])->name('validate.mobile.form');
-    Route::post('/validate-mobile', [ValidateUserController::class, 'validate_user'])->middleware('throttle:auth-validate-limiter')->name('validate.mobile');
+    Route::get('/validate-user-form', [ValidateUserController::class, 'validateForm'])->name('validate.user.form');
+    Route::post('/validate-user', [ValidateUserController::class, 'validate_user'])->middleware('throttle:auth-validate-limiter')->name('validate.user');
 
     Route::get('/resend-token/{token_guid}', [ValidateUserController::class, 'resendToken'])->middleware('throttle:auth-resend-token-limiter')->name('resend.token');
 });

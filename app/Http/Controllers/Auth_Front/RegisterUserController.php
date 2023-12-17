@@ -32,7 +32,7 @@ class RegisterUserController extends Controller
                 $user = User::where('email', $auth_id)->first();
 
                 if ($user) {
-                    session()->flash('error', 'ایمیل وارد شده تکراری است');
+                    session()->flash('error', __('messages.the_entered_email_is_duplicate'));
                     return redirect()->back();
                 }
 
@@ -48,8 +48,8 @@ class RegisterUserController extends Controller
 
                 Notification::send($newUser,new UserAuthNotification($newUser));
                 session(['user_email' => $newUser->email]);
-                $request->session()->flash('success', 'کد فعال سازی به ایمیل ارسال شد.');
-                return redirect()->route('auth.validate.mobile.form');
+                $request->session()->flash('success',__('messages.the_activation_code_has_been_sent_to_the_email'));
+                return redirect()->route('auth.validate.user.form');
 
 
             } elseif (preg_match('/^(\+98|0098|98|0)?9\d{9}$/i', $auth_id)) {
@@ -71,7 +71,7 @@ class RegisterUserController extends Controller
                 //
                 // return view('front.auth_user.validate_mobile');
             }
-            $request->session()->flash('error', 'شماره موبایل یا ایمیل خود را وارد کنید.');
+            $request->session()->flash('error', __('messages.auth_input_message'));
             return redirect()->route('auth.register.form');
 
         } catch (\Exception $ex) {

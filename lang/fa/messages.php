@@ -330,7 +330,9 @@ return [
     'continue' => 'ادامه',
     'mobile' => 'شماره موبایل',
     'enter_active_code' => 'کد تایید را وارد کنید',
-
+    'activation_code_is_not_valid' => 'کد فعالسازی معتبر نمی باشد',
+    'the_activation_code_has_been_sent_to_the_email' => 'کد فعال سازی به ایمیل ارسال شد',
+    'the_entered_email_is_duplicate' => 'ایمیل وارد شده تکراری است',
     'auth_input_message' => 'شماره موبایل یا ایمیل خود را وارد کنید',
     'no_name' => 'بدون نام',
     'resend_active_code' => 'ارسال مجدد کد تایید',

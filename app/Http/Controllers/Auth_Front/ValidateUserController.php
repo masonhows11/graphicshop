@@ -19,7 +19,7 @@ class ValidateUserController extends Controller
 
     public function validateForm()
     {
-        return view('front.auth_user.validate_mobile');
+        return view('front_auth.validate_user');
     }
 
     public function validate_user(ValidateMobileRequest $request)
@@ -31,7 +31,7 @@ class ValidateUserController extends Controller
 
             if ($isValidated == 1) {
                 session()->flash('error', 'کد فعالسازی معتبر نمی باشد.');
-                return redirect()->route('auth.validate.mobile.form');
+                return redirect()->route('auth.validate.user.form');
             }
             if ($isValidated == 2) {
                 $user = User::where(['email' => $request->email, 'token' => $request->token])->first();
@@ -55,8 +55,8 @@ class ValidateUserController extends Controller
             $isValidated = ValidateUserService::validateMobile($request->mobile, $request->token);
 
             if ($isValidated == 1) {
-                session()->flash('error', 'کد فعالسازی معتبر نمی باشد.');
-                return redirect()->route('auth.validate.mobile.form');
+                session()->flash('error',__('messages.activation_code_is_not_valid'));
+                return redirect()->route('auth.validate.user.form');
             }
 
             if ($isValidated == 2) {
@@ -106,26 +106,26 @@ class ValidateUserController extends Controller
 
                     session()->flash('success', __('messages.the_verification_code_has_been_sent_again'));
 
-                    return redirect()->route('auth.validate.mobile.form');
+                    return redirect()->route('auth.validate.user.form');
 
                     // send otp code / token with sms
                 } elseif ($user->auth_type == 2) {
 
                     return __('messages.dear_user_this_part_is_being_prepared_thank_you');
 
-                    $token_guid = GenerateToken::generateUserTokenGuid();
-                    $token = GenerateToken::generateUserToken();
-                    $user->token = $token;
-                    $user->token_guid = $token_guid;
-                    $user->save();
-                    // send token with sms
-
-                    session(['auth_email' => $user->email ,
-                        'token_guid' => $user->token_guid,
-                        'token_time'=>$user->updated_at]);
-
-                    session()->flash('success', __('messages.the_verification_code_has_been_sent_again'));
-                    return redirect()->route('auth.validate.mobile.form');
+                    //    $token_guid = GenerateToken::generateUserTokenGuid();
+                    //    $token = GenerateToken::generateUserToken();
+                    //    $user->token = $token;
+                    //    $user->token_guid = $token_guid;
+                    //    $user->save();
+                    //    // send token with sms
+                    //
+                    //     session(['auth_email' => $user->email ,
+                    //             'token_guid' => $user->token_guid,
+                    //             'token_time'=>$user->updated_at]);
+                    //
+                    //    session()->flash('success', __('messages.the_verification_code_has_been_sent_again'));
+                    //    return redirect()->route('auth.validate.user.form');
                 }
             }
             session()->flash('error' , __('messages.the_mobile_number_or_email_entered_is_invalid'));
