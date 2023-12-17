@@ -18,6 +18,7 @@ class ShoppingCart extends Component
 
     public function mount()
     {
+       $this->user_id = Auth::id();
     }
 
     //    public function remove($itemId)

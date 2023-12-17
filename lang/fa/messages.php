@@ -543,5 +543,6 @@ return [
 
     'the_product_has_been_added_to_the_cart' => 'محصول به سبد خرید اضافه شد',
     'this_product_has_already_been_added_to_the_cart' => 'این محصول قبلا به سبد خرید اضافه شده',
+    'purchase_date' => 'تاریخ خرید',
 
 ];
