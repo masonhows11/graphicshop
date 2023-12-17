@@ -33,8 +33,10 @@ class LoginUserController extends Controller
                 $type = 1;
                 $user = User::where('email', $auth_id)->first();
                 if (!$user) {
-                    session()->flash('error', 'کاربری با ایمیل وارد شده وجود ندارد');
-                    return redirect()->back();
+                    session()
+                        ->flash('error',__('messages.there_is_no_user_with_the_entered_email'));
+                    return redirect()
+                        ->back();
                 }
 
                 $token_guid = GenerateToken::generateUserTokenGuid();
@@ -50,18 +52,23 @@ class LoginUserController extends Controller
                           'token_guid' => $user->token_guid,
                           'token_time'=>$user->updated_at]);
 
-                 session()->flash('success', 'کد تایید به ایمیل ارسال شد.');
-                 return redirect()->route('auth.validate.mobile.form');
+                 session()
+                     ->flash('success',
+                         __('messages.the_activation_code_has_been_sent_to_the_email'));
+                 return redirect()
+                     ->route('auth.validate.user.form');
 
             } elseif (preg_match('/^(\+98|0098|98|0)?9\d{9}$/i', $auth_id)) {
 
                 return __('messages.dear_user_this_part_is_being_prepared_thank_you');
                 //$mobile = ConvertPerToEn::convert($request->mobile);
-                $type = 2;
+                 $type = 2;
                 $user = User::where('mobile', $auth_id)->first();
                 if (!$user) {
-                    session()->flash('error', 'کاربری با شماره موبایل وارد شده وجود ندارد');
-                    return redirect()->back();
+                    session()
+                        ->flash('error', __('messages.there_is_no_user_with_the_entered_mobile_number'));
+                    return redirect()
+                        ->back();
                 }
 
                 $token_guid = GenerateToken::generateUserTokenGuid();
@@ -83,12 +90,17 @@ class LoginUserController extends Controller
                     'token_guid' => $user->token_guid,
                     'token_time'=>$user->updated_at]);
 
-                session()->flash('success', 'کد فعال سازی به شماره موبایل ارسال شد.');
-                return redirect()->route('auth.validate.mobile.form');
+                session()
+                    ->flash('success',
+                        __('messages.the_activation_code_was_sent_to_the_mobile_number'));
+                return redirect()
+                    ->route('auth.validate.user.form');
             }
 
-            session()->flash('error', 'شماره موبایل یا ایمیل خود را وارد کنید.');
-            return redirect()->route('auth.login.form');
+            session()
+                ->flash('error', __('messages.auth_input_message'));
+            return redirect()
+                ->route('auth.login.form');
 
         } catch (\Exception $ex) {
             return view('errors_custom.login_error')

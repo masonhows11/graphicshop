@@ -104,9 +104,11 @@ class ValidateUserController extends Controller
                         'token_guid' => $user->token_guid,
                         'token_time'=>$user->updated_at]);
 
-                    session()->flash('success', __('messages.the_verification_code_has_been_sent_again'));
+                    session()
+                        ->flash('success', __('messages.the_verification_code_has_been_sent_again'));
 
-                    return redirect()->route('auth.validate.user.form');
+                    return redirect()
+                        ->route('auth.validate.user.form');
 
                     // send otp code / token with sms
                 } elseif ($user->auth_type == 2) {
@@ -128,8 +130,10 @@ class ValidateUserController extends Controller
                     //    return redirect()->route('auth.validate.user.form');
                 }
             }
-            session()->flash('error' , __('messages.the_mobile_number_or_email_entered_is_invalid'));
-            return redirect()->route('auth.login.form');
+            session()
+                ->flash('error' , __('messages.the_mobile_number_or_email_entered_is_invalid'));
+            return redirect()
+                ->route('auth.login.form');
 
         } catch (\Exception $ex) {
             return  view('errors_custom.general_error')

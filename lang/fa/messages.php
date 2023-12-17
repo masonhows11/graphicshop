@@ -329,11 +329,19 @@ return [
     'validate_code' => 'کد تایید',
     'continue' => 'ادامه',
     'mobile' => 'شماره موبایل',
+
     'enter_active_code' => 'کد تایید را وارد کنید',
     'activation_code_is_not_valid' => 'کد فعالسازی معتبر نمی باشد',
+
     'the_activation_code_has_been_sent_to_the_email' => 'کد فعال سازی به ایمیل ارسال شد',
+    'the_activation_code_was_sent_to_the_mobile_number' => 'کد فعال سازی به شماره موبایل ارسال شد',
+
     'the_entered_email_is_duplicate' => 'ایمیل وارد شده تکراری است',
     'auth_input_message' => 'شماره موبایل یا ایمیل خود را وارد کنید',
+
+    'there_is_no_user_with_the_entered_email' => 'کاربری با ایمیل وارد شده وجود ندارد',
+    'there_is_no_user_with_the_entered_mobile_number' => 'کاربری با شماره موبایل وارد شده وجود ندارد',
+
     'no_name' => 'بدون نام',
     'resend_active_code' => 'ارسال مجدد کد تایید',
 

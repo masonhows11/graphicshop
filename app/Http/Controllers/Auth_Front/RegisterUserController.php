@@ -48,8 +48,10 @@ class RegisterUserController extends Controller
 
                 Notification::send($newUser,new UserAuthNotification($newUser));
                 session(['user_email' => $newUser->email]);
-                $request->session()->flash('success',__('messages.the_activation_code_has_been_sent_to_the_email'));
-                return redirect()->route('auth.validate.user.form');
+                $request->session()
+                 ->flash('success',__('messages.the_activation_code_has_been_sent_to_the_email'));
+                return redirect()
+                    ->route('auth.validate.user.form');
 
 
             } elseif (preg_match('/^(\+98|0098|98|0)?9\d{9}$/i', $auth_id)) {
