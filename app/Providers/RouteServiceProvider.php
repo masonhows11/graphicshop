@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('auth-resend-token-limiter', function (Request $request) {
             return Limit::perMinute(3)->by(url()->current() . $request->ip());
         });
-        
+
         $this->routes(function () {
             Route::middleware('api')
                 ->prefix('api')

@@ -41,13 +41,19 @@ class RegisterUserController extends Controller
                 $newUser = User::create([
                     'email' => $auth_id,
                     'auth_type' => $type,
-                    'token_guid' =>$token_guid,
+                    'token_guid' => $token_guid,
                     'token' => $token,
                 ]);
 
-
                 Notification::send($newUser,new UserAuthNotification($newUser));
-                session(['user_email' => $newUser->email]);
+
+
+                session(['user_email' => $newUser->email,
+                        'token_guid' => $newUser->token_guid,
+                        'token_time'=>$newUser->created_at]);
+
+              //  dd(session()->all());
+
                 $request->session()
                  ->flash('success',__('messages.the_activation_code_has_been_sent_to_the_email'));
                 return redirect()
@@ -68,6 +74,9 @@ class RegisterUserController extends Controller
                 //                'mobile' => $mobile,
                 //                'token' => $token,
                 //            ]);
+
+                //                session(['user_mobile' => $newUser->email,
+                //                    'token_guid' => $newUser->token_guid]);
                 // $user->notify(new UserAuthorizeNotify($user));
 
                 //

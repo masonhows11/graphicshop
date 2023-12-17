@@ -74,7 +74,10 @@
                         <div class="col count-down-link-container">
 
                             <div class="signup-login-form text-center d-none" id="resend-otp">
-                                <a href="{{ route('auth.resend.token',['token_guid'=>session()->get('token_guid')]) }}" id="resend-token" class="text-info text-decoration-none">{{ __('messages.resend_active_code') }}</a>
+                                @if( session()->has('token_guid') )
+                                   {{-- {{ session()->get('token_guid') }}--}}
+                                <a href="{{ route('auth.resend.token',['token_guid' => session()->get('token_guid')]) }}" id="resend-token" class="text-info text-decoration-none">{{ __('messages.resend_active_code') }}</a>
+                                @endif
                             </div>
                             <div class="signup-login-form text-center" id="timer-otp">
                             </div>
