@@ -28,9 +28,10 @@ class ValidateUserController extends Controller
 
             $isValidated = ValidateUserService::validateEmail($request->email, $request->token);
 
+            dd($isValidated);
 
             if ($isValidated == 1) {
-                session()->flash('error', 'کد فعالسازی معتبر نمی باشد.');
+                session()->flash('error', __('messages.activation_code_is_not_valid'));
                 return redirect()->route('auth.validate.user.form');
             }
             if ($isValidated == 2) {
@@ -52,27 +53,28 @@ class ValidateUserController extends Controller
 
         } elseif ($request->has('mobile')) {
 
-            $isValidated = ValidateUserService::validateMobile($request->mobile, $request->token);
-
-            if ($isValidated == 1) {
-                session()->flash('error',__('messages.activation_code_is_not_valid'));
-                return redirect()->route('auth.validate.user.form');
-            }
-
-            if ($isValidated == 2) {
-                $user = User::where(['mobile' => $request->mobile, 'token' => $request->token])->first();
-                $user->activate = 1;
-                $user->save();
-
-                if ($request->has('remember')) {
-                    Auth::login($user, $remember = true);
-                    session()->forget(['auth_mobile', 'token_guid', 'token_time']);
-                    return redirect()->route('home');
-                }
-                Auth::login($user);
-                session()->forget(['auth_mobile', 'token_guid', 'token_time']);
-                return redirect()->route('home');
-            }
+            return __('messages.dear_user_this_part_is_being_prepared_thank_you');
+            //            $isValidated = ValidateUserService::validateMobile($request->mobile, $request->token);
+            //
+            //            if ($isValidated == 1) {
+            //                session()->flash('error',__('messages.activation_code_is_not_valid'));
+            //                return redirect()->route('auth.validate.user.form');
+            //            }
+            //
+            //            if ($isValidated == 2) {
+            //                $user = User::where(['mobile' => $request->mobile, 'token' => $request->token])->first();
+            //                $user->activate = 1;
+            //                $user->save();
+            //
+            //                if ($request->has('remember')) {
+            //                    Auth::login($user, $remember = true);
+            //                    session()->forget(['auth_mobile', 'token_guid', 'token_time']);
+            //                    return redirect()->route('home');
+            //                }
+            //                Auth::login($user);
+            //                session()->forget(['auth_mobile', 'token_guid', 'token_time']);
+            //                return redirect()->route('home');
+            //            }
         }
 
         return redirect()->route('auth.login.form');

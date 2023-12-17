@@ -45,12 +45,12 @@ class RegisterUserController extends Controller
                     'token' => $token,
                 ]);
 
-                Notification::send($newUser,new UserAuthNotification($newUser));
+               // Notification::send($newUser,new UserAuthNotification($newUser));
 
 
-                session(['user_email' => $newUser->email,
-                        'token_guid' => $newUser->token_guid,
-                        'token_time'=>$newUser->created_at]);
+                session(['auth_email' => $newUser->email,
+                         'token_guid' => $newUser->token_guid,
+                         'token_time'=>$newUser->created_at]);
 
 
                 $request->session()
