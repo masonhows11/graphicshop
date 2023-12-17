@@ -94,7 +94,7 @@
 
                     <div class="col-lg-3 col-md-4">
 
-                        <livewire:front.product.add-to-cart :productId="$product_id"/>
+                        <livewire:front.product.add-to-cart :product_id="$product_id"/>
 
                     </div>
 

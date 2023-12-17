@@ -16,7 +16,6 @@ class CartHeader extends Component
 
     }
 
-
     protected $listeners = [
         'addToCart' => 'incrementCartCount',
         'removeFromCart' => 'decrementCartCount'

@@ -23,7 +23,7 @@ class ProductController extends Controller
 
 
         if (isset($request->min_price, $request->max_price)) {
-            
+
             $priceFilter = new PriceFilter();
             $products = $priceFilter->price_filter($request);
 
@@ -57,10 +57,16 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
+        $product_id = $product->id;
         $categories = Category::tree()->get()->toTree();
-        $relatedProducts = Product::where('category_id', $product->category_id)->take(4)->get()->except($product->id);
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->take(4)
+            ->get()->except($product->id);
         return view('front.product.product')
-            ->with(['product' => $product, 'categories' => $categories, 'relatedProducts' => $relatedProducts]);
+            ->with(['product_id' => $product_id ,
+                    'product' => $product,
+                    'categories' => $categories,
+                    'relatedProducts' => $relatedProducts]);
     }
 
     public function addToFavoriteProducts(Request $request)

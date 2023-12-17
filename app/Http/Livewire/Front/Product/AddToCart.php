@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Front\Product;
 
+use App\Models\Product;
 use Livewire\Component;
 
 class AddToCart extends Component
@@ -12,6 +13,7 @@ class AddToCart extends Component
 
     public function mount($product_id)
     {
+        $this->product = Product::findOrfail($product_id);
 
     }
 
@@ -23,6 +25,7 @@ class AddToCart extends Component
 
     public function render()
     {
-        return view('livewire.front.product.add-to-cart');
+        return view('livewire.front.product.add-to-cart')
+            ->with(['product' => $this->product]);
     }
 }
