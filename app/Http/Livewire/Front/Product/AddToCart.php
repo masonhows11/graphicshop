@@ -24,6 +24,11 @@ class AddToCart extends Component
     public function addToCart($id)
     {
        $basketCount =   Basket::where('product_id', $id)->get();
+       if($basketCount->isEmpty()){
+           
+       }else{
+
+       }
 
         $this->emitTo(CartHeader::class, 'addToCart', $this->number);
     }
