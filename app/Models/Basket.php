@@ -11,5 +11,12 @@ class Basket extends Model
     use HasFactory,SoftDeletes;
     protected $table ='baskets';
 
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'product_id',
+        'product_title',
+        'demo_url',
+        'price',
+        'number'
+    ];
 }

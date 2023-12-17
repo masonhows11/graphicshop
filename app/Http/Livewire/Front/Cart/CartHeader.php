@@ -22,7 +22,7 @@ class CartHeader extends Component
         'addToCart' => 'incrementCartCount',
     ];
 
-    public function incrementCartCount($count){
+    public function incrementCartCount($product_id,$count){
 
         $this->cartItemsCount += $count;
     }
