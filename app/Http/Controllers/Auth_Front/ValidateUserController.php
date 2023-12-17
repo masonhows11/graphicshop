@@ -28,7 +28,6 @@ class ValidateUserController extends Controller
 
             $isValidated = ValidateUserService::validateEmail($request->email, $request->token);
 
-            dd($isValidated);
 
             if ($isValidated == 1) {
                 session()->flash('error', __('messages.activation_code_is_not_valid'));

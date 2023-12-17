@@ -14,8 +14,7 @@
                 <form action="{{ route('auth.validate.user') }}" method="post">
                     @csrf
 
-
-
+                    
                     @if( session()->has('auth_email') )
                         <input type="hidden" name="email" value="{{ session()->get('auth_email') }}">
                     @elseif( session()->has('auth_mobile'))
