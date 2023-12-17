@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Front\Product;
 use App\Http\Livewire\Front\Cart\CartHeader;
 use App\Models\Basket;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class AddToCart extends Component
@@ -23,14 +24,22 @@ class AddToCart extends Component
 
     public function addToCart($id)
     {
-       $basketCount =   Basket::where('product_id', $id)->get();
-       if($basketCount->isEmpty()){
+        if (Auth::check()) {
+            $basketCount = Basket::where('product_id', $id)
+                ->where('user_id',Auth::id())
+                ->first();
+            if (!$basketCount) {
 
-       }else{
+            } else {
 
-       }
+            }
 
-        $this->emitTo(CartHeader::class, 'addToCart', $this->number);
+            $this->emitTo(CartHeader::class, 'addToCart', $this->number);
+        } else {
+            return redirect()->route('auth.login.form');
+        }
+
+
     }
 
     public function render()
