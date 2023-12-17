@@ -52,7 +52,6 @@ class RegisterUserController extends Controller
                         'token_guid' => $newUser->token_guid,
                         'token_time'=>$newUser->created_at]);
 
-              //  dd(session()->all());
 
                 $request->session()
                  ->flash('success',__('messages.the_activation_code_has_been_sent_to_the_email'));
