@@ -17,7 +17,7 @@ class RegisterUserController extends Controller
 
     public function registerForm()
     {
-        return view('front.auth_user.register');
+        return view('front_auth.register');
     }
 
     public function register(RegisterRequest $request)

@@ -25,6 +25,7 @@ class GenerateToken
     //    {
     //        return Admin::where('code', $code)->exists();
     //    }
+
     //// user token
     public static function generateUserToken()
     {

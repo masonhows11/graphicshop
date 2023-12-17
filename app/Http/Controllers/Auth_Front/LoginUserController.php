@@ -19,7 +19,7 @@ class LoginUserController extends Controller
     //
     public function loginForm()
     {
-        return view('front.auth_user.login_user');
+        return view('front_auth.login_user');
     }
 
     public function login(LoginRequest $request)

@@ -13,6 +13,7 @@ use App\Http\Controllers\Front\AboutUs\AboutUsController;
 use App\Http\Controllers\Front\ContactUs\ContactUsController;
 use App\Http\Controllers\Front\Product\ProductController;
 use App\Http\Controllers\Front\Basket\BasketController;
+use App\Http\Controllers\Front\Profile\ProfileController;
 use App\Http\Controllers\HomeController;
 
 // auth front controllers
@@ -39,6 +40,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// for page does not exists
+Route::get('/notFound',[HomeController::class,'notFound'])->name('not.found');
+
 // front end routes
 Route::get('/', [HomeController::class,'home'])->name('home');
 
@@ -59,6 +63,60 @@ Route::prefix('auth')->name('auth.')->group(function (){
 
 Route::get('/log-out', [LoginUserController::class, 'logOut'])->middleware('auth', 'web')->name('auth.log.out');
 
+Route::prefix('profile')->middleware(['auth','web'])->group(function(){
+
+    Route::get('/user-profile', [ProfileController::class,'Profile'])->name('user.profile');
+/*    Route::get('/account-information', [ProfileController::class,'accountInformation'])->name('user.account.information');
+    Route::post('/account-information',[ProfileController::class,'updateProfile'])->name('user.update.account.information');
+
+
+
+    Route::get('/mobile-update', [ProfileController::class,'updateMobileForm'])->name('mobile.update.form');
+    Route::post('/mobile-update', [ProfileController::class,'updateMobile'])->name('mobile.update');
+
+
+    Route::get('/email-update', [ProfileController::class,'updateEmailForm'])->name('email.update.form');
+    Route::post('/email-update', [ProfileController::class,'updateEmail'])->name('email.update');
+
+    Route::get('/all-orders/{status?}/{type?}',[ProfileController::class,'allOrders'])->name('all.orders');
+
+    Route::get('/order-details/{order}',[ProfileController::class,'orderDetails'])->name('order.details');
+
+    Route::get('/comments',[ProfileController::class,'comments'])->name('comments');
+
+
+    Route::get('/favorites',[FavoritesController::class,'favorites'])->name('favorites');
+    Route::get('/favorites/delete/{product}',[FavoritesController::class,'favoritesDelete'])->name('favorites.delete');
+
+    Route::get('/compare-products',[CompareController::class,'index'])->name('compare.products');
+
+
+
+    Route::get('/addresses',[FrontAddressController::class,'addresses'])->name('addresses');
+
+    Route::post('/address/store',[FrontAddressController::class,'store'])->name('profile.address.store');
+    Route::post('/address/update',[FrontAddressController::class,'update'])->name('profile.address.update');
+
+    Route::get('/address/delete/{address}',[FrontAddressController::class,'delete'])->name('profile.address.delete');
+
+    Route::get('/order-returned/request',[ProfileController::class,'orderReturnedRequest'])->name('order.returned.request');
+
+    Route::get('/tickets',[FrontTicketController::class,'index'])->name('tickets');
+
+    Route::get('/show-ticket/{ticket}',[FrontTicketController::class,'showTicket'])->name('show.ticket');
+    Route::post('/answer-ticket/{ticket}',[FrontTicketController::class,'answerTicket'])->name('answer.ticket');
+
+    Route::get('/new-ticket',[FrontTicketController::class,'newTicket'])->name('new.ticket');
+    Route::post('/new-ticket/store',[FrontTicketController::class,'ticketStore'])->name('new.ticket.store');
+    Route::get('/ticket-download/{ticket}',[FrontTicketController::class,'downloadTicketFile'])->name('ticket.download');*/
+});
+
+Route::prefix('shopping')->middleware(['auth','web'])->group(function(){
+
+    Route::get('/cart/check',[BasketController::class,'cartCheck'])->name('cart.check');
+
+});
+
 // for search product
 Route::get('/search',[ProductController::class,'searchProducts'])->name('search.products');
 
@@ -68,16 +126,7 @@ Route::get('/search/category/{slug?}',[ProductController::class,'searchCategory'
 // single product
 Route::get('/product/{product:title}',[ProductController::class,'show'])->name('product');
 
-// for page does not exists
-Route::get('/notFound',[HomeController::class,'notFound'])->name('not.found');
 
-
-
-Route::prefix('shopping')->group(function(){
-
-    Route::get('/cart/check',[BasketController::class,'cartCheck'])->name('cart.check');
-
-});
 // admin panel routes
 
 Route::group(['prefix' => 'admin'], function () {

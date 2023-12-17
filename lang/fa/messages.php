@@ -2,9 +2,9 @@
 
 
 return [
-    'site_name' => 'خرید خوب',
+    'site_name' => 'گرافیک شاپ',
     'site_name_english' => 'grapicshop.ir',
-    'good_shopping_online_store' => 'فروشگاه اینترنتی خرید خوب',
+    'good_shopping_online_store' => 'فروشگاه اینترنتی گرافیک شاپ',
     'home_page' => 'صفحه اصلی سایت',
     'admin_dashboard' => 'پنل مدیریت',
     'confirmed' => 'تایید شده',
@@ -322,8 +322,8 @@ return [
     'remember_me' => ' مرا به خاطر داشته باش',
     'register' => 'ثبت نام',
     'login' => 'وارد شوید',
-    'already_registered' => 'قبلا درخرید خوب ثبت‌ نام کرده‌اید؟',
-    'register_in_good_shop' => 'ثبت نام در خرید خوب',
+    'already_registered' => 'قبلا ثبت‌ نام کرده‌اید؟',
+    'register_in_good_shop' => 'ثبت نام در گرافیک شاپ',
     'recover_password' => 'بازیابی رزم عبور',
     'forget_password' => 'رمز عبور خود را فراموش کرده اید ؟',
     'validate_code' => 'کد تایید',

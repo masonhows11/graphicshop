@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="col mb-2">
-                            @include( 'front.auth_user.inline_alert')
+                            @include( 'front_auth.inline_alert')
                         </div>
 
                     </div>

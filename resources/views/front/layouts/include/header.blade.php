@@ -12,10 +12,18 @@
                     <button type="submit" class="btn btn-danger"><img src="{{ asset('front_assets/images/search.png') }}" alt="search"></button>
                 </div>
                 </form>
-            </div><!-- end search box -->
-            <div class="col-lg-3 d-flex align-items-center justify-content-end px-0">
+            </div>
+            <!-- end search box -->
+            @guest
+                <div class="col-lg-3 d-flex align-items-center justify-content-end px-0">
+                    <a href="{{ route('auth.login.form') }}" class="header-login-btn me-4"><i
+                            class="fa fa-user-lock"></i>ورود / ثبت نام</a>
+                </div>
+              @endguest
+              @auth
+             <div class="col-lg-3 d-flex align-items-center justify-content-end px-0">
                 <div class="dropdown">
-                    <a href="{{ route('not.found') }}" class="header-login-btn me-4" data-bs-toggle="dropdown"><i class="fa fa-user-lock"></i>ورود / ثبت نام</a>
+                    <a href="{{ route('user.profile') }}" class="header-login-btn me-4" data-bs-toggle="dropdown"><i class="fa fa-user-lock"></i>ورود / ثبت نام</a>
                     <ul class="dropdown-menu dropdown-menu-custom">
                         <li class="d-flex">
                             <img src="{{ asset('front_assets/images/avatar.jpg') }}" class="avatar">
@@ -28,9 +36,12 @@
                             <a href="javascript:void(0)" class="login-link"><i class="fa fa-shopping-basket text-muted font-14 me-1"></i> سفارش های من</a>
                             <a href="#" class="login-link"><i class="fas fa-sign-out-alt text-muted font-14 me-1"></i>خروج از حساب  کاربری</a>
                         </li>
-                    </ul><!-- end dropdown box -->
+                    </ul>
                 </div>
-            </div><!-- end signup & login -->
+             </div>
+             @endauth
+            <!-- end signup & login -->
+
             <!-- start shopping cart -->
             <div class="col-lg-1 d-flex align-items-center justify-content-center px-0">
                 <livewire:front.cart.cart-header />
