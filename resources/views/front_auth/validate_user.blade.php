@@ -11,7 +11,7 @@
                     <a href="{{ route('home') }}" class="text-danger">  {{ __('messages.site_name') }}</a>
                 </h3>
 
-                <form action="{{ route('auth.validate.mobile') }}" method="post">
+                <form action="{{ route('auth.validate.user') }}" method="post">
                     @csrf
 
 
@@ -60,7 +60,7 @@
                     <div class="row mb-2 d-flex flex-column justify-content-center align-items-center">
                         <div class="col">
                             <div class="col mb-2">
-                                @include('front.auth_user.inline_alert')
+                                @include('front_auth.inline_alert')
                             </div>
                         </div>
                     </div>

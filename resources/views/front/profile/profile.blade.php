@@ -28,14 +28,14 @@
                             <p>-</p></div>
                     </div>
                 </div>
-                <a href="{{ route('user.account.information') }}" class="profile-edit-link"><i
+                <a href="#" class="profile-edit-link"><i
                         class="fa fa-edit align-middle"></i> ویرایش اطلاعات شخصی</a>
             </div><!-- end personal info box -->
 
             <div class="col-lg-6"><!-- start recent fav list -->
                 <p class="font-13">لیست آخرین علاقه‌مندی‌ها</p>
                 <div class="card">
-                    @forelse($products as $product)
+                   {{-- @forelse( $products as $product)
                         <div class="profile-recent-fav">
                             <a href="{{ route('product.details',$product->slug) }}"><img src="{{ asset('storage/' . $product->thumbnail_image) }}" alt="product-image"
                                              class="profile-recent-fav-img"></a>
@@ -49,10 +49,9 @@
                         <div class="profile-recent-fav"  style="height: 240px">
 
                         </div>
-                    @endforelse
+                    @endforelse--}}
                 </div>
-                <a href="{{ route('favorites') }}" class="profile-edit-link"><i class="fa fa-edit align-middle"></i> ویرایش لیست علاقمندی
-                    ها</a>
+                <a href="#" class="profile-edit-link"><i class="fa fa-edit align-middle"></i> ویرایش لیست علاقمندی ها</a>
             </div><!-- end recent fav list -->
 
         </div>

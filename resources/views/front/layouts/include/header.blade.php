@@ -1,6 +1,6 @@
 <header class="w-100 d-none d-lg-block bg-white"><!-- start header -->
     <div class="container">
-        <div class="row  py-4">
+        <div class="row  py-4 header-section">
             <div class="col-lg-2">
                 {{-- <img src="front_assets/images/logo.png" alt="Nikkala">--}}
                 <a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک لند</h2></a>
@@ -21,24 +21,41 @@
                 </div>
               @endguest
               @auth
-             <div class="col-lg-3 d-flex align-items-center justify-content-end px-0">
-                <div class="dropdown">
-                    <a href="{{ route('user.profile') }}" class="header-login-btn me-4" data-bs-toggle="dropdown"><i class="fa fa-user-lock"></i>ورود / ثبت نام</a>
-                    <ul class="dropdown-menu dropdown-menu-custom">
-                        <li class="d-flex">
-                            <img src="{{ asset('front_assets/images/avatar.jpg') }}" class="avatar">
-                            <div class="ms-2">
-                                <a href="javascript:void(0)" class="font-14 text-dark">امیرحسین رضایی</a>
-                                <a href="javascript:void(0)" class="font-12 d-block text-info mt-2">مشاهده حساب کاربری <i class="fa fa-chevron-left align-middle mt-1"></i></a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="login-link"><i class="fa fa-shopping-basket text-muted font-14 me-1"></i> سفارش های من</a>
-                            <a href="{{ route('logout') }}" class="login-link"><i class="fas fa-sign-out-alt text-muted font-14 me-1"></i>خروج از حساب  کاربری</a>
-                        </li>
-                    </ul>
+                <div class="col-lg-3 d-flex align-items-center justify-content-end px-0">
+                    <div class="dropdown">
+                        <a href="javascript:void(0)" class="header-user-btn  me-4 " data-bs-toggle="dropdown">
+                            <i class="fa fa-user mt-2"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-custom">
+                            <li class="d-flex flex-column justify-content-center align-items-center my-2">
+                                <div>
+                                    <img src="{{  Auth::user()->image_path == null ? asset('default_image/no-user.png') : asset('default_image/no-user.png') }}" class="avatar" alt="user-avatar">
+                                </div>
+                                <div class="ms-2">
+                                    <a href="{{ route('user.profile') }}" class="font-12 d-block text-info mt-2">مشاهده حساب کاربری <i class="fa fa-chevron-left align-middle mt-1"></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="login-link text-center font-14 mt-4 text-dark">
+                                    @if(\Illuminate\Support\Facades\Auth::user()->name !== null)
+                                        {{ \Illuminate\Support\Facades\Auth::user()->name }}
+                                    @elseif(\Illuminate\Support\Facades\Auth::user()->email !== null)
+                                        {{ \Illuminate\Support\Facades\Auth::user()->email }}
+                                    @else
+                                        {{ __('messages.no_name') }}
+                                    @endif
+                                </a>
+                                <a href="#" class="login-link my-4"><i
+                                        class="fa fa-shopping-basket text-muted font-14 me-1"></i> سفارش های من</a>
+                                <a href="#" class="login-link my-4"><i
+                                        class="fa fa-heart text-muted font-14 me-1"></i>علاقه مندی ها</a>
+                                <a href="#" class="login-link my-4"><i
+                                        class="fa fa-comment-alt text-muted font-14 me-1"></i>دیدگاه ها</a>
+                                <a href="{{ route('auth.log.out') }}" class="login-link my-4"><i
+                                        class="fas fa-sign-out-alt text-muted font-14 me-1"></i>خروج از حساب کاربری</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-             </div>
              @endauth
             <!-- end signup & login -->
 

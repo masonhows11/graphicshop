@@ -21,8 +21,9 @@ class ProfileController extends Controller
     public function Profile()
     {
         $user = Auth::user();
-        $products = auth()->user()->products()->select('id','title_persian','thumbnail_image','slug')->take(2)->get();
-        return view('front.profile.profile', ['user' => $user, 'products' => $products]);
+        //$products = auth()->user()->products()->select('id','title_persian','thumbnail_image','slug')->take(2)->get();
+        // , 'products' => $products
+        return view('front.profile.profile', ['user' => $user]);
     }
 
     public function accountInformation()

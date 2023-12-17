@@ -2516,3 +2516,8 @@ footer{
     height: 220px; !important;
     border-radius: 8px;
 }
+
+.header-section .header-user-btn .fa-user {
+    font-size: 1.8rem;
+    color: #7A7A7A;
+}
