@@ -13,8 +13,6 @@ class AddToCart extends Component
     public function mount($product_id)
     {
 
-        
-
     }
 
 

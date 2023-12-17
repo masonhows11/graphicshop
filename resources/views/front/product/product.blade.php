@@ -93,17 +93,9 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4">
-                        <div class="add-cart-box">
-                            <div class="product-seller-row">
-                                <span>فروشنده :</span>
-                                <span>گرافیک شاپ</span>
-                            </div>
-                            <div class="product-seller-row">
-                                <span>قیمت :</span>
-                                <span class="text-danger">{{ priceFormat($product->price) }} تومان </span>
-                            </div>
-                            <button type="button" class="btn add-cart-btn">افزودن به سبد خرید</button>
-                        </div>
+
+                        <livewire:front.product.add-to-cart :productId="$product_id"/>
+
                     </div>
 
                 </div>

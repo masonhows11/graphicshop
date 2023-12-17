@@ -19,6 +19,7 @@ use App\Http\Livewire\Admin\Category\AdminCategory;
 use App\Http\Livewire\Admin\Product\AdminProduct;
 use App\Http\Livewire\Admin\Orders\AdminOrders;
 use App\Http\Livewire\Admin\Payments\AdminPayments;
+use App\Http\Livewire\Front\Cart\CartHeader;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,10 +48,15 @@ Route::get('/product/{product:title}',[ProductController::class,'show'])->name('
 // for page does not exists
 Route::get('/notFound',[HomeController::class,'notFound'])->name('not.found');
 
-Route::post('/add-to-basket',[BasketController::class,'addToBasket'])->name('add.to.basket');
+// Route::post('/add-to-basket',[BasketController::class,'addToBasket'])->name('add.to.basket');
 
-Route::post('/remove-from-basket',[BasketController::class,'removeFromBasket'])->name('remove.from.basket');
+// Route::post('/remove-from-basket',[BasketController::class,'removeFromBasket'])->name('remove.from.basket');
 
+Route::prefix('shopping')->group(function(){
+
+    Route::get('/cart/check',[BasketController::class,'cartCheck'])->name('cart.check');
+
+});
 // admin panel routes
 
 Route::group(['prefix' => 'admin'], function () {

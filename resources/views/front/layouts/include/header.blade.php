@@ -33,10 +33,11 @@
             </div><!-- end signup & login -->
             <!-- start shopping cart -->
             <div class="col-lg-1 d-flex align-items-center justify-content-center px-0">
-                <a href="#shopping-cart" class="position-relative" data-bs-toggle="offcanvas">
+                <livewire:front.cart.cart-header />
+              {{--  <a href="#shopping-cart" class="position-relative" data-bs-toggle="offcanvas">
                     <img src="{{ asset('front_assets/images/cart.png') }}">
                     <div class="count">5</div>
-                </a>
+                </a>--}}
             </div>
             <!-- end shopping cart -->
         </div>

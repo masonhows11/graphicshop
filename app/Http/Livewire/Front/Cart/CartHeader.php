@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Front\Cart;
 
+use App\Models\Category;
 use Livewire\Component;
 
 class CartHeader extends Component
@@ -12,7 +13,7 @@ class CartHeader extends Component
 
 
     public function mount(){
-        
+
     }
 
 
@@ -34,6 +35,8 @@ class CartHeader extends Component
 
     public function render()
     {
-        return view('livewire.front.cart.cart-header');
+        return view('livewire.front.cart.cart-header')
+
+            ->with([]);
     }
 }
