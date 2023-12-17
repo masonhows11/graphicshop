@@ -11,6 +11,7 @@ class AddToCart extends Component
 
     public $product;
     public $product_id;
+    public $number = 1;
 
     public function mount($product_id)
     {
@@ -21,7 +22,7 @@ class AddToCart extends Component
 
     public function addToCart($id)
     {
-        dd($id);
+
         $this->emitTo(CartHeader::class, 'addToCart', $this->number);
     }
 
