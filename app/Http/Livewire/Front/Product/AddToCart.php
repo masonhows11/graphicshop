@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Front\Product;
 
+use App\Http\Livewire\Front\Cart\CartHeader;
 use App\Models\Product;
 use Livewire\Component;
 
@@ -20,7 +21,8 @@ class AddToCart extends Component
 
     public function addToCart($id)
     {
-
+        dd($id);
+        $this->emitTo(CartHeader::class, 'addToCart', $this->number);
     }
 
     public function render()

@@ -6,4 +6,4 @@
 {{--<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>--}}
 {{--<script type="text/javascript" src="{{ asset('front_assets/js/jquery-asRange.js') }}"></script>
 <script type="text/javascript" src="{{ asset('front_assets/js/price-range-slider.js') }}"></script>--}}
-{{--<livewire:scripts/>--}}
+<livewire:scripts/>

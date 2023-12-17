@@ -18,7 +18,7 @@ class CartHeader extends Component
 
     protected $listeners = [
         'addToCart' => 'incrementCartCount',
-        'removeFromCart' => 'decrementCartCount'
+
     ];
 
     public function incrementCartCount($count){
@@ -26,10 +26,6 @@ class CartHeader extends Component
         $this->cartItemsCount += $count;
     }
 
-    public function decrementCartCount($count)
-    {
-        $this->cartItemsCount -= $count;
-    }
 
 
     public function render()

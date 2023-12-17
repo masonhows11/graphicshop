@@ -6,8 +6,8 @@
         </div>
         <div class="product-seller-row">
             <span>قیمت :</span>
-            <span class="text-danger" wire:click="addToCart({{ $product_id }})" >{{ priceFormat($product->price) }} تومان </span>
+            <span class="text-danger"  >{{ priceFormat($product->price) }} تومان </span>
         </div>
-        <button type="button" class="btn add-cart-btn">افزودن به سبد خرید</button>
+        <button type="button" wire:click="addToCart({{ $product_id }})" class="btn add-cart-btn">افزودن به سبد خرید</button>
     </div>
 </div>

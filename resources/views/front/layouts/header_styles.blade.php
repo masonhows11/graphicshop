@@ -4,4 +4,4 @@
 <link rel="stylesheet" href="{{ asset('front_assets/css/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('front_assets/css/owl.theme.default.min.css') }}">
 <link rel="stylesheet" href="{{ asset('front_assets/css/style.css') }}">
-{{--<livewire:styles/>--}}
+<livewire:styles/>
