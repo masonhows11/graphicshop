@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Front\Product;
 
 use App\Http\Livewire\Front\Cart\CartHeader;
+use App\Models\Basket;
 use App\Models\Product;
 use Livewire\Component;
 
@@ -22,6 +23,7 @@ class AddToCart extends Component
 
     public function addToCart($id)
     {
+       $basketCount =   Basket::where('product_id', $id)->get();
 
         $this->emitTo(CartHeader::class, 'addToCart', $this->number);
     }
