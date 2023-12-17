@@ -19,6 +19,7 @@ class CartHeader extends Component
     }
     protected $listeners = [
         'addToCart' => 'incrementCartCount',
+        'removeFromCart' => 'decrementCartCount'
     ];
     public function incrementCartCount( $count)
     {
@@ -28,6 +29,11 @@ class CartHeader extends Component
         } else {
             return redirect()->route('auth.login.form');
         }
+    }
+    
+    public function decrementCartCount($count)
+    {
+        $this->cartItemsCount -= $count;
     }
 
 

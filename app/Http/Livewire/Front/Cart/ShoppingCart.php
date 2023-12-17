@@ -20,8 +20,8 @@ class ShoppingCart extends Component
     public function mount()
     {
        $this->user_id = Auth::id();
-       $array_price = array_column(Basket::where('user_id', $this->user_id)->get()->toArray(),'price');
-       $this->total_price = array_sum($array_price);
+        $this->total_price =   array_sum(array_column(Basket::where('user_id', $this->user_id)->get()->toArray(),'price')) ;
+
     }
 
     //    public function remove($itemId)
