@@ -43,6 +43,14 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="row d-flex justify-content-between">
+                                <div class="col">
+                                    <div class="my-2"> {{ __('messages.total_price') }} {{ $total_price }} {{ __('messages.toman') }}</div>
+                                </div>
+                                <div class="col d-flex justify-content-end">
+                                    <div>  <a href="" class="btn btn-success">ادامه پرداخت</a></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 @else

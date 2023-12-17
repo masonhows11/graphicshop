@@ -14,11 +14,14 @@ class ShoppingCart extends Component
     public $user_id;
     public $item_id;
     public $cartNumber = 1;
+    public $total_price;
 
 
     public function mount()
     {
        $this->user_id = Auth::id();
+       $array_price = array_column(Basket::where('user_id', $this->user_id)->get()->toArray(),'price');
+       $this->total_price = array_sum($array_price);
     }
 
     //    public function remove($itemId)
@@ -59,6 +62,7 @@ class ShoppingCart extends Component
         return view('livewire.front.cart.shopping-cart')
             ->extends('front.layouts.master_front')
             ->section('main_content')
-            ->with('cartItems', Basket::where('user_id', $this->user_id)->get());
+            ->with(['cartItems' => Basket::where('user_id', $this->user_id)->get()
+                ,'total_price' => $this->total_price]);
     }
 }
