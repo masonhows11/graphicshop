@@ -25,7 +25,7 @@ class AddToCart extends Component
     {
        $basketCount =   Basket::where('product_id', $id)->get();
        if($basketCount->isEmpty()){
-           
+
        }else{
 
        }

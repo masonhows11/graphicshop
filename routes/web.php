@@ -1,25 +1,31 @@
 <?php
 
+// admin panel controllers
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\AdminLoginController;
 use App\Http\Controllers\Admin\Auth\AdminProfileController;
 use App\Http\Controllers\Admin\Auth\AdminValidateController;
 use App\Http\Controllers\Admin\Category\AdminCategoryController;
 use App\Http\Controllers\Admin\User\AdminUsersController;
+use App\Http\Controllers\Admin\Product\AdminProductController;
+
 use App\Http\Controllers\Front\AboutUs\AboutUsController;
 use App\Http\Controllers\Front\ContactUs\ContactUsController;
-use App\Http\Controllers\Admin\Product\AdminProductController;
 use App\Http\Controllers\Front\Product\ProductController;
 use App\Http\Controllers\Front\Basket\BasketController;
 use App\Http\Controllers\HomeController;
 
+// auth front controllers
+use App\Http\Controllers\Auth_Front\LoginUserController;
+use App\Http\Controllers\Auth_Front\RegisterUserController;
+use App\Http\Controllers\Auth_Front\ValidateUserController;
 
+// admin live wire panel controllers
 use App\Http\Livewire\Admin\Users\AdminUsers;
 use App\Http\Livewire\Admin\Category\AdminCategory;
 use App\Http\Livewire\Admin\Product\AdminProduct;
 use App\Http\Livewire\Admin\Orders\AdminOrders;
 use App\Http\Livewire\Admin\Payments\AdminPayments;
-use App\Http\Livewire\Front\Cart\CartHeader;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +42,23 @@ use Illuminate\Support\Facades\Route;
 // front end routes
 Route::get('/', [HomeController::class,'home'])->name('home');
 
+
+Route::prefix('auth')->name('auth.')->group(function (){
+
+    Route::get('/register', [RegisterUserController::class, 'registerForm'])->name('register.form');
+    Route::post('/register-user', [RegisterUserController::class, 'register'])->name('register.user');
+
+    Route::get('/login', [LoginUserController::class, 'loginForm'])->name('login.form');
+    Route::post('/login-user', [LoginUserController::class, 'login'])->middleware('throttle:auth-login-limiter')->name('login.user');
+
+    Route::get('/validate-mobile-form', [ValidateUserController::class, 'validateForm'])->name('validate.mobile.form');
+    Route::post('/validate-mobile', [ValidateUserController::class, 'validate_user'])->middleware('throttle:auth-validate-limiter')->name('validate.mobile');
+
+    Route::get('/resend-token/{token_guid}', [ValidateUserController::class, 'resendToken'])->middleware('throttle:auth-resend-token-limiter')->name('resend.token');
+});
+
+Route::get('/log-out', [LoginUserController::class, 'logOut'])->middleware('auth', 'web')->name('auth.log.out');
+
 // for search product
 Route::get('/search',[ProductController::class,'searchProducts'])->name('search.products');
 
@@ -48,9 +71,7 @@ Route::get('/product/{product:title}',[ProductController::class,'show'])->name('
 // for page does not exists
 Route::get('/notFound',[HomeController::class,'notFound'])->name('not.found');
 
-// Route::post('/add-to-basket',[BasketController::class,'addToBasket'])->name('add.to.basket');
 
-// Route::post('/remove-from-basket',[BasketController::class,'removeFromBasket'])->name('remove.from.basket');
 
 Route::prefix('shopping')->group(function(){
 

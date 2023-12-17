@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth_Front;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\ValidateMobileRequest;
@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 
-class ValidateMobileController extends Controller
+class ValidateUserController extends Controller
 {
     //
 
@@ -22,7 +22,7 @@ class ValidateMobileController extends Controller
         return view('front.auth_user.validate_mobile');
     }
 
-    public function validate_mobile(ValidateMobileRequest $request)
+    public function validate_user(ValidateMobileRequest $request)
     {
         if ($request->has('email')) {
 
