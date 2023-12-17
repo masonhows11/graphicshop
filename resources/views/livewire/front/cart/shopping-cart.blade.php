@@ -4,65 +4,57 @@
 
             <div class="row d-flex justify-content-center">
 
-                <div class="col-lg-9">
-                    <div class="cart-content">
-                        <div class="title">
-                            <h4> سبد خرید </h4>
-                        </div>
-                        <div class="row shopping-cart-item">
-                            <table class="table">
-                                <thead class="">
-                                <tr class="text-center">
-                                    <th class="text-muted">{{ __('messages.id') }} </th>
-                                    <th class="text-muted">{{ __('messages.title')}}</th>
-                                    <th class="text-muted">{{ __('messages.purchase_date') }}</th>
-                                    <th class="text-muted">{{ __('messages.demo_link') }}</th>
-                                    <th class="text-muted">{{ __('messages.product_price') }}</th>
-                                    <th class="text-muted">{{ __('messages.delete_model')}}</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @forelse( $cartItems as $item )
+                @if( count($cartItems) > 0  )
+                    <div class="col-lg-9">
+                        <div class="cart-content">
+                            <div class="title">
+                                <h4> سبد خرید </h4>
+                            </div>
+                            <div class="row shopping-cart-item">
+                                <table class="table">
+                                    <thead class="">
                                     <tr class="text-center">
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->product_title }}</td>
-                                        <td>{{ customJalaliDate($item->created_at) }}</td>
-                                        <td><img class="img-thumbnail" src="{{ $item->demo_url ?asset($item->demo_url) :
-                                              asset('admin_assets/images/no-image-icon-23494.png')  }}"
-                                                 width="60" height="60" alt="image_category">
-                                        </td>
-                                        <td>{{ priceFormat($item->price ) }} {{ __('messages.toman') }}</td>
-                                        <td>
-                                            <a href="#" class="btn btn-sm btn-danger mx-4"
-                                               wire:click.prevent="deleteConfirmation({{ $item->id }})">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
-                                        </td>
+                                        <th class="text-muted">{{ __('messages.id') }} </th>
+                                        <th class="text-muted">{{ __('messages.title')}}</th>
+                                        <th class="text-muted">{{ __('messages.purchase_date') }}</th>
+                                        <th class="text-muted">{{ __('messages.demo_link') }}</th>
+                                        <th class="text-muted">{{ __('messages.product_price') }}</th>
+                                        <th class="text-muted">{{ __('messages.delete_model')}}</th>
                                     </tr>
-                                @empty
-                                    <div class="cart-content my-4 d-flex justify-content-center align-items-center h-425px"
-                                         style="height: 280px">
-                                        <div>
-                                            <p class="text-center">{{ __('messages.your_shopping_cart_is_empty') }}</p>
-                                        </div>
-                                    </div>
-                                @endforelse
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                    @foreach( $cartItems as $item )
+                                        <tr class="text-center">
+                                            <td>{{ $item->id }}</td>
+                                            <td>{{ $item->product_title }}</td>
+                                            <td>{{ customJalaliDate($item->created_at) }}</td>
+                                            <td><img class="img-thumbnail"
+                                                     src="{{ $item->demo_url ?asset($item->demo_url) : asset('front_assets/images/no-image-icon-23494.png')  }}"
+                                                     width="60" height="60" alt="image_category">
+                                            </td>
+                                            <td>{{ priceFormat($item->price ) }} {{ __('messages.toman') }}</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-danger mx-4"
+                                                   wire:click.prevent="deleteConfirmation({{ $item->id }})"><i
+                                                        class="fas fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-
                     </div>
-                </div>
-
-              {{--  <div class="col-lg-9 mb-5" style="height: 280px">
-                    <div class="cart-content my-4 d-flex justify-content-center align-items-center h-425px"
-                         style="height: 280px">
-                        <div>
-                            <p class="text-center">{{ __('messages.your_shopping_cart_is_empty') }}</p>
+                @else
+                    <div class="col-lg-9 mb-5" style="height: 280px">
+                        <div class="cart-content my-4 d-flex justify-content-center align-items-center h-425px"
+                             style="height: 280px">
+                            <div>
+                                <p class="text-center">{{ __('messages.your_shopping_cart_is_empty') }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>--}}
-
+                @endif
             </div>
 
 
