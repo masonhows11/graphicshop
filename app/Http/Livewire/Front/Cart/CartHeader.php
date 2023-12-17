@@ -35,8 +35,6 @@ class CartHeader extends Component
 
     public function render()
     {
-        return view('livewire.front.cart.cart-header')
-
-            ->with([]);
+        return view('livewire.front.cart.cart-header')->with([]);
     }
 }
