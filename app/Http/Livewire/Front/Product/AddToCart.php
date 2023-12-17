@@ -28,10 +28,8 @@ class AddToCart extends Component
     {
         if (Auth::check()) {
             $user_id = Auth::id();
-            $basketCount = Basket::where('product_id', $id)
-                ->where('user_id' , $user_id)
-                ->first();
-            if (!$basketCount) {
+            $basket = Basket::where('product_id', $id)->where('user_id' , $user_id)->first();
+            if (!$basket) {
                 $product = Product::findOrFail($id);
                 Basket::create([
                     'user_id' => $user_id,
@@ -44,12 +42,12 @@ class AddToCart extends Component
                 $this->dispatchBrowserEvent('show-result',
                     ['type' => 'success',
                         'message' => __('messages.the_product_has_been_added_to_the_cart')]);
+                $this->emitTo(CartHeader::class, 'addToCart', $this->product_id,$this->number);
             } else {
                 $this->dispatchBrowserEvent('show-result',
                     ['type' => 'warning',
                         'message' => __('messages.this_product_has_already_been_added_to_the_cart')]);
             }
-            $this->emitTo(CartHeader::class, 'addToCart', $this->product_id,$this->number);
             return null;
         } else {
             return redirect()->route('auth.login.form');
