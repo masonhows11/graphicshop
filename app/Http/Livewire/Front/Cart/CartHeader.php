@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Front\Cart;
 
-use App\Models\Category;
+
 use Livewire\Component;
 
 class CartHeader extends Component

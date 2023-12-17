@@ -7,6 +7,18 @@
 import axios from 'axios';
 window.axios = axios;
 
+import Popper from '@popperjs/core/dist/umd/popper'
+//import Bundle from 'bootstrap/dist/js/bootstrap.bundle.min'
+import Swal from 'sweetalert2/dist/sweetalert2.all.min'
+
+
+try {
+    window.Swal = Swal;
+    window.Popper = Popper;
+    window.Bundle = Bundle;
+    window.$ = window.jQuery = require('jquery');
+}catch (e) {}
+
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
