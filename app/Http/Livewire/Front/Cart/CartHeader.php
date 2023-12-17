@@ -30,7 +30,7 @@ class CartHeader extends Component
             return redirect()->route('auth.login.form');
         }
     }
-    
+
     public function decrementCartCount($count)
     {
         $this->cartItemsCount -= $count;

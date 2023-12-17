@@ -14,14 +14,12 @@ class ShoppingCart extends Component
     public $user_id;
     public $item_id;
     public $cartNumber = 1;
-    public $total_price;
+
 
 
     public function mount()
     {
        $this->user_id = Auth::id();
-        $this->total_price =   array_sum(array_column(Basket::where('user_id', $this->user_id)->get()->toArray(),'price')) ;
-
     }
 
     //    public function remove($itemId)
@@ -63,6 +61,6 @@ class ShoppingCart extends Component
             ->extends('front.layouts.master_front')
             ->section('main_content')
             ->with(['cartItems' => Basket::where('user_id', $this->user_id)->get()
-                ,'total_price' => $this->total_price]);
+                ,'total_price' => array_sum(array_column(Basket::where('user_id', $this->user_id)->get()->toArray(),'price'))]);
     }
 }
