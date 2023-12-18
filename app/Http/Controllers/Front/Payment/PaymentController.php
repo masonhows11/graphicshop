@@ -29,16 +29,15 @@ class PaymentController extends Controller
             // create order
             $order = Order::updateOrCreate(
                 ['user_id' => $user->id, 'order_status' => 0],
-                ['amount' => $request->amount,
+                ['amount' => $order_amount,
                     'order_number' => $order_number,
                     'order_status' => 0,]);
-            dd($order);
-
             // create order details
-            OrderItem::create([
-
-            ]);
-
+            $orderForOrderItems = $basket->map(function ($items) {
+                return $items->only(['user_id','product_id','price','number']);
+            });
+            $order->orderItems()->createMany($orderForOrderItems->toArray());
+          
 
             // create payment
             Payment::create([
