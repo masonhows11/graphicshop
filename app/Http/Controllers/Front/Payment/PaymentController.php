@@ -51,11 +51,12 @@ class PaymentController extends Controller
             ]);
 
             $idPayRequest = new  IDPayRequest([
-                'amount' => 1000,
+                'amount' => $order_amount,
                 'user' => $user,
+                'orderId' => $order->order_number,
             ]);
             $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayRequest);
-            // $paymentService->pay();
+             $paymentService->pay();
 
             dd($paymentService->pay());
         } catch (\Exception $ex) {
