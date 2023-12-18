@@ -22,14 +22,27 @@ class PaymentController extends Controller
     {
         $user = Auth::user();
 
-        $idPayRequest = new  IDPayRequest([
-            'amount' => 1000,
-            'user' => $user,
-        ]);
-        $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayRequest);
-        // $paymentService->pay();
+        try {
+            // create order
 
-        dd( $paymentService->pay());
+            // create order details
+
+            // create payment
+
+            $idPayRequest = new  IDPayRequest([
+                'amount' => 1000,
+                'user' => $user,
+            ]);
+            $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayRequest);
+            // $paymentService->pay();
+
+            dd( $paymentService->pay());
+        }catch (\Exception $ex){
+            return view('errors_custom.general_error')
+                ->with(['error' => $ex->getMessage()]);
+        }
+
+
     }
 
 

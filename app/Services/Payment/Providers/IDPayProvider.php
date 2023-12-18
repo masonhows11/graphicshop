@@ -10,8 +10,7 @@ use App\Services\Payment\Contracts\VerifyInterface;
 
 class IDPayProvider extends AbstractProviderInterface  implements PayableInterface , VerifyInterface
 {
-     // this idpay  is payment gateway like zarrinpal , mellat
-
+     // this idpay provider is payment gateway like zarrinpal , mellat
     public function pay()
     {
       // dd($this->request);
