@@ -50,7 +50,7 @@
                                     <div class="col">
                                         <div class="my-2"> {{ __('messages.total_price') }} {{ $total_price }} {{ __('messages.toman') }}</div>
                                     </div>
-                                    <input type="hidden" name="{{ $total_price }}" id="">
+                                    <input type="hidden" name="amount" value="{{ $total_price }}" id="">
                                     <div class="col d-flex justify-content-end">
                                         <div>
                                             <button type="submit" class="btn btn-success">ادامه پرداخت</button>

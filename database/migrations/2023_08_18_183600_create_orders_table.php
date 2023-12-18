@@ -15,13 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('order_number',128)->unique();
             $table->integer('amount')->nullable();
-
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
-            $table->tinyInteger('payment_status')->default(0);
             $table->tinyInteger('order_status')->default(0);
-
             // $table->unsignedBigInteger('payment_id')->nullable();
             // $table->foreign('payment_id')->references('id')->on('payments')->onDelete('cascade');
             $table->softDeletes();

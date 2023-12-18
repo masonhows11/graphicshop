@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front\Payment;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Front\Payment\PayRequest;
 use App\Services\Payment\PaymentServices;
 use App\Services\Payment\Request\IDPayRequest;
 use App\Models\Basket;
@@ -18,14 +19,18 @@ class PaymentController extends Controller
 {
     //
 
-    public function payment()
+    public function payment(PayRequest $request)
     {
+
         $user = Auth::user();
 
         try {
             // create order
             Order::create([
-
+                'user_id' => $user->id,
+                'amount' => $request->amount,
+                'order_number' => '',
+                'order_status' => 1,
             ]);
 
             // create order details
