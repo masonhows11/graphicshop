@@ -10,10 +10,8 @@ use App\Models\Basket;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Payment;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class PaymentController extends Controller
@@ -24,23 +22,22 @@ class PaymentController extends Controller
     {
 
         $user = Auth::user();
-        $basket = Basket::where('user_id',$user->id)->get();
-        $order_amount = array_sum(array_column(Basket::where('user_id', $user->id)->get()->toArray(),'price'));
+        $basket = Basket::where('user_id', $user->id)->get();
+        $order_amount = array_sum(array_column(Basket::where('user_id', $user->id)->get()->toArray(), 'price'));
         try {
             $order_number = Str::random(30);
             // create order
-            Order::create([
-                'user_id' => $user->id,
-                'amount' => $request->amount,
-                'order_number' => $order_number,
-                'order_status' => 0,
-            ]);
+            $order = Order::updateOrCreate(
+                ['user_id' => $user->id, 'order_status' => 0],
+                ['amount' => $request->amount,
+                    'order_number' => $order_number,
+                    'order_status' => 0,]);
+            dd($order);
 
             // create order details
             OrderItem::create([
 
             ]);
-
 
 
             // create payment
@@ -55,8 +52,8 @@ class PaymentController extends Controller
             $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayRequest);
             // $paymentService->pay();
 
-            dd( $paymentService->pay());
-        }catch (\Exception $ex){
+            dd($paymentService->pay());
+        } catch (\Exception $ex) {
             return back()->with(['error' => $ex->getMessage()]);
         }
 
