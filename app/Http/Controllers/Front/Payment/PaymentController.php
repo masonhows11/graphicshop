@@ -14,6 +14,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PaymentController extends Controller
 {
@@ -23,14 +24,16 @@ class PaymentController extends Controller
     {
 
         $user = Auth::user();
-
+        $basket = Basket::where('user_id',$user->id)->get();
+        $order_amount = array_sum(array_column(Basket::where('user_id', $user->id)->get()->toArray(),'price'));
         try {
+            $order_number = Str::random(30);
             // create order
             Order::create([
                 'user_id' => $user->id,
                 'amount' => $request->amount,
-                'order_number' => '',
-                'order_status' => 1,
+                'order_number' => $order_number,
+                'order_status' => 0,
             ]);
 
             // create order details
