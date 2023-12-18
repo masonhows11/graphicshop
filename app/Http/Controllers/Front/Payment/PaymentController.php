@@ -32,16 +32,22 @@ class PaymentController extends Controller
                 ['amount' => $order_amount,
                     'order_number' => $order_number,
                     'order_status' => 0,]);
-            // create order details
+            // create order items / details
             $orderForOrderItems = $basket->map(function ($items) {
-                return $items->only(['user_id','product_id','price','number']);
+                return $items->only(['user_id', 'product_id', 'price', 'number']);
             });
             $order->orderItems()->createMany($orderForOrderItems->toArray());
-          
+
 
             // create payment
-            Payment::create([
-
+            $payment = Payment::create([
+                'user_id' => $user->id,
+                'order_id' => $order->id,
+                'gateway' => 'zarinpal',
+                'res_id' => null,
+                'ref_id' => $order->order_number,
+                'amount' => $order->amount,
+                'status' => 1,
             ]);
 
             $idPayRequest = new  IDPayRequest([
