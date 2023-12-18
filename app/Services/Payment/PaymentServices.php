@@ -27,7 +27,7 @@ class PaymentServices
     private function findProvider()
     {
         $providerClassName = 'App\\Services\\Payment\\Providers\\' . $this->provider_name;
-        if(class_exists($providerClassName)){
+        if (class_exists($providerClassName)) {
             throw new ProviderNotFoundException(__('messages.the_selected_payment_gateway_could_not_be_found'));
         }
         // create an instance founded class
@@ -42,10 +42,12 @@ class PaymentServices
             // the pay() method is defined in interface
             return $this->findProvider()->pay();
         } catch (ProviderNotFoundException $e) {
+            return $e->getMessage();
         }
     }
 
 }
 
-    //    $idPayRequest = new  IDPayRequest();
-    //    $paymentService = new PaymentServices(PaymentServices::IDPAY,$idPayRequest);
+$idPayRequest = new  IDPayRequest();
+$paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayRequest);
+$paymentService->pay();
