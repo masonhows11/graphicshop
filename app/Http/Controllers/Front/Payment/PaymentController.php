@@ -24,10 +24,21 @@ class PaymentController extends Controller
 
         try {
             // create order
+            Order::create([
+
+            ]);
 
             // create order details
+            OrderItem::create([
+
+            ]);
+
+
 
             // create payment
+            Payment::create([
+
+            ]);
 
             $idPayRequest = new  IDPayRequest([
                 'amount' => 1000,
@@ -38,8 +49,7 @@ class PaymentController extends Controller
 
             dd( $paymentService->pay());
         }catch (\Exception $ex){
-            return view('errors_custom.general_error')
-                ->with(['error' => $ex->getMessage()]);
+            return back()->with(['error' => $ex->getMessage()]);
         }
 
 
