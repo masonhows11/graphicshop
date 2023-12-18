@@ -14,11 +14,12 @@ class IDPayProvider extends AbstractProviderInterface  implements PayableInterfa
 
     public function pay()
     {
-        // TODO: Implement pay() method.
+      // dd($this->request);
+       // dd($this->request->getAmount());
     }
 
     public function verify()
     {
-        // TODO: Implement verify() method.
+
     }
 }

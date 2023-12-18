@@ -15,11 +15,11 @@ class ZarinpalProvider extends AbstractProviderInterface implements PayableInter
 
     public function pay()
     {
-        // TODO: Implement pay() method.
+
     }
 
     public function verify()
     {
-        // TODO: Implement verify() method.
+
     }
 }
