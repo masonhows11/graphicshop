@@ -38,7 +38,11 @@ class PaymentServices
 
     public function pay()
     {
-
+        try {
+            // the pay() method is defined in interface
+            return $this->findProvider()->pay();
+        } catch (ProviderNotFoundException $e) {
+        }
     }
 
 }
