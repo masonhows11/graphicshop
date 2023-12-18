@@ -15,8 +15,6 @@ class ShoppingCart extends Component
     public $item_id;
     public $cartNumber = 1;
 
-
-
     public function mount()
     {
        $this->user_id = Auth::id();
@@ -39,7 +37,6 @@ class ShoppingCart extends Component
     ];
     public function deleteModel()
     {
-
         try {
             $model = Basket::findOrFail($this->item_id);
             $model->delete();
