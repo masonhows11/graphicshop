@@ -43,14 +43,22 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="row d-flex justify-content-between">
-                                <div class="col">
-                                    <div class="my-2"> {{ __('messages.total_price') }} {{ $total_price }} {{ __('messages.toman') }}</div>
+
+                            <form action="{{ route('payment.pay') }}" method="post">
+                                @csrf
+                                <div class="row d-flex justify-content-between">
+                                    <div class="col">
+                                        <div class="my-2"> {{ __('messages.total_price') }} {{ $total_price }} {{ __('messages.toman') }}</div>
+                                    </div>
+                                    <input type="hidden" name="{{ $total_price }}" id="">
+                                    <div class="col d-flex justify-content-end">
+                                        <div>
+                                            <button type="submit" class="btn btn-success">ادامه پرداخت</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col d-flex justify-content-end">
-                                    <div>  <a href="{{ route('pay') }}" class="btn btn-success">ادامه پرداخت</a></div>
-                                </div>
-                            </div>
+                            </form>
+
                         </div>
                     </div>
                 @else

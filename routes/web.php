@@ -72,7 +72,8 @@ Route::prefix('profile')->middleware(['auth','web'])->group(function(){
 Route::prefix('shopping')->middleware(['auth','web'])->group(function(){
 
     Route::get('/cart/check',[BasketController::class,'cartCheck'])->name('cart.check');
-    Route::get('/payment',[PaymentController::class,'payment'])->name('pay');
+    Route::post('/payment',[PaymentController::class,'payment'])->name('payment.pay');
+
 
 });
 
