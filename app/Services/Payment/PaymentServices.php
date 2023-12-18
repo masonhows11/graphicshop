@@ -4,6 +4,7 @@
 namespace App\Services\Payment;
 
 use App\Services\Payment\Contracts\RequestInterface;
+use App\Services\Payment\Exceptions\ProviderNotFoundException;
 use App\Services\Payment\Request\IDPayRequest;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Facades\Config;
@@ -25,10 +26,13 @@ class PaymentServices
 
     private function findProvider()
     {
-        $baseNameSpace = 'App\\Services\\Payment\\Providers\\' . $this->provider_name;
-        if(class_exists($baseNameSpace)){
-
+        $providerClassName = 'App\\Services\\Payment\\Providers\\' . $this->provider_name;
+        if(class_exists($providerClassName)){
+            throw new ProviderNotFoundException(__('messages.the_selected_payment_gateway_could_not_be_found'));
         }
+        // create an instance founded class
+        // past request to construct that made as abstract class for gateway providers
+        return new $providerClassName($this->request);
     }
 
 
