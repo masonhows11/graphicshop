@@ -88,31 +88,36 @@ class PaymentController extends Controller
         }
         if($result['status'] == 100 or $request['status'] == 101)
         {
+        //            return redirect()->route('home')
+        //                ->with(['error' => 'پرداخت شما انجام شد.برای دریافت فایل های خود به حساب کاربری مراجعه کنید']);
+
+            $currentPayment =  Payment::where(['payment_number','=',$result['data']['order_id']])->first();
+            $currentPayment->update([
+                'status' => 2,
+                'bank_id' => $result['data']['track_id'],
+            ]);
+
+            // get order
+            $currentPayment->order()->update([
+                'order_status' => 2,
+            ]);
+
+            // get order items & link of files
+            $purchasedFile  =  $currentPayment->order->orderItems->map(function ($item){
+                return  $item->product->source_url;
+            });
+
+            $purchasedFiles =  $purchasedFile->toArray();
+
+            // send to user email or display in profile section
+            $currentUser =  $currentPayment->order->user;
+            Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles,$currentUser));
+            
             return redirect()->route('home')
-                ->with(['error' => 'پرداخت شما انجام شد.برای دریافت فایل های خود به حساب کاربری مراجعه کنید']);
+                       ->with(['error' => 'پرداخت شما انجام شد.لینک فایها به ایمیل ارسال شد']);
         }
 
-        $currentPayment =  Payment::where(['payment_number','=',$result['data']['order_id']])->first();
-        $currentPayment->update([
-            'status' => 2,
-            'bank_id' => $result['data']['track_id'],
-        ]);
 
-        // get order
-        $currentPayment->order()->update([
-            'order_status' => 2,
-        ]);
-
-        // get order items & link of files
-        $purchasedFile  =  $currentPayment->order->orderItems->map(function ($item){
-          return  $item->product->source_url;
-        });
-
-       $purchasedFiles =  $purchasedFile->toArray();
-
-        // send to user email or display in profile section
-        $currentUser =  $currentPayment->order->user;
-        Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles,$currentUser));
 
 
     }

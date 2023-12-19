@@ -57,6 +57,6 @@ class SendPurchasedFilesMail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return [$this->files];
     }
 }
