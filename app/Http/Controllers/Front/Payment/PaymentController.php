@@ -10,8 +10,10 @@ use App\Models\Basket;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Payment;
+use App\Services\Payment\Request\IDPayVerifyRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 
 class PaymentController extends Controller
@@ -55,17 +57,30 @@ class PaymentController extends Controller
                 'amount' => $order_amount,
                 'user' => $user,
                 'orderId' => $order->order_number,
+                'apiKey' => config('services.gateways.id_pay.api_key'),
             ]);
             // pay the payment order
             $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayRequest);
-           return  $paymentService->pay();
+            return $paymentService->pay();
 
-           // dd($paymentService->pay());
+            // dd($paymentService->pay());
         } catch (\Exception $ex) {
             return back()->with(['error' => $ex->getMessage()]);
         }
+    }
 
+    public function callBack(Request $request)
+    {
+        $paymentInfo = $request->all();
 
+        // make  verify gateway instance with arguments
+        $idPayVerifyRequest = new  IDPayVerifyRequest([
+            'apiKey' => config('services.gateways.id_pay.api_key'),
+            'id' => $paymentInfo['id'],
+            'orderId' => $paymentInfo['order_id'],
+        ]);
+        $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayVerifyRequest);
+        return $paymentService->verify();
     }
 
 

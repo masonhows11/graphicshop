@@ -46,5 +46,15 @@ class PaymentServices
         }
     }
 
+
+    public function verify(){
+        try {
+            // the pay() method is defined in interface
+            return $this->findProvider()->verify();
+        } catch (ProviderNotFoundException $e) {
+            return $e->getMessage();
+        }
+    }
+
 }
 
