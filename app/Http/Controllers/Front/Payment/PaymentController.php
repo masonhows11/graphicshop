@@ -80,7 +80,11 @@ class PaymentController extends Controller
             'orderId' => $paymentInfo['order_id'],
         ]);
         $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayVerifyRequest);
-        return $paymentService->verify();
+        $result = $paymentService->verify();
+        if(!$request['status']){
+            return redirect()->route('cart.check')->with(['error' => 'پرداخت شما انجام نشد']);
+        }
+        
     }
 
 

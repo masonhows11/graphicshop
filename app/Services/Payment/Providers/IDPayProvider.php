@@ -20,5 +20,19 @@ class IDPayProvider extends AbstractProviderInterface  implements PayableInterfa
     public function verify()
     {
 
+
+        $result = '';
+        if(isset($result['error_code'])){
+            return [
+              'status' => false,
+              'msg' => $result['error_message'],
+            ];
+        }
+        if($result['status'] == $this->statusOk){
+            return [
+                'status' => true,
+                'data' => $result,
+            ];
+        }
     }
 }
