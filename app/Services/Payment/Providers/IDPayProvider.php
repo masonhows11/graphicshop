@@ -36,5 +36,10 @@ class IDPayProvider extends AbstractProviderInterface implements PayableInterfac
                 'data' => $result,
             ];
         }
+        return [
+            'status' => true,
+            'statusCode' => $result['status'],
+            'data' => $result,
+        ];
     }
 }

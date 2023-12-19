@@ -46,8 +46,8 @@ class PaymentController extends Controller
                 'user_id' => $user->id,
                 'order_id' => $order->id,
                 'gateway' => 'zarinpal',
-                'res_id' => null,
-                'ref_id' => $order->order_number,
+                'bank_id' => null,
+                'payment_number' => $order->payment_number,
                 'amount' => $order->amount,
                 'status' => 1,
             ]);
@@ -57,7 +57,7 @@ class PaymentController extends Controller
             $idPayRequest = new  IDPayRequest([
                 'amount' => $order_amount,
                 'user' => $user,
-                'orderId' => $order->order_number,
+                'orderId' => $order->payment_number,
                 'apiKey' => config('services.gateways.id_pay.api_key'),
             ]);
             // pay the payment order
@@ -89,6 +89,26 @@ class PaymentController extends Controller
             return redirect()->route('home')
                 ->with(['error' => 'پرداخت شما انجام شد.برای دریافت فایل های خود به حساب کاربری مراجعه کنید']);
         }
+
+        $currentPayment =  Payment::where(['payment_number','=',$result['data']['order_id']])->first();
+        $currentPayment->update([
+            'status' => 2,
+            'bank_id' => $result['data']['track_id'],
+        ]);
+
+        // get order
+        $currentPayment->order()->update([
+            'order_status' => 2,
+        ]);
+
+        // get order items & link of files
+        // send to user email or display in profile section
+        $purchasedFiles  =  $currentPayment->order->orderItems->map(function ($item){
+          return  $item->product->source_url;
+        });
+
+        $purchasedFiles->toArray();
+
 
     }
 
