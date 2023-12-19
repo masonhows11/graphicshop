@@ -42,7 +42,11 @@ class SendPurchasedFilesMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.send_purchased_files_mail.blade',
+              with: [
+                    'user' => $this->user->name,
+                    'email' => $this->user->emal,
+                ],
         );
     }
 
