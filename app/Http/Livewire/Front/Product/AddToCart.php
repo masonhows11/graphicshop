@@ -42,7 +42,7 @@ class AddToCart extends Component
                 $this->dispatchBrowserEvent('show-result',
                     ['type' => 'success',
                         'message' => __('messages.the_product_has_been_added_to_the_cart')]);
-                $this->emitTo(CartHeader::class, 'addToCart', $this->product_id,$this->number);
+                $this->emitTo(CartHeader::class, 'addToCart',$this->number);
             } else {
                 $this->dispatchBrowserEvent('show-result',
                     ['type' => 'warning',

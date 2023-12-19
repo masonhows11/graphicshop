@@ -27,7 +27,7 @@ class PaymentController extends Controller
         $basket = Basket::where('user_id', $user->id)->get();
         $order_amount = array_sum(array_column(Basket::where('user_id', $user->id)->get()->toArray(), 'price'));
         try {
-            $order_number = Str::random(30);
+            $order_number = Str::random(20);
             // create order l.v 1
             $order = Order::updateOrCreate(
                 ['user_id' => $user->id, 'order_status' => 0],
