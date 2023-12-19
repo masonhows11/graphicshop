@@ -62,8 +62,6 @@ class PaymentController extends Controller
             // pay the payment order
             $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayRequest);
             return $paymentService->pay();
-
-            // dd($paymentService->pay());
         } catch (\Exception $ex) {
             return back()->with(['error' => $ex->getMessage()]);
         }
@@ -81,10 +79,16 @@ class PaymentController extends Controller
         ]);
         $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayVerifyRequest);
         $result = $paymentService->verify();
-        if(!$request['status']){
-            return redirect()->route('cart.check')->with(['error' => 'پرداخت شما انجام نشد']);
+        if(!$result['status']){
+            return redirect()->route('cart.check')
+                ->with(['error' => 'پرداخت شما انجام نشد']);
         }
-        
+        if($result['status'] == 100 or $request['status'] == 101)
+        {
+            return redirect()->route('home')
+                ->with(['error' => 'پرداخت شما انجام شد.برای دریافت فایل های خود به حساب کاربری مراجعه کنید']);
+        }
+
     }
 
 
