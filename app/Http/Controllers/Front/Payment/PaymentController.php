@@ -112,6 +112,9 @@ class PaymentController extends Controller
             // send to user email or display in profile section
             $currentUser =  $currentPayment->order->user;
             Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles,$currentUser));
+
+            // delete data from basket
+
             
             return redirect()->route('home')
                        ->with(['error' => 'پرداخت شما انجام شد.لینک فایها به ایمیل ارسال شد']);
