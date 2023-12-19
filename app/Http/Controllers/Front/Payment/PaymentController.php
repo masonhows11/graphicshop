@@ -52,7 +52,7 @@ class PaymentController extends Controller
                 'status' => 1,
             ]);
 
-            dd($payment);
+           // dd($payment);
             // make gateway instance with arguments
             $idPayRequest = new  IDPayRequest([
                 'amount' => $order_amount,
