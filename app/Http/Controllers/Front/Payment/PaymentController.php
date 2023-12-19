@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front\Payment;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\Payment\PayRequest;
+use App\Mail\SendPurchasedFilesMail;
 use App\Services\Payment\PaymentServices;
 use App\Services\Payment\Request\IDPayRequest;
 use App\Models\Basket;
@@ -14,6 +15,7 @@ use App\Services\Payment\Request\IDPayVerifyRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class PaymentController extends Controller
@@ -102,12 +104,15 @@ class PaymentController extends Controller
         ]);
 
         // get order items & link of files
-        // send to user email or display in profile section
-        $purchasedFiles  =  $currentPayment->order->orderItems->map(function ($item){
+        $purchasedFile  =  $currentPayment->order->orderItems->map(function ($item){
           return  $item->product->source_url;
         });
 
-        $purchasedFiles->toArray();
+       $purchasedFiles =  $purchasedFile->toArray();
+
+        // send to user email or display in profile section
+        $currentUser =  $currentPayment->order->user;
+        Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles,$currentUser));
 
 
     }
