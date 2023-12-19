@@ -31,7 +31,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'gateway' => [
+    'gateways' => [
         'id_pay' => ['api_key' => ''],
         'zarinpal' => ['api_key' => ''],
     ]
