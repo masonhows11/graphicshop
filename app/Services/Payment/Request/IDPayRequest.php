@@ -12,6 +12,8 @@ class IDPayRequest implements RequestInterface
     private $amount;
     private $orderId;
     private $apiKey;
+
+
     public function __construct(array $data)
     {
         $this->user = $data['user'];
@@ -25,13 +27,19 @@ class IDPayRequest implements RequestInterface
         return $this->orderId;
     }
 
+    // amount is convert to rials
+    // because gateway worked with rials money unit
     public function getAmount()
     {
-        return $this->amount;
+        return $this->amount * 10;
     }
     public function getUser()
     {
         return $this->user;
+    }
+    public function getApiKey()
+    {
+        return $this->apiKey;
     }
 
 }
