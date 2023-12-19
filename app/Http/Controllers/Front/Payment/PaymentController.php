@@ -26,20 +26,20 @@ class PaymentController extends Controller
         $order_amount = array_sum(array_column(Basket::where('user_id', $user->id)->get()->toArray(), 'price'));
         try {
             $order_number = Str::random(30);
-            // create order
+            // create order l.v 1
             $order = Order::updateOrCreate(
                 ['user_id' => $user->id, 'order_status' => 0],
                 ['amount' => $order_amount,
                     'order_number' => $order_number,
                     'order_status' => 0,]);
-            // create order items / details
+            // create order items / details l.v 2
             $orderForOrderItems = $basket->map(function ($items) {
                 return $items->only(['user_id', 'product_id', 'price', 'number']);
             });
             $order->orderItems()->createMany($orderForOrderItems->toArray());
 
 
-            // create payment
+            // create payment l.v 3
             $payment = Payment::create([
                 'user_id' => $user->id,
                 'order_id' => $order->id,
@@ -50,15 +50,17 @@ class PaymentController extends Controller
                 'status' => 1,
             ]);
 
+            // make gateway instance with arguments
             $idPayRequest = new  IDPayRequest([
                 'amount' => $order_amount,
                 'user' => $user,
                 'orderId' => $order->order_number,
             ]);
+            // pay the payment order
             $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayRequest);
-             $paymentService->pay();
+           return  $paymentService->pay();
 
-            dd($paymentService->pay());
+           // dd($paymentService->pay());
         } catch (\Exception $ex) {
             return back()->with(['error' => $ex->getMessage()]);
         }
