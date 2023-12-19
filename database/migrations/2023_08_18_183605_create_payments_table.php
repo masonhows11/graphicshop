@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
 
             $table->unsignedInteger('res_id')->nullable();
-            $table->unsignedInteger('ref_id')->nullable();
+            $table->string('ref_id',64)->nullable();
             $table->string('gateway')->nullable();
             $table->unsignedInteger('amount');
             $table->enum('status',['paid','unpaid']);
