@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
 
             $table->unsignedInteger('bank_id')->nullable();
-            $table->string('payment_number',64)->unique();
+            $table->string('payment_number',64)->unique()->nullable();
             $table->string('gateway')->nullable();
             $table->unsignedInteger('amount');
             $table->enum('status',['paid','unpaid']);
