@@ -647,7 +647,7 @@
                 {{-- end banner --}}
 
                 {{-- start slider --}}
-                {{--<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+               <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -668,29 +668,36 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
 
                         <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.main.slider.index' ? 'active' : '' }}"
-                               href="--}}{{--{{ route('admin.main.slider.index') }}--}}{{--">
+                            <a class="menu-link {{ $route === 'admin' ? 'active' : '' }}"
+                               href="{{--{{ route('admin.main.slider.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">{{ __('messages.main_banner_slider') }}</span>
+                                <span class="menu-title">{{ __('messages.slider_no_one') }}</span>
                             </a>
                         </div>
 
                         <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.product.category.index' ? 'active' : '' }}"
-                               href="--}}{{--{{ route('admin.product.category.index') }}--}}{{--">
+                            <a class="menu-link {{ $route === 'admin.' ? 'active' : '' }}"
+                               href="{{--{{ route('admin.product.category.index') }}--}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">{{ __('messages.slider_product_by_category') }}</span>
+                                <span class="menu-title">{{ __('messages.slider_no_two') }}</span>
                             </a>
                         </div>
 
-
-
+                        <div class="menu-item">
+                            <a class="menu-link {{ $route === 'admin.' ? 'active' : '' }}"
+                               href="{{--{{ route('admin.product.category.index') }}--}}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">{{ __('messages.slider_no_three') }}</span>
+                            </a>
+                        </div>
                     </div>
-                </div>--}}
+                </div>
                 {{-- end slider --}}
 
                 {{-- notification emial sms --}}

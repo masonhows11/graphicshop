@@ -545,6 +545,9 @@ return [
     'this_product_has_already_been_added_to_the_cart' => 'این محصول قبلا به سبد خرید اضافه شده',
     'purchase_date' => 'تاریخ خرید',
     'the_selected_payment_gateway_could_not_be_found' => 'درگاه پرداخت انتخاب شده پیدا نشد',
+    'slider_no_one' => 'اسلایدر شماره یک',
+    'slider_no_two' => 'اسلایدر شماره دو',
+    'slider_no_three' => 'اسلایدر شماره سه',
 
 
 ];
