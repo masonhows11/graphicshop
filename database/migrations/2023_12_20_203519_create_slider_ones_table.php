@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('slider_ones', function (Blueprint $table) {
+        Schema::create('slider_one', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->string('category_name')->nullable();
