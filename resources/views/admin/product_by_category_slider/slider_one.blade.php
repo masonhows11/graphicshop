@@ -1,4 +1,4 @@
-@extends('dash.include.master_dash')
+@extends('admin.include.master_dash')
 @section('dash_page_title')
 
 @endsection
@@ -38,56 +38,6 @@
     </div>
 
 @endsection
-@push('dash_custom_script')
-    <script type="text/javascript">
-        window.addEventListener('show-delete-confirmation', event => {
-            Swal.fire({
-                title: 'آیا مطمئن هستید این ایتم حذف شود؟',
-                icon: 'error',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'بله حذف کن!',
-                cancelButtonText: 'خیر',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Livewire.emit('deleteConfirmed')
-                }
-            });
-        })
-    </script>
-    <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top',
-            showConfirmButton: false,
-            showCloseButton: true,
-            timer: 5000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        });
-        window.addEventListener('show-result', ({detail: {type, message}}) => {
-            Toast.fire({
-                icon: type,
-                title: message
-            })
-        })
-        @if( session()->has('warning') )
-        Toast.fire({
-            icon: 'warning',
-            title: '{{ session()->get('warning') }}'
-        })
-        @elseif( session()->has('success'))
-        Toast.fire({
-            icon: 'success',
-            title: '{{ session()->get('success') }}'
-        })
-        @endif
-    </script>
-@endpush
 
 
 
