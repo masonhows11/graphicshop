@@ -9,20 +9,23 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SendPurchasedFilesMail extends Mailable
+class SendPurchasedfilesMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    // l.v 2
     private $files;
     public $user;
 
     /**
      * Create a new message instance.
+     * @param array $purchasedfiles
+     * @param $user
      */
-    public function __construct(array $files, $user)
+    public function __construct(array $purchasedfiles = [], $user)
     {
-        //
-        $this->files = $files;
+        // l.v 3
+        $this->files = $purchasedfiles;
         $this->user = $user;
     }
 
@@ -32,7 +35,7 @@ class SendPurchasedFilesMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Send Purchased Files Mail',
+            subject: 'Send Purchased files Mail',
         );
     }
 
@@ -57,6 +60,14 @@ class SendPurchasedFilesMail extends Mailable
      */
     public function attachments(): array
     {
-        return [$this->files];
+        // l.v 4
+        $storage_files = [];
+        if($this->files){
+            foreach ($this->files as $file){
+                array_push($file,storage_path('app/local_storage/'.$file));
+            }
+        }
+        return $storage_files;
+
     }
 }
