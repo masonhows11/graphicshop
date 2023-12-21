@@ -24,8 +24,9 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer(['front.categories','front.include.side_category'],function ($view){
-            $view->with('categories',Category::tree()->get()->toTree());
+        View::composer(['front.layouts.include.categories','front.include.side_category'],function ($view){
+            $view->with(['categories' => Category::tree()->get()->toTree(),
+                     'mainCategories'=> Category::where('parent_id',null)->take(10)->get() ]);
         });
 
         // for banner category
