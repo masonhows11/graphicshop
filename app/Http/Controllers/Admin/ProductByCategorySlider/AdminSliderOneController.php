@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class AdminSliderOneController extends Controller
 {
     //
-    public function index()
+    public function create()
     {
         $categories = Category::all();
         $sliderCategory = SliderOne::get();
@@ -18,7 +18,8 @@ class AdminSliderOneController extends Controller
             ->with(['categories' => $categories,'sliderCategory' => $sliderCategory]);
     }
 
-    public function store(){
+    public function store()
+    {
 
     }
 
