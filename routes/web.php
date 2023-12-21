@@ -26,6 +26,7 @@ use App\Http\Controllers\Auth_Front\RegisterUserController;
 use App\Http\Controllers\Auth_Front\ValidateUserController;
 
 // admin live wire panel controllers
+use App\Http\Livewire\Admin\Users\AdminAdmins;
 use App\Http\Livewire\Admin\Users\AdminUsers;
 use App\Http\Livewire\Admin\Category\AdminCategory;
 use App\Http\Livewire\Admin\Product\AdminProduct;
@@ -125,6 +126,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/user/edit/{user}', [AdminUsersController::class,'edit'])->name('user.edit');
     Route::post('/user/update', [AdminUsersController::class,'update'])->name('user.update');
+
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/admins/index', AdminAdmins::class)->name('admins.index');
+
+    Route::get('/admins/edit/{user}', [AdminUsersController::class,'edit'])->name('admins.edit');
+    Route::post('/admins/update', [AdminUsersController::class,'update'])->name('admins.update');
 
 });
 

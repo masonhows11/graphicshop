@@ -117,8 +117,8 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.admins' ? 'active' : '' }}"
-                                href="{{--{{ route('admin.admins') }}--}}">
+                            <a class="menu-link {{ $route === 'admin.admins.index' ? 'active' : '' }}"
+                                href="{{ route('admin.admins.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
