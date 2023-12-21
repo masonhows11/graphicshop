@@ -42,7 +42,7 @@ class AdminSliderOneController extends Controller
             $description = __('messages.category_products') . ' ' . $category_name->title . ' ' . __('messages.were_selected');
             $result = SliderOne::create([
                 'category_id' => $request->category,
-                'category_name' => $category_name->title_persian,
+                'category_name' => $category_name->title,
                 'description' => $description,
             ]);
             if ($result !== null) {
@@ -63,7 +63,7 @@ class AdminSliderOneController extends Controller
         try {
             $slider->delete();
             session()->flash('success', __('messages.The_deletion_was_successful'));
-            return redirect()->route('admin.product.category.index');
+            return redirect()->route('admin.slider_one.create');
         } catch (\Exception $ex) {
             return view('errors_custom.general_error')->with(['error' => $ex->getMessage()]);
         }

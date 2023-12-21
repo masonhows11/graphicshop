@@ -29,7 +29,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach( $sliderCategory as $item)
+                    @forelse( $sliderCategory as $item)
                         <tr class="text-center">
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->category_name }}</td>
@@ -41,7 +41,11 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <div class="alert alert-secondary">
+                            <h3 class="text-center"> {{ __('messages.not_record_found') }} </h3>
+                        </div>
+                    @endforelse
                     </tbody>
                 </table>
 
