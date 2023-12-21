@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
 use Nagy\LaravelRating\Traits\Rateable;
 use Pishran\LaravelPersianSlug\HasPersianSlug;
 use Spatie\Sluggable\SlugOptions;
