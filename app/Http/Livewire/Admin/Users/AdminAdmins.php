@@ -43,6 +43,9 @@ class AdminAdmins extends Component
     // step 3 : delete model on listener
     public function deleteUser()
     {
+        session()->flash('warning',__('messages.It_is_not_possible_to_delete'));
+        return redirect()->route('admin.admins.index');
+       /*
         try {
             User::destroy($this->delete_id);
             $this->dispatchBrowserEvent('show-result',
@@ -51,7 +54,7 @@ class AdminAdmins extends Component
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }
-        return  null;
+        return  null;*/
     }
     public function render()
     {

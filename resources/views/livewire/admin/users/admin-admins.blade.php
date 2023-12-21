@@ -47,9 +47,12 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a  href="{{ route('admin.user.edit',$user) }}" class="btn btn-sm btn-primary mx-4">
+                                    <a  href="{{ route('not.found') }}" class="btn btn-sm btn-primary mx-4">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                   {{-- <a  href="{{ route('admin.user.edit',$user) }}" class="btn btn-sm btn-primary mx-4">
+                                        <i class="fas fa-edit"></i>
+                                    </a>--}}
                                 </td>
                                 <td>
                                     <a href="#" wire:click.prevent="activeUser({{ $user->id }})" class="mx-4 btn btn-sm {{ $user->activate === 0 ? 'btn-danger' : 'btn-success' }} ">
