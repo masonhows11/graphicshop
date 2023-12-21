@@ -3,7 +3,7 @@
         {{ __('messages.manage_perms') }}
     @endsection
     @section('breadcrumb')
-        {{ Breadcrumbs::render('admin.perms') }}
+       {{-- {{ Breadcrumbs::render('admin.perms') }}--}}
     @endsection
     <div class="container-fluid">
 

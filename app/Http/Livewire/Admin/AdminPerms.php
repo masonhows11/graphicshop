@@ -97,7 +97,7 @@ class AdminPerms extends Component
     public function render()
     {
         return view('livewire.admin.admin-perms')
-            ->extends('dash.include.master_dash')
+            ->extends('admin.include.master_dash')
             ->section('dash_main_content')
             ->with(['perms' => Permission::paginate(10)]);
     }
