@@ -1,6 +1,6 @@
 <header class="d-lg-none bg-white w-100">
     <div class="container">
-        <div class="row py-2">
+        <div class="row py-2 header-section">
 
             <div class="col-7 d-flex flex-row">
                 <a href="#mobile-menu" data-bs-toggle="offcanvas"><i class="fa fa-bars mobile-menu-icon"></i></a>
@@ -34,11 +34,13 @@
                                 </ul>
                             </li>
                             <li><a href="#">تخفیف‌ها و پیشنهادها</a></li>
-                            <li><a href="signup.html">ثبت نام / ورود</a></li>
-                            <li><a href="#"> محصولات </a>
-                            <li><a href="blog.html">وبلاگ</a></li>
-                            <li><a href="contact-us.html">تماس با ما</a></li>
-                            <li><a href="about-us.html">درباره ما</a></li>
+                            @guest
+                            <li><a href="{{ route('auth.login.form') }}">ثبت نام / ورود</a></li>
+                            @endguest
+                            <li><a href="{{ route('home') }}"> محصولات </a>
+                            <li><a href="{{ route('not.found') }}">وبلاگ</a></li>
+                            <li><a href="{{ route('contact_us') }}">تماس با ما</a></li>
+                            <li><a href="{{ route('about_us') }}">درباره ما</a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,74 +49,55 @@
                 </div>
             </div>
 
-            <!-- start signup & login dropdown -->
+
+            @guest
             <div class="col-4 d-flex align-items-center justify-content-end">
-                {{-- <div class="dropdown">
-                     <a href="#" data-bs-toggle="dropdown"><i class="fa fa-user-lock signup-login-icon"></i></a>
-                     <ul class="dropdown-menu dropdown-menu-custom"><!-- start dropdown box -->
-                         <li class="d-flex">
-                             <img src="front_assets/images/avatar.jpg" class="avatar">
-                             <div class="ms-2">
-                                 <a href="javascript:void(0)" class="font-14 text-dark">امیرحسین رضایی</a>
-                                 <a href="javascript:void(0)" class="font-12 d-block text-info mt-2">مشاهده حساب کاربری <i class="fa fa-chevron-left align-middle mt-1"></i></a>
-                             </div>
-                         </li>
-                         <li>
-                             <a href="javascript:void(0)" class="login-link"><i class="fa fa-shopping-basket text-muted font-14 me-1"></i> سفارش های من</a>
-                             <a href="javascript:void(0)" class="login-link"><i class="fa fa-gift text-muted font-14 me-1"></i>جوایز نیک کلاب</a>
-                             <a href="#" class="login-link"><i class="fas fa-sign-out-alt text-muted font-14 me-1"></i>خروج از حساب  کاربری</a>
-                         </li>
-                     </ul><!-- end dropdown box -->
-                 </div>--}}
+                <a href="{{ route('auth.login.form') }}" class="header-login-btn me-4"><i
+                        class="fa fa-user-lock"></i>ورود / ثبت نام</a>
             </div>
-            <!-- end signup & login dropdown -->
-
-            <!-- start shopping cart responsive-->
-            <div class="col-1 d-flex align-items-center justify-content-end">
-                <a href="#shopping-cart-responsive" class="position-relative" data-bs-toggle="offcanvas">
-                    <img src="{{ asset('front_assets/images/cart.png') }}">
-                    <div class="count">5</div>
-                </a>
-
-                <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" id="shopping-cart-responsive">
-
-                    <div class="offcanvas-header">
-                        <p class="offcanvas-title font-12">سبد خرید (4 کالا)</p>
-                        <button type="button" class="text-reset btn-close" data-bs-dismiss="offcanvas"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div class="row">
-                            <div class="col-4"><img src="{{ asset('front_assets/images/mobile1.jpg') }}"
-                                                    class="img-fluid img-thumbnail"></div>
-                            <div class="col-8 d-flex align-items-center">
-                                <a href="#" class="cart-product-title">گوشی موبایل سامسونگ مدل Galaxy A21S
-                                    SM-A217F/DS</a>
+            @endguest
+            @auth
+            <div class="col-4 d-flex align-items-center justify-content-end">
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="header-user-btn  me-4 " data-bs-toggle="dropdown">
+                        <i class="fa fa-user mt-2"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-custom">
+                        <li class="d-flex flex-column justify-content-center align-items-center my-2">
+                            <div>
+                                <img src="{{  auth()->user()->image_path == null ? asset('default_image/no-user.png') : asset('default_image/no-user.png') }}" class="avatar" alt="user-avatar">
                             </div>
-                        </div>
-                        <div class="row my-3 border-bottom">
-                            <div class="col-6 d-flex">
-                                <span class="number">1 عدد</span>
-                                <span class="color" style="background-color:#d4d4d4;"></span>
-                                <i class="fa fa-trash cart-delete-btn"></i>
+                            <div class="ms-2">
+                                <a href="{{ route('user.profile') }}" class="font-12 d-block text-info mt-2">مشاهده حساب کاربری <i class="fa fa-chevron-left align-middle mt-1"></i></a>
                             </div>
-                            <div class="col-6 d-flex justify-content-end">
-                                <p class="cart-product-price">4,169,000 تومان</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row cart-footer">
-                        <div class="col-5">
-                            <p>مبلغ قابل پرداخت:</p>
-                            <p>12,480,000 تومان</p>
-                        </div>
-                        <div class="col-7">
-                            <a href="login.html" class="btn btn-info font-13 btn-lg ms-4">ورود و ثبت سفارش</a>
-                        </div>
-                    </div>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="login-link text-center font-14 mt-4 text-dark">
+                                @if(\Illuminate\Support\Facades\Auth::user()->name !== null)
+                                    {{ \Illuminate\Support\Facades\Auth::user()->name }}
+                                @elseif(\Illuminate\Support\Facades\Auth::user()->email !== null)
+                                    {{ \Illuminate\Support\Facades\Auth::user()->email }}
+                                @else
+                                    {{ __('messages.no_name') }}
+                                @endif
+                            </a>
+                            <a href="{{ route('not.found') }}" class="login-link my-4"><i
+                                    class="fa fa-shopping-basket text-muted font-14 me-1"></i> سفارش های من</a>
+                            <a href="{{ route('not.found') }}" class="login-link my-4"><i
+                                    class="fa fa-heart text-muted font-14 me-1"></i>علاقه مندی ها</a>
+                            <a href="{{ route('not.found') }}" class="login-link my-4"><i
+                                    class="fa fa-comment-alt text-muted font-14 me-1"></i>دیدگاه ها</a>
+                            <a href="{{ route('auth.log.out') }}" class="login-link my-4"><i
+                                    class="fas fa-sign-out-alt text-muted font-14 me-1"></i>خروج از حساب کاربری</a>
+                        </li>
+                    </ul>
                 </div>
-
             </div>
-            <!-- end shopping cart responsive-->
+            @endauth
+
+            <div class="col-1 d-flex align-items-center justify-content-end">
+                <livewire:front.cart.cart-header />
+            </div>
+
         </div>
     </div>
 </header>

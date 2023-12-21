@@ -1,4 +1,4 @@
-<header class="w-100 d-none d-lg-block bg-white"><!-- start header -->
+<header class="w-100 d-none d-lg-block bg-white">
     <div class="container">
         <div class="row  py-4 header-section">
             <div class="col-lg-2">
@@ -13,7 +13,7 @@
                 </div>
                 </form>
             </div>
-            <!-- end search box -->
+
             @guest
                 <div class="col-lg-3 d-flex align-items-center justify-content-end px-0">
                     <a href="{{ route('auth.login.form') }}" class="header-login-btn me-4"><i
@@ -44,11 +44,11 @@
                                         {{ __('messages.no_name') }}
                                     @endif
                                 </a>
-                                <a href="#" class="login-link my-4"><i
+                                <a href="{{ route('not.found') }}" class="login-link my-4"><i
                                         class="fa fa-shopping-basket text-muted font-14 me-1"></i> سفارش های من</a>
-                                <a href="#" class="login-link my-4"><i
+                                <a href="{{ route('not.found') }}" class="login-link my-4"><i
                                         class="fa fa-heart text-muted font-14 me-1"></i>علاقه مندی ها</a>
-                                <a href="#" class="login-link my-4"><i
+                                <a href="{{ route('not.found') }}" class="login-link my-4"><i
                                         class="fa fa-comment-alt text-muted font-14 me-1"></i>دیدگاه ها</a>
                                 <a href="{{ route('auth.log.out') }}" class="login-link my-4"><i
                                         class="fas fa-sign-out-alt text-muted font-14 me-1"></i>خروج از حساب کاربری</a>
@@ -57,17 +57,11 @@
                     </div>
                 </div>
              @endauth
-            <!-- end signup & login -->
 
-            <!-- start shopping cart -->
             <div class="col-lg-1 d-flex align-items-center justify-content-center px-0">
                 <livewire:front.cart.cart-header />
-              {{--  <a href="#shopping-cart" class="position-relative" data-bs-toggle="offcanvas">
-                    <img src="{{ asset('front_assets/images/cart.png') }}">
-                    <div class="count">5</div>
-                </a>--}}
             </div>
-            <!-- end shopping cart -->
+
         </div>
     </div>
 </header>

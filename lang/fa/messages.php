@@ -378,7 +378,7 @@ return [
 
     'sliders_management' => 'مدیریت اسلایدرها',
     'slider_product_by_category' => 'اسلایدر محصولات یک دسته بندی',
-    'category_products' => 'محصولات دسته بندی',
+    'category_products' => 'دسته بندی محصولات',
     'were_selected' => 'انتخاب شد',
     'you_can_choose_only_one_product_group' => 'فقط یک گروه محصولی می توانید انتخاب کنید',
     'there_are_no_products_for_the_selected_category' => 'محصولی برای دسته بندی انتخاب شده وجود ندارد',

@@ -2,7 +2,7 @@
     <div class="container">
         <ul class="main-menu">
             <li class="has-mega-menu">
-                <a href="#"> دسته بندی محصولات <i class="fa fa-angle-down"></i></a>
+                <a href="#"> {{ __('messages.category_products') }} <i class="fa fa-angle-down"></i></a>
                 <!-- start mega menu-->
                 <ul class="row mega-menu">
                     @foreach( $categories as $child )
@@ -21,11 +21,13 @@
                 <!-- end mega menu-->
             </li>
             <li><a href="{{ route('not.found') }}">تخفیف‌ها و پیشنهادها</a></li>
-            <li><a href="{{ route('not.found') }}">ثبت نام / ورود</a></li>
+            @guest
+            <li><a href="{{ route('auth.login.form') }}">ثبت نام / ورود</a></li>
+            @endguest
             <li><a href="{{ route('not.found') }}">وبلاگ</a></li>
             <li><a href="#">سبد خرید</a></li>
-            <li><a href="{{ route('not.found') }}">تماس با ما</a></li>
-            <li><a href="{{ route('not.found') }}">درباره ما</a></li>
+            <li><a href="{{ route('contact_us') }}">تماس با ما</a></li>
+            <li><a href="{{ route('about_us') }}">درباره ما</a></li>
         </ul>
     </div>
 </nav>
