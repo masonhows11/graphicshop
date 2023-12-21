@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\SliderOne;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,9 +25,18 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer(['front.categories','front.include.side_category'],function ($view){
             $view->with('categories',Category::tree()->get()->toTree());
         });
+
         // for banner category
         View::composer(['front.layouts.product_slider.slider_banner'],function ($view){
-            $view->with('products',Category::find(1)->products()->take(4)->get() ?? null);
+            $slider = SliderOne::first();
+            $products = null;
+            $category_title = null;
+            if($slider)
+            {
+                $products = Product::where('category_id','=',SliderOne::select('category_id')->first()->category_id)->get();
+                $category_title = $slider->category_name;
+            }
+            $view->with(['products' => $products != null ? $products : null,'category_title' => $category_title != null ? $category_title : null ]);
         });
         // for visit card category
         View::composer(['front.layouts.product_slider.slider_visit_card'],function ($view){

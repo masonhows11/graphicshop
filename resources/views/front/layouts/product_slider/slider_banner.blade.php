@@ -2,11 +2,14 @@
     <div class="row">
         <div class="col-12">
             <div class="title">
-                <h4>بنر</h4>
+                <h4>{{ $category_title != null ? $category_title : 'دسته بندی' }}</h4>
             </div>
 
+
+
             <div class="owl-carousel owl-theme custom-product-slider">
-                @forelse( $products as $product)
+                @if( $products != null )
+                @foreach( $products as $product)
                 <div class="item">
                     <div class="card border-0 custom-card mt-3">
                         <a href="{{ route('product',$product->title) }}" class="d-block w-100"><img src="{{ asset($product->thumbnail_path) }}" class="slider-pic"></a>
@@ -23,7 +26,8 @@
                         </div>
                     </div>
                 </div>
-                @empty
+                    @endforeach
+                @else
                     <div class="item">
                         <div class="card border-0 custom-card mt-3">
                             <a href="{{ route('not.found') }}" class="d-block w-100"><img src="{{ asset('front_assets/images/mobile1.jpg') }}" class="slider-pic"></a>
@@ -40,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                @endforelse
+                @endif
             </div>
 
         </div>
