@@ -9,11 +9,21 @@ use Illuminate\Http\Request;
 
 class AdminSliderTwoController extends Controller
 {
-    public function index()
+    public function create()
     {
         $categories = Category::all();
         $sliderCategory = SliderTwo::get();
         return view('admin.product_by_category_slider.slider_two')
             ->with(['categories' => $categories,'sliderCategory' => $sliderCategory]);
+    }
+    public function store()
+    {
+
+    }
+
+
+    public function destroy()
+    {
+
     }
 }

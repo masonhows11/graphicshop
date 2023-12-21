@@ -159,17 +159,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/slider_one/create', [AdminSliderOneController::class,'create'])->name('slider_on.create');
-    Route::post('/slider_one/store', [AdminSliderOneController::class,'store'])->name('slider_on.store');
-    Route::get('/slider_one/destroy', [AdminSliderOneController::class,'destroy'])->name('slider_on.destroy');
+    Route::get('/slider_one/create', [AdminSliderOneController::class,'create'])->name('slider_one.create');
+    Route::post('/slider_one/store', [AdminSliderOneController::class,'store'])->name('slider_one.store');
+    Route::get('/slider_one/destroy/{category}', [AdminSliderOneController::class,'destroy'])->name('slider_one.destroy');
 
     Route::get('/slider_two/create', [AdminSliderTwoController::class,'create'])->name('slider_two.create');
     Route::post('/slider_two/store', [AdminSliderTwoController::class,'store'])->name('slider_two.store');
-    Route::get('/slider_two/destroy', [AdminSliderTwoController::class,'destroy'])->name('slider_two.destroy');
+    Route::get('/slider_two/destroy/{category}', [AdminSliderTwoController::class,'destroy'])->name('slider_two.destroy');
 
     Route::get('/slider_three/create', [AdminSliderThreeController::class,'create'])->name('slider_three.create');
     Route::post('/slider_three/store', [AdminSliderThreeController::class,'store'])->name('slider_three.store');
-    Route::get('/slider_three/destroy', [AdminSliderThreeController::class,'destroy'])->name('slider_three.destroy');
+    Route::get('/slider_three/destroy{category}', [AdminSliderThreeController::class,'destroy'])->name('slider_three.destroy');
 
 
 

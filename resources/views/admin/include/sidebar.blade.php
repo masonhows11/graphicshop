@@ -668,8 +668,8 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
 
                         <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.main.slider.index') }}--}}">
+                            <a class="menu-link {{ $route === 'admin.slider_one.create' ? 'active' : '' }}"
+                               href="{{ route('admin.slider_one.create') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -678,8 +678,8 @@
                         </div>
 
                         <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.product.category.index') }}--}}">
+                            <a class="menu-link {{ $route === 'admin.slider_two.create' ? 'active' : '' }}"
+                               href="{{ route('admin.slider_two.create') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -688,8 +688,8 @@
                         </div>
 
                         <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.product.category.index') }}--}}">
+                            <a class="menu-link {{ $route === 'admin.slider_three.create' ? 'active' : '' }}"
+                               href="{{ route('admin.slider_three.create') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>

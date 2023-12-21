@@ -11,7 +11,7 @@
         <div class="row d-flex justify-content-start my-4 bg-white">
             <div class="col-lg-4 col-md-4 col  my-5  border-bottom title-add-to-stock">
                 <div class="alert my-4">
-                    <h3>{{ __('messages.sliders_management') }} / {{ __('messages.slider_product_by_category') }}</h3>
+                    <h3>{{ __('messages.sliders_management') }} / {{ __('messages.slider_no_one') }}</h3>
                 </div>
             </div>
         </div>
@@ -29,13 +29,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach( $productByCategory as $item)
+                    @foreach( $sliderCategory as $item)
                         <tr class="text-center">
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->category_name }}</td>
                             <td>{{ $item->description }}</td>
                             <td>
-                                <form action="{{ route('admin.product.category.destroy',$item->id) }}" method="get" class="d-inline">
+                                <form action="{{ route('admin.slider_one.destroy',$item->id) }}" method="get" class="d-inline">
                                     @csrf
                                     <button type="submit" class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
                                 </form>
@@ -50,7 +50,7 @@
 
 
         <div class="row bg-white p-5 mt-4">
-            <form action="{{ route('admin.product.category.store') }}" id="create-form" method="post">
+            <form action="{{ route('admin.slider_one.store') }}" id="create-form" method="post">
                 @csrf
 
                 <div class="mt-3">
@@ -58,7 +58,7 @@
                     <select name="category" class="form-select" id="category-id">
                         <option value="" disabled selected hidden>{{ __('messages.choose') }}</option>
                         @foreach( $categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->title_persian }}</option>
+                            <option value="{{ $category->id }}">{{ $category->title }}</option>
                         @endforeach
                     </select>
                 </div>
