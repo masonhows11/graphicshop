@@ -28,12 +28,14 @@ class DatabaseSeeder extends Seeder
                 'name' => 'mason11',
                 'first_name' => 'mason',
                 'last_name' => 'howsHows',
+                'role' => 'super_admin',
                 'email' => 'mason.hows11@gmail.com',
                 'password' => Hash::make('1289..//')
             ],
             [
                 'name' => 'sara1992',
                 'first_name' => 'sara',
+                'role' => 'admin',
                 'last_name' => 'redField',
                 'email' => 'sara1992@gmail.com',
                 'password' => Hash::make('1289..//'),
@@ -104,7 +106,7 @@ class DatabaseSeeder extends Seeder
         $categories = [
             [
                 'title' => 'بنر',
-                 'status' => 1,
+                'status' => 1,
             ],
             [
                 'title' => 'کارت ویزیت',
