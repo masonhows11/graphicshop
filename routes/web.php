@@ -2,6 +2,8 @@
 
 // admin panel controllers
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminPermAssignController;
+use App\Http\Controllers\Admin\AdminRoleAssignController;
 use App\Http\Controllers\Admin\Auth\AdminLoginController;
 use App\Http\Controllers\Admin\Auth\AdminProfileController;
 use App\Http\Controllers\Admin\Auth\AdminValidateController;
@@ -26,6 +28,10 @@ use App\Http\Controllers\Auth_Front\RegisterUserController;
 use App\Http\Controllers\Auth_Front\ValidateUserController;
 
 // admin live wire panel controllers
+use App\Http\Livewire\Admin\AdminPerms;
+use App\Http\Livewire\Admin\AdminRoles;
+use App\Http\Livewire\Admin\ListUsersForPerm;
+use App\Http\Livewire\Admin\ListUsersForRole;
 use App\Http\Livewire\Admin\Users\AdminAdmins;
 use App\Http\Livewire\Admin\Users\AdminUsers;
 use App\Http\Livewire\Admin\Category\AdminCategory;
@@ -136,6 +142,28 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/admins/edit/{user}', [AdminUsersController::class,'edit'])->name('admins.edit');
     Route::post('/admins/update', [AdminUsersController::class,'update'])->name('admins.update');
 
+});
+// ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/perms/index', AdminPerms::class)->name('perms');
+    Route::get('/roles/index', AdminRoles::class)->name('roles');
+
+});
+// ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/roles/list/users', ListUsersForRole::class)->name('role.list.users');
+    Route::get('/roles/assign/form', [AdminRoleAssignController::class, 'create'])->name('roles.assign.form');
+    Route::post('/roles/assign', [AdminRoleAssignController::class, 'store'])->name('roles.assign');
+
+});
+// ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/perms/list/users', ListUsersForPerm::class)->name('perm.list.users');
+    Route::get('/perms/assign/form', [AdminPermAssignController::class, 'create'])->name('perms.assign.form');
+    Route::post('/perms/assign', [AdminPermAssignController::class, 'store'])->name('perms.assign');
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
