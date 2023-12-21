@@ -25,7 +25,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer(['front.layouts.include.categories','front.include.side_category'],function ($view){
-            $view->with(['categories' => Category::where('status',1)->tree()->get()->toTree(),
+            $view->with(['categories' => Category::tree()->get()->toTree(),
                         'mainCategories'=> Category::where(['parent_id'=>null,'status' => 1])->take(10)->get() ]);
         });
 
