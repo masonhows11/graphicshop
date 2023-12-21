@@ -99,6 +99,15 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
+                            <a class="menu-link {{ $route === 'admin.admins.index' ? 'active' : '' }}"
+                               href="{{ route('admin.admins.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">لیست مدیران</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.users.index' ? 'active' : '' }}"
                                 href="{{ route('admin.users.index') }}">
                                 <span class="menu-bullet">
@@ -116,15 +125,7 @@
                                 <span class="menu-title">کاربر جدید</span>
                             </a>
                         </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.admins.index' ? 'active' : '' }}"
-                                href="{{ route('admin.admins.index') }}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">لیست مدیران</span>
-                            </a>
-                        </div>
+
                        {{-- @if( $user->hasRole('super_admin') )
                         <div class="menu-item">
                             <a class="menu-link {{ $route === 'admin.roles' ? 'active' : '' }}"

@@ -7,6 +7,8 @@ return [
     'good_shopping_online_store' => 'فروشگاه اینترنتی گرافیک شاپ',
     'home_page' => 'صفحه اصلی سایت',
     'admin_dashboard' => 'پنل مدیریت',
+    'admins' => 'مدیران',
+    'users' => 'کاربران',
     'confirmed' => 'تایید شده',
     'wait_for_confirmed' => 'در انتظار تایید',
     'unknown' => 'نامشخص',

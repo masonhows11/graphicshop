@@ -10,12 +10,12 @@
 
         <div class="row my-4 bg-white rounded-3">
             <div class="col  my-4">
-                <h3 class="h3 my-4"> {{ __('messages.users_management') }}</h3>
+                <h3 class="h3 my-4"> {{ __('messages.users_management') }} / {{ __('messages.users') }}</h3>
             </div>
             <div class="col d-flex justify-content-end my-4">
                 <div>
                     <a href="{{ route('admin.user.create') }}"
-                       class="btn btn-primary">{{ __('messages.new_user') }}</a>
+                       class="btn btn-primary">{{ __('messages.new_user') }} </a>
                 </div>
             </div>
             <div class="col-12">
@@ -78,7 +78,7 @@
         </div>
 
     </div>
-       
+
 </div>
 @push('dash_custom_script')
     <script type="text/javascript">

@@ -10,7 +10,7 @@
 
         <div class="row my-4 bg-white rounded-3">
             <div class="col  my-4">
-                <h3 class="h3 my-4"> {{ __('messages.users_management') }}</h3>
+                <h3 class="h3 my-4"> {{ __('messages.users_management') }} / {{ __('messages.admins') }}</h3>
             </div>
             <div class="col-12">
                 <div class="mb-3 mt-3">
@@ -29,6 +29,7 @@
                         <th>{{__('messages.id')}}</th>
                         <th>{{ __('messages.user_name') }}</th>
                         <th>{{ __('messages.created_at') }}</th>
+                        <th>{{ __('messages.delete_model') }}</th>
                         <th>{{ __('messages.edit_model') }}</th>
                         <th>{{ __('messages.status') }}</th>
                     </tr>
@@ -40,6 +41,11 @@
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ customJalaliDate($user->created_at) }}</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-danger mx-4" wire:click.prevent="deleteConfirmation({{ $user->id }})">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
                                 <td>
                                     <a  href="{{ route('admin.user.edit',$user) }}" class="btn btn-sm btn-primary mx-4">
                                         <i class="fas fa-edit"></i>
