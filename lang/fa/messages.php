@@ -31,7 +31,9 @@ return [
     'manage_perms' => 'مدیریت مجوز ها',
     'roles_assignment' => 'تخصیص نقش ها',
     'perms_assignment' => 'تخصیص مجوزها',
-    'admin_users_list' => 'لیست کاربران',
+    'role_assignment' => 'تخصیص نقش',
+    'perm_assignment' => 'تخصیص مجوز',
+    'users_list' => 'لیست کاربران',
 
     'not_confirmed' => 'تایید نشده',
     'confirm_status' => 'وضعیت تایید',

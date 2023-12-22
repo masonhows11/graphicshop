@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 
@@ -14,7 +14,7 @@ class AdminPermAssignController extends Controller
     {
 
         try {
-            $user = Admin::findOrFail($request->user_id);
+            $user = User::findOrFail($request->user_id);
             $perms = Permission::all();
             return view('dash.assign_perm.perm_assign')
                 ->with(['user' => $user, 'perms' => $perms]);
@@ -27,7 +27,7 @@ class AdminPermAssignController extends Controller
     public function store(Request $request)
     {
         try {
-            $user = Admin::findOrFail($request->id);
+            $user = User::findOrFail($request->id);
             $user->syncPermissions($request->perms);
             session()
                 ->flash('success',__('messages.The_changes_were_made_successfully'));

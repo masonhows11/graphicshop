@@ -152,7 +152,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                    <span class="menu-title">تحصیص نقش</span>
+                                    <span class="menu-title">{{ __('messages.role_assignment') }}</span>
                                 </a>
                             </div>
                             <div class="menu-item">
@@ -161,7 +161,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                    <span class="menu-title">تخصیص مجوز</span>
+                                    <span class="menu-title">{{ __('messages.perm_assignment') }}</span>
                                 </a>
                             </div>
                        {{-- @else

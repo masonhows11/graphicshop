@@ -166,6 +166,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/perms/assign', [AdminPermAssignController::class, 'store'])->name('perms.assign');
 });
 
+
 Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/category/index', AdminCategory::class)->name('category.index');
