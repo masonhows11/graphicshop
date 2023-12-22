@@ -3,7 +3,7 @@
    {{ __('messages.perms_assignment') }}
 @endsection
 @section('breadcrumb')
-   {{ Breadcrumbs::render('admin.perms.assign') }}
+  {{-- {{ Breadcrumbs::render('admin.perms.assign') }}--}}
 @endsection
 @section('dash_main_content')
 
