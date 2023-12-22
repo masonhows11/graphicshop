@@ -19,7 +19,7 @@ class AdminValidateController extends Controller
     {
 
         $request->validate([
-            'email' => ['required', 'exists:users'],
+            'email' => ['required', 'exists:admins'],
             'code' => ['required', 'digits:6']
         ], $messages = [
             'email.exists' => 'کاربری با ایمیل وارد شده وجود ندارد',
@@ -35,7 +35,7 @@ class AdminValidateController extends Controller
             return redirect()->route('admin.login.form');
         }
         if ($admin = User::where(['email' => $request->email, 'token' => $request->code])->first()) {
-            Auth::login($admin, $request->remember);
+            Auth::guard('admin')->login($admin, $request->remember);
             session()->flash('success', 'ورود موفقیت آمیز بود.');
             return redirect()->route('admin.dashboard');
         }

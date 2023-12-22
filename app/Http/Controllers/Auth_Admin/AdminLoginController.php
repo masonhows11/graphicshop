@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth_Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\User;
 use App\Notifications\AdminAuthNotification;
 use App\Notifications\AdminLoginNotification;
@@ -22,7 +23,7 @@ class AdminLoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'email' => ['required', 'exists:users,email'],
+            'email' => ['required', 'exists:admins,email'],
         ], $messages = [
             'email.required' => 'ایمیل خود را وارد کنید',
             'email.exists' => 'کاربری با ایمیل وارد شده وجود ندارد',
@@ -30,7 +31,7 @@ class AdminLoginController extends Controller
 
         try {
             $token = GenerateToken::generateAdminToken();
-            $admin = User::where('email', $request->email)->first();
+            $admin = Admin::where('email', $request->email)->first();
             $admin->token = $token;
             $admin->save();
 
@@ -47,14 +48,14 @@ class AdminLoginController extends Controller
 
     public function logOut(Request $request)
     {
-        $admin = Auth::user();
+        $admin = Auth::guard('admin')->user();
         $admin->token = null;
         $admin->email_verified_at = null;
         $admin->mobile_verified_at = null;
         $admin->remember_token = null;
         $admin->activate = 0;
         $admin->save();
-        Auth::logout();
+        Auth::guard('admin')->logout();
         $request->session()->invalidate();
         return redirect()->route('admin.login.form');
     }

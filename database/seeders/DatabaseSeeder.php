@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Admin;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -27,11 +28,10 @@ class DatabaseSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // admin 1  has  super_admin role
-        $admin1 = User::create([
+        $admin1 = Admin::create([
             'name' => 'naeem_soltany',
             'first_name' => 'naeem',
             'last_name' => 'soltany',
-            'role' => 'admin',
             'mobile' => '09917230927',
             'email' => 'mason.hows11@gmail.com',
             //'token'=>  mt_rand(111111,999999),
@@ -39,11 +39,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // admin 2 has admin role
-        $admin2 = User::create([
+        $admin2 = Admin::create([
             'name' => 'joe_james',
             'first_name' => 'joe',
             'last_name' => 'james',
-            'role' => 'admin',
             'mobile' => '09172890423',
             'email' => 'joe.james556@gmail.com',
             //'token'=>  mt_rand(111111,999999),
@@ -51,21 +50,20 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // admin 3 do not have any admin role
-        $admin3 = User::create([
-            'name' => 'sara1992',
+        $admin3 = Admin::create([
+            'name' => 'sara137',
             'first_name' => 'sara',
-            'role' => 'admin',
             'last_name' => 'redField',
-            'email' => 'sara1992@gmail.com',
-            'password' => Hash::make('1289..//'),
+            'email' => 'sara.ebrahimy@gmail.com',
             //'token'=>  mt_rand(111111,999999),
             //'token_verified_at' => Carbon::now(),
         ]);
 
-        $super_admin = Role::create(['guard_name' => 'web', 'name' => 'super_admin']);
-        $role_admin = Role::create(['guard_name' => 'web', 'name' => 'admin']);
+        $super_admin = Role::create(['guard_name' => 'admin', 'name' => 'super_admin']);
+        $admin = Role::create(['guard_name' => 'admin', 'name' => 'admin']);
         $admin1->assignRole($super_admin);
-        $admin2->assignRole($role_admin);
+        $admin2->assignRole($admin);
+
 
         // create users
         $users = [

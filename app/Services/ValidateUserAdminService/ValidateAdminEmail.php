@@ -2,6 +2,7 @@
 
 namespace App\Services\ValidateUserAdminService;
 
+use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Date;
@@ -12,8 +13,8 @@ class ValidateAdminEmail
     public static function checkAdminToken($code,$email)
     {
         try {
-            $admin = User::where('email',$email)->where('token',$code)->first();
-            $expired = Carbon::parse($admin->updated_at)->addMinutes(3)->isPast();
+            $admin = Admin::where('email',$email)->where('token',$code)->first();
+            $expired = Carbon::parse($admin->updated_at)->addMinutes(2)->isPast();
             if($expired == 1){
                 return false;
             }
