@@ -12,19 +12,19 @@ class AdminAuthNotification extends Notification implements shouldQueue
     use Queueable;
 
     public $admin;
-    public $code;
+    public $token;
 
     /**
      * Create a new notification instance.
      *
      * @param $admin
-     * @param $code
+     * @param $token
      */
-    public function __construct($admin, $code)
+    public function __construct($admin, $token)
     {
         //
         $this->admin = $admin;
-        $this->code = $code;
+        $this->token = $token;
     }
 
     /**
@@ -52,9 +52,9 @@ class AdminAuthNotification extends Notification implements shouldQueue
             ->from('admin_onlineshop@mail.ir')
             ->greeting('graphicshop.ir')
             ->line('Dear User')
-            ->line('admin panel active code for admin user :')
+            ->line('admin panel active token for admin user :')
             ->line("admin: $this->admin")
-            ->line("active code : $this->code");
+            ->line("active token : $this->token");
     }
 
 

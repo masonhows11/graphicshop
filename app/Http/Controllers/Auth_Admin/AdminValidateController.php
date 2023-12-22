@@ -35,7 +35,7 @@ class AdminValidateController extends Controller
             return redirect()->route('admin.login.form');
         }
         if ($admin = User::where(['email' => $request->email, 'token' => $request->code])->first()) {
-            Auth::user()->login($admin, $request->remember);
+            Auth::login($admin, $request->remember);
             session()->flash('success', 'ورود موفقیت آمیز بود.');
             return redirect()->route('admin.dashboard');
         }

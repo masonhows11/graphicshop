@@ -20,20 +20,20 @@ class AdminLoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'email' => ['required', 'exists:admins,email'],
+            'email' => ['required', 'exists:users,email'],
         ], $messages = [
             'email.required' => 'ایمیل خود را وارد کنید',
             'email.exists' => 'کاربری با ایمیل وارد شده وجود ندارد',
         ]);
 
         try {
-            $code = GenerateToken::generateAdminToken();
+            $token = GenerateToken::generateAdminToken();
             $admin = User::where('email', $request->email)->first();
-            $admin->code = $code;
+            $admin->token = $token;
             $admin->save();
 
 
-             $admin->notify(new AdminAuthNotification($admin->email,$code));
+             $admin->notify(new AdminAuthNotification($admin->email,$token));
 
             session()->flash('success', 'کد فعال سازی به ایمیل ارسال شد');
             return redirect()->route('admin.validate.email.form');
@@ -45,8 +45,8 @@ class AdminLoginController extends Controller
 
     public function logOut(Request $request)
     {
-        $admin = Auth::user()->user();
-        $admin->code = null;
+        $admin = Auth::user();
+        $admin->token = null;
         $admin->email_verified_at = null;
         $admin->remember_token = null;
         $admin->save();
