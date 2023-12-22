@@ -32,6 +32,8 @@ class AdminLoginController extends Controller
             $admin->token = $token;
             $admin->save();
 
+            // return $admin;
+
 
              $admin->notify(new AdminAuthNotification($admin->email,$token));
 
