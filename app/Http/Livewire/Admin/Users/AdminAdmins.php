@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Users;
 
-use App\Models\User;
+use App\Models\Admin;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -15,7 +15,7 @@ class AdminAdmins extends Component
     public $stateUser = true;
     public function activeUser($id)
     {
-        $user = User::find($id);
+        $user = Admin::find($id);
         if ($user->activate == 0) {
             $user->activate = 1;
             $user->save();
@@ -61,6 +61,6 @@ class AdminAdmins extends Component
         return view('livewire.admin.users.admin-admins')
             ->extends('admin.include.master_dash')
             ->section('dash_main_content')
-            ->with(['users' => User::where('role','admin')->paginate(8)]);
+            ->with(['users' => Admin::paginate(8)]);
     }
 }
