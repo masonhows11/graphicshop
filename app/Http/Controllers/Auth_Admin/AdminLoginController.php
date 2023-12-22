@@ -53,7 +53,6 @@ class AdminLoginController extends Controller
         $admin->email_verified_at = null;
         $admin->mobile_verified_at = null;
         $admin->remember_token = null;
-        $admin->activate = 0;
         $admin->save();
         Auth::guard('admin')->logout();
         $request->session()->invalidate();

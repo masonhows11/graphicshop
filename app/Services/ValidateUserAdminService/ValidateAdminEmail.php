@@ -19,7 +19,6 @@ class ValidateAdminEmail
                 return false;
             }
             $admin->email_verified_at = Date::now();
-            $admin->activate = 1;
             $admin->save();
             return true;
         }catch (\Exception $ex){
