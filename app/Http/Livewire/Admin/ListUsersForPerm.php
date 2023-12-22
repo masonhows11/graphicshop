@@ -15,7 +15,7 @@ class ListUsersForPerm extends Component
     public function render()
     {
         return view('livewire.admin.list-users-for-perm')
-            ->extends('dash.include.master_dash')
+            ->extends('admin.include.master_dash')
             ->section('dash_main_content')
             ->with(['users' => USer::where('role','admin')->paginate(5)]);
     }
