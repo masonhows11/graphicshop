@@ -50,7 +50,7 @@ class AdminAuthNotification extends Notification implements shouldQueue
         return (new MailMessage)
             ->subject('دیلی شاپ تاییدیه ورود پنل مدیریت')
             ->from('admin_onlineshop@mail.ir')
-            ->greeting('onlineshop')
+            ->greeting('graphicshop.ir')
             ->line('Dear User')
             ->line('admin panel active code for admin user :')
             ->line("admin: $this->admin")

@@ -32,7 +32,8 @@ class AdminPermAssignController extends Controller
             session()
                 ->flash('success',__('messages.The_changes_were_made_successfully'));
             return  redirect()->back();
-        }catch (\Exception $ex){
+        }catch (\Exception $ex)
+        {
             return view('errors_custom.model_store_error');
         }
     }

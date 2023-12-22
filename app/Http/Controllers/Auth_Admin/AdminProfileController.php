@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\Auth_Admin;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Admin;
+use App\Models\User;
 use App\Rules\MobileRule;
 use App\Services\ConvertPerToEn;
 use App\Services\GenerateToken;

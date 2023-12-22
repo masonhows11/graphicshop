@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\Auth_Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin;
+use App\Models\User;
 use App\Services\ValidateUserAdminService\ValidateAdminEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +13,7 @@ class AdminValidateController extends Controller
     //
     public function validateEmailForm()
     {
-        return view('auth_admin.validate_email');
+        return view('admin_auth.validate_user');
     }
     public function validateEmail(Request $request)
     {
@@ -34,8 +34,8 @@ class AdminValidateController extends Controller
             session()->flash('error', 'کد فعال سازی معتبر نمی باشد');
             return redirect()->route('admin.login.form');
         }
-        if ($admin = Admin::where(['email' => $request->email, 'code' => $request->code])->first()) {
-            Auth::guard('admin')->login($admin, $request->remember);
+        if ($admin = User::where(['email' => $request->email, 'token' => $request->code])->first()) {
+            Auth::user()->login($admin, $request->remember);
             session()->flash('success', 'ورود موفقیت آمیز بود.');
             return redirect()->route('admin.dashboard');
         }

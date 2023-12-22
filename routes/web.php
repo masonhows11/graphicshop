@@ -4,16 +4,12 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminPermAssignController;
 use App\Http\Controllers\Admin\AdminRoleAssignController;
-use App\Http\Controllers\Admin\Auth\AdminLoginController;
-use App\Http\Controllers\Admin\Auth\AdminProfileController;
-use App\Http\Controllers\Admin\Auth\AdminValidateController;
 use App\Http\Controllers\Admin\Category\AdminCategoryController;
 use App\Http\Controllers\Admin\ProductByCategorySlider\AdminSliderOneController;
 use App\Http\Controllers\Admin\ProductByCategorySlider\AdminSliderTwoController;
 use App\Http\Controllers\Admin\ProductByCategorySlider\AdminSliderThreeController;
 use App\Http\Controllers\Admin\User\AdminUsersController;
 use App\Http\Controllers\Admin\Product\AdminProductController;
-
 use App\Http\Controllers\Front\AboutUs\AboutUsController;
 use App\Http\Controllers\Front\ContactUs\ContactUsController;
 use App\Http\Controllers\Front\Payment\PaymentController;
@@ -21,6 +17,11 @@ use App\Http\Controllers\Front\Product\ProductController;
 use App\Http\Controllers\Front\Basket\BasketController;
 use App\Http\Controllers\Front\Profile\ProfileController;
 use App\Http\Controllers\HomeController;
+
+// admin auth controllers
+use App\Http\Controllers\Auth_Admin\AdminProfileController;
+use App\Http\Controllers\Auth_Admin\AdminLoginController;
+use App\Http\Controllers\Auth_Admin\AdminValidateController;
 
 // auth front controllers
 use App\Http\Controllers\Auth_Front\LoginUserController;

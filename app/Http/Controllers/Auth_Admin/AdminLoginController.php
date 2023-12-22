@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\Auth_Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin;
+use App\Models\User;
 use App\Notifications\AdminAuthNotification;
 use App\Services\GenerateToken;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class AdminLoginController extends Controller
     //
     public function loginForm()
     {
-        return view('auth_admin.login');
+        return view('admin_auth.login');
     }
 
     public function login(Request $request)
@@ -28,12 +28,12 @@ class AdminLoginController extends Controller
 
         try {
             $code = GenerateToken::generateAdminToken();
-            $admin = Admin::where('email', $request->email)->first();
+            $admin = User::where('email', $request->email)->first();
             $admin->code = $code;
             $admin->save();
 
 
-            // $admin->notify(new AdminAuthNotification($admin->email,$code));
+             $admin->notify(new AdminAuthNotification($admin->email,$code));
 
             session()->flash('success', 'کد فعال سازی به ایمیل ارسال شد');
             return redirect()->route('admin.validate.email.form');
@@ -45,12 +45,12 @@ class AdminLoginController extends Controller
 
     public function logOut(Request $request)
     {
-        $admin = Auth::guard('admin')->user();
+        $admin = Auth::user()->user();
         $admin->code = null;
         $admin->email_verified_at = null;
         $admin->remember_token = null;
         $admin->save();
-        Auth::guard('admin')->logout();
+        Auth::user()->logout();
         $request->session()->invalidate();
         return redirect()->route('admin.login.form');
     }
