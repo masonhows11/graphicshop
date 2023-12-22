@@ -48,6 +48,7 @@ class AdminLoginController extends Controller
         $admin = Auth::user();
         $admin->token = null;
         $admin->email_verified_at = null;
+        $admin->mobile_verified_at = null;
         $admin->remember_token = null;
         $admin->save();
         Auth::user()->logout();
