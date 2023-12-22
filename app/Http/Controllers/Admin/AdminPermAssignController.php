@@ -29,11 +29,11 @@ class AdminPermAssignController extends Controller
         try {
             $user = User::findOrFail($request->id);
             $user->syncPermissions($request->perms);
-            session()
-                ->flash('success',__('messages.The_changes_were_made_successfully'));
+            session()->flash('success',__('messages.The_changes_were_made_successfully'));
             return  redirect()->back();
         }catch (\Exception $ex)
         {
+            return  $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
     }

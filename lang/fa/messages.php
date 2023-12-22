@@ -16,7 +16,7 @@ return [
     'download_link' => 'لینک دانلود',
     'demo_link' => 'لینک دمو',
     'created_at' => 'تاریخ ایجاد',
-
+    'admin_panel' => 'پنل مدیریت',
 
     'cancel' => 'انصراف',
     'first_name' => 'نام',

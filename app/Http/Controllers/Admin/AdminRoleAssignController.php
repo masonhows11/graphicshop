@@ -31,6 +31,7 @@ class AdminRoleAssignController extends Controller
             session()->flash('success',__('messages.The_changes_were_made_successfully'));
             return  redirect()->back();
         }catch (\Exception $ex){
+            return  $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
     }

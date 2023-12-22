@@ -21,16 +21,15 @@ class VerifyAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        $auth_admin = DB::table('users')
-            ->where('email',Auth::user()->email ?? null)
-            ->where('role','admin')->first();
-        if( $auth_admin->email_verified_at == null )
+        if(Auth::check())
         {
-            return  redirect()->route('admin.login.form')
-                ->with(['error','کاربر گرامی ابتدا وارد سایت شوید.']);
+            $auth_admin = User::where('email','=',Auth::user()->email)->where('role','=','admin')->first();
+            if( $auth_admin->email_verified_at != null )
+            return $next($request);
         }
+        return  redirect()->route('admin.login.form')->with(['error','کاربر گرامی ابتدا وارد سایت شوید.']);
 
-        return $next($request);
+
 
 
     }

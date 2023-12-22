@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Traits\HasPermissions;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,HasRoles;
+    use HasApiTokens, HasFactory, Notifiable,HasPermissions,HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -77,5 +79,15 @@ class User extends Authenticatable
     }
     public function product(){
         return $this->hasMany(Product::class,'user_id');
+    }
+
+    public function getPermissionIds(){
+
+        return $this->permissions->pluck('id');
+    }
+
+    public static function getRoleIds()
+    {
+        return Role::all()->pluck('id');
     }
 }
