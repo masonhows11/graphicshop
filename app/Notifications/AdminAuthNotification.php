@@ -7,9 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class AdminAuthNotification extends Notification implements shouldQueue
+class AdminAuthNotification extends Notification //implements shouldQueue
 {
-    use Queueable;
+    // use Queueable;
 
     public $admin;
     public $token;
@@ -48,7 +48,7 @@ class AdminAuthNotification extends Notification implements shouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('دیلی شاپ تاییدیه ورود پنل مدیریت')
+            ->subject('گرافیک شاپ تاییدیه ورود پنل مدیریت')
             ->from('admin_onlineshop@mail.ir')
             ->greeting('graphicshop.ir')
             ->line('Dear User')

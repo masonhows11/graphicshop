@@ -8,6 +8,7 @@ use App\Notifications\AdminAuthNotification;
 use App\Services\GenerateToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class AdminLoginController extends Controller
 {
@@ -33,8 +34,7 @@ class AdminLoginController extends Controller
             $admin->save();
 
             // return $admin;
-
-
+            // Notification::sendNow($admin, new AdminAuthNotification($admin->email,$token));
              $admin->notify(new AdminAuthNotification($admin->email,$token));
 
             session()->flash('success', 'کد فعال سازی به ایمیل ارسال شد');
