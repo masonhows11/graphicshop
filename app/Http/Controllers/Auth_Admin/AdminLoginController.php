@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth_Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Notifications\AdminAuthNotification;
+use App\Notifications\AdminLoginNotification;
 use App\Services\GenerateToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,9 +34,8 @@ class AdminLoginController extends Controller
             $admin->token = $token;
             $admin->save();
 
-            // return $admin;
-            // Notification::sendNow($admin, new AdminAuthNotification($admin->email,$token));
-             $admin->notify(new AdminAuthNotification($admin->email,$token));
+
+            $admin->notify(new AdminLoginNotification($admin->email,$token));
 
             session()->flash('success', 'کد فعال سازی به ایمیل ارسال شد');
             return redirect()->route('admin.validate.email.form');

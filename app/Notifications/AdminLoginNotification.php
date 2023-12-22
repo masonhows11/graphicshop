@@ -7,22 +7,17 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class AdminAuthNotification extends Notification //implements shouldQueue
+class AdminLoginNotification extends Notification
 {
-    // use Queueable;
+    use Queueable;
 
     public $admin;
     public $token;
-
     /**
      * Create a new notification instance.
-     *
-     * @param $admin
-     * @param $token
      */
-    public function __construct($admin, $token)
+    public function __construct($admin,$token)
     {
-        //
         $this->admin = $admin;
         $this->token = $token;
     }
@@ -30,22 +25,17 @@ class AdminAuthNotification extends Notification //implements shouldQueue
     /**
      * Get the notification's delivery channels.
      *
-     * @param mixed $notifiable
-     * @return void
+     * @return array<int, string>
      */
-    public function via($notifiable)
+    public function via(object $notifiable): array
     {
-        // return ['mail'];
-
+        return ['mail'];
     }
 
     /**
      * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return MailMessage
      */
-    public function toMail($notifiable)
+    public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
             ->subject('گرافیک شاپ تاییدیه ورود پنل مدیریت')
@@ -55,16 +45,18 @@ class AdminAuthNotification extends Notification //implements shouldQueue
             ->line('admin panel active token for admin user :')
             ->line("admin: $this->admin")
             ->line("active token : $this->token");
+    //        return (new MailMessage)
+    //                    ->line('The introduction to the notification.')
+    //                    ->action('Notification Action', url('/'))
+    //                    ->line('Thank you for using our application!');
     }
-
 
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
-     * @return array
+     * @return array<string, mixed>
      */
-    public function toArray($notifiable)
+    public function toArray(object $notifiable): array
     {
         return [
             //
