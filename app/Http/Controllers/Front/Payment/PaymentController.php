@@ -34,7 +34,7 @@ class PaymentController extends Controller
             $order = Order::updateOrCreate(
                 ['user_id' => $user->id, 'order_status' => 0],
                 ['amount' => $order_amount,
-                    'order_number' => $order_number,
+                    'payment_number' => $order_number,
                     'order_status' => 0,]);
             // create order items / details l.v 2
             $orderForOrderItems = $basket->map(function ($items) {
@@ -53,6 +53,8 @@ class PaymentController extends Controller
                 'amount' => $order->amount,
                 'status' => 1,
             ]);
+
+            return redirect()->back()->with('warning',__('messages.this_part_is_being_prepared'));
 
            // dd($payment);
             // make gateway instance with arguments

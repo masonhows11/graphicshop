@@ -69,6 +69,20 @@ class DatabaseSeeder extends Seeder
         // create users
         $users = [
             [
+                'name' => 'mason_hows11',
+                'first_name' => 'mason',
+                'last_name' => 'hows',
+                'mobile' => '09917230927',
+                'email' => 'mason.hows11@gmail.com',
+            ],
+            [
+                'name' => 'joe_james',
+                'first_name' => 'joe',
+                'last_name' => 'james',
+                'mobile' => '09172890423',
+                'email' => 'joe.james556@gmail.com',
+            ],
+            [
                 'name' => 'james',
                 'first_name' => 'joe',
                 'last_name' => 'james',

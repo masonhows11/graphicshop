@@ -44,8 +44,8 @@ class UserAuthNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('خرید خوب')
-            ->from('goodshop@gmail.com')
+            ->subject('گرافیک شاپ')
+            ->from('graphicshop@mail.ir')
             ->greeting('کد فعال سازی')
             ->line('کاربر عزیز')
             ->line($this->user->email)
