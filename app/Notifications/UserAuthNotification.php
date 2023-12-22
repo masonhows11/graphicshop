@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notification;
 
 class UserAuthNotification extends Notification
 {
-    use Queueable;
+   // use Queueable;
     protected  $user;
 
     /**
