@@ -129,21 +129,21 @@
 
                         {{--@if( $user->hasRole('super_admin') )--}}
                             <div class="menu-item">
-                                <a class="menu-link {{ $route === 'admin.roles' ? 'active' : '' }}"
-                                   href="{{ route('admin.roles') }}">
+                                <a class="menu-link {{ $route === 'admin.roles.index' ? 'active' : '' }}"
+                                   href="{{ route('admin.roles.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                    <span class="menu-title">نقش ها</span>
+                                    <span class="menu-title">{{ __('messages.manage_roles') }}</span>
                                 </a>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link {{ $route === 'admin.perms' ? 'active' : '' }}"
-                                   href="{{ route('admin.perms') }}">
+                                <a class="menu-link {{ $route === 'admin.perms.index' ? 'active' : '' }}"
+                                   href="{{ route('admin.perms.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                    <span class="menu-title">مجوز ها</span>
+                                    <span class="menu-title">{{ __('messages.manage_perms') }}</span>
                                 </a>
                             </div>
                             <div class="menu-item">

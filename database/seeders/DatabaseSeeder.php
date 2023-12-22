@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,24 +24,51 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
+
+        // admin 1  has  super_admin role
+        $admin1 = User::create([
+            'name' => 'naeem_soltany',
+            'first_name' => 'naeem',
+            'last_name' => 'soltany',
+            'role' => 'admin',
+            'mobile' => '09917230927',
+            'email' => 'mason.hows11@gmail.com',
+            //'token'=>  mt_rand(111111,999999),
+            //'token_verified_at' => Carbon::now(),
+        ]);
+
+        // admin 2 has admin role
+        $admin2 = User::create([
+            'name' => 'joe_james',
+            'first_name' => 'joe',
+            'last_name' => 'james',
+            'role' => 'admin',
+            'mobile' => '09172890423',
+            'email' => 'joe.james556@gmail.com',
+            //'token'=>  mt_rand(111111,999999),
+            //'token_verified_at' => Carbon::now(),
+        ]);
+
+        // admin 3 do not have any admin role
+        $admin3 = User::create([
+            'name' => 'sara1992',
+            'first_name' => 'sara',
+            'role' => 'admin',
+            'last_name' => 'redField',
+            'email' => 'sara1992@gmail.com',
+            'password' => Hash::make('1289..//'),
+            //'token'=>  mt_rand(111111,999999),
+            //'token_verified_at' => Carbon::now(),
+        ]);
+
+        $super_admin = Role::create(['guard_name' => 'web', 'name' => 'super_admin']);
+        $role_admin = Role::create(['guard_name' => 'web', 'name' => 'admin']);
+        $admin1->assignRole($super_admin);
+        $admin2->assignRole($role_admin);
+
         // create users
         $users = [
-            [
-                'name' => 'mason11',
-                'first_name' => 'mason',
-                'last_name' => 'howsHows',
-                'role' => 'admin',
-                'email' => 'mason.hows11@gmail.com',
-                'password' => Hash::make('1289..//')
-            ],
-            [
-                'name' => 'sara1992',
-                'first_name' => 'sara',
-                'role' => 'admin',
-                'last_name' => 'redField',
-                'email' => 'sara1992@gmail.com',
-                'password' => Hash::make('1289..//'),
-            ],
             [
                 'name' => 'james',
                 'first_name' => 'joe',
@@ -99,6 +128,8 @@ class DatabaseSeeder extends Seeder
             ],
 
         ];
+
+
         foreach ($users as $user) {
             User::create($user);
         }

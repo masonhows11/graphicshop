@@ -146,8 +146,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 // ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
 Route::prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/perms/index', AdminPerms::class)->name('perms');
-    Route::get('/roles/index', AdminRoles::class)->name('roles');
+    Route::get('/perms/index', AdminPerms::class)->name('perms.index');
+    Route::get('/roles/index', AdminRoles::class)->name('roles.index');
 
 });
 // ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
