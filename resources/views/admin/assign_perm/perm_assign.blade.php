@@ -1,4 +1,4 @@
-@extends('dash.include.master_dash')
+@extends('admin.include.master_dash')
 @section('dash_page_title')
    {{ __('messages.perms_assignment') }}
 @endsection
