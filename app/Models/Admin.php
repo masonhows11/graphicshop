@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Models\Permission;
+// use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -15,8 +15,8 @@ class Admin extends Authenticatable
     use HasFactory;
     use HasApiTokens, HasFactory, Notifiable,HasRoles;
 
+    protected $guard_name = 'admin';
     protected $guard = 'admin';
-
     protected $table = 'admins';
     /**
      * The attributes that are mass assignable.

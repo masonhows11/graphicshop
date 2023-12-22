@@ -110,7 +110,8 @@ Route::group(['prefix' => 'admin'], function () {
 
 });
 // ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
-Route::prefix('admin')->name('admin.')->middleware(['admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+// ->middleware(['admin', 'verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
@@ -124,7 +125,8 @@ Route::prefix('admin')->name('admin.')->middleware(['admin', 'verify_admin', 'ro
 
 });
 // ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
-Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|super_admin'])->group(function () {
+// ->middleware(['verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/users/index', AdminUsers::class)->name('users.index');
 
@@ -135,8 +137,8 @@ Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|
     Route::post('/user/update', [AdminUsersController::class,'update'])->name('user.update');
 
 });
-
-Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|super_admin'])->group(function () {
+// ->middleware(['verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/admins/index', AdminAdmins::class)->name('admins.index');
 
@@ -145,14 +147,16 @@ Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|
 
 });
 // ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
-Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|super_admin'])->group(function () {
+// ->middleware(['verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/perms/index', AdminPerms::class)->name('perms.index');
     Route::get('/roles/index', AdminRoles::class)->name('roles.index');
 
 });
 // ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
-Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|super_admin'])->group(function () {
+// ->middleware(['verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/roles/list/users', ListUsersForRole::class)->name('role.list.users');
     Route::get('/roles/assign/form', [AdminRoleAssignController::class, 'create'])->name('roles.assign.form');
@@ -160,15 +164,16 @@ Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|
 
 });
 // ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
-Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|super_admin'])->group(function () {
+// ->middleware(['verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/perms/list/users', ListUsersForPerm::class)->name('perm.list.users');
     Route::get('/perms/assign/form', [AdminPermAssignController::class, 'create'])->name('perms.assign.form');
     Route::post('/perms/assign', [AdminPermAssignController::class, 'store'])->name('perms.assign');
 });
 
-
-Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|super_admin'])->group(function () {
+// ->middleware(['verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/category/index', AdminCategory::class)->name('category.index');
 
@@ -180,8 +185,8 @@ Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|
 
 
 });
-
-Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|super_admin'])->group(function () {
+// ->middleware(['verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/product/index', AdminProduct::class)->name('product.index');
 
@@ -196,8 +201,8 @@ Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|
 
 
 });
-
-Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|super_admin'])->group(function () {
+// ->middleware(['verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/slider_one/create', [AdminSliderOneController::class,'create'])->name('slider_one.create');
     Route::post('/slider_one/store', [AdminSliderOneController::class,'store'])->name('slider_one.store');
@@ -215,14 +220,14 @@ Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|
 
 
 });
-
-Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|super_admin'])->group(function () {
+// ->middleware(['verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/orders/index', AdminOrders::class)->name('orders.index');
 
 });
-
-Route::prefix('admin')->name('admin.')->middleware(['verify_admin', 'role:admin|super_admin'])->group(function () {
+// ->middleware(['verify_admin', 'role:admin|super_admin'])
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/payments/index', AdminPayments::class)->name('payments.index');
 

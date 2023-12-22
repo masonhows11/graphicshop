@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        app()[PermissionRegistrar::class]->forgetCachedPermissions();
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         // admin 1  has  super_admin role
         $admin1 = Admin::create([
@@ -59,6 +59,7 @@ class DatabaseSeeder extends Seeder
             //'token_verified_at' => Carbon::now(),
         ]);
 
+         // $role = Role::create(['guard_name' => 'admin', 'name' => 'manager']);
         $super_admin = Role::create(['guard_name' => 'admin', 'name' => 'super_admin']);
         $admin = Role::create(['guard_name' => 'admin', 'name' => 'admin']);
         $admin1->assignRole($super_admin);
