@@ -42,8 +42,8 @@
                 class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
                 id="#kt_aside_menu" data-kt-menu="true">
                 <div class="menu-item">
-                    <a class="menu-link {{ $route === 'admin.index' ? 'active' : '' }} "
-                       href="{{ route('admin.index') }}">
+                    <a class="menu-link {{ $route === 'admin.dashboard' ? 'active' : '' }} "
+                       href="{{ route('admin.dashboard') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"

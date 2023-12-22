@@ -38,7 +38,7 @@
                             </a>
                         </div>
                         <div class="menu-item me-lg-1">
-                            <a class="menu-link active py-3" href="{{ route('admin.index') }}">
+                            <a class="menu-link active py-3" href="{{ route('admin.dashboard') }}">
                                 <span class="menu-title">{{ __('messages.admin_dashboard') }}</span>
                             </a>
                         </div>
@@ -224,11 +224,13 @@
                                         <img alt="Logo" src="{{ asset('admin_assets/images/150-2.jpg') }}"/>
                                     </div>
                                     <div class="d-flex flex-column">
-                                        <div class="fw-bolder d-flex align-items-center fs-5">{{--{{ \Illuminate\Support\Facades\Auth::user('admin')->name }}--}}
+                                        <div class="fw-bolder d-flex align-items-center fs-5">
+                                            {{ \Illuminate\Support\Facades\Auth::user()->name }}
                                             <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
                                         </div>
                                         <a href="#"
-                                           class="fw-bold text-muted text-hover-primary fs-7">{{--{{ \Illuminate\Support\Facades\Auth::user('admin')->email }}--}}</a>
+                                           class="fw-bold text-muted text-hover-primary fs-7">
+                                          {{ \Illuminate\Support\Facades\Auth::user()->email }}</a>
                                     </div>
                                 </div>
                             </div>

@@ -51,7 +51,7 @@ class AdminLoginController extends Controller
         $admin->mobile_verified_at = null;
         $admin->remember_token = null;
         $admin->save();
-        Auth::user()->logout();
+        Auth::logout();
         $request->session()->invalidate();
         return redirect()->route('admin.login.form');
     }

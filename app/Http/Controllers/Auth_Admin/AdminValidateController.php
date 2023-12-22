@@ -19,7 +19,7 @@ class AdminValidateController extends Controller
     {
 
         $request->validate([
-            'email' => ['required', 'exists:admins'],
+            'email' => ['required', 'exists:users'],
             'code' => ['required', 'digits:6']
         ], $messages = [
             'email.exists' => 'کاربری با ایمیل وارد شده وجود ندارد',
