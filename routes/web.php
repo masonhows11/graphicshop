@@ -110,7 +110,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 });
 // ->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
     Route::get('/index', [AdminController::class, 'index'])->name('index');
 

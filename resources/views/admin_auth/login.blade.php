@@ -1,4 +1,4 @@
-@extends('auth_admin.auth_master')
+@extends('admin_auth.auth_master')
 @section('auth_admin_title')
     {{ __('messages.admin_login') }}
 @endsection

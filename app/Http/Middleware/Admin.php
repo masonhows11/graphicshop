@@ -19,7 +19,7 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::guard('admin')->check()) {
+        if (!Auth::check()) {
 
             session()->flash('error', 'کاربر گرامی ابتدا وارد سایت شوید.');
 
