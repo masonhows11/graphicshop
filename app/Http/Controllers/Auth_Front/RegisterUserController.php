@@ -40,6 +40,7 @@ class RegisterUserController extends Controller
                 $token = GenerateToken::generateUserToken();
                 $newUser = User::create([
                     'email' => $auth_id,
+                    'role' => 'user',
                     'auth_type' => $type,
                     'token_guid' => $token_guid,
                     'token' => $token,

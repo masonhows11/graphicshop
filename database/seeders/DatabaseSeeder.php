@@ -73,26 +73,31 @@ class DatabaseSeeder extends Seeder
                 'name' => 'james',
                 'first_name' => 'joe',
                 'last_name' => 'james',
+                'role' => 'user',
             ],
             [
                 'name' => 'nicky',
                 'first_name' => 'nick',
                 'last_name' => 'wilson',
+                'role' => 'user',
             ],
             [
                 'name' => 'Mary',
                 'first_name' => 'maria',
                 'last_name' => 'watson',
+                'role' => 'user',
             ],
             [
                 'name' => 'John97',
                 'first_name' => 'John',
                 'last_name' => 'marston',
+                'role' => 'user',
             ],
             [
                 'name' => 'David',
                 'first_name' => 'David120',
                 'last_name' => 'Bombal',
+                'role' => 'user',
             ],
             [
                 'name' => 'nicky',
@@ -101,6 +106,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'nicky.wilson21@gmail.com',
                 'password' => Hash::make('1289..//**'),
                 'mobile' => '09917230929',
+                'role' => 'user',
             ],
             [
                 'name' => 'Mary',
@@ -109,6 +115,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'mary.watson90@gmail.com',
                 'password' => Hash::make('1289..//**'),
                 'mobile' => '09917230925',
+                'role' => 'user',
             ],
             [
                 'name' => 'John97',
@@ -117,6 +124,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'john.marston1870@gmail.com',
                 'password' => Hash::make('1289..//**'),
                 'mobile' => '09917230922',
+                'role' => 'user',
             ],
             [
                 'name' => 'David',
@@ -125,6 +133,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'david.bombal11@gmail.com',
                 'password' => Hash::make('1289..//**'),
                 'mobile' => '09917230911',
+                'role' => 'user',
             ],
 
         ];
