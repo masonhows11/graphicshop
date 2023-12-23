@@ -46,9 +46,12 @@ class AdminProduct extends Component
             }
             if ($product->source_url != null )
             {
+
                 if (Storage::disk('local_storage')->exists($product->source_url)) {
-                    Storage::disk('local_storage')->delete($product->source_url);
+                  //  dd('yes');
+                   Storage::disk('local_storage')->delete($product->source_url);
                 }
+               // dd('no');
             }
             $product->delete();
             $this->dispatchBrowserEvent('show-result',
