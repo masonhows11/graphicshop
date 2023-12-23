@@ -155,7 +155,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 
 });
 
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:super_admin'])->group(function () {
 
     Route::get('/roles/list/users', ListUsersForRole::class)->name('role.list.users');
     Route::get('/roles/assign/form', [AdminRoleAssignController::class, 'create'])->name('roles.assign.form');

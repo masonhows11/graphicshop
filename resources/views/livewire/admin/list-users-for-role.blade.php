@@ -1,9 +1,9 @@
 <div>
     @section('dash_page_title')
-      {{ __('messages.roles_assignment') }}
+        {{ __('messages.roles_assignment') }}
     @endsection
     @section('breadcrumb')
-       {{-- {{ Breadcrumbs::render('admin.roles.assign.users') }}--}}
+        {{-- {{ Breadcrumbs::render('admin.roles.assign.users') }}--}}
     @endsection
     <div class="container-fluid">
 

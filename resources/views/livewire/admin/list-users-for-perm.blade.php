@@ -3,7 +3,7 @@
         {{ __('messages.perms_assignment') }}
     @endsection
     @section('breadcrumb')
-      {{-- {{ Breadcrumbs::render('admin.perms.assign.users') }}--}}
+        {{-- {{ Breadcrumbs::render('admin.perms.assign.users') }}--}}
     @endsection
     <div class="container-fluid">
 
@@ -27,19 +27,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @isset($users)
-                        @foreach($users as $user)
-                            <tr class="text-center">
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->getPermissionNames() ? implode(" | ", $user->getPermissionNames()->toArray()) : null }}</td>
-                                <td class="mb-3">
-                                    <a href="{{ route('admin.perms.assign.form',['user_id'=>$user->id]) }}"
-                                       class="btn btn-primary  btn-sm mb-3">
-                                        تخصیص مجوز
-                                    </a>
-                                </td>
-                            </tr>
+                    @isset( $users )
+                        @foreach( $users as $user )
+                                <tr class="text-center">
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->getPermissionNames() ? implode(" | ", $user->getPermissionNames()->toArray()) : null }}</td>
+                                    <td class="mb-3">
+                                        <a href="{{ route('admin.perms.assign.form',['user_id'=>$user->id]) }}"
+                                           class="btn btn-primary  btn-sm mb-3">
+                                            تخصیص مجوز
+                                        </a>
+                                    </td>
+                                </tr>
                         @endforeach
                     @endisset
                     </tbody>
@@ -51,3 +51,5 @@
         </div>
     </div>
 </div>
+
+{{-- \Illuminate\Support\Facades\Auth::guard('admin')->user()->hasRole('admin') --}}

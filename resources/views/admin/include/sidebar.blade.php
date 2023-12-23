@@ -128,24 +128,27 @@
                         </div>
 
                         {{--@if( $user->hasRole('super_admin') )--}}
-                            <div class="menu-item">
-                                <a class="menu-link {{ $route === 'admin.roles.index' ? 'active' : '' }}"
-                                   href="{{ route('admin.roles.index') }}">
+                        <div class="menu-item">
+                            <a class="menu-link {{ $route === 'admin.roles.index' ? 'active' : '' }}"
+                               href="{{ route('admin.roles.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                    <span class="menu-title">{{ __('messages.manage_roles') }}</span>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a class="menu-link {{ $route === 'admin.perms.index' ? 'active' : '' }}"
-                                   href="{{ route('admin.perms.index') }}">
+                                <span class="menu-title">{{ __('messages.manage_roles') }}</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ $route === 'admin.perms.index' ? 'active' : '' }}"
+                               href="{{ route('admin.perms.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                    <span class="menu-title">{{ __('messages.manage_perms') }}</span>
-                                </a>
-                            </div>
+                                <span class="menu-title">{{ __('messages.manage_perms') }}</span>
+                            </a>
+                        </div>
+                        @if( \Illuminate\Support\Facades\Auth::guard('admin')->user()->hasRole('admin'))
+
+                        @else
                             <div class="menu-item">
                                 <a class="menu-link {{ $route === 'admin.role.list.users' ? 'active' : '' }}"
                                    href="{{ route('admin.role.list.users') }}">
@@ -155,18 +158,19 @@
                                     <span class="menu-title">{{ __('messages.role_assignment') }}</span>
                                 </a>
                             </div>
-                            <div class="menu-item">
-                                <a class="menu-link {{ $route === 'admin.perm.list.users' ? 'active' : '' }}"
-                                   href="{{ route('admin.perm.list.users') }}">
+                        @endif
+                        <div class="menu-item">
+                            <a class="menu-link {{ $route === 'admin.perm.list.users' ? 'active' : '' }}"
+                               href="{{ route('admin.perm.list.users') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                    <span class="menu-title">{{ __('messages.perm_assignment') }}</span>
-                                </a>
-                            </div>
-                       {{-- @else
+                                <span class="menu-title">{{ __('messages.perm_assignment') }}</span>
+                            </a>
+                        </div>
+                        {{-- @else
 
-                        @endif--}}
+                         @endif--}}
                     </div>
                 </div>
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
