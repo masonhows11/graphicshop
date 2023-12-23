@@ -130,7 +130,7 @@
 
                         <div class="row d-flex flex-column justify-content-center align-content-center product-image">
                             <div class="col-lg-8">
-                                <img src="{{ $product->thumbnail_path != null ?  asset($product->thumbnail_path) :
+                                <img src="{{ $product->thumbnail_path != null ?  asset('storage/'.$product->thumbnail_path) :
                                          asset('admin_assets/images/no-image-icon-23494.png') }}"
                                      id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
                             </div>
@@ -153,7 +153,7 @@
                         <div class="row d-flex flex-column justify-content-center align-content-center">
 
                             <div class="col-lg-8">
-                                <img src="{{ $product->demo_url != null ?  asset($product->demo_url) :
+                                <img src="{{ $product->demo_url != null ?  asset('storage/'.$product->demo_url) :
                                 asset('admin_assets/images/no-image-icon-23494.png') }}" id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
                             </div>
                             <div class="col-lg-8">
