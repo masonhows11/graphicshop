@@ -115,7 +115,7 @@ class LoginUserController extends Controller
         $user->token = null;
         $user->token_guid = null;
         $user->password = null;
-        $user->auth_type = 0;
+        $user->auth_type = 1;
         $user->mobile_verified_at = null;
         $user->email_verified_at = null;
         $user->remember_token = null;
