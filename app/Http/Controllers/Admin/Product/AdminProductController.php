@@ -126,7 +126,7 @@ class AdminProductController extends Controller
         try {
             $product = Product::findOrfail($id);
             if (Storage::disk('local_storage')->exists( $product->source_url)) {
-               return response()->download(storage_path('local_storage' . $product->source_url));
+                return response()->download(storage_path('/app/local_storage/' . $product->source_url));
             }
             session()->flash('warning', __('messages.file_does_not_exists'));
             return redirect()->route('admin.product.index');
