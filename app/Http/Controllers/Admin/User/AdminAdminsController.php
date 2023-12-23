@@ -11,13 +11,14 @@ class AdminAdminsController extends Controller
 {
     public function edit(User $user)
     {
-        return view('admin.users.edit', ['user' => $user]);
+        session()->flash('warning',__('messages.It_is_not_possible_to_edit'));
+        return redirect()->route('admin.admins.index');
+        //return view('admin.users.edit', ['user' => $user]);
     }
 
     public function update(EditUserRequest $request)
     {
         $validatedData = $request->validated();
-
 
         try {
             $user = User::find($request->id);

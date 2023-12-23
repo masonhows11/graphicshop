@@ -47,7 +47,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a  href="{{ route('not.found') }}" class="btn btn-sm btn-primary mx-4">
+                                    <a  href="{{ route('admin.admins.edit',$user) }}" class="btn btn-sm btn-primary mx-4">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                    {{-- <a  href="{{ route('admin.user.edit',$user) }}" class="btn btn-sm btn-primary mx-4">

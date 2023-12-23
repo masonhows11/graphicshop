@@ -73,6 +73,7 @@ return [
     'The_deletion_was_successful' => 'حذف با موفقیت انجام شد.',
     'The_desired_record_does_not_exist' => 'رکورد مورد نظر وجود ندارد.',
     'It_is_not_possible_to_delete' => 'امکان حذف وجود ندارد.',
+    'It_is_not_possible_to_edit' => 'امکان بروز رسانی وجود ندارد.',
     'The_category_was_removed_from_its_parent' => 'دسته بندی از والد خود حذف شد.',
     'A_category_cannot_be_its_own_parent' => 'یک دسته بندی نمی تواند والد خودش باشد.',
     'An_error_occurred' => 'خطایی رخ داده',

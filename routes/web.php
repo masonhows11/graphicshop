@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Category\AdminCategoryController;
 use App\Http\Controllers\Admin\ProductByCategorySlider\AdminSliderOneController;
 use App\Http\Controllers\Admin\ProductByCategorySlider\AdminSliderTwoController;
 use App\Http\Controllers\Admin\ProductByCategorySlider\AdminSliderThreeController;
+use App\Http\Controllers\Admin\User\AdminAdminsController;
 use App\Http\Controllers\Admin\User\AdminUsersController;
 use App\Http\Controllers\Admin\Product\AdminProductController;
 use App\Http\Controllers\Front\AboutUs\AboutUsController;
@@ -138,16 +139,16 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 
 });
 
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:super_admin'])->group(function () {
 
     Route::get('/admins/index', AdminAdmins::class)->name('admins.index');
 
-    Route::get('/admins/edit/{user}', [AdminUsersController::class,'edit'])->name('admins.edit');
-    Route::post('/admins/update', [AdminUsersController::class,'update'])->name('admins.update');
+    Route::get('/admins/edit/{user}', [AdminAdminsController::class,'edit'])->name('admins.edit');
+    Route::post('/admins/update', [AdminAdminsController::class,'update'])->name('admins.update');
 
 });
 
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:super_admin'])->group(function () {
 
     Route::get('/perms/index', AdminPerms::class)->name('perms.index');
     Route::get('/roles/index', AdminRoles::class)->name('roles.index');

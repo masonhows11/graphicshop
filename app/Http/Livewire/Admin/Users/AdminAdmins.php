@@ -13,21 +13,25 @@ class AdminAdmins extends Component
     protected $paginationTheme = 'bootstrap';
     public $delete_id;
     public $stateUser = true;
+
     public function activeUser($id)
     {
-        $user = Admin::find($id);
-        if ($user->activate == 0) {
-            $user->activate = 1;
-            $user->save();
-            $this->stateUser = true;
-        } else {
-            $user->activate = 0;
-            $user->save();
-            $this->stateUser = false;
-        }
-        $this->dispatchBrowserEvent('show-result',
-            ['type' => 'success',
-                'message' => __('messages.The_update_was_completed_successfully')]);
+        session()->flash('warning',__('messages.It_is_not_possible_to_edit'));
+        return redirect()->route('admin.admins.index');
+        //
+        //        $user = Admin::find($id);
+        //        if ($user->activate == 0) {
+        //            $user->activate = 1;
+        //            $user->save();
+        //            $this->stateUser = true;
+        //        } else {
+        //            $user->activate = 0;
+        //            $user->save();
+        //            $this->stateUser = false;
+        //        }
+        //        $this->dispatchBrowserEvent('show-result',
+        //            ['type' => 'success',
+        //                'message' => __('messages.The_update_was_completed_successfully')]);
     }
 
     // step 1 : confirm delete alert
