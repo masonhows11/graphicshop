@@ -27,6 +27,8 @@ return [
     'update_avatar' => 'بروز رسانی آواتار',
     'edit_user' => 'ویرایش کاربر',
 
+    'perms' => 'مجوز ها',
+    'roles' => 'نقش ها',
     'manage_roles' => 'مدیریت نقش ها',
     'manage_perms' => 'مدیریت مجوز ها',
     'roles_assignment' => 'تخصیص نقش ها',

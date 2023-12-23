@@ -20,9 +20,10 @@
                 <table class="table table-striped">
                     <thead class="border-bottom-3 border-top-3">
                     <tr class="text-center">
-                        <th>شناسه</th>
-                        <th>نام کاربری</th>
-                        <th> تخصیص مجوز</th>
+                        <th>{{ __('messages.id') }}</th>
+                        <th>{{ __('messages.user') }}</th>
+                        <th>{{ __('messages.perms') }}</th>
+                        <th>{{ __('messages.perm_assignment') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,6 +32,7 @@
                             <tr class="text-center">
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
+                                <td>{{ $user->getPermissionNames() ? implode(",", $user->getPermissionNames()->toArray()) : null }}</td>
                                 <td class="mb-3">
                                     <a href="{{ route('admin.perms.assign.form',['user_id'=>$user->id]) }}"
                                        class="btn btn-primary  btn-sm mb-3">

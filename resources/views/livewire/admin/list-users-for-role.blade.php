@@ -20,17 +20,19 @@
                 <table class="table table-striped">
                     <thead class="border-bottom-3 border-top-3">
                     <tr class="text-center">
-                        <th>شناسه</th>
-                        <th>نام کاربری</th>
-                        <th>تخصیص نقش</th>
+                        <th>{{ __('messages.id') }}</th>
+                        <th>{{ __('messages.user') }}</th>
+                        <th>{{ __('messages.roles') }}</th>
+                        <th>{{ __('messages.role_assignment') }}</th>
                     </tr>
                     </thead>
                     <tbody>
                     @isset($users)
-                        @foreach($users as $user)
+                        @foreach( $users as $user)
                             <tr class="text-center">
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
+                                <td>{{ $user->getRoleNames()   ?  implode(",",$user->getRoleNames()->toArray()) : null }}</td>
                                 <td class="mb-3">
                                     <a href="{{ route('admin.roles.assign.form',['user_id'=>$user->id]) }}"
                                        class="btn btn-primary btn-sm mb-3">
