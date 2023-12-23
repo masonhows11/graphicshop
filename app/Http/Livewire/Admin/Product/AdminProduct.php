@@ -38,11 +38,15 @@ class AdminProduct extends Component
 
         try {
             if ($product->thumbnail_path != null) {
-                Storage::disk('public')->delete( $product->image_path);
+                Storage::disk('public')->delete($product->thumbnail_path);
             }
-            if ($product->demo_url != null && $product->source_url != null )
+            if ($product->demo_url != null  )
             {
-                Storage::disk('public')->delete($product->image_path);
+                Storage::disk('public')->delete($product->demo_url);
+            }
+            if ($product->source_url != null )
+            {
+                Storage::disk('local_storage')->delete($product->source_url);
             }
             $product->delete();
             $this->dispatchBrowserEvent('show-result',

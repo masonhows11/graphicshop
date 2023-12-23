@@ -555,6 +555,7 @@ return [
     'slider_no_one' => 'اسلایدر شماره یک',
     'slider_no_two' => 'اسلایدر شماره دو',
     'slider_no_three' => 'اسلایدر شماره سه',
+    'file_does_not_exists' => 'فایل مورد نظر وجود ندارد',
 
 
 ];

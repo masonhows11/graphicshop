@@ -137,7 +137,7 @@
                 title: message
             })
         })
-        @if(session()->has('warning'))
+        @if( session()->has('warning'))
         Toast.fire({
             icon: 'warning',
             title: '{{ session()->get('warning') }}'

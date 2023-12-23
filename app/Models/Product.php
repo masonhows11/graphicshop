@@ -12,7 +12,7 @@ use Spatie\Sluggable\SlugOptions;
 
 class Product extends Model
 {
-    use HasFactory, HasPersianSlug,Rateable;
+    use HasFactory, HasPersianSlug,Rateable,SoftDeletes;
 
     protected $table = 'products';
     protected $fillable = [

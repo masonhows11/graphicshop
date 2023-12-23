@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use App\Services\Image\ImageUploader;
+use Illuminate\Support\Facades\Storage;
 
 // use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\DB;
@@ -42,9 +43,9 @@ class AdminProductController extends Controller
                 'price' => $request->price,
                 'user_id' => $user->id,
             ]);
-           // $product->categories()->sync($request->categories);
+            // $product->categories()->sync($request->categories);
 
-            if(!$this->uploadImages($product,$validatedData)){
+            if (!$this->uploadImages($product, $validatedData)) {
                 session()->flash('warning', __('messages.An_error_occurred_while_created'));
                 return redirect()->back();
             }
@@ -52,7 +53,7 @@ class AdminProductController extends Controller
             return redirect()->route('admin.product.index');
 
         } catch (\Exception $ex) {
-            session()->flash('warning',__('messages.An_error_occurred_while_created'));
+            session()->flash('warning', __('messages.An_error_occurred_while_created'));
             return redirect()->back();
         }
     }
@@ -91,12 +92,12 @@ class AdminProductController extends Controller
                 'price' => $request->price,
                 'user_id' => $user->id,
             ]);
-           // $product->categories()->sync($request->categories);
+            // $product->categories()->sync($request->categories);
 
-             if(!$this->uploadImages($product,$validatedData)){
-                 session()->flash('warning', __('messages.An_error_occurred_while_updated'));
-                 return redirect()->back();
-             }
+            if (!$this->uploadImages($product, $validatedData)) {
+                session()->flash('warning', __('messages.An_error_occurred_while_updated'));
+                return redirect()->back();
+            }
 
             session()->flash('success', __('messages.The_update_was_completed_successfully'));
             return redirect()->route('admin.product.index');
@@ -112,9 +113,10 @@ class AdminProductController extends Controller
     {
         try {
             $product = Product::findOrfail($id);
-            return response()->download(storage_path('app/public/'.$product->demo_url));
+            return response()->download(storage_path('app/public/' . $product->demo_url));
         } catch (\Exception $ex) {
-            return view('errors_custom.404_error');
+            session()->flash('error', __('messages.file_does_not_exists'));
+            return redirect()->back();
         }
 
     }
@@ -123,9 +125,15 @@ class AdminProductController extends Controller
     {
         try {
             $product = Product::findOrfail($id);
-            return response()->download(storage_path('app/public/' . $product->source_url));
+            if (Storage::disk('local_storage')->exists( $product->source_url)) {
+               return response()->download(storage_path('local_storage' . $product->source_url));
+            }
+            session()->flash('warning', __('messages.file_does_not_exists'));
+            return redirect()->route('admin.product.index');
+
         } catch (\Exception $ex) {
-            return view('errors_custom.404_error');
+            session()->flash('error', __('messages.file_does_not_exists'));
+            return redirect()->back();
         }
     }
 
@@ -137,23 +145,20 @@ class AdminProductController extends Controller
 
         try {
 
-            if (isset($validateData['source_url']))
-            {
+            if (isset($validateData['source_url'])) {
                 $sourceImagePath = $basPath . 'source_url_' . $validateData['source_url']->getClientOriginalName();
-                ImageUploader::upload($validateData['source_url'], $sourceImagePath, 'public');
+                ImageUploader::upload($validateData['source_url'], $sourceImagePath, 'local_storage');
                 $data += ['source_url' => $sourceImagePath];
             }
-            if (isset($validateData['thumbnail_path']))
-            {
+            if (isset($validateData['thumbnail_path'])) {
                 $full_path = $basPath . 'thumbnail_path' . '_' . $validateData['thumbnail_path']->getClientOriginalName();
-                ImageUploader::upload($validateData['thumbnail_path'], $full_path,'public');
+                ImageUploader::upload($validateData['thumbnail_path'], $full_path, 'public');
                 $data += ['thumbnail_path' => $full_path];
 
             }
-            if (isset($validateData['demo_url']))
-            {
+            if (isset($validateData['demo_url'])) {
                 $full_path = $basPath . 'demo_url' . '_' . $validateData['demo_url']->getClientOriginalName();
-                ImageUploader::upload($validateData['demo_url'], $full_path,'public');
+                ImageUploader::upload($validateData['demo_url'], $full_path, 'public');
                 $data += ['demo_url' => $full_path];
 
             }
@@ -165,7 +170,7 @@ class AdminProductController extends Controller
             return true;
             //            session()->flash('success', __('messages.The_update_was_completed_successfully'));
             //            return redirect()->route('admin.product.index');
-        }catch (\Exception $ex){
+        } catch (\Exception $ex) {
             return false;
         }
 
