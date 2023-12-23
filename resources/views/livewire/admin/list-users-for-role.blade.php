@@ -32,7 +32,7 @@
                             <tr class="text-center">
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
-                                <td>{{ $user->getRoleNames()   ?  implode(",",$user->getRoleNames()->toArray()) : null }}</td>
+                                <td>{{ $user->getRoleNames()   ?  implode(" | ",$user->getRoleNames()->toArray()) : null }}</td>
                                 <td class="mb-3">
                                     <a href="{{ route('admin.roles.assign.form',['user_id'=>$user->id]) }}"
                                        class="btn btn-primary btn-sm mb-3">
