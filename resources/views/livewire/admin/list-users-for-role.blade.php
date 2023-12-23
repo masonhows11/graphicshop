@@ -36,9 +36,29 @@
                                 <td class="mb-3">
                                     <a href="{{ route('admin.roles.assign.form',['user_id'=>$user->id]) }}"
                                        class="btn btn-primary btn-sm mb-3">
-                                        تخصیص نقش
+                                        {{ __('messages.role_assignment') }}
                                     </a>
                                 </td>
+                              {{--  @if( in_array('super_admin',$user->getRoleNames()->toArray()) )
+                                    <td class="btn btn-danger mt-2  btn-sm">{{ __('messages.you_do_not_have_access_to_this_section') }}</td>
+                                @else
+                                    <td class="mb-3">
+                                        <a href="{{ route('admin.roles.assign.form',['user_id'=>$user->id]) }}"
+                                           class="btn btn-primary btn-sm mb-3">
+                                            تخصیص نقش
+                                        </a>
+                                    </td>
+                                @endif--}}
+                              {{--  @if( \Illuminate\Support\Facades\Auth::guard('admin')->user()->hasRole('admin'))
+                                    <td class="btn btn-danger">{{ __('messages.you_do_not_have_access_to_this_section') }}</td>
+                                @else
+                                    <td class="mb-3">
+                                        <a href="{{ route('admin.roles.assign.form',['user_id'=>$user->id]) }}"
+                                           class="btn btn-primary btn-sm mb-3">
+                                            تخصیص نقش
+                                        </a>
+                                    </td>
+                                @endif--}}
                             </tr>
                         @endforeach
                     @endisset

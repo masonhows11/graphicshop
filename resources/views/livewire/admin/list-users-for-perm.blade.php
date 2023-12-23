@@ -28,19 +28,38 @@
                     </thead>
                     <tbody>
                     @isset( $users )
-                        @foreach( $users as $user )
+                        @if( \Illuminate\Support\Facades\Auth::guard('admin')->user()->hasRole('admin') )
+                            @foreach( $users as $user)
                                 <tr class="text-center">
-                                    <td>{{ $user->id }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->getPermissionNames() ? implode(" | ", $user->getPermissionNames()->toArray()) : null }}</td>
-                                    <td class="mb-3">
-                                        <a href="{{ route('admin.perms.assign.form',['user_id'=>$user->id]) }}"
-                                           class="btn btn-primary  btn-sm mb-3">
-                                            تخصیص مجوز
-                                        </a>
-                                    </td>
+                                    @if( in_array('super_admin',$user->getRoleNames()->toArray()) )
+                                    @else
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->getPermissionNames() ? implode(" | ", $user->getPermissionNames()->toArray()) : null }}</td>
+                                        <td class="mb-3">
+                                            <a href="{{ route('admin.perms.assign.form',['user_id'=>$user->id]) }}"
+                                               class="btn btn-primary  btn-sm mb-3">
+                                                {{ __('messages.perm_assignment') }}
+                                            </a>
+                                        </td>
+                                    @endif
                                 </tr>
-                        @endforeach
+                            @endforeach
+                        @elseif(\Illuminate\Support\Facades\Auth::guard('admin')->user()->hasRole('super_admin'))
+                            @foreach( $users as $user)
+                                <tr class="text-center">
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->getPermissionNames() ? implode(" | ", $user->getPermissionNames()->toArray()) : null }}</td>
+                                        <td class="mb-3">
+                                            <a href="{{ route('admin.perms.assign.form',['user_id'=>$user->id]) }}"
+                                               class="btn btn-primary  btn-sm mb-3">
+                                                {{ __('messages.perm_assignment') }}
+                                            </a>
+                                        </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     @endisset
                     </tbody>
                 </table>
