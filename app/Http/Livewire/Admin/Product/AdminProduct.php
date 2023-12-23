@@ -40,19 +40,21 @@ class AdminProduct extends Component
             if ($product->thumbnail_path != null) {
                 Storage::disk('public')->delete($product->thumbnail_path);
             }
-            if ($product->demo_url != null  )
-            {
+            if ($product->demo_url != null) {
                 Storage::disk('public')->delete($product->demo_url);
             }
-            if ($product->source_url != null )
-            {
-
+            if ($product->source_url != null) {
                 if (Storage::disk('local_storage')->exists($product->source_url)) {
-                  //  dd('yes');
-                   Storage::disk('local_storage')->delete($product->source_url);
+                    Storage::disk('local_storage')->delete($product->source_url);
                 }
-               // dd('no');
+
             }
+            if (Storage::disk('local_storage')->exists($product->source_url))
+            {
+                session()->flash('warning', __('messages.remove_file_failed'));
+                return redirect()->route('admin.product.index');
+            }
+
             $product->delete();
             $this->dispatchBrowserEvent('show-result',
                 ['type' => 'success',

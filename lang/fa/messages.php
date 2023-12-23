@@ -556,6 +556,7 @@ return [
     'slider_no_two' => 'اسلایدر شماره دو',
     'slider_no_three' => 'اسلایدر شماره سه',
     'file_does_not_exists' => 'فایل مورد نظر وجود ندارد',
+    'remove_file_failed' => 'فایل مورد نظر حذف نشد',
 
 
 ];
