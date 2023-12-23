@@ -52,6 +52,7 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        // custom disk
         'local_storage' => [
             'driver' => 'local',
             'root' => storage_path('app/local_storage'),

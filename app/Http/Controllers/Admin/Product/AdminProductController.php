@@ -112,7 +112,7 @@ class AdminProductController extends Controller
     {
         try {
             $product = Product::findOrfail($id);
-            return response()->download(public_path($product->demo_url));
+            return response()->download(storage_path('app/public/'.$product->demo_url));
         } catch (\Exception $ex) {
             return view('errors_custom.404_error');
         }
@@ -123,7 +123,7 @@ class AdminProductController extends Controller
     {
         try {
             $product = Product::findOrfail($id);
-            return response()->download(storage_path('app/local_storage/' . $product->source_url));
+            return response()->download(storage_path('app/public/' . $product->source_url));
         } catch (\Exception $ex) {
             return view('errors_custom.404_error');
         }
@@ -140,20 +140,20 @@ class AdminProductController extends Controller
             if (isset($validateData['source_url']))
             {
                 $sourceImagePath = $basPath . 'source_url_' . $validateData['source_url']->getClientOriginalName();
-                ImageUploader::upload($validateData['source_url'], $sourceImagePath, 'local_storage');
+                ImageUploader::upload($validateData['source_url'], $sourceImagePath, 'public');
                 $data += ['source_url' => $sourceImagePath];
             }
             if (isset($validateData['thumbnail_path']))
             {
                 $full_path = $basPath . 'thumbnail_path' . '_' . $validateData['thumbnail_path']->getClientOriginalName();
-                ImageUploader::upload($validateData['thumbnail_path'], $full_path,'public_storage');
+                ImageUploader::upload($validateData['thumbnail_path'], $full_path,'public');
                 $data += ['thumbnail_path' => $full_path];
 
             }
             if (isset($validateData['demo_url']))
             {
                 $full_path = $basPath . 'demo_url' . '_' . $validateData['demo_url']->getClientOriginalName();
-                ImageUploader::upload($validateData['demo_url'], $full_path,'public_storage');
+                ImageUploader::upload($validateData['demo_url'], $full_path,'public');
                 $data += ['demo_url' => $full_path];
 
             }
