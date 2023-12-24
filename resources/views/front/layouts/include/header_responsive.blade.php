@@ -23,7 +23,7 @@
                                 <ul class="mobile-menu-level-2">
                                     @foreach( $categories as $child )
                                         <li class="has-mobile-submenu-2">
-                                                <a href="javascript:void(0)" class="d-inline">{{ $child->title }}</a>
+                                                <a href="{{ route('search.category',$child->title) }}" class="d-inline">{{ $child->title }}</a>
                                             <ul class="mobile-menu-level-3 me-2">
                                                 @if( $child->children != null  )
                                                     @include('front.layouts.partials.responsive_child_category',['category' => $child->children])
