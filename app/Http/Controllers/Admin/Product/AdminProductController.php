@@ -113,7 +113,17 @@ class AdminProductController extends Controller
     {
         try {
             $product = Product::findOrfail($id);
-            return response()->download(storage_path('app/public/' . $product->demo_url));
+            if($product->demo_url != null ){
+                if(Storage::disk('public')->exists('app/public/' . $product->demo_url))
+                {
+                    return response()->download(storage_path('app/public/' . $product->demo_url));
+                }
+                session()->flash('warning', __('messages.file_does_not_exists'));
+                return redirect()->route('admin.product.index');
+            }
+            session()->flash('warning', __('messages.file_does_not_exists'));
+            return redirect()->route('admin.product.index');
+
         } catch (\Exception $ex) {
             session()->flash('error', __('messages.file_does_not_exists'));
             return redirect()->back();
@@ -125,8 +135,10 @@ class AdminProductController extends Controller
     {
         try {
             $product = Product::findOrfail($id);
-            if (Storage::disk('local_storage')->exists( $product->source_url)) {
-                return response()->download(storage_path('/app/local_storage/' . $product->source_url));
+            if($product->source_url != null ){
+                if (Storage::disk('local_storage')->exists( $product->source_url)) {
+                    return response()->download(storage_path('/app/local_storage/' . $product->source_url));
+                }
             }
             session()->flash('warning', __('messages.file_does_not_exists'));
             return redirect()->route('admin.product.index');
