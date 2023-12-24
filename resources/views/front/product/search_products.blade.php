@@ -101,9 +101,11 @@
 
                                             <!-- image & color section in product card -->
                                             <div class="d-flex">
-                                                <img src="{{ asset( $product->thumbnail_path) }}"
-                                                     alt="{{ asset( $product->thumbnail_path) . '-' . ($key) }}"
-                                                     class="slider-pic" loading="lazy">
+                                                @if( $product->thumbnail_path != null)
+                                                <img src="{{ asset('storage/'.$product->thumbnail_path) }}" alt="{{ asset( $product->product) . '-' . ($key) }}" class="slider-pic" loading="lazy">
+                                                @else
+                                                    <img src="{{ asset('default_image/no-image-icon-23494.png') }}" alt="no-image" class="slider-pic">
+                                                @endif
                                             </div>
                                             <!-- description section in product card -->
                                             <div class="card-body">

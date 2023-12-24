@@ -114,9 +114,11 @@
                             <a href="{{ route('product',$product->title) }}" class="d-block">
                                 <div class="card custom-card mt-3">
                                     <div class="d-flex">
-                                        <img src="{{ asset( $product->thumbnail_path) }}"
-                                             alt="{{ asset( $product->thumbnail_path ) . '-' . ( $product->id ) }}"
-                                             class="slider-pic " loading="lazy">
+                                        @if( $product->thumbnail_path != null)
+                                        <img src="{{ asset('storage/'.$product->thumbnail_path) }}" alt="{{ asset( $product->title ) . '-' . ( $product->id ) }}" class="slider-pic " loading="lazy">
+                                        @else
+                                            <img src="{{ asset('default_image/no-image-icon-23494.png') }}" alt="no-image" class="slider-pic">
+                                        @endif
                                     </div>
 
                                     <div class="card-body">
