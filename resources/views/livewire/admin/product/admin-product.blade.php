@@ -27,7 +27,7 @@
 
         <div class="row my-2 bg-white   rounded-3">
             <div class="my-4 d-flex justify-content-end">
-                <buttom  wire:click="restoreProducts()" class="btn btn-primary">{{ __('messages.retrive_products') }}</buttom>
+                <buttom  wire:click="restoreProducts()" class="btn btn-primary">{{ __('messages.retrieve_products') }}</buttom>
             </div>
         </div>
 
