@@ -130,9 +130,12 @@
 
                         <div class="row d-flex flex-column justify-content-center align-content-center product-image">
                             <div class="col-lg-8">
-                                <img src="{{ $product->thumbnail_path != null ?  asset('storage/'.$product->thumbnail_path) :
-                                         asset('admin_assets/images/no-image-icon-23494.png') }}"
-                                     id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
+
+                                @if($product->thumbnail_path  != null && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->thumbnail_path ))
+                                   <img src="{{  asset('storage/'.$product->thumbnail_path ) }}" id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
+                                @else
+                                    <img src="{{ asset('admin_assets/images/no-image-icon-23494.png') }}" alt="">
+                                @endif
                             </div>
                             <div class="col-lg-8">
                                 <label for="image_label" class="mt-5 form-label">{{ __('messages.thumbnail_image') }}</label>
@@ -153,7 +156,7 @@
                         <div class="row d-flex flex-column justify-content-center align-content-center">
 
                             <div class="col-lg-8">
-                                
+
                                @if($product->demo_url != null && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->demo_url))
                                    <img src="{{  asset('storage/'.$product->demo_url) }}" id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
                                 @else
@@ -177,8 +180,10 @@
                     <div class="col mt-5 mb-5">
                         <label for="source_url" class="form-label">فایل اصلی</label>
                         <input type="file" class="form-control" id="source_url" name="source_url" value="{{ $product->source_url }}">
-                        @if( $product->source_url != null)
+                        @if( $product->source_url != null && \Illuminate\Support\Facades\Storage::disk('local_storage')->exists($product->source_url ))
                         <a class="btn btn-secondary mt-2 w-100" href="{{ route('admin.product.download.source',$product->id) }}"><i class="fa fa-link p-2"></i>{{ __('messages.download_link') }}</a>
+                        @else
+                        <a class="btn btn-danger mt-2 w-100" href="javascript:void(0)"><i class="fa fa-link p-2"></i>{{ __('messages.there_is_no_file_for_download') }}</a>
                         @endif
                         @error('source_url')
                         <div class="alert alert-danger mt-3">

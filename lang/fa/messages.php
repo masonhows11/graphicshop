@@ -557,6 +557,7 @@ return [
     'slider_no_three' => 'اسلایدر شماره سه',
     'file_does_not_exists' => 'فایل مورد نظر وجود ندارد',
     'remove_file_failed' => 'فایل مورد نظر حذف نشد',
+    'there_is_no_file_for_download' => 'فایل برای دانلود وجود ندارد',
 
 
 ];
