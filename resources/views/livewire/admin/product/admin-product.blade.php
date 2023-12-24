@@ -25,6 +25,12 @@
             </div>
         </div>
 
+        <div class="row my-2 bg-white   rounded-3">
+            <div class="my-4 d-flex justify-content-end">
+                <buttom  wire:click="restorePrducts()" class="btn btn-primary">{{ __('messages.retrive_products') }}</buttom>
+            </div>
+        </div>
+
         <div class="row  category-list bg-white rounded-3">
             <div class="my-5">
                 <table class="table">

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Product;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -89,6 +90,15 @@ class AdminProduct extends Component
                     'message' => __('messages.An_error_occurred')]);
         }
     }
+
+    public function restorePrducts()
+    {
+
+        DB::table('products')->where('deleted_at','<>',null)->update(['deleted_at',null]);
+       $this->emit('refreshComponent');
+
+    }
+
 
     public function render()
     {
