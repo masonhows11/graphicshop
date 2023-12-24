@@ -58,10 +58,12 @@
                                 {!!  \Illuminate\Support\Str::limit($product->description,20) !!}
                             </td>
                             <td>{{ customJalaliDate($product->created_at) }}</td>
-                            <td><img class="img-thumbnail" src="{{ $product->thumbnail_path ?
-                                              asset('storage/'.$product->thumbnail_path) :
-                                              asset('admin_assets/images/no-image-icon-23494.png')  }}"
-                                     width="60" height="60" alt="image_category">
+                            <td>
+                                @if(  $product->thumbnail_path != null && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->thumbnail_path ) )
+                                <img class="img-thumbnail" src="{{asset('storage/'.$product->thumbnail_path) }}" width="60" height="60" alt="{{ 'image' . $product->title  }}">
+                                @else
+                                    <img class="img-thumbnail" src="{{ asset('admin_assets/images/no-image-icon-23494.png') }}" width="60" height="60" alt="">
+                                @endif
                             </td>
                             <td>{{ priceFormat($product->price ) }} {{ __('messages.toman') }}</td>
                             <td>
