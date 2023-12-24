@@ -7,7 +7,13 @@
                 @forelse( $products as $product)
                     <div class="item">
                         <div class="card border-0 custom-card mt-3">
-                            <a href="{{ route('product',$product->title) }}" class="d-block w-100"><img src="{{ asset($product->thumbnail_path) }}" class="slider-pic"></a>
+                            <a href="{{ route('product',$product->title) }}" class="d-block w-100">
+                                @if( $product->thumbnail_path != null)
+                                    <img src="{{ asset('storage/'.$product->thumbnail_path) }}"  alt="{{ 'image' . $product->title }}" class="slider-pic">
+                                @else
+                                    <img src="{{ asset('default_image/no-image-icon-23494.png') }}" alt="no-image" class="slider-pic">
+                                @endif
+                            </a>
                             <div class="card-body">
                                 <a href="{{ route('product',$product->title) }}" class="product-title">{{ $product->title }}</a>
                                 <div class="d-flex justify-content-between">
