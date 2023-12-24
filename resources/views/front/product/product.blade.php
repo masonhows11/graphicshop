@@ -49,26 +49,29 @@
                                     @if( $product->thumbnail_path != null)
                                      <div class="carousel-indicators carousel-indicator-custom">
                                          <button type="button" data-bs-target="#product-slider" data-bs-slide-to="0" class="active">
-                                             <img src="{{ asset( $product->thumbnail_path ) }}" alt="product_image" class="d-block w-100">
+                                             <img src="{{ asset('storage/'.$product->thumbnail_path ) }}" alt="product_image" class="d-block w-100">
                                          </button>
                                          <button type="button" data-bs-target="#product-slider" data-bs-slide-to="1">
-                                             <img src="{{ asset( $product->thumbnail_path ) }}" alt="product_image" class="d-block w-100">
+                                             <img src="{{ asset( 'storage/'.$product->thumbnail_path ) }}" alt="product_image" class="d-block w-100">
                                          </button>
                                          <button type="button" data-bs-target="#product-slider" data-bs-slide-to="2">
-                                             <img src="{{ asset( $product->thumbnail_path ) }}" alt="product_image" class="d-block w-100">
+                                             <img src="{{ asset('storage/'. $product->thumbnail_path ) }}" alt="product_image" class="d-block w-100">
                                          </button>
                                      </div>
+                                        @else
+                                        <img src="{{ asset('default_image/no-image-icon-23494.png') }}" alt="no-image"
+                                             class="slider-pic">
                                     @endif
                                     <div class="carousel-inner">
                                         @if( $product->thumbnail_path != null)
                                             <div class="carousel-item active">
-                                                <img src="{{ asset( $product->thumbnail_path ) }}" alt="product_image" class="d-block w-100">
+                                                <img src="{{ asset('storage/'. $product->thumbnail_path ) }}" alt="product_image" class="d-block w-100">
                                             </div>
                                             <div class="carousel-item">
-                                                <img src="{{ asset( $product->thumbnail_path ) }}" alt="product_image"  class="d-block w-100">
+                                                <img src="{{ asset( 'storage/'.$product->thumbnail_path ) }}" alt="product_image"  class="d-block w-100">
                                             </div>
                                             <div class="carousel-item">
-                                                <img src="{{ asset( $product->thumbnail_path ) }}" alt="product_image"  class="d-block w-100">
+                                                <img src="{{ asset( 'storage/'.$product->thumbnail_path ) }}" alt="product_image"  class="d-block w-100">
                                             </div>
                                         @else
                                         @endif
