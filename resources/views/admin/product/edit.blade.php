@@ -134,7 +134,7 @@
                                 @if($product->thumbnail_path  != null && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->thumbnail_path ))
                                    <img src="{{  asset('storage/'.$product->thumbnail_path ) }}" id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
                                 @else
-                                    <img src="{{ asset('admin_assets/images/no-image-icon-23494.png') }}" alt="">
+                                    <img src="{{ asset('admin_assets/images/no-image-icon-23494.png') }}" id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
                                 @endif
                             </div>
                             <div class="col-lg-8">
@@ -160,7 +160,7 @@
                                @if($product->demo_url != null && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->demo_url))
                                    <img src="{{  asset('storage/'.$product->demo_url) }}" id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
                                 @else
-                                    <img src="{{ asset('admin_assets/images/no-image-icon-23494.png') }}" alt="">
+                                    <img src="{{ asset('admin_assets/images/no-image-icon-23494.png') }}" class="img-thumbnail" height="300" width="300" alt="image">
                                 @endif
                             </div>
                             <div class="col-lg-8">
@@ -175,6 +175,7 @@
                         </div>
 
                     </div>
+
 
 
                     <div class="col mt-5 mb-5">
