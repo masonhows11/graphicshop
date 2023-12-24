@@ -91,12 +91,20 @@ class AdminProduct extends Component
         }
     }
 
-    public function restorePrducts()
+    public function restoreProducts()
     {
-
-        DB::table('products')->where('deleted_at','<>',null)->update(['deleted_at',null]);
-       $this->emit('refreshComponent');
-
+        $deletedModels = Product::onlyTrashed()->get();
+        $deleted_ids = [];
+        $deletedModels = $deletedModels->map(function ($items) {
+            return $items->only(['id']);
+        })->toArray();
+       foreach ($deletedModels as $model){
+          array_push($deleted_ids,$model['id']);
+       }
+       foreach ($deleted_ids as $id){
+           Product::where('id',$id)->restore();
+       }
+       
     }
 
 
