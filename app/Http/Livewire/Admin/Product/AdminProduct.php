@@ -39,22 +39,25 @@ class AdminProduct extends Component
 
         try {
             if ($product->thumbnail_path != null) {
-                Storage::disk('public')->delete($product->thumbnail_path);
+                if (Storage::disk('public')->exists($product->thumbnail_path)) {
+                    Storage::disk('public')->delete($product->thumbnail_path);
+                }
+
             }
             if ($product->demo_url != null) {
-                Storage::disk('public')->delete($product->demo_url);
+                if (Storage::disk('public')->exists($product->demo_url)) {
+                    Storage::disk('public')->delete($product->demo_url);
+                }
+
             }
             if ($product->source_url != null) {
                 if (Storage::disk('local_storage')->exists($product->source_url)) {
                     Storage::disk('local_storage')->delete($product->source_url);
                 }
+            //                session()->flash('warning', __('messages.remove_file_failed'));
+            //                return redirect()->route('admin.product.index');
+            }
 
-            }
-            if (Storage::disk('local_storage')->exists($product->source_url))
-            {
-                session()->flash('warning', __('messages.remove_file_failed'));
-                return redirect()->route('admin.product.index');
-            }
 
             $product->delete();
             $this->dispatchBrowserEvent('show-result',
@@ -104,7 +107,7 @@ class AdminProduct extends Component
        foreach ($deleted_ids as $id){
            Product::where('id',$id)->restore();
        }
-       
+
     }
 
 
