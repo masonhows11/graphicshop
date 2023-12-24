@@ -96,7 +96,7 @@ class AdminProduct extends Component
 
     public function restoreProducts()
     {
-        $deletedModels = Product::onlyTrashed()->get();
+        $deletedModels = Product::withTrashed()->get();
         $deleted_ids = [];
         $deletedModels = $deletedModels->map(function ($items) {
             return $items->only(['id']);

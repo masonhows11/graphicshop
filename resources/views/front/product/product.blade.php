@@ -59,8 +59,7 @@
                                          </button>
                                      </div>
                                         @else
-                                        <img src="{{ asset('default_image/no-image-icon-23494.png') }}" alt="no-image"
-                                             class="slider-pic">
+                                        <img src="{{ asset('default_image/no-image-icon-23494.png') }}" alt="no-image" class="slider-pic">
                                     @endif
                                     <div class="carousel-inner">
                                         @if( $product->thumbnail_path != null)
