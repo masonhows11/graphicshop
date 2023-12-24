@@ -153,8 +153,12 @@
                         <div class="row d-flex flex-column justify-content-center align-content-center">
 
                             <div class="col-lg-8">
-                                <img src="{{ $product->demo_url != null ?  asset('storage/'.$product->demo_url) :
-                                asset('admin_assets/images/no-image-icon-23494.png') }}" id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
+                                
+                               @if($product->demo_url != null && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->demo_url))
+                                   <img src="{{  asset('storage/'.$product->demo_url) }}" id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
+                                @else
+                                    <img src="{{ asset('admin_assets/images/no-image-icon-23494.png') }}" alt="">
+                                @endif
                             </div>
                             <div class="col-lg-8">
                                 <label for="demo_url" class="mt-5 form-label">تصویر محصول</label>

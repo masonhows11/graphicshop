@@ -114,7 +114,7 @@ class AdminProductController extends Controller
         try {
             $product = Product::findOrfail($id);
             if($product->demo_url != null ){
-                if(Storage::disk('public')->exists('app/public/' . $product->demo_url))
+                if(Storage::disk('public')->exists($product->demo_url))
                 {
                     return response()->download(storage_path('app/public/' . $product->demo_url));
                 }
@@ -137,7 +137,8 @@ class AdminProductController extends Controller
             $product = Product::findOrfail($id);
             if($product->source_url != null ){
                 if (Storage::disk('local_storage')->exists( $product->source_url)) {
-                    return response()->download(storage_path('/app/local_storage/' . $product->source_url));
+                    return response()
+                        ->download(storage_path('/app/local_storage/' . $product->source_url));
                 }
             }
             session()->flash('warning', __('messages.file_does_not_exists'));
