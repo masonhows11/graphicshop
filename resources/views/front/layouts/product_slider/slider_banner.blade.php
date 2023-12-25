@@ -15,8 +15,7 @@
                                     @if( $product->thumbnail_path != null && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->thumbnail_path))
                                         <img src="{{ asset('storage/'.$product->thumbnail_path) }}" alt="{{ $product->title . $product->thumbnail_path }}" class="slider-pic"></a>
                                 @else
-                                    <img src="{{ asset('default_image/no-image-icon-23494.png') }}" alt="no-image"
-                                         class="slider-pic">
+                                    <img src="{{ asset('default_image/no-image-icon-23494.png') }}" alt="no-image" class="slider-pic">
                                 @endif
                                 <div class="card-body">
                                     <a href="{{ route('product',$product->title) }}"

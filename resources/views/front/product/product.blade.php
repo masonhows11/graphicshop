@@ -46,7 +46,7 @@
 
                             <div class="col-11 pb-5 mb-3">
                                 <div class="carousel slide pb-5 product-slider-2" id="product-slider" data-bs-ride="carousel">
-                                    @if( $product->thumbnail_path != null)
+                                    @if( $product->thumbnail_path != null && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->thumbnail_path))
                                      <div class="carousel-indicators carousel-indicator-custom">
                                          <button type="button" data-bs-target="#product-slider" data-bs-slide-to="0" class="active">
                                              <img src="{{ asset('storage/'.$product->thumbnail_path ) }}" alt="product_image" class="d-block w-100">
@@ -62,7 +62,7 @@
                                         <img src="{{ asset('default_image/no-image-icon-23494.png') }}" alt="no-image" class="slider-pic">
                                     @endif
                                     <div class="carousel-inner">
-                                        @if( $product->thumbnail_path != null)
+                                        @if( $product->thumbnail_path != null && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->thumbnail_path))
                                             <div class="carousel-item active">
                                                 <img src="{{ asset('storage/'. $product->thumbnail_path ) }}" alt="product_image" class="d-block w-100">
                                             </div>
