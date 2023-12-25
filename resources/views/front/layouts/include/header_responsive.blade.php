@@ -50,17 +50,7 @@
             </div>
 
 
-            @guest
-            <div class="col-4 d-flex align-items-center justify-content-end">
-                <a href="{{ route('auth.login.form') }}" class="header-login-btn me-4">
-                    <div>
-                        <div class="text-center">ورود</div>
-                        <hr>
-                        <div class="text-center">ثبت نام</div>
-                    </div>
-                </a>
-            </div>
-            @endguest
+
             @auth
             <div class="col-4 d-flex align-items-center justify-content-end">
                 <div class="dropdown">
@@ -99,9 +89,20 @@
             </div>
             @endauth
 
+            @guest
+            <div class="col-5 d-flex align-items-center justify-content-center px-0"><!-- start shopping cart -->
+                <a href="{{ route('auth.login.form') }}" class="position-relative">
+                    <img src="{{ asset('front_assets/images/cart.png') }}" alt="cart-image">
+                    <div class="count">0</div>
+                </a>
+            </div>
+            @endguest
+
+            @auth
             <div class="col-1 d-flex align-items-center justify-content-end">
                 <livewire:front.cart.cart-header />
             </div>
+            @endauth
 
         </div>
     </div>
