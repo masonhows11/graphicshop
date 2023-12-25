@@ -45,7 +45,7 @@ class UserAuthNotification extends Notification
     {
         return (new MailMessage)
             ->subject('گرافیک شاپ')
-            ->from('graphicshop@mail.ir')
+            ->from(env('MAIL_FROM_ADDRESS'))
             ->greeting('کد فعال سازی')
             ->line('کاربر عزیز')
             ->line($this->user->email)
