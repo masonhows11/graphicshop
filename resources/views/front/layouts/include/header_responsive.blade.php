@@ -52,8 +52,13 @@
 
             @guest
             <div class="col-4 d-flex align-items-center justify-content-end">
-                <a href="{{ route('auth.login.form') }}" class="header-login-btn me-4"><i
-                        class="fa fa-user-lock"></i>ورود / ثبت نام</a>
+                <a href="{{ route('auth.login.form') }}" class="header-login-btn me-4">
+                    <div>
+                        <div class="text-center">ورود</div>
+                        <hr>
+                        <div class="text-center">ثبت نام</div>
+                    </div>
+                </a>
             </div>
             @endguest
             @auth
