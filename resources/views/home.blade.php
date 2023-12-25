@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
-<p>test host git version</p>
+{{--<p>test host git version</p>--}}
 
 @include('front.layouts.include.header')
 
