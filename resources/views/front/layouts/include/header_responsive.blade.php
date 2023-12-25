@@ -90,7 +90,7 @@
             @endauth
 
             @guest
-            <div class="col-5 d-flex align-items-center justify-content-center px-0"><!-- start shopping cart -->
+            <div class="col-5 d-flex justify-content-end px-0"><!-- start shopping cart -->
                 <a href="{{ route('auth.login.form') }}" class="position-relative">
                     <img src="{{ asset('front_assets/images/cart.png') }}" alt="cart-image">
                     <div class="count">0</div>
