@@ -9,19 +9,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
-{{--<p>test host git version</p>--}}
-
+<p>test deploy</p>
 @include('front.layouts.include.header')
-
 @include('front.layouts.include.header_responsive')
-
 @include('front.layouts.include.nav')
-
-
-
 <main>
     <div class="container">
-
         @include('front.layouts.product_slider.slider_banner')
 
         @include('front.layouts.product_slider.slider_visit_card')
@@ -31,12 +24,9 @@
         @include('front.layouts.include.categories')
 
         @include('front.layouts.include.blog')
-
     </div>
 </main>
-
 @include('front.layouts.include.footer')
-
 @include('front.layouts.footer_scripts')
 
 </body>
