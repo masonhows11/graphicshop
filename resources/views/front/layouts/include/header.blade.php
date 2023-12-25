@@ -31,7 +31,7 @@
                                     <img src="{{  Auth::user()->image_path == null ? asset('default_image/no-user.png') : asset('default_image/no-user.png') }}" class="avatar" alt="user-avatar">
                                 </div>
                                 <div class="ms-2">
-                                    <a href="{{ route('user.profile') }}" class="font-12 d-block text-info mt-2">مشاهده حساب کاربری <i class="fa fa-chevron-left align-middle mt-1"></i></a>
+                                    <a href="{{ route('not.found') }}" class="font-12 d-block text-info mt-2">مشاهده حساب کاربری <i class="fa fa-chevron-left align-middle mt-1"></i></a>
                                 </div>
                             </li>
                             <li>
