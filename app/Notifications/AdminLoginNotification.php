@@ -39,7 +39,7 @@ class AdminLoginNotification extends Notification
     {
         return (new MailMessage)
             ->subject('گرافیک شاپ تاییدیه ورود پنل مدیریت')
-            ->from('admin.graphicshop@mail.ir')
+            ->from(env('MAIL_FROM_ADDRESS'))
             ->greeting('graphicshop.ir')
             ->line('Dear User')
             ->line('admin panel active token for admin user :')
