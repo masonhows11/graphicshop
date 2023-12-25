@@ -28,9 +28,12 @@
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->product_title }}</td>
                                             <td>{{ customJalaliDate($item->created_at) }}</td>
-                                            <td><img class="img-thumbnail"
-                                                     src="{{ $item->demo_url ?asset($item->demo_url) : asset('front_assets/images/no-image-icon-23494.png')  }}"
-                                                     width="60" height="60" alt="image_category">
+                                            <td>
+                                                @if( $item->demo_url != null && \Illuminate\Support\Facades\Storage::disk('public')->exists( $item->demo_url ) )
+                                                <img class="img-thumbnail"  src="{{ asset('storage/'.$item->demo_url)  }}" width="60" height="60" alt="image_category">
+                                                @else
+                                                    <img src="{{   asset('front_assets/images/no-image-icon-23494.png') }}" alt="no-image-product">
+                                                @endif
                                             </td>
                                             <td>{{ priceFormat($item->price ) }} {{ __('messages.toman') }}</td>
                                             <td>
