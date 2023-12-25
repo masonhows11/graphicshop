@@ -39,8 +39,8 @@
                             @endguest
                             <li><a href="{{ route('home') }}"> محصولات </a>
                             <li><a href="{{ route('not.found') }}">وبلاگ</a></li>
-                            <li><a href="{{ route('contact_us') }}">تماس با ما</a></li>
-                            <li><a href="{{ route('about_us') }}">درباره ما</a></li>
+                            <li><a href="{{ route('not.found') }}">تماس با ما</a></li>
+                            <li><a href="{{ route('not.found') }}">درباره ما</a></li>
                         </ul>
                     </div>
                 </div>
