@@ -23,7 +23,7 @@
                                 و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی،
                                 و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                             </p>
-                            <img src="{{ asset('front/images/about-us.webp') }}" class="img-fluid d-block mx-auto">
+                            <img src="{{ asset('front_assets/images/about-us.webp') }}" alt="about-us-image" class="img-fluid d-block mx-auto">
                             <p>
                                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
                                 از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه

@@ -531,7 +531,7 @@ return [
     'this_part_is_being_prepared' => 'این قسمت در حال اماده سازی است',
     'internet_pay_is_being_prepared' => 'پرداخت اینترنتی در حال اماده سازی است',
     'contact_us' => 'تماس با ما',
-    'about_us' => 'ذربازه ما',
+    'about_us' => 'درباره ما',
     'tags_management' => 'مدیریت تگ ها',
     'product_tags' => 'مدیریت تگ ها',
     'new_tag' => 'جدید',

@@ -66,7 +66,7 @@
                             <td>{{ customJalaliDate($product->created_at) }}</td>
                             <td>
                                 @if(  $product->thumbnail_path != null && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->thumbnail_path ) )
-                                <img class="img-thumbnail" src="{{asset('storage/'.$product->thumbnail_path) }}" width="60" height="60" alt="{{ 'image' . $product->title  }}">
+                                <img class="img-thumbnail" src="{{ asset('storage/'.$product->thumbnail_path) }}" width="60" height="60" alt="{{ 'image' . $product->title  }}">
                                 @else
                                     <img class="img-thumbnail" src="{{ asset('admin_assets/images/no-image-icon-23494.png') }}" width="60" height="60" alt="">
                                 @endif
