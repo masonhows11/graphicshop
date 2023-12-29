@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Services\Payment\Request;
+namespace App\Services\PaymentServiceTwo\Request;
 
 
-use App\Services\Payment\Contracts\RequestInterface;
+use App\Services\PaymentServiceTwo\Contracts\RequestInterface;
 
 class IDPayRequest implements RequestInterface
 {

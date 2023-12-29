@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\Payment\Exceptions;
+namespace App\Services\PaymentServiceTwo\Exceptions;
 
 
 class ProviderNotFoundException extends \Exception

@@ -1,11 +1,11 @@
 <?php
 
 
-namespace App\Services\Payment;
+namespace App\Services\PaymentServiceTwo;
 
-use App\Services\Payment\Contracts\RequestInterface;
-use App\Services\Payment\Exceptions\ProviderNotFoundException;
-use App\Services\Payment\Request\IDPayRequest;
+use App\Services\PaymentServiceTwo\Contracts\RequestInterface;
+use App\Services\PaymentServiceTwo\Exceptions\ProviderNotFoundException;
+use App\Services\PaymentServiceTwo\Request\IDPayRequest;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Facades\Config;
 

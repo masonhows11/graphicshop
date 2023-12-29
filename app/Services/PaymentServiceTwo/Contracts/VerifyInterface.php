@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\Payment\Contracts;
+namespace App\Services\PaymentServiceTwo\Contracts;
 
 
 interface VerifyInterface

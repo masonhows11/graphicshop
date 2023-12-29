@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Services\Payment\Providers;
+namespace App\Services\PaymentServiceTwo\Providers;
 
 
-use App\Services\Payment\Contracts\AbstractProviderInterface;
-use App\Services\Payment\Contracts\PayableInterface;
-use App\Services\Payment\Contracts\VerifyInterface;
+use App\Services\PaymentServiceTwo\Contracts\AbstractProviderInterface;
+use App\Services\PaymentServiceTwo\Contracts\PayableInterface;
+use App\Services\PaymentServiceTwo\Contracts\VerifyInterface;
 
 class IDPayProvider extends AbstractProviderInterface implements PayableInterface, VerifyInterface
 {

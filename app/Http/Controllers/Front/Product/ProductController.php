@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Filters\PriceFilter;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -57,6 +59,7 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
+
         $product_id = $product->id;
         $categories = Category::tree()->get()->toTree();
         $relatedProducts = Product::where('category_id', $product->category_id)
