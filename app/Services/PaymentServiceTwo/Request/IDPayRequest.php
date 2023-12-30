@@ -2,8 +2,6 @@
 
 
 namespace App\Services\PaymentServiceTwo\Request;
-
-
 use App\Services\PaymentServiceTwo\Contracts\RequestInterface;
 
 class IDPayRequest implements RequestInterface
@@ -12,7 +10,6 @@ class IDPayRequest implements RequestInterface
     private $amount;
     private $orderId;
     private $apiKey;
-
 
     public function __construct(array $data)
     {
@@ -26,11 +23,10 @@ class IDPayRequest implements RequestInterface
     {
         return $this->orderId;
     }
-
-    // amount is convert to rials
-    // because gateway worked with rials money unit
     public function getAmount()
     {
+        // amount is convert to rials
+        // because gateway worked with rials money unit
         return $this->amount * 10;
     }
     public function getUser()

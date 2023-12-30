@@ -3,7 +3,7 @@
         <div class="row  py-4 header-section">
             <div class="col-lg-2">
                 {{-- <img src="front_assets/images/logo.png" alt="Nikkala">--}}
-                <a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک لند</h2></a>
+                <a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک شاپ</h2></a>
             </div>
             <div class="col-lg-6 d-flex align-items-center justify-content-center">
                 <form action="{{ route('search.products') }}" method="get" class="w-100">
