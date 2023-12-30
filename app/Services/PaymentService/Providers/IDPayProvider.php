@@ -48,10 +48,10 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
         if(isset($send_result['error_code'])){
             throw  new \InvalidArgumentException($send_result['error_message']);
         }
-        dd($send_result);
+        // redirect user to gateway
+        return redirect()->away($send_result['link']);
 
-       // var_dump($result);
-      // return $this->request;
+     
     }
 
     public function verify()
