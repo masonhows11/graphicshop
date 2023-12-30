@@ -14,8 +14,11 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
 
     public function pay()
     {
-        // dd($this->request);
+        // this request come from AbstractProviderConstructor class
+        // $this->request;
+        // $this->request is content info for payment operation
         // dd($this->request->getAmount());
+       return $this->request;
     }
 
     public function verify()

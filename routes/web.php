@@ -85,6 +85,7 @@ Route::prefix('shopping')->middleware(['auth','web'])->group(function(){
 
     Route::get('/cart/check',[BasketController::class,'cartCheck'])->name('cart.check');
     Route::post('/payment',[PaymentController::class,'payment'])->name('payment.pay');
+    Route::get('/callback',[PaymentController::class,'callBack'])->name('callback.pay');
 
 
 });
