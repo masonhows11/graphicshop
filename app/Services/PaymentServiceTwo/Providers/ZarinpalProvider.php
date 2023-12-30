@@ -4,12 +4,12 @@
 namespace App\Services\PaymentServiceTwo\Providers;
 
 
-use App\Services\PaymentServiceTwo\Contracts\AbstractProviderInterface;
+use App\Services\PaymentServiceTwo\Contracts\AbstractProviderConstructor;
 use App\Services\PaymentServiceTwo\Contracts\PayableInterface;
 use App\Services\PaymentServiceTwo\Contracts\RequestInterface;
 use App\Services\PaymentServiceTwo\Contracts\VerifyInterface;
 
-class ZarinpalProvider extends AbstractProviderInterface implements PayableInterface , VerifyInterface
+class ZarinpalProvider extends AbstractProviderConstructor implements PayableInterface , VerifyInterface
 {
 
 

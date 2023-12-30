@@ -36,7 +36,8 @@ class PaymentService
         }
         // create an instance founded class
         // give request to construct that made as abstract class for gateway providers
-        // $this->request is type of payment provider we used
+        // $this->request is type of payment provider we used and when we call construct method
+        // we should give data  , these data is request type of payment provider
         return new $providerClassName($this->request);
     }
 
@@ -64,6 +65,6 @@ class PaymentService
 
 }
 
-//  $idPayRequest = new IDPayRequest();
+// $idPayRequest = new IDPayRequest();
 // $payment = new PaymentService(PaymentService::IDPAY,$idPayRequest);
-
+// $payment->pay();

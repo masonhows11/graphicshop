@@ -4,12 +4,12 @@
 namespace App\Services\PaymentServiceTwo\Providers;
 
 
-use App\Services\PaymentServiceTwo\Contracts\AbstractProviderInterface;
+use App\Services\PaymentServiceTwo\Contracts\AbstractProviderConstructor;
 use App\Services\PaymentServiceTwo\Contracts\PayableInterface;
 use App\Services\PaymentServiceTwo\Contracts\VerifyInterface;
 
 // this idpay provider is payment gateway like zarrinpal , mellat
-class IDPayProvider extends AbstractProviderInterface implements PayableInterface, VerifyInterface
+class IDPayProvider extends AbstractProviderConstructor implements PayableInterface, VerifyInterface
 {
 
     public function pay()
