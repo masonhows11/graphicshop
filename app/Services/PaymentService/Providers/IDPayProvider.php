@@ -38,24 +38,44 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json',
             'X-API-KEY: '.$info->getApiKey().'',
-            'X-SANDBOX: 1'
+            'X-SANDBOX: 1' // for real gateway comment the sandbox line
         ));
 
         $result = curl_exec($ch);
         curl_close($ch);
         $send_result = json_decode($result,true);
-
+         //dd($send_result);
         if(isset($send_result['error_code'])){
             throw  new \InvalidArgumentException($send_result['error_message']);
         }
         // redirect user to gateway
         return redirect()->away($send_result['link']);
 
-     
+
     }
 
     public function verify()
     {
+
+        $params = array(
+            'id' => 'd2e353189823079e1e4181772cff5292',
+            'order_id' => '101',
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.idpay.ir/v1.1/payment/verify');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'X-API-KEY: 6a7f99eb-7c20-4412-a972-6dfb7cd253a4',
+            'X-SANDBOX: 1',
+        ));
+
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        var_dump($result);
 
         $result = '';
         if (isset($result['error_code'])) {

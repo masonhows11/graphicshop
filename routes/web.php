@@ -82,12 +82,12 @@ Route::prefix('profile')->middleware(['auth','web'])->group(function(){
 });
 
 Route::prefix('shopping')->middleware(['auth','web'])->group(function(){
-
     Route::get('/cart/check',[BasketController::class,'cartCheck'])->name('cart.check');
+});
+
+Route::prefix('shopping')->group(function(){
     Route::post('/payment',[PaymentController::class,'payment'])->name('payment.pay');
-    Route::get('/callback',[PaymentController::class,'callBack'])->name('callback.pay');
-
-
+    Route::post('/payment/callback',[PaymentController::class,'callBack'])->name('callback.pay');
 });
 
 // for search product
