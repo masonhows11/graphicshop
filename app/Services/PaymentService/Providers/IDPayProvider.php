@@ -56,10 +56,10 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
 
     public function verify()
     {
-
+        //  dd($this->request);
         $params = array(
-            'id' => 'd2e353189823079e1e4181772cff5292',
-            'order_id' => '101',
+            'id' => $this->request->getId(),
+            'order_id' => $this->request->getOrderId(),
         );
 
         $ch = curl_init();
@@ -68,16 +68,16 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json',
-            'X-API-KEY: 6a7f99eb-7c20-4412-a972-6dfb7cd253a4',
+            'X-API-KEY: '. $this->request->getApiKey() .'',
             'X-SANDBOX: 1',
         ));
 
         $result = curl_exec($ch);
         curl_close($ch);
 
-        var_dump($result);
+        dd(json_decode($result,true));
 
-        $result = '';
+        /*$result = '';
         if (isset($result['error_code'])) {
             return [
                 'status' => false,
@@ -96,6 +96,6 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
             'status' => true,
             'statusCode' => $result['status'],
             'data' => $result,
-        ];
+        ];*/
     }
 }
