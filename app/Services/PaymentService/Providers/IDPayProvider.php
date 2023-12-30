@@ -13,6 +13,9 @@ use function Nette\Utils\data;
 class IDPayProvider extends AbstractProviderConstructor implements PayableInterface, VerifyInterface
 {
 
+    private $StatusOk = 100;
+    private $StatusOKAlready = 101;
+
     public function pay()
     {
         // this request come from AbstractProviderConstructor class
@@ -37,15 +40,15 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json',
-            'X-API-KEY: '.$info->getApiKey().'',
+            'X-API-KEY: ' . $info->getApiKey() . '',
             'X-SANDBOX: 1' // for real gateway comment the sandbox line
         ));
 
         $result = curl_exec($ch);
         curl_close($ch);
-        $send_result = json_decode($result,true);
-         //dd($send_result);
-        if(isset($send_result['error_code'])){
+        $send_result = json_decode($result, true);
+        //dd($send_result);
+        if (isset($send_result['error_code'])) {
             throw  new \InvalidArgumentException($send_result['error_message']);
         }
         // redirect user to gateway
@@ -68,16 +71,14 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json',
-            'X-API-KEY: '. $this->request->getApiKey() .'',
+            'X-API-KEY: ' . $this->request->getApiKey() . '',
             'X-SANDBOX: 1',
         ));
 
         $result = curl_exec($ch);
         curl_close($ch);
+        $result = json_decode($result, true);
 
-        dd(json_decode($result,true));
-
-        /*$result = '';
         if (isset($result['error_code'])) {
             return [
                 'status' => false,
@@ -85,7 +86,7 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
                 'msg' => $result['error_message'],
             ];
         }
-        if ($result['status'] == $this->statusOk) {
+        if ($result['status'] == $this->StatusOk) {
             return [
                 'status' => true,
                 'statusCode' => $result['status'],
@@ -96,6 +97,7 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
             'status' => true,
             'statusCode' => $result['status'],
             'data' => $result,
-        ];*/
+        ];
+
     }
 }

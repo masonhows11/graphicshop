@@ -58,7 +58,7 @@ class PaymentController extends Controller
                 'status' => 1,
             ]);
 
-           // return redirect()->back()->with('warning',__('messages.this_part_is_being_prepared'));
+            // return redirect()->back()->with('warning',__('messages.this_part_is_being_prepared'));
 
             //// l.v 4
             //// make gateway instance with arguments
@@ -72,9 +72,9 @@ class PaymentController extends Controller
             // pay the payment order
             $paymentService = new PaymentService(PaymentService::IDPAY, $idPayRequest);
             // dd($paymentService->pay());
-           return $paymentService->pay();
+            return $paymentService->pay();
         } catch (\Exception $ex) {
-           // return  $ex->getMessage();
+            // return  $ex->getMessage();
             return back()->with(['error' => $ex->getMessage()]);
         }
     }
@@ -99,20 +99,18 @@ class PaymentController extends Controller
         //// lv.3
         $paymentService = new PaymentService(PaymentService::IDPAY, $idPayVerifyRequest);
         //// lv.4
-       // $result = $paymentService->verify();
-        dd( $result = $paymentService->verify());
+        $result = $paymentService->verify();
 
 
-        if(!$result['status']){
+        if (!$result['status']) {
             return redirect()->route('cart.check')
                 ->with(['error' => 'پرداخت شما انجام نشد']);
         }
-        if($result['status'] == 100 or $request['status'] == 101)
-        {
-        //            return redirect()->route('home')
-        //                ->with(['error' => 'پرداخت شما انجام شد.برای دریافت فایل های خود به حساب کاربری مراجعه کنید']);
+        if ($result['status'] == 100 or $request['status'] == 101) {
+            //            return redirect()->route('home')
+            //                ->with(['error' => 'پرداخت شما انجام شد.برای دریافت فایل های خود به حساب کاربری مراجعه کنید']);
 
-            $currentPayment =  Payment::where(['payment_number','=',$result['data']['order_id']])->first();
+            $currentPayment = Payment::where(['payment_number', '=', $result['data']['order_id']])->first();
             $currentPayment->update([
                 'status' => 2,
                 'bank_id' => $result['data']['track_id'],
@@ -124,16 +122,16 @@ class PaymentController extends Controller
             ]);
 
             // get order items & link of files
-            $purchasedFile  =  $currentPayment->order->orderItems->map(function ($item){
-                return  $item->product->source_url;
+            $purchasedFile = $currentPayment->order->orderItems->map(function ($item) {
+                return $item->product->source_url;
             });
 
-            $purchasedFiles =  $purchasedFile->toArray();
+            $purchasedFiles = $purchasedFile->toArray();
 
             // send to user email or display in profile section
-            $currentUser =  $currentPayment->order->user;
+            $currentUser = $currentPayment->order->user;
             // l.v 1
-            Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles,$currentUser));
+            Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles, $currentUser));
 
             // delete data from basket
 
@@ -141,8 +139,6 @@ class PaymentController extends Controller
                 ->route('home')
                 ->with(['error' => 'پرداخت شما انجام شد.لینک فایها به ایمیل ارسال شد']);
         }
-
-
 
 
     }
