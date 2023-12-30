@@ -6,8 +6,9 @@ namespace App\Services\PaymentServiceTwo\Contracts;
 
 abstract class AbstractProviderInterface
 {
-    public function __construct(protected RequestInterface $request)
+    protected $request;
+    public function __construct(RequestInterface $request)
     {
-
+        $this->request = $request;
     }
 }
