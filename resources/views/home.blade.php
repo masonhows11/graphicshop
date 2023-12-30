@@ -27,6 +27,7 @@
 </main>
 @include('front.layouts.include.footer')
 @include('front.layouts.footer_scripts')
+@include('front.layouts.alert.alert')
 
 </body>
 </html>
