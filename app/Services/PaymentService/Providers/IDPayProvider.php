@@ -24,7 +24,7 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
             'order_id' => $info->getOrderId(),
             'amount' => $info->getAmount(),
             'name' => $full_user,
-            'phone' => $info->getUser()->first_name,
+            'phone' => $info->getUser()->mobile,
             'mail' => $info->getUser()->email,
             'desc' => 'توضیحات پرداخت کننده',
             'callback' => route('callback.pay'),

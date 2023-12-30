@@ -50,7 +50,7 @@ class PaymentController extends Controller
             $payment = Payment::create([
                 'user_id' => $user->id,
                 'order_id' => $order->id,
-                'gateway' => 'zarinpal',
+                'gateway' => 'idpay',
                 'bank_id' => null,
                 'payment_number' => $order->payment_number,
                 'amount' => $order->amount,
@@ -59,9 +59,10 @@ class PaymentController extends Controller
 
            // return redirect()->back()->with('warning',__('messages.this_part_is_being_prepared'));
 
-            // make gateway instance with arguments
+            //// l.v 4
+            //// make gateway instance with arguments
             $idPayRequest = new  IDPayRequest([
-                'amount' => $order_amount,
+                'amount' => $payment->amount,
                 'user' => $user,
                 'orderId' => $order->payment_number,
                 'apiKey' => config('services.gateways.id_pay.api_key'),
@@ -69,8 +70,8 @@ class PaymentController extends Controller
 
             // pay the payment order
             $paymentService = new PaymentService(PaymentService::IDPAY, $idPayRequest);
-            dd($paymentService->pay());
-          //  return $paymentService->pay();
+            // dd($paymentService->pay());
+           return $paymentService->pay();
         } catch (\Exception $ex) {
            // return  $ex->getMessage();
             return back()->with(['error' => $ex->getMessage()]);
