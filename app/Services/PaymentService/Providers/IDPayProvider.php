@@ -18,7 +18,33 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
         // $this->request;
         // $this->request is content info for payment operation
         // dd($this->request->getAmount());
-       return $this->request;
+        $info = $this->request;
+        $full_user = $info->getUser()->first_name . ' ' . $info->getUser()->last_name;
+        $params = array(
+            'order_id' => $info->getOrderId(),
+            'amount' => $info->getAmount(),
+            'name' => $full_user,
+            'phone' => $info->getUser()->first_name,
+            'mail' => $info->getUser()->email,
+            'desc' => 'توضیحات پرداخت کننده',
+            'callback' => route('callback.pay'),
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.idpay.ir/v1.1/payment');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'X-API-KEY: '.$info->getApiKey().'',
+            'X-SANDBOX: 1'
+        ));
+
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        var_dump($result);
+      // return $this->request;
     }
 
     public function verify()

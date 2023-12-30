@@ -17,7 +17,8 @@
         "nagy/laravel-rating": "^1.0",
         "pishran/laravel-persian-slug": "^2.2",
         "spatie/laravel-permission": "^5.10",
-        "staudenmeir/laravel-adjacency-list": "^1.0"
+        "staudenmeir/laravel-adjacency-list": "^1.0",
+      "ext-curl": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
