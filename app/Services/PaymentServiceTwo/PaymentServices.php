@@ -15,10 +15,12 @@ class PaymentServices
     public const IDPAY = 'IDPayProvider';
     public const ZARRINPAL = 'ZarinpalProvider';
 
-    private string $provider_name;
+    private $provider_name;
+    // RequestInterface $request  means that request is type of payment gateway we used for pay
     private RequestInterface $request;
 
-    public function __construct(string $provider_name, RequestInterface $request)
+    // RequestInterface $request  means that request is type of payment gateway we used for pay
+    public function __construct($provider_name, RequestInterface $request)
     {
         $this->provider_name = $provider_name;
         $this->request = $request;
@@ -47,7 +49,8 @@ class PaymentServices
     }
 
 
-    public function verify(){
+    public function verify()
+    {
         try {
             // the pay() method is defined in interface
             return $this->findProvider()->verify();
