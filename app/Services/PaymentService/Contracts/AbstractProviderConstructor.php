@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\PaymentServiceTwo\Contracts;
+namespace App\Services\PaymentService\Contracts;
 
 
 // make constructor for all payment providers

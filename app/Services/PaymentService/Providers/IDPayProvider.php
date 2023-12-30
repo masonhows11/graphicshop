@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Services\PaymentServiceTwo\Providers;
+namespace App\Services\PaymentService\Providers;
 
 
-use App\Services\PaymentServiceTwo\Contracts\AbstractProviderConstructor;
-use App\Services\PaymentServiceTwo\Contracts\PayableInterface;
-use App\Services\PaymentServiceTwo\Contracts\VerifyInterface;
+use App\Services\PaymentService\Contracts\AbstractProviderConstructor;
+use App\Services\PaymentService\Contracts\PayableInterface;
+use App\Services\PaymentService\Contracts\VerifyInterface;
 
 // this idpay provider is payment gateway like zarrinpal , mellat
 class IDPayProvider extends AbstractProviderConstructor implements PayableInterface, VerifyInterface

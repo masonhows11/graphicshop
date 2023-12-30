@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Front\Payment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\Payment\PayRequest;
 use App\Mail\SendPurchasedFilesMail;
-use App\Services\PaymentServiceTwo\PaymentService;
-use App\Services\PaymentServiceTwo\Request\IDPayRequest;
+use App\Services\PaymentService\PaymentService;
+use App\Services\PaymentService\Request\IDPayRequest;
 use App\Models\Basket;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Payment;
-use App\Services\PaymentServiceTwo\Request\IDPayVerifyRequest;
+use App\Services\PaymentService\Request\IDPayVerifyRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -63,10 +63,13 @@ class PaymentController extends Controller
                 'orderId' => $order->payment_number,
                 'apiKey' => config('services.gateways.id_pay.api_key'),
             ]);
+
             // pay the payment order
             $paymentService = new PaymentService(PaymentService::IDPAY, $idPayRequest);
-            return $paymentService->pay();
+            dd($paymentService->pay());
+          //  return $paymentService->pay();
         } catch (\Exception $ex) {
+           // return  $ex->getMessage();
             return back()->with(['error' => $ex->getMessage()]);
         }
     }

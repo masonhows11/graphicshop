@@ -1,13 +1,10 @@
 <?php
 
 
-namespace App\Services\PaymentServiceTwo;
+namespace App\Services\PaymentService;
 
-use App\Services\PaymentServiceTwo\Contracts\RequestInterface;
-use App\Services\PaymentServiceTwo\Exceptions\ProviderNotFoundException;
-use App\Services\PaymentServiceTwo\Request\IDPayRequest;
-use GuzzleHttp\Exception\RequestException;
-use Illuminate\Support\Facades\Config;
+use App\Services\PaymentService\Contracts\RequestInterface;
+use App\Services\PaymentService\Exceptions\ProviderNotFoundException;
 
 class PaymentService
 {
@@ -30,7 +27,7 @@ class PaymentService
     private function findProvider()
     {
         // find provider
-        $providerClassName = 'App\\Services\\Payment\\Providers\\' . $this->provider_name;
+        $providerClassName = 'App\\Services\\PaymentService\\Providers\\' . $this->provider_name;
         if (!class_exists($providerClassName)) {
             throw new ProviderNotFoundException(__('messages.the_selected_payment_gateway_could_not_be_found'));
         }
@@ -64,7 +61,3 @@ class PaymentService
     }
 
 }
-
-// $idPayRequest = new IDPayRequest();
-// $payment = new PaymentService(PaymentService::IDPAY,$idPayRequest);
-// $payment->pay();
