@@ -54,7 +54,7 @@ class PaymentController extends Controller
                 'status' => 1,
             ]);
 
-            return redirect()->back()->with('warning',__('messages.this_part_is_being_prepared'));
+           // return redirect()->back()->with('warning',__('messages.this_part_is_being_prepared'));
 
            // dd($payment);
             // make gateway instance with arguments
