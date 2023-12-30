@@ -7,6 +7,7 @@ namespace App\Services\PaymentService\Providers;
 use App\Services\PaymentService\Contracts\AbstractProviderConstructor;
 use App\Services\PaymentService\Contracts\PayableInterface;
 use App\Services\PaymentService\Contracts\VerifyInterface;
+use function Nette\Utils\data;
 
 // this idpay provider is payment gateway like zarrinpal , mellat
 class IDPayProvider extends AbstractProviderConstructor implements PayableInterface, VerifyInterface
@@ -42,8 +43,14 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
 
         $result = curl_exec($ch);
         curl_close($ch);
+        $send_result = json_decode($result,true);
 
-        var_dump($result);
+        if(isset($send_result['error_code'])){
+            throw  new \InvalidArgumentException($send_result['error_message']);
+        }
+        dd($send_result);
+
+       // var_dump($result);
       // return $this->request;
     }
 
