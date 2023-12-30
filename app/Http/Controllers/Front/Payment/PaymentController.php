@@ -29,21 +29,24 @@ class PaymentController extends Controller
         $basket = Basket::where('user_id', $user->id)->get();
         $order_amount = array_sum(array_column(Basket::where('user_id', $user->id)->get()->toArray(), 'price'));
         try {
-            $order_number = Str::random(20);
-            // create order l.v 1
+            $payment_number = Str::random(20);
+
+            //// create order l.v 1
             $order = Order::updateOrCreate(
                 ['user_id' => $user->id, 'order_status' => 0],
                 ['amount' => $order_amount,
-                    'payment_number' => $order_number,
+                    'payment_number' => $payment_number,
                     'order_status' => 0,]);
-            // create order items / details l.v 2
+
+
+            //// create order items / details l.v 2
             $orderForOrderItems = $basket->map(function ($items) {
                 return $items->only(['user_id', 'product_id', 'price', 'number']);
             });
             $order->orderItems()->createMany($orderForOrderItems->toArray());
 
 
-            // create payment l.v 3
+            //// create payment l.v 3
             $payment = Payment::create([
                 'user_id' => $user->id,
                 'order_id' => $order->id,
