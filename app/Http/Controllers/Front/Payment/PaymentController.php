@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Front\Payment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\Payment\PayRequest;
 use App\Mail\SendPurchasedFilesMail;
-use App\Services\PaymentServiceTwo\PaymentServices;
+use App\Services\PaymentServiceTwo\PaymentService;
 use App\Services\PaymentServiceTwo\Request\IDPayRequest;
 use App\Models\Basket;
 use App\Models\Order;
@@ -56,7 +56,6 @@ class PaymentController extends Controller
 
            // return redirect()->back()->with('warning',__('messages.this_part_is_being_prepared'));
 
-           // dd($payment);
             // make gateway instance with arguments
             $idPayRequest = new  IDPayRequest([
                 'amount' => $order_amount,
@@ -65,7 +64,7 @@ class PaymentController extends Controller
                 'apiKey' => config('services.gateways.id_pay.api_key'),
             ]);
             // pay the payment order
-            $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayRequest);
+            $paymentService = new PaymentService(PaymentService::IDPAY, $idPayRequest);
             return $paymentService->pay();
         } catch (\Exception $ex) {
             return back()->with(['error' => $ex->getMessage()]);
@@ -82,7 +81,7 @@ class PaymentController extends Controller
             'id' => $paymentInfo['id'],
             'orderId' => $paymentInfo['order_id'],
         ]);
-        $paymentService = new PaymentServices(PaymentServices::IDPAY, $idPayVerifyRequest);
+        $paymentService = new PaymentService(PaymentService::IDPAY, $idPayVerifyRequest);
         $result = $paymentService->verify();
         if(!$result['status']){
             return redirect()->route('cart.check')

@@ -9,7 +9,7 @@ use App\Services\PaymentServiceTwo\Request\IDPayRequest;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Facades\Config;
 
-class PaymentServices
+class PaymentService
 {
 
     public const IDPAY = 'IDPayProvider';
@@ -26,14 +26,17 @@ class PaymentServices
         $this->request = $request;
     }
 
+    // for find payment provider like zarinpal or idpay or mellat
     private function findProvider()
     {
+        // find provider
         $providerClassName = 'App\\Services\\Payment\\Providers\\' . $this->provider_name;
         if (!class_exists($providerClassName)) {
             throw new ProviderNotFoundException(__('messages.the_selected_payment_gateway_could_not_be_found'));
         }
         // create an instance founded class
-        // past request to construct that made as abstract class for gateway providers
+        // give request to construct that made as abstract class for gateway providers
+        // $this->request is type of payment provider we used
         return new $providerClassName($this->request);
     }
 
@@ -60,4 +63,7 @@ class PaymentServices
     }
 
 }
+
+//  $idPayRequest = new IDPayRequest();
+// $payment = new PaymentService(PaymentService::IDPAY,$idPayRequest);
 
