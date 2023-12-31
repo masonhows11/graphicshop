@@ -17,7 +17,7 @@
                 <p class="text-center">خرید شما با موفقیت انجام شد</p>
             </div>
             <div class="col-10 body-notice mt-2 text-center rounded p-5">
-                {{ $email }}
+             <p class="text-center text-white">{{ $email }}</p>
             </div>
         </div>
 

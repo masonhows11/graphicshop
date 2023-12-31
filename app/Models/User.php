@@ -81,13 +81,13 @@ class User extends Authenticatable
         return $this->hasMany(Product::class,'user_id');
     }
 
-    public function getPermissionIds(){
-
-        return $this->permissions->pluck('id');
-    }
-
-    public static function getRoleIds()
-    {
-        return Role::all()->pluck('id');
-    }
+    //    public function getPermissionIds(){
+    //
+    //        return $this->permissions->pluck('id');
+    //    }
+    //
+    //    public static function getRoleIds()
+    //    {
+    //        return Role::all()->pluck('id');
+    //    }
 }

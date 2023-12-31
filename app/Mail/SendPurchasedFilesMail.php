@@ -16,7 +16,7 @@ class SendPurchasedFilesMail extends Mailable
 
     // l.v 2
     private $files;
-    public $user;
+    protected $user;
 
     /**
      * Create a new message instance.
@@ -45,11 +45,12 @@ class SendPurchasedFilesMail extends Mailable
      */
     public function content(): Content
     {
+
         return new Content(
             view: 'emails.send_purchased_files_mail',
               with: [
                     'user' => $this->user->name,
-                    'email' => $this->user->emal,
+                    'email' => $this->user->email,
                 ],
         );
     }
