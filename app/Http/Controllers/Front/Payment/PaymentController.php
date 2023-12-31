@@ -120,14 +120,11 @@ class PaymentController extends Controller
             $currentPayment->order()->update([
                 'order_status' => 2,
             ]);
-
-
             // get order items & link of files
             $purchasedFile = $currentPayment->order->orderItems->map(function ($item) {
                 return $item->product->source_url;
             });
             $purchasedFiles = $purchasedFile->toArray();
-
             // send to user email or display in profile section
             $currentUser = $currentPayment->order->user;
             // l.v 1
