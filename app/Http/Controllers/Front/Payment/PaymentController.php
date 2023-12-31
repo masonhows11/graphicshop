@@ -124,10 +124,11 @@ class PaymentController extends Controller
             $purchasedFile = $currentPayment->order->orderItems->map(function ($item) {
                 return $item->product->source_url;
             });
-            $purchasedFiles = $purchasedFile->toArray();
-            // send to user email or display in profile section
-            $currentUser = $currentPayment->order->user;
+
             // l.v 1
+            // send email or display in profile section
+            $purchasedFiles = $purchasedFile->toArray();
+            $currentUser = $currentPayment->order->user;
             Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles, $currentUser));
 
             // delete data from basket

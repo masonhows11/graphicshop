@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SendPurchasedfilesMail extends Mailable
+class SendPurchasedFilesMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -36,7 +36,7 @@ class SendPurchasedfilesMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Send Purchased files Mail',
+            subject: 'فروشگاه اینترنی فایل گرافیک شاپ',
         );
     }
 
@@ -46,7 +46,7 @@ class SendPurchasedfilesMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'email.send_purchased_files_mail.blade',
+            view: 'emails.send_purchased_files_mail',
               with: [
                     'user' => $this->user->name,
                     'email' => $this->user->emal,
@@ -65,7 +65,7 @@ class SendPurchasedfilesMail extends Mailable
         $storage_files = [];
         if($this->files){
             foreach ($this->files as $file){
-                array_push($file,storage_path('storage/app/local_storage/'.$file));
+                array_push($storage_files,storage_path('storage/app/local_storage/'.$file));
             }
         }
         return $storage_files;
