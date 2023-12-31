@@ -131,9 +131,14 @@ class PaymentController extends Controller
             $currentUser = $currentPayment->order->user;
             Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles, $currentUser));
 
+            // l.v 2
             // delete data from basket
+            $cartItems = Basket::where('user_id', $currentUser->id)->get();
+            foreach ($cartItems as $cartItem) {
+                $cartItem->delete();
+            }
 
-            session()->flash('success','پرداخت شما انجام شد.لینک فایها به ایمیل ارسال شد');
+            session()->flash('success', 'پرداخت شما انجام شد.لینک فایها به ایمیل ارسال شد');
             return redirect()->route('home');
 
         }
