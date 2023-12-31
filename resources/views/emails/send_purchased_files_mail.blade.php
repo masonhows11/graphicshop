@@ -11,14 +11,15 @@
                 <h4 class="h4 text-center text-danger">فروشگاه اینترنتی فایل گرافیک شاپ</h4>
             </div>
             <div class="col-8 title-notice mt-4 mb-2">
-                <p class="text-center">{{ $user }}</p>
+                <p class="text-center custom-text-large">{{ $user }}</p>
+            </div>
+            <div class="col-10 title-notice mt-2 text-center rounded p-5">
+                <p class="text-center custom-text-large">{{ $email }}</p>
             </div>
             <div class="col-8 title-notice mt-4 mb-2">
-                <p class="text-center">خرید شما با موفقیت انجام شد</p>
+                <p class="text-center custom-text-large">خرید شما با موفقیت انجام شد</p>
             </div>
-            <div class="col-10 body-notice mt-2 text-center rounded p-5">
-             <p class="text-center text-white">{{ $email }}</p>
-            </div>
+
         </div>
 
         <div class="row d-flex justify-content-center footer mt-5">

@@ -18,4 +18,7 @@
         height: auto;
         background-color: #55ACEE;
     }
+    .custom-text-large{
+        font-size:1rem;
+    }
 </style>
