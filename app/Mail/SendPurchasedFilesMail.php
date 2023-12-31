@@ -65,7 +65,7 @@ class SendPurchasedFilesMail extends Mailable
         $storage_files = [];
         if($this->files){
             foreach ($this->files as $file){
-                array_push($storage_files,storage_path('storage/app/local_storage/'.$file));
+                array_push($storage_files,storage_path('app/local_storage/'.$file));
             }
         }
         return $storage_files;

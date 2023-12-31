@@ -1,6 +1,6 @@
 @extends('emails.layouts.master')
 @section('mail_title')
-    <h6 class="h6">{{ $details['title'] }}</h6>
+    <h6 class="h6">گرافیک شاپ</h6>
 @endsection
 @section('main_content_mail')
 
