@@ -102,7 +102,7 @@ class PaymentController extends Controller
         $result = $paymentService->verify();
 
 
-        if (!$result['status']) {
+        if ($result['status'] == false) {
             return redirect()->route('cart.check')
                 ->with(['error' => 'پرداخت شما انجام نشد']);
         }
@@ -131,7 +131,7 @@ class PaymentController extends Controller
             // send to user email or display in profile section
             $currentUser = $currentPayment->order->user;
             // l.v 1
-           // Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles, $currentUser));
+            Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles, $currentUser));
 
             // delete data from basket
 
