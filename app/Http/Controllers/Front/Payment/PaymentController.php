@@ -102,30 +102,30 @@ class PaymentController extends Controller
         $result = $paymentService->verify();
 
 
+        // if status failed redirect to home
         if ($result['status'] == false) {
             return redirect()->route('cart.check')
                 ->with(['error' => 'پرداخت شما انجام نشد']);
         }
+        // if status success send email contain file links
         if ($result['status'] == 100 or $request['status'] == 101) {
-            //            return redirect()->route('home')
-            //                ->with(['error' => 'پرداخت شما انجام شد.برای دریافت فایل های خود به حساب کاربری مراجعه کنید']);
 
+            // update payment
             $currentPayment = Payment::where('payment_number', '=', $result['data']['order_id'])->first();
             $currentPayment->update([
                 'status' => 'paid',
                 'bank_id' => $result['data']['track_id'],
             ]);
-
-            // get order
+            // update order
             $currentPayment->order()->update([
                 'order_status' => 2,
             ]);
+
 
             // get order items & link of files
             $purchasedFile = $currentPayment->order->orderItems->map(function ($item) {
                 return $item->product->source_url;
             });
-
             $purchasedFiles = $purchasedFile->toArray();
 
             // send to user email or display in profile section
