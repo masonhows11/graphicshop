@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 2
       - name: Setup Node
-        uses: actions/setup-node@v20
+        uses: actions/setup-node@v4
         with:
           node-version: '20.10.2'
       - name: Install Dependencies
