@@ -6,7 +6,7 @@
                 <a href="#mobile-menu" data-bs-toggle="offcanvas"><i class="fa fa-bars mobile-menu-icon"></i></a>
                 <div class="offcanvas offcanvas-start" tabindex="-1" data-bs-scroll="true" id="mobile-menu">
                     <div class="offcanvas-header">
-                        <a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک لند</h2></a>
+                        <a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">{{ __('messages.site_name') }}</h2></a>
                         {{--  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>--}}
                     </div>
                     <div class="offcanvas-body px-0">
@@ -45,7 +45,9 @@
                     </div>
                 </div>
                 {{--  <img src="front_assets/images/logo.png" class="img-fluid"><!-- logo -->--}}
-                <div class="ms-4"><a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">گرافیک لند</h2></a>
+                <div class="ms-4"><a href="{{ route('home') }}"><h2 class="h2 text-danger main-logo">
+                            {{ __('messages.site_name') }}
+                        </h2></a>
                 </div>
             </div>
 
