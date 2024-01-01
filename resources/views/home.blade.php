@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
+<p>test deploy</p>
 @include('front.layouts.include.header')
 @include('front.layouts.include.header_responsive')
 @include('front.layouts.include.nav')
