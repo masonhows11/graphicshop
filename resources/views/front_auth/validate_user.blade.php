@@ -14,7 +14,7 @@
                 <form action="{{ route('auth.validate.user') }}" method="post">
                     @csrf
 
-                    
+
                     @if( session()->has('auth_email') )
                         <input type="hidden" name="email" value="{{ session()->get('auth_email') }}">
                     @elseif( session()->has('auth_mobile'))
@@ -37,7 +37,7 @@
 
                         <div class="col">
                             <div class="input-group signup-login-form mobile-number">
-                                <input type="text" class="form-control form-control-lg signup-login-input" name="token"
+                                <input type="password" class="form-control form-control-lg signup-login-input" name="token"
                                        placeholder="کد تایید را وارد کنید ">
                             </div>
                         </div>
