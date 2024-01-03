@@ -14,11 +14,14 @@
 @include('front.layouts.include.nav')
 <main>
     <div class="container">
-        @include('front.layouts.product_slider.slider_banner')
+        {{-- @include('front.layouts.product_slider.slider_banner')--}}
+        <livewire:front.slider.slider-one/>
 
-        @include('front.layouts.product_slider.slider_visit_card')
+        {{--@include('front.layouts.product_slider.slider_visit_card')--}}
+        <livewire:front.slider.slider-two/>
 
-        @include('front.layouts.product_slider.slider_tract')
+        {{--@include('front.layouts.product_slider.slider_tract')--}}
+        <livewire:front.slider.slider-three/>
 
         @include('front.layouts.include.categories')
 
