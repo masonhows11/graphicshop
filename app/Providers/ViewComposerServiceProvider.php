@@ -30,7 +30,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         });
 
         // for banner category
-        View::composer(['front.layouts.product_slider.slider_banner'],function ($view){
+      /*  View::composer(['front.layouts.product_slider.slider_banner'],function ($view){
             $slider = SliderOne::first();
             $products = null;
             $category_title = null;
@@ -40,9 +40,9 @@ class ViewComposerServiceProvider extends ServiceProvider
                 $category_title = $slider->category_name;
             }
             $view->with(['products' => $products != null ? $products : null,'category_title' => $category_title != null ? $category_title : null ]);
-        });
+        });*/
         // for visit card category
-        View::composer(['front.layouts.product_slider.slider_visit_card'],function ($view){
+      /*  View::composer(['front.layouts.product_slider.slider_visit_card'],function ($view){
             $slider = SliderTwo::first();
             $products = null;
             $category_title = null;
@@ -52,9 +52,10 @@ class ViewComposerServiceProvider extends ServiceProvider
                 $category_title = $slider->category_name;
             }
             $view->with(['products' => $products != null ? $products : null,'category_title' => $category_title != null ? $category_title : null ]);
-        });
+
+        });*/
         // for tract category
-        View::composer(['front.layouts.product_slider.slider_tract'],function ($view){
+       /* View::composer(['front.layouts.product_slider.slider_tract'],function ($view){
             $slider = SliderThree::first();
             $products = null;
             $category_title = null;
@@ -64,7 +65,7 @@ class ViewComposerServiceProvider extends ServiceProvider
                 $category_title = $slider->category_name;
             }
             $view->with(['products' => $products != null ? $products : null,'category_title' => $category_title != null ? $category_title : null ]);
-        });
+        });*/
 
     }
 }
