@@ -7,7 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 
 // use App\Services\ConvertPerToEn;
-use App\Notifications\UserAuthNotification;
+use App\Notifications\UserAuthNotificationManual;
 use App\Services\GenerateToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +46,7 @@ class LoginUserController extends Controller
                 $user->token = $token;
                 $user->save();
 
-                Notification::send($user, new UserAuthNotification($user));
+                Notification::send($user, new UserAuthNotificationManual($user));
 
                  session(['auth_email' => $user->email ,
                           'token_guid' => $user->token_guid,
@@ -62,7 +62,7 @@ class LoginUserController extends Controller
 
                 return __('messages.dear_user_this_part_is_being_prepared_thank_you');
                 //$mobile = ConvertPerToEn::convert($request->mobile);
-                 $type = 2;
+                $type = 2;
                 $user = User::where('mobile', $auth_id)->first();
                 if (!$user) {
                     session()

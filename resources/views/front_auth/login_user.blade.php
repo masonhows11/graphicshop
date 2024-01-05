@@ -24,7 +24,7 @@
 
                         <div class="col">
                             <div class="input-group signup-login-form mobile-number">
-                                <input type="text" class="form-control form-control-lg signup-login-input" name="auth_id" placeholder="{{ __('messages.auth_input_message') }}">
+                                <input type="text" class="form-control form-control-lg signup-login-input"  name="auth_id" placeholder="{{ __('messages.auth_input_message') }}">
                             </div>
                         </div>
 

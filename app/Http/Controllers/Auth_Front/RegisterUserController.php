@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth_Front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
-use App\Notifications\UserAuthNotification;
+use App\Notifications\UserAuthNotificationManual;
 use App\Services\ConvertPerToEn;
 use App\Services\GenerateToken;
 use Illuminate\Support\Facades\Notification;

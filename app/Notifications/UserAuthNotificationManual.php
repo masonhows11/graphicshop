@@ -8,9 +8,9 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
 
-class UserAuthNotification extends Notification implements ShouldQueue
+class UserAuthNotificationManual extends Notification  implements ShouldQueue
 {
-    use Queueable;
+     use Queueable;
     protected  $user;
 
     /**
