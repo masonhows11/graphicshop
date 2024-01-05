@@ -7,16 +7,18 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class UseAuthNotificationQueue extends Notification
+class UserAuthNotificationQueue extends Notification implements ShouldQueue
 {
     use Queueable;
+    protected  $user;
 
     /**
      * Create a new notification instance.
+     * @param $user
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -32,12 +34,16 @@ class UseAuthNotificationQueue extends Notification
     /**
      * Get the mail representation of the notification.
      */
-    public function toMail(object $notifiable): MailMessage
+    public function toMail(object $notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject('گرافیک شاپ')
+            ->from(env('MAIL_FROM_ADDRESS'))
+            ->greeting('کد فعال سازی')
+            ->line('کاربر عزیز')
+            ->line($this->user->email)
+            ->line('کد فعال سازی')
+            ->line( $this->user->token);
     }
 
     /**

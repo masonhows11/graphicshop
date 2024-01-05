@@ -8,6 +8,7 @@ use App\Models\User;
 
 // use App\Services\ConvertPerToEn;
 use App\Notifications\UserAuthNotificationManual;
+use App\Notifications\UserAuthNotificationQueue;
 use App\Services\GenerateToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +47,8 @@ class LoginUserController extends Controller
                 $user->token = $token;
                 $user->save();
 
-                Notification::send($user, new UserAuthNotificationManual($user));
+                // Notification::send($user, new UserAuthNotificationManual($user));
+                Notification::send($user, new UserAuthNotificationQueue($user));
 
                  session(['auth_email' => $user->email ,
                           'token_guid' => $user->token_guid,
