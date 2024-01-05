@@ -223,6 +223,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
     Route::get('/orders/index', AdminOrders::class)->name('orders.index');
+    //    Route::get('/orders/unpaid', AdminOrders::class)->name('orders.unpaid');
+    //    Route::get('/orders/paid', AdminOrders::class)->name('orders.paid');
 
 });
 // ->middleware(['verify_admin', 'role:admin|super_admin'])

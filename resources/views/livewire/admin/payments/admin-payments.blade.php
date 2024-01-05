@@ -39,7 +39,7 @@
                             <td>{{ $payment->id }}</td>
                             <td>{{ $payment->order->user->name }}</td>
                             <td>{{ customJalaliDate($payment->created_at) }}</td>
-                            <td>{{ priceFormat($payment->oreder->amount ) }} {{ __('messages.toman') }}</td>
+                            <td>{{ priceFormat($payment->order->amount ) }} {{ __('messages.toman') }}</td>
                             <td>{{ $payment->status  }}</td>
                             <td>{{ $payment->ref_id}}</td>
                             <td>{{ $payment->gateway }}</td>
