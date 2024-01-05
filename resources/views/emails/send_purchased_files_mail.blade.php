@@ -11,9 +11,10 @@
                 <h6 class="h4 text-center text-danger">فروشگاه اینترنتی گرافیک شاپ</h6>
             </div>
             <div class="col-12 title-notice mt-4 mb-2">
+                <p class="text-center custom-text-large">کاربر عزیز</p>
                 <p class="text-center custom-text-large">{{ $user }}</p>
             </div>
-            <div class="col-10 title-notice mt-2 text-center rounded p-5">
+            <div class="col-12 title-notice mt-2 text-center rounded p-5">
                 <p class="text-center custom-text-large">{{ $email }}</p>
             </div>
             <div class="col-10 title-notice mt-4 mb-2">

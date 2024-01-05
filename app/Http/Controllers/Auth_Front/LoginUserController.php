@@ -8,7 +8,7 @@ use App\Models\User;
 
 // use App\Services\ConvertPerToEn;
 use App\Notifications\UserAuthNotificationManual;
-use App\Notifications\UserAuthNotificationQueue;
+// use App\Notifications\UserAuthNotificationQueue;
 use App\Services\GenerateToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
