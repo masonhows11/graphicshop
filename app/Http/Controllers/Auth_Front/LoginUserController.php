@@ -48,10 +48,10 @@ class LoginUserController extends Controller
                 $user->save();
 
                 //// send email manual
-                // Notification::send($user, new UserAuthNotificationManual($user));
+                 Notification::send($user, new UserAuthNotificationManual($user));
 
                 //// send email using queue
-                Notification::send($user, new UserAuthNotificationQueue($user));
+                // Notification::send($user, new UserAuthNotificationQueue($user));
 
                  session(['auth_email' => $user->email ,
                           'token_guid' => $user->token_guid,
