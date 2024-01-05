@@ -236,7 +236,7 @@ return [
     'all_orders' => 'تمام سفارشات',
     'orders' => 'سفارشات',
     'on_processing' => 'در حال پردازش',
-
+    'orders_wait_for_paid' => 'منتظر پرداخت',
     'order_not_sent' => 'ارسال نشده',
     'order_sending' => 'در حال ارسال',
     'order_sent' => 'ارسال شده',
@@ -537,7 +537,8 @@ return [
     'product_tags' => 'مدیریت تگ ها',
     'new_tag' => 'جدید',
     'edit_mobile' => 'تغییر شماره موبایل',
-    'ref_code' => 'کد رهگیری',
+    'ref_code' => 'شماره پرداخت',
+    'bank_id' => 'کد پیگیری بانک',
 
     // filters translate
     'newest' => 'جدیدترین',

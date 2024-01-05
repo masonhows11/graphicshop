@@ -30,6 +30,7 @@
                         <th class="text-muted">{{ __('messages.single_price') }}</th>
                         <th class="text-muted">{{ __('messages.status')}}</th>
                         <th class="text-muted">{{ __('messages.ref_code')}}</th>
+                        <th class="text-muted">{{ __('messages.bank_id') }}</th>
                         <th class="text-muted">{{ __('messages.payment_gateway') }} </th>
                     </tr>
                     </thead>
@@ -40,8 +41,9 @@
                             <td>{{ $payment->order->user->name }}</td>
                             <td>{{ customJalaliDate($payment->created_at) }}</td>
                             <td>{{ priceFormat($payment->order->amount ) }} {{ __('messages.toman') }}</td>
-                            <td>{{ $payment->status  }}</td>
-                            <td>{{ $payment->ref_id}}</td>
+                            <td>{{ $payment->status == 'unpaid' ? __('messages.unpaid') : __('messages.paid')  }}</td>
+                            <td>{{ $payment->payment_number  }}</td>
+                            <td>{{ $payment->bank_id }}</td>
                             <td>{{ $payment->gateway }}</td>
                         </tr>
                     @endforeach
