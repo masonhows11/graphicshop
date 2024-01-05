@@ -7,44 +7,44 @@
             <div class="row mt-4 px-2">
 
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-6 mb-3"><!-- start item -->
-                    <a href="blog-detail.html" class="d-block">
+                    <a href="{{ route('not.found') }}" class="d-block">
                         <div class="card blog-card">
-                            <img src="front_assets/images/mag-1.jpg" class="blog-img">
+                            <img src="{{ asset('front_assets/images/mag-1.jpg') }}" class="blog-img">
                             <div class="card-body">
-                                <a href="blog-detail.html">طرز تهیه رولت کرپ با کرم فندق؛ آسان و بدون نیاز به فر</a>
+                                <a href="{{ route('not.found') }}">طرز تهیه رولت کرپ با کرم فندق؛ آسان و بدون نیاز به فر</a>
                             </div>
                         </div>
                     </a>
                 </div><!-- end item -->
 
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-6 mb-3"><!-- start item -->
-                    <a href="blog-detail.html" class="d-block">
+                    <a href="{{ route('not.found') }}" class="d-block">
                         <div class="card blog-card">
-                            <img src="front_assets/images/mag-2.jpg" class="blog-img">
+                            <img src="{{ asset('front_assets/images/mag-2.jpg') }}" class="blog-img">
                             <div class="card-body">
-                                <a href="blog-detail.html">بررسی خردکن سیلور کرست مدل SLMA مناسب کارهای دم‌دستی</a>
+                                <a href="{{ route('not.found') }}">بررسی خردکن سیلور کرست مدل SLMA مناسب کارهای دم‌دستی</a>
                             </div>
                         </div>
                     </a>
                 </div><!-- end item -->
 
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-6 mb-3"><!-- start item -->
-                    <a href="blog-detail.html" class="d-block">
+                    <a href="{{ route('not.found') }}" class="d-block">
                         <div class="card blog-card">
-                            <img src="front_assets/images/mag-3.jpg" class="blog-img">
+                            <img src="{{ asset('front_assets/images/mag-3.jpg') }}" class="blog-img">
                             <div class="card-body">
-                                <a href="blog-detail.html">۱۰ اشتباه که کاربران تازه‌ وارد گوشی‌های اندرویدی مرتکب می‌شوند</a>
+                                <a href="{{ route('not.found') }}">۱۰ اشتباه که کاربران تازه‌ وارد گوشی‌های اندرویدی مرتکب می‌شوند</a>
                             </div>
                         </div>
                     </a>
                 </div><!-- end item -->
 
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-6 mb-3"><!-- start item -->
-                    <a href="blog-detail.html" class="d-block">
+                    <a href="{{ route('not.found') }}" class="d-block">
                         <div class="card blog-card">
-                            <img src="front_assets/images/mag-4.jpg" class="blog-img">
+                            <img src="{{ asset('front_assets/images/mag-4.jpg') }}" class="blog-img">
                             <div class="card-body">
-                                <a href="blog-detail.html">راهنمای خرید بهترین گوشی سامسونگ سری A؛ گزینه‌های ایده‌آل خرید</a>
+                                <a href="{{ route('not.found') }}">راهنمای خرید بهترین گوشی سامسونگ سری A؛ گزینه‌های ایده‌آل خرید</a>
                             </div>
                         </div>
                     </a>
