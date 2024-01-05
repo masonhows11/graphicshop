@@ -16,7 +16,8 @@
 .category-attribute-value table tbody .fa-trash,
 .category-attribute table tbody .fa-trash,
 .email-notice-list table tbody .fa-trash,
-.sms-notice-list table tbody .fa-trash{
+.sms-notice-list table tbody .fa-trash,
+.order-list table tbody .fa-shopping-basket{
     font-size: 1.3rem;
     color:tomato;
 }

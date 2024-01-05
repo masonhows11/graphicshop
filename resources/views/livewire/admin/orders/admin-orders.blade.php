@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="row  category-list bg-white rounded-3">
+        <div class="row  order-list bg-white rounded-3">
             <div class="my-5">
                 <table class="table">
                     <thead class="">
