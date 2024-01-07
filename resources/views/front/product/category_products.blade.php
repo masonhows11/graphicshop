@@ -114,7 +114,7 @@
                             <a href="{{ route('product',$product->title) }}" class="d-block">
                                 <div class="card custom-card mt-3">
                                     <div class="d-flex">
-                                        @if( $product->thumbnail_path != null)
+                                        @if( $product->thumbnail_path != null && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->thumbnail_path))
                                         <img src="{{ asset('storage/'.$product->thumbnail_path) }}" alt="{{ asset( $product->title ) . '-' . ( $product->id ) }}" class="slider-pic " loading="lazy">
                                         @else
                                             <img src="{{ asset('default_image/no-image-icon-23494.png') }}" alt="no-image" class="slider-pic">
