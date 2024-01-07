@@ -24,7 +24,6 @@
             <li><a href="{{ route('not.found') }}">تخفیف‌ها و پیشنهادها</a></li>
             @guest
                 <li><a href="{{ route('auth.login.form') }}">ثبت نام / ورود</a></li>
-                <li><a href="#">سبد خرید</a></li>
             @endguest
             @auth
                 <li><a href="{{ route('cart.check') }}">سبد خرید</a></li>
