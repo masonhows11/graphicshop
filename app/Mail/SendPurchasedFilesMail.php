@@ -62,12 +62,6 @@ class SendPurchasedFilesMail extends Mailable
     public function attachments(): array
     {
         // l.v 4
-        //        $storage_files = [];
-        //        if($this->files){
-        //            foreach ($this->files as $file){
-        //                array_push($storage_files,storage_path('app/local_storage/'.$file));
-        //            }
-        //        }
         return $this->files;
 
     }
