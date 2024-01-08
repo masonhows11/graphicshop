@@ -127,6 +127,8 @@ class PaymentController extends Controller
             // send email or display in profile section
             $purchasedFiles = $purchasedFile->toArray();
             $currentUser = $currentPayment->order->user;
+            // get files from storage & push in array then attache to email
+            // do this things here not in mailable class
             Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles, $currentUser));
 
             // l.v 2
