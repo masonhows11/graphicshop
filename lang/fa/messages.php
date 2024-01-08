@@ -562,6 +562,7 @@ return [
     'there_is_no_file_for_download' => 'فایل برای دانلود وجود ندارد',
     'retrieve_products' => 'بازیابی محصولات',
     'no_price'  => 'بدون قیمت',
+    'payment_was_not_made' => 'پرداخت انجام نشد',
 
 
 ];

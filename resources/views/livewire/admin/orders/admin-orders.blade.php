@@ -40,7 +40,7 @@
                             <td>{{ $order->user->name }}</td>
                             <td>{{ customJalaliDate($order->created_at) }}</td>
                             <td>{{ priceFormat($order->amount ) }} {{ __('messages.toman') }}</td>
-                            <td>{{ $order->payment_status == 1 ? __('messages.unpaid') : __('messages.paid')  }}</td>
+                            <td>{{ $order->order_status == 1 ? __('messages.unpaid') : __('messages.paid')  }}</td>
                             <td>{{ $order->payment_number }}</td>
                             <td><a href="#"><i class="fa fa-shopping-basket"></i></a></td>
                         </tr>

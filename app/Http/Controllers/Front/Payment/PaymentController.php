@@ -22,29 +22,22 @@ class PaymentController extends Controller
 
     public function payment(PayRequest $request)
     {
-
         $user = Auth::user();
         $basket = Basket::where('user_id', $user->id)->get();
         $order_amount = array_sum(array_column(Basket::where('user_id', $user->id)->get()->toArray(), 'price'));
         try {
-
             $payment_number = Str::random(20);
-
             //// create order l.v 1
             $order = Order::updateOrCreate(
                 ['user_id' => $user->id, 'order_status' => 0],
                 ['amount' => $order_amount,
                     'payment_number' => $payment_number,
                     'order_status' => 0,]);
-
-
             //// create order items / details l.v 2
             $orderForOrderItems = $basket->map(function ($items) {
                 return $items->only(['user_id', 'product_id', 'price', 'number']);
             });
             $order->orderItems()->createMany($orderForOrderItems->toArray());
-
-
             //// create payment l.v 3
             $payment = Payment::create([
                 'user_id' => $user->id,
@@ -55,9 +48,7 @@ class PaymentController extends Controller
                 'amount' => $order->amount,
                 'status' => 1,
             ]);
-
             // return redirect()->back()->with('warning',__('messages.this_part_is_being_prepared'));
-
             //// l.v 4
             //// make gateway instance with arguments
             $idPayRequest = new  IDPayRequest([
@@ -66,7 +57,6 @@ class PaymentController extends Controller
                 'orderId' => $order->payment_number,
                 'apiKey' => config('services.gateways.id_pay.api_key'),
             ]);
-
             // pay the payment order
             $paymentService = new PaymentService(PaymentService::IDPAY, $idPayRequest);
             // dd($paymentService->pay());
@@ -79,7 +69,8 @@ class PaymentController extends Controller
 
     public function callBack(Request $request)
     {
-        // dd($request->all());
+
+
         //// lv.1
         $paymentInfo = $request->all();
 
@@ -102,8 +93,7 @@ class PaymentController extends Controller
 
         // if status failed redirect to home
         if ($result['status'] == false) {
-            return redirect()->route('cart.check')
-                ->with(['error' => 'پرداخت شما انجام نشد']);
+            return redirect()->route('failed.payment.result');
         }
         // if status success send email contain file links
         if ($result['status'] == 100 or $request['status'] == 101) {
@@ -127,9 +117,9 @@ class PaymentController extends Controller
             // send email or display in profile section
             $attachmentFiles = $attachmentFiles->toArray();
             $files = [];
-            if($attachmentFiles){
-                foreach ($attachmentFiles as $file){
-                    array_push($files,storage_path('app/local_storage/'.$file));
+            if ($attachmentFiles) {
+                foreach ($attachmentFiles as $file) {
+                    array_push($files, storage_path('app/local_storage/' . $file));
                 }
             }
             $currentUser = $currentPayment->order->user;
@@ -148,8 +138,27 @@ class PaymentController extends Controller
             return redirect()->route('home');
 
         }
+        session()->flash('error',__('messages.payment_was_not_made'));
+        return redirect()->route('home');
 
 
+    }
+
+    public function failedPaymentResult()
+    {
+        $user = Auth::id();
+        // update order
+        $currentOrder = Order::where('user_id', $user)->where('order_status', '=', 0)->first();
+        $currentOrder->order_status = 1;
+        $currentOrder->save();
+
+        // update payment
+        $currentPayment = Payment::where('order_id', '=', $currentOrder->id)->first();
+        $currentPayment->update([
+            'status' => 'unpaid',
+            'bank_id' => null,
+        ]);
+        return redirect()->route('cart.check')->with(['error' => 'پرداخت شما انجام نشد']);
     }
 
 

@@ -35,7 +35,7 @@ class SendPurchasedFilesMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'فروشگاه اینترنی فایل گرافیک شاپ',
+            subject: 'فروشگاه فایل گرافیک شاپ',
         );
     }
 

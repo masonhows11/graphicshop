@@ -88,6 +88,7 @@ Route::prefix('shopping')->middleware(['auth','web'])->group(function(){
 Route::prefix('shopping')->group(function(){
     Route::post('/payment',[PaymentController::class,'payment'])->name('payment.pay');
     Route::post('/payment/callback',[PaymentController::class,'callBack'])->name('callback.pay');
+    Route::get('/failedPaymentResult',[PaymentController::class,'failedPaymentResult'])->name('failed.payment.result');
 });
 
 // for search product
