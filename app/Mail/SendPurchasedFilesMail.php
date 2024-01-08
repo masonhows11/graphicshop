@@ -19,13 +19,13 @@ class SendPurchasedFilesMail extends Mailable
 
     /**
      * Create a new message instance.
-     * @param array $purchasedfiles
+     * @param array $files
      * @param $user
      */
-    public function __construct(array $purchasedfiles = [], $user)
+    public function __construct(array $files = [], $user)
     {
         // l.v 3
-        $this->files = $purchasedfiles;
+        $this->files = $files;
         $this->user = $user;
     }
 
@@ -62,13 +62,13 @@ class SendPurchasedFilesMail extends Mailable
     public function attachments(): array
     {
         // l.v 4
-        $storage_files = [];
-        if($this->files){
-            foreach ($this->files as $file){
-                array_push($storage_files,storage_path('app/local_storage/'.$file));
-            }
-        }
-        return $storage_files;
+        //        $storage_files = [];
+        //        if($this->files){
+        //            foreach ($this->files as $file){
+        //                array_push($storage_files,storage_path('app/local_storage/'.$file));
+        //            }
+        //        }
+        return $this->files;
 
     }
 }

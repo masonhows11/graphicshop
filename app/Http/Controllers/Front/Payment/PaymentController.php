@@ -119,17 +119,23 @@ class PaymentController extends Controller
                 'order_status' => 2,
             ]);
             // get order items & link of files
-            $purchasedFile = $currentPayment->order->orderItems->map(function ($item) {
+            $attachmentFiles = $currentPayment->order->orderItems->map(function ($item) {
                 return $item->product->source_url;
             });
 
             // l.v 1
             // send email or display in profile section
-            $purchasedFiles = $purchasedFile->toArray();
+            $attachmentFiles = $attachmentFiles->toArray();
+            $files = [];
+            if($attachmentFiles){
+                foreach ($attachmentFiles as $file){
+                    array_push($files,storage_path('app/local_storage/'.$file));
+                }
+            }
             $currentUser = $currentPayment->order->user;
             // get files from storage & push in array then attache to email
             // do this things here not in mailable class
-            Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($purchasedFiles, $currentUser));
+            Mail::to($currentUser->email)->send(new SendPurchasedFilesMail($files, $currentUser));
 
             // l.v 2
             // delete data from basket
