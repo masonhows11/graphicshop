@@ -96,7 +96,7 @@
                         <div class="row">
                             @foreach( $products as $key => $product)
                                 <div class="col-lg-4 col-md-6">
-                                    <a href="{{ route('product',$product->slug) }}" class="d-block">
+                                    <a href="{{ route('product',$product->title) }}" class="d-block">
                                         <div class="card custom-card mt-3">
 
                                             <!-- image & color section in product card -->
