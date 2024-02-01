@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="row  category-list bg-white rounded-3">
+        <div class="row  order-list bg-white rounded-3">
             <div class="my-5">
                 <table class="table">
                     <thead class="">
@@ -40,8 +40,8 @@
                             <td>{{ $order->user->name }}</td>
                             <td>{{ customJalaliDate($order->created_at) }}</td>
                             <td>{{ priceFormat($order->amount ) }} {{ __('messages.toman') }}</td>
-                            <td>{{ $order->payment_status }}</td>
-                            <td>{{ $order->order_number }}</td>
+                            <td>{{ $order->order_status == 1 ? __('messages.unpaid') : __('messages.paid')  }}</td>
+                            <td>{{ $order->payment_number }}</td>
                             <td><a href="#"><i class="fa fa-shopping-basket"></i></a></td>
                         </tr>
                     @endforeach

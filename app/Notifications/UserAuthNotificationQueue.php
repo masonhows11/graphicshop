@@ -3,19 +3,17 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-// use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-
-class UserAuthNotification extends Notification
+class UserAuthNotificationQueue extends Notification implements ShouldQueue
 {
-   // use Queueable;
+    use Queueable;
     protected  $user;
 
     /**
      * Create a new notification instance.
-     *
      * @param $user
      */
     public function __construct($user)
@@ -26,22 +24,17 @@ class UserAuthNotification extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
-     * @return array
+     * @return array<int, string>
      */
-    public function via($notifiable)
+    public function via(object $notifiable): array
     {
-         return ['mail'];
-
+        return ['mail'];
     }
 
     /**
      * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return MailMessage
      */
-    public function toMail($notifiable)
+    public function toMail(object $notifiable)
     {
         return (new MailMessage)
             ->subject('گرافیک شاپ')
@@ -53,14 +46,12 @@ class UserAuthNotification extends Notification
             ->line( $this->user->token);
     }
 
-
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
-     * @return array
+     * @return array<string, mixed>
      */
-    public function toArray($notifiable)
+    public function toArray(object $notifiable): array
     {
         return [
             //

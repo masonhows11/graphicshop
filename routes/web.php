@@ -88,6 +88,7 @@ Route::prefix('shopping')->middleware(['auth','web'])->group(function(){
 Route::prefix('shopping')->group(function(){
     Route::post('/payment',[PaymentController::class,'payment'])->name('payment.pay');
     Route::post('/payment/callback',[PaymentController::class,'callBack'])->name('callback.pay');
+    Route::get('/failedPaymentResult',[PaymentController::class,'failedPaymentResult'])->name('failed.payment.result');
 });
 
 // for search product
@@ -223,6 +224,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
     Route::get('/orders/index', AdminOrders::class)->name('orders.index');
+    //    Route::get('/orders/unpaid', AdminOrders::class)->name('orders.unpaid');
+    //    Route::get('/orders/paid', AdminOrders::class)->name('orders.paid');
 
 });
 // ->middleware(['verify_admin', 'role:admin|super_admin'])

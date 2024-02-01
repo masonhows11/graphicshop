@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\User;
-use App\Notifications\UserAuthNotification;
+use App\Notifications\UserAuthNotificationManual;
 use App\Rules\NationalCode;
 use App\Services\GenerateToken;
 use Illuminate\Http\Request;
@@ -119,7 +119,7 @@ class ProfileController extends Controller
             $user->save();
 
 
-            Notification::send($user, new UserAuthNotification($user));
+            Notification::send($user, new UserAuthNotificationManual($user));
 
             session(['auth_email' => $user->email, 'token_guid' => $user->token_guid, 'token_time' => $user->updated_at]);
 

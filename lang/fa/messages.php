@@ -230,12 +230,13 @@ return [
     'orders_new' => 'سفارشات جدید',
     'orders_sending' => 'سفارشات در حال ارسال',
     'orders_unpaid' => 'سفارشات پرداخت نشده',
+    'orders_paid' => 'سفارشات پرداخت شده',
     'orders_canceled' => 'سفارشات باطل شده',
     'orders_returned' => 'سفارشات مرجوعی',
     'all_orders' => 'تمام سفارشات',
     'orders' => 'سفارشات',
     'on_processing' => 'در حال پردازش',
-
+    'orders_wait_for_paid' => 'منتظر پرداخت',
     'order_not_sent' => 'ارسال نشده',
     'order_sending' => 'در حال ارسال',
     'order_sent' => 'ارسال شده',
@@ -536,7 +537,8 @@ return [
     'product_tags' => 'مدیریت تگ ها',
     'new_tag' => 'جدید',
     'edit_mobile' => 'تغییر شماره موبایل',
-    'ref_code' => 'کد رهگیری',
+    'ref_code' => 'شماره پرداخت',
+    'bank_id' => 'کد پیگیری بانک',
 
     // filters translate
     'newest' => 'جدیدترین',
@@ -560,6 +562,7 @@ return [
     'there_is_no_file_for_download' => 'فایل برای دانلود وجود ندارد',
     'retrieve_products' => 'بازیابی محصولات',
     'no_price'  => 'بدون قیمت',
+    'payment_was_not_made' => 'پرداخت انجام نشد',
 
 
 ];

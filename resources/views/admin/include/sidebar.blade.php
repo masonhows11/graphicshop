@@ -210,97 +210,6 @@
                                 <span class="menu-title">ایجاد دسته بندی</span>
                             </a>
                         </div>
-
-                        {{--<div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.brand.index' ? 'active' : '' }}"
-                                href="--}}{{--{{ route('admin.brand.index') }}--}}{{--">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">مدیریت برندها</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.brand.create' ? 'active' : '' }}"
-                                href="--}}{{--{{ route('admin.brand.create') }}--}}{{--">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">برند جدید</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.colors.index' ? 'active' : '' }}"
-                                href="--}}{{--{{ route('admin.colors.index') }}--}}{{--">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">مدیریت رنگ ها</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.category.attribute.index' ? 'active' : '' }}"
-                                href="--}}{{--{{ route('admin.category.attribute.index') }}--}}{{--">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">مدیریت ویژگی ها</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.tag.index' ? 'active' : '' }}"
-                               href="--}}{{--{{ route('admin.tag.index') }}--}}{{--">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">مدیریت تگ ها</span>
-                            </a>
-                        </div>--}}
-                        {{-- <div class="menu-item">
-                           <a class="menu-link {{ $route === 'admin.tags.index' ? 'active' : '' }}"
-                              href="{{ route('admin.tags.index') }}">
-                               <span class="menu-bullet">
-                               <span class="bullet bullet-dot"></span>
-                               </span>
-                               <span class="menu-title">مدیریت برچسب ها</span>
-                           </a>
-                       </div> --}}
-                        {{-- <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.product.type.index' ? 'active' : '' }}"
-                               href="{{ route('admin.product.type.index') }}">
-								<span class="menu-bullet">
-								<span class="bullet bullet-dot"></span>
-								</span>
-                                <span class="menu-title">مدیریت نوع کالا</span>
-                            </a>
-                        </div> --}}
-                        {{-- <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.brand.type' ? 'active' : '' }} "
-                               href="{{ route('admin.brand.type') }}">
-								<span class="menu-bullet">
-								<span class="bullet bullet-dot"></span>
-								</span>
-                                <span class="menu-title">تخصیص برندها</span>
-                            </a>
-                        </div> --}}
-                        {{-- <div class="menu-item">
-                            <a class="menu-link"
-                               href="#">
-								<span class="menu-bullet">
-								<span class="bullet bullet-dot"></span>
-								</span>
-                                <span class="menu-title">ویژگی های کالا</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link "
-                               href="#">
-								<span class="menu-bullet">
-								<span class="bullet bullet-dot"></span>
-								</span>
-                                <span class="menu-title">مقادیر ویژگی های کالا</span>
-                            </a>
-                        </div> --}}
                     </div>
                 </div>
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -374,19 +283,10 @@
                                 <span class="menu-title">{{ __('messages.all_orders') }}</span>
                             </a>
                         </div>
-                        {{--   new orders   --}}
-                        <div class="menu-item">
-                            <a class="menu-link {{ $route === 'admin.orders.new' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.orders.new') }}--}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">{{ __('messages.orders_new') }}</span>
-                            </a>
-                        </div>
+                        {{--  unpaid orders  --}}
                         <div class="menu-item ">
                             <a class="menu-link {{ $route === 'admin.orders.unpaid' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.orders.unpaid') }}--}}">
+                               href="#">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -394,14 +294,14 @@
                             </a>
                         </div>
 
-                        {{--   canceled orders   --}}
+                        {{--  paid orders  --}}
                         <div class="menu-item ">
-                            <a class="menu-link {{ $route === 'admin.orders.canceled' ? 'active' : '' }}"
-                               href="{{--{{ route('admin.orders.canceled') }}--}}">
+                            <a class="menu-link {{ $route === 'admin.orders.paid' ? 'active' : '' }}"
+                               href="#">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">{{ __('messages.orders_canceled') }}</span>
+                                <span class="menu-title">{{ __('messages.orders_paid') }}</span>
                             </a>
                         </div>
 

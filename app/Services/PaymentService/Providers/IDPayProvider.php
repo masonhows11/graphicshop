@@ -89,12 +89,14 @@ class IDPayProvider extends AbstractProviderConstructor implements PayableInterf
         if ($result['status'] == $this->StatusOk) {
             return [
                 'status' => true,
+                'order_id' => $result['order_id'],
                 'statusCode' => $result['status'],
                 'data' => $result,
             ];
         }
         return [
             'status' => true,
+            'order_id' => $result['order_id'],
             'statusCode' => $result['status'],
             'data' => $result,
         ];
